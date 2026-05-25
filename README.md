@@ -493,6 +493,14 @@ docker run -d --name omniroute --restart unless-stopped --stop-timeout 40 \
 
 ```bash
 docker compose down
+
+docker compose --profile base up -d
+docker compose --profile cli up -d
+docker compose --profile host up -d
+docker compose --profile cliproxyapi up -d
+docker compose --profile cli --profile cliproxyapi up -d
+
+docker compose down
 docker compose up -d --build
 
 ```
