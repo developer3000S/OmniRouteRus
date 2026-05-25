@@ -152,6 +152,15 @@ export function bootstrapEnv({ dataDirOverride, quiet = false } = {}) {
   // This keeps run-next / run-standalone consistent with `bin/omniroute.mjs`.
   const merged = { ...persisted, ...preferredEnv, ...process.env };
 
+  // ── Fix: Don't let empty .env values override persisted secrets (#1622) ────
+  // Templates like .env.example often have placeholders (e.g. JWT_SECRET=) 
+  // that can accidentally wipe out the auto-generated keys in server.env.
+  for (const key of ["JWT_SECRET", "STORAGE_ENCRYPTION_KEY", "API_KEY_SECRET"]) {
+    if (!merged[key]?.trim() && persisted[key]?.trim()) {
+      merged[key] = persisted[key];
+    }
+  }
+
   // ── Auto-generate required secrets ────────────────────────────────────────
   let needsPersist = false;
 
