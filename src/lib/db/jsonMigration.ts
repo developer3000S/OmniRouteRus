@@ -92,8 +92,19 @@ export function runJsonMigration(
   `);
 
   const insertKey = db.prepare(`
-    INSERT OR REPLACE INTO api_keys (id, name, key, machine_id, allowed_models, no_log, created_at)
-    VALUES (@id, @name, @key, @machineId, @allowedModels, @noLog, @createdAt)
+    INSERT OR REPLACE INTO api_keys (
+      id, name, key, machine_id, allowed_models, allowed_connections,
+      auto_resolve, is_active, access_schedule, max_requests_per_day,
+      max_requests_per_minute, max_sessions, no_log, revoked_at,
+      expires_at, last_used_at, key_prefix, key_hash, ip_allowlist,
+      scopes, rate_limits, is_banned, created_at
+    ) VALUES (
+      @id, @name, @key, @machineId, @allowedModels, @allowedConnections,
+      @autoResolve, @isActive, @accessSchedule, @maxRequestsPerDay,
+      @maxRequestsPerMinute, @maxSessions, @noLog, @revokedAt,
+      @expiresAt, @lastUsedAt, @keyPrefix, @keyHash, @ipAllowlist,
+      @scopes, @rateLimits, @isBanned, @createdAt
+    )
   `);
 
   const migrate = db.transaction(() => {
@@ -119,24 +130,24 @@ export function runJsonMigration(
         lastErrorAt: conn.lastErrorAt ?? null,
         lastErrorType: conn.lastErrorType ?? null,
         lastErrorSource: conn.lastErrorSource ?? null,
-        backoffLevel: conn.backoffLevel ?? 0,
-        rateLimitedUntil: conn.rateLimitedUntil ?? null,
-        healthCheckInterval: conn.healthCheckInterval ?? null,
-        lastHealthCheckAt: conn.lastHealthCheckAt ?? null,
-        lastTested: conn.lastTested ?? null,
-        apiKey: conn.apiKey ?? null,
-        idToken: conn.idToken ?? null,
-        providerSpecificData: conn.providerSpecificData
+        backoff_level: conn.backoffLevel ?? 0,
+        rate_limited_until: conn.rateLimitedUntil ?? null,
+        health_check_interval: conn.healthCheckInterval ?? null,
+        last_health_check_at: conn.lastHealthCheckAt ?? null,
+        last_tested: conn.lastTested ?? null,
+        api_key: conn.apiKey ?? null,
+        id_token: conn.idToken ?? null,
+        provider_specific_data: conn.providerSpecificData
           ? JSON.stringify(conn.providerSpecificData)
           : null,
-        expiresIn: conn.expiresIn ?? null,
-        displayName: conn.displayName ?? null,
-        globalPriority: conn.globalPriority ?? null,
-        defaultModel: conn.defaultModel ?? null,
-        tokenType: conn.tokenType ?? null,
-        consecutiveUseCount: conn.consecutiveUseCount ?? 0,
-        lastUsedAt: conn.lastUsedAt ?? null,
-        rateLimitProtection:
+        expires_in: conn.expiresIn ?? null,
+        display_name: conn.displayName ?? null,
+        global_priority: conn.globalPriority ?? null,
+        default_model: conn.defaultModel ?? null,
+        token_type: conn.tokenType ?? null,
+        consecutive_use_count: conn.consecutiveUseCount ?? 0,
+        last_used_at: conn.lastUsedAt ?? null,
+        rate_limit_protection:
           conn.rateLimitProtection === true || conn.rateLimitProtection === 1 ? 1 : 0,
         createdAt: conn.createdAt ?? new Date().toISOString(),
         updatedAt: conn.updatedAt ?? new Date().toISOString(),
@@ -168,6 +179,9 @@ export function runJsonMigration(
     }
     for (const [toolName, mappings] of Object.entries(data.mitmAlias ?? {})) {
       insertKv.run("mitmAlias", toolName, JSON.stringify(mappings));
+    }
+    for (const [key, value] of Object.entries(data.settings ?? {})) {
+      insertKv.run("settings", key, JSON.stringify(value));
     }
     for (const [provider, models] of Object.entries(data.pricing ?? {})) {
       insertKv.run("pricing", provider, JSON.stringify(models));
@@ -217,7 +231,23 @@ export function runJsonMigration(
         key: apiKey.key,
         machineId: apiKey.machineId ?? null,
         allowedModels: JSON.stringify(apiKey.allowedModels ?? []),
+        allowedConnections: JSON.stringify(apiKey.allowedConnections ?? []),
+        autoResolve: apiKey.autoResolve ? 1 : 0,
+        isActive: apiKey.isActive === false ? 0 : 1,
+        accessSchedule: apiKey.accessSchedule ?? null,
+        maxRequestsPerDay: apiKey.maxRequestsPerDay ?? null,
+        maxRequestsPerMinute: apiKey.maxRequestsPerMinute ?? null,
+        maxSessions: apiKey.maxSessions ?? 0,
         noLog: apiKey.noLog ? 1 : 0,
+        revokedAt: apiKey.revokedAt ?? null,
+        expiresAt: apiKey.expiresAt ?? null,
+        lastUsedAt: apiKey.lastUsedAt ?? null,
+        keyPrefix: apiKey.keyPrefix ?? (apiKey.key as string).slice(0, 12),
+        keyHash: apiKey.keyHash ?? null,
+        ipAllowlist: apiKey.ipAllowlist ?? null,
+        scopes: JSON.stringify(apiKey.scopes ?? []),
+        rateLimits: apiKey.rateLimits ? JSON.stringify(apiKey.rateLimits) : null,
+        isBanned: apiKey.isBanned ? 1 : 0,
         createdAt: apiKey.createdAt ?? new Date().toISOString(),
       });
     }

@@ -9,6 +9,9 @@
 #    cliproxyapi → CLIProxyAPI sidecar on port 8317
 #
 #  Usage:
+#
+#    docker compose down
+#
 #    docker compose --profile base up -d
 #    docker compose --profile cli up -d
 #    docker compose --profile host up -d
