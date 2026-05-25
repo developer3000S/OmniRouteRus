@@ -163,12 +163,13 @@ export function bootstrapEnv({ dataDirOverride, quiet = false } = {}) {
   }
 
   if (!merged.STORAGE_ENCRYPTION_KEY?.trim()) {
-    if (hasEncryptedCredentials(dataDir)) {
+    if (hasEncryptedCredentials(dataDir) && process.env.OMNIROUTE_FORCE_AUTO_KEY !== "1") {
       throw new Error(
         `Refusing to auto-generate STORAGE_ENCRYPTION_KEY: encrypted credentials already exist in ${join(
           dataDir,
           "storage.sqlite"
-        )}. Restore the key via ${preferredEnvPath ?? "an appropriate .env file"}, ${serverEnvPath}, or process.env.`
+        )}. Restore the key via ${preferredEnvPath ?? "an appropriate .env file"}, ${serverEnvPath}, or process.env.\n\n` +
+          `If you intended to reset the key and LOSE access to existing encrypted credentials, restart with OMNIROUTE_FORCE_AUTO_KEY=1.`
       );
     }
     persisted.STORAGE_ENCRYPTION_KEY = randomBytes(32).toString("hex");
