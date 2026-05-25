@@ -489,6 +489,13 @@ You should see your connected models listed. 🎉 That's it — start coding, an
 docker run -d --name omniroute --restart unless-stopped --stop-timeout 40 \
   -p 20128:20128 -v omniroute-data:/app/data diegosouzapw/omniroute:latest
 ```
+### Или  
+
+```bash
+docker compose down
+docker compose up -d --build
+
+```
 
 **🛠️ From source**
 

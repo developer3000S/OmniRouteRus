@@ -3791,6 +3791,20 @@ export const REGISTRY: Record<string, RegistryEntry> = {
     ],
   },
 
+  "brave-search": {
+    id: "brave-search",
+    alias: "brave-search",
+    format: "openai",
+    executor: "default",
+    baseUrl: "https://api.search.brave.com/res/v1",
+    authType: "apikey",
+    authHeader: "x-subscription-token",
+    models: [
+      { id: "web", name: "Brave Web Search" },
+      { id: "news", name: "Brave News Search" },
+    ],
+  },
+
   reka: {
     id: "reka",
     alias: "reka",

@@ -368,12 +368,14 @@ function applyApiKeyLifecycleMigration(db: SqliteAdapter): void {
   ensureColumn(db, "api_keys", "expires_at", "ALTER TABLE api_keys ADD COLUMN expires_at TEXT");
   ensureColumn(db, "api_keys", "last_used_at", "ALTER TABLE api_keys ADD COLUMN last_used_at TEXT");
   ensureColumn(db, "api_keys", "key_prefix", "ALTER TABLE api_keys ADD COLUMN key_prefix TEXT");
+  ensureColumn(db, "api_keys", "key_hash", "ALTER TABLE api_keys ADD COLUMN key_hash TEXT");
   ensureColumn(db, "api_keys", "ip_allowlist", "ALTER TABLE api_keys ADD COLUMN ip_allowlist TEXT");
   ensureColumn(db, "api_keys", "scopes", "ALTER TABLE api_keys ADD COLUMN scopes TEXT");
 
   db.exec(`
     CREATE INDEX IF NOT EXISTS idx_api_keys_revoked_at ON api_keys(revoked_at);
     CREATE INDEX IF NOT EXISTS idx_api_keys_expires_at ON api_keys(expires_at);
+    CREATE INDEX IF NOT EXISTS idx_api_keys_key_hash ON api_keys(key_hash);
   `);
 }
 

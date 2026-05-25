@@ -234,7 +234,23 @@ const SCHEMA_SQL = `
     key TEXT NOT NULL UNIQUE,
     machine_id TEXT,
     allowed_models TEXT DEFAULT '[]',
+    allowed_connections TEXT DEFAULT '[]',
+    auto_resolve INTEGER NOT NULL DEFAULT 0,
+    is_active INTEGER NOT NULL DEFAULT 1,
+    access_schedule TEXT,
+    max_requests_per_day INTEGER,
+    max_requests_per_minute INTEGER,
+    max_sessions INTEGER NOT NULL DEFAULT 0,
     no_log INTEGER NOT NULL DEFAULT 0,
+    revoked_at TEXT,
+    expires_at TEXT,
+    last_used_at TEXT,
+    key_prefix TEXT,
+    key_hash TEXT,
+    ip_allowlist TEXT,
+    scopes TEXT,
+    rate_limits TEXT,
+    is_banned INTEGER NOT NULL DEFAULT 0,
     created_at TEXT NOT NULL
   );
   CREATE INDEX IF NOT EXISTS idx_ak_key ON api_keys(key);

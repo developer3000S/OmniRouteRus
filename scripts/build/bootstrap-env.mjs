@@ -152,6 +152,15 @@ export function bootstrapEnv({ dataDirOverride, quiet = false } = {}) {
   // This keeps run-next / run-standalone consistent with `bin/omniroute.mjs`.
   const merged = { ...persisted, ...preferredEnv, ...process.env };
 
+  // ── Fix: Don't let empty .env values override persisted secrets (#1622) ────
+  // Templates like .env.example often have placeholders (e.g. JWT_SECRET=) 
+  // that can accidentally wipe out the auto-generated keys in server.env.
+  for (const key of ["JWT_SECRET", "STORAGE_ENCRYPTION_KEY", "API_KEY_SECRET"]) {
+    if (!merged[key]?.trim() && persisted[key]?.trim()) {
+      merged[key] = persisted[key];
+    }
+  }
+
   // ── Auto-generate required secrets ────────────────────────────────────────
   let needsPersist = false;
 
@@ -163,12 +172,13 @@ export function bootstrapEnv({ dataDirOverride, quiet = false } = {}) {
   }
 
   if (!merged.STORAGE_ENCRYPTION_KEY?.trim()) {
-    if (hasEncryptedCredentials(dataDir)) {
+    if (hasEncryptedCredentials(dataDir) && process.env.OMNIROUTE_FORCE_AUTO_KEY !== "1") {
       throw new Error(
         `Refusing to auto-generate STORAGE_ENCRYPTION_KEY: encrypted credentials already exist in ${join(
           dataDir,
           "storage.sqlite"
-        )}. Restore the key via ${preferredEnvPath ?? "an appropriate .env file"}, ${serverEnvPath}, or process.env.`
+        )}. Restore the key via ${preferredEnvPath ?? "an appropriate .env file"}, ${serverEnvPath}, or process.env.\n\n` +
+          `If you intended to reset the key and LOSE access to existing encrypted credentials, restart with OMNIROUTE_FORCE_AUTO_KEY=1.`
       );
     }
     persisted.STORAGE_ENCRYPTION_KEY = randomBytes(32).toString("hex");

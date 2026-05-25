@@ -131,3 +131,40 @@ test("bootstrapEnv ignores blank dataDirOverride values", () => {
     assert.equal(env.JWT_SECRET, "jwt-from-dot-env");
   });
 });
+
+test("bootstrapEnv does not let empty .env values override persisted secrets", () => {
+  withTempEnv(({ dataDir }) => {
+    process.env.DATA_DIR = dataDir;
+    fs.mkdirSync(dataDir, { recursive: true });
+
+    // 1. Persist a key in server.env
+    fs.writeFileSync(
+      path.join(dataDir, "server.env"),
+      "STORAGE_ENCRYPTION_KEY=persisted-key\nJWT_SECRET=persisted-jwt\n",
+      "utf8"
+    );
+
+    // 2. Mock an empty placeholder in .env (typical .env.example copy)
+    fs.writeFileSync(
+      path.join(dataDir, ".env"),
+      "STORAGE_ENCRYPTION_KEY=\nJWT_SECRET=\n",
+      "utf8"
+    );
+
+    // 3. Add encrypted data to trigger the guard if the key were lost
+    const db = new Database(path.join(dataDir, "storage.sqlite"));
+    try {
+      db.exec("CREATE TABLE provider_connections (api_key TEXT)");
+      db.exec("INSERT INTO provider_connections (api_key) VALUES ('enc:v1:some-data')");
+    } finally {
+      db.close();
+    }
+
+    // Before the fix, this would throw "Refusing to auto-generate" 
+    // because merged.STORAGE_ENCRYPTION_KEY would be ""
+    const env = bootstrapEnv({ quiet: true });
+
+    assert.equal(env.STORAGE_ENCRYPTION_KEY, "persisted-key");
+    assert.equal(env.JWT_SECRET, "persisted-jwt");
+  });
+});
