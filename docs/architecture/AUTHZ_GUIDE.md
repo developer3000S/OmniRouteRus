@@ -4,52 +4,52 @@ version: 3.8.2
 lastUpdated: 2026-05-13
 ---
 
-# Authorization Guide
+# Руководство по авторизации
 
-> **Source of truth:** `src/server/authz/`, `src/shared/constants/publicApiRoutes.ts`, `src/lib/api/requireManagementAuth.ts`, `src/shared/utils/apiAuth.ts`
-> **Last updated:** 2026-05-13 — v3.8.0
+> **Источник истины:** `src/server/authz/`, `src/shared/constants/publicApiRoutes.ts`, `src/lib/api/requireManagementAuth.ts`, `src/shared/utils/apiAuth.ts`
+> **Последнее обновление:** 2026-05-13 — v3.8.0
 
-OmniRoute has a route-aware authorization pipeline that gates every API request. Classification is **deterministic** and **fail-closed** — anything that cannot be classified ends up as `MANAGEMENT` and demands a session or management-grade token. This page explains the model for engineers maintaining routes or designing new endpoints.
+В OmniRoute используется конвейер авторизации, учитывающий класс маршрута и ограничивающий каждый API-запрос. Классификация **детерминирована** и работает по принципу **fail-closed** — всё, что не удаётся классифицировать, попадает в `MANAGEMENT` и требует сессии или токена уровня management. Эта страница объясняет модель для инженеров, сопровождающих существующие маршруты или проектирующих новые эндпоинты.
 
-![AuthZ pipeline (3 route classes + policy evaluation)](../diagrams/exported/authz-pipeline.svg)
+![Конвейер AuthZ (3 класса маршрутов + вычисление политик)](../diagrams/exported/authz-pipeline.svg)
 
-> Source: [diagrams/authz-pipeline.mmd](../diagrams/authz-pipeline.mmd)
+> Исходник: [diagrams/authz-pipeline.mmd](../diagrams/authz-pipeline.mmd)
 
-## Two Auth Modes
+## Два режима аутентификации
 
-### 1. API Key (Bearer)
+### 1. API key (Bearer)
 
-Used for the OpenAI/Anthropic/Gemini-compatible client APIs and a few management routes when the key has the `manage` scope.
+Используется для клиентских API, совместимых с OpenAI/Anthropic/Gemini, и для некоторых management-маршрутов, если у ключа есть scope `manage`.
 
 ```
 Authorization: Bearer <api-key>
 ```
 
-Validated by `isValidApiKey()` / `extractApiKey()` in `src/sse/services/auth.ts` and re-exported through `src/shared/utils/apiAuth.ts`. The validator also accepts the `OMNIROUTE_API_KEY` / `ROUTER_API_KEY` env vars as persistent passthrough keys (issue #1350).
+Валидируется функциями `isValidApiKey()` / `extractApiKey()` в `src/sse/services/auth.ts` и реэкспортируется через `src/shared/utils/apiAuth.ts`. Валидатор также принимает env-переменные `OMNIROUTE_API_KEY` / `ROUTER_API_KEY` в качестве постоянных сквозных ключей (issue #1350).
 
-### 2. Dashboard Session (auth_token cookie)
+### 2. Сессия dashboard (cookie auth_token)
 
-For dashboard pages and admin operations.
+Для страниц dashboard и административных операций.
 
 ```
 Cookie: auth_token=<JWT signed with JWT_SECRET>
 ```
 
-Verified by `isDashboardSessionAuthenticated()` in `src/shared/utils/apiAuth.ts`. The pipeline auto-refreshes the JWT when it has fewer than 7 days left in its 30-day lifetime.
+Проверяется функцией `isDashboardSessionAuthenticated()` в `src/shared/utils/apiAuth.ts`. Конвейер автоматически обновляет JWT, если до конца его 30-дневного срока действия осталось меньше 7 дней.
 
-Some management routes accept **either** mode: cookie OR `Bearer <key>` when the API key has the `manage` (or `admin`) scope. This is what enables the "configurable via API calls" workflow added in v3.8.
+Некоторые management-маршруты принимают **любой** из режимов: cookie либо `Bearer <key>`, если у API key есть scope `manage` (или `admin`). Именно это обеспечивает рабочий процесс «configurable via API calls», добавленный в v3.8.
 
-## Route Classes
+## Классы маршрутов
 
-`src/server/authz/types.ts` defines three classes; any route that cannot be classified deterministically falls back to `MANAGEMENT`.
+В `src/server/authz/types.ts` определены три класса; любой маршрут, который нельзя детерминированно классифицировать, fallback-ит на `MANAGEMENT`.
 
-| Class        | Description                                                                                                            | Auth required                                   |
+| Class        | Описание                                                                                                               | Требуемая аутентификация                        |
 | ------------ | ---------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------- |
-| `PUBLIC`     | Explicitly safe routes — login, logout, status, init, health, onboarding bootstrap.                                    | None                                            |
-| `CLIENT_API` | Model-serving endpoints — `/api/v1/*`, plus aliases `/v1/*`, `/chat/completions`, `/responses`, `/models`, `/codex/*`. | Bearer key (unless `REQUIRE_API_KEY != "true"`) |
-| `MANAGEMENT` | Dashboard pages, settings, providers, keys, admin and diagnostics endpoints.                                           | Dashboard session OR Bearer with `manage` scope |
+| `PUBLIC`     | Явно безопасные маршруты — login, logout, status, init, health, onboarding bootstrap.                                   | Нет                                             |
+| `CLIENT_API` | Эндпоинты обслуживания моделей — `/api/v1/*`, плюс алиасы `/v1/*`, `/chat/completions`, `/responses`, `/models`, `/codex/*`. | Bearer key (если только `REQUIRE_API_KEY != "true"`) |
+| `MANAGEMENT` | Страницы dashboard, настройки, провайдеры, ключи, административные и диагностические эндпоинты.                         | Сессия dashboard ИЛИ Bearer со scope `manage`   |
 
-## Pipeline
+## Конвейер
 
 ```
 Incoming request → src/middleware.ts
@@ -66,21 +66,21 @@ Incoming request → src/middleware.ts
        - reject → JSON error w/ correlation_id (dashboard pages → 302 /login)
 ```
 
-Trusted internal headers (defined in `src/server/authz/headers.ts`) are **stripped from incoming requests** before classification — clients cannot pre-populate `x-omniroute-auth-*` to impersonate a subject.
+Доверенные внутренние заголовки (определены в `src/server/authz/headers.ts`) **вырезаются из входящих запросов** перед классификацией — клиенты не могут предзаполнить `x-omniroute-auth-*`, чтобы выдать себя за субъекта.
 
-### Policy contracts
+### Контракты политик
 
-Each route class has a policy in `src/server/authz/policies/`:
+Для каждого класса маршрута существует политика в `src/server/authz/policies/`:
 
-- **`publicPolicy`** (`policies/public.ts`) — always returns `allow({ kind: "anonymous", id: "anonymous" })`.
-- **`clientApiPolicy`** (`policies/clientApi.ts`) — extracts Bearer, validates via `validateApiKey()`. Falls through to anonymous if `REQUIRE_API_KEY != "true"`. Allows dashboard-session GET on `/api/v1/models` (used by the dashboard model catalog).
-- **`managementPolicy`** (`policies/management.ts`) — accepts dashboard session, internal model-sync requests (matched against `/api/providers/[name]/(sync-models|models)`), or skips entirely if `isAuthRequired()` returns false. Returns 403 (`AUTH_001`) when a Bearer token is present but invalid, 401 otherwise. Also enforces the route-guard tiers (LOCAL_ONLY / ALWAYS_PROTECTED) before any auth branch — see [Route Guard Tiers](../security/ROUTE_GUARD_TIERS.md). LOCAL_ONLY paths in `LOCAL_ONLY_MANAGE_SCOPE_BYPASS_PREFIXES` (today: `/api/mcp/`) may be accessed from non-loopback when the Bearer key carries the `manage` scope; all other LOCAL_ONLY paths remain strict-loopback regardless of scope.
+- **`publicPolicy`** (`policies/public.ts`) — всегда возвращает `allow({ kind: "anonymous", id: "anonymous" })`.
+- **`clientApiPolicy`** (`policies/clientApi.ts`) — извлекает Bearer, валидирует через `validateApiKey()`. Проваливается на anonymous, если `REQUIRE_API_KEY != "true"`. Разрешает GET по dashboard-сессии для `/api/v1/models` (используется каталогом моделей в dashboard).
+- **`managementPolicy`** (`policies/management.ts`) — принимает сессию dashboard, внутренние запросы синхронизации моделей (сопоставляются с `/api/providers/[name]/(sync-models|models)`) либо полностью пропускается, если `isAuthRequired()` возвращает false. Возвращает 403 (`AUTH_001`), когда Bearer-токен присутствует, но некорректен, иначе 401. Также применяет уровни route guard (LOCAL_ONLY / ALWAYS_PROTECTED) до любой ветки аутентификации — см. [Уровни route guard](../security/ROUTE_GUARD_TIERS.md). Пути LOCAL_ONLY из `LOCAL_ONLY_MANAGE_SCOPE_BYPASS_PREFIXES` (сейчас: `/api/mcp/`) могут быть доступны не с loopback-адреса, если Bearer-ключ несёт scope `manage`; все остальные LOCAL_ONLY-пути остаются строго loopback независимо от scope.
 
-A successful policy returns `AuthSubject` with `kind ∈ { client_api_key, dashboard_session, management_key, anonymous }`. Downstream handlers can read it via `assertAuth(request, "CLIENT_API")` in `src/server/authz/assertAuth.ts` instead of re-running auth logic.
+Успешная политика возвращает `AuthSubject` с `kind ∈ { client_api_key, dashboard_session, management_key, anonymous }`. Нижестоящие обработчики могут получить его через `assertAuth(request, "CLIENT_API")` в `src/server/authz/assertAuth.ts` вместо того, чтобы заново выполнять логику аутентификации.
 
-## Public Routes List
+## Список публичных маршрутов
 
-`src/shared/constants/publicApiRoutes.ts` is the explicit allowlist:
+`src/shared/constants/publicApiRoutes.ts` — явный allowlist:
 
 ```ts
 PUBLIC_API_ROUTE_PREFIXES = [
@@ -99,13 +99,13 @@ PUBLIC_READONLY_API_ROUTE_PREFIXES = ["/api/monitoring/health", "/api/settings/r
 PUBLIC_READONLY_METHODS = new Set(["GET", "HEAD", "OPTIONS"]);
 ```
 
-Read-only prefixes are public **only** for safe methods. Note: `classifyRoute()` excludes `/api/v1/*` from the PUBLIC fall-through — those are always `CLIENT_API` so the Bearer-key policy still applies.
+Read-only префиксы публичны **только** для безопасных методов. Примечание: `classifyRoute()` исключает `/api/v1/*` из PUBLIC fall-through — это всегда `CLIENT_API`, поэтому политика Bearer-ключа продолжает применяться.
 
-## Adding a New Route
+## Добавление нового маршрута
 
-### Pattern 1 — Public client API endpoint (Bearer-auth)
+### Паттерн 1 — Публичный клиентский API-эндпоинт (Bearer-auth)
 
-Routes under `/api/v1/` are classified `CLIENT_API` automatically. The middleware enforces the Bearer check; route handlers don't need to redo it but can read the subject if useful.
+Маршруты внутри `/api/v1/` классифицируются как `CLIENT_API` автоматически. middleware применяет проверку Bearer; обработчикам маршрута не нужно делать это повторно, но они могут прочитать subject, если это полезно.
 
 ```typescript
 // src/app/api/v1/your-route/route.ts
@@ -119,9 +119,9 @@ export async function POST(req: NextRequest) {
 }
 ```
 
-### Pattern 2 — Management endpoint (session or Bearer + manage)
+### Паттерн 2 — Management-эндпоинт (сессия или Bearer + manage)
 
-Use `requireManagementAuth()` from `src/lib/api/requireManagementAuth.ts`:
+Используйте `requireManagementAuth()` из `src/lib/api/requireManagementAuth.ts`:
 
 ```typescript
 import { requireManagementAuth } from "@/lib/api/requireManagementAuth";
@@ -133,28 +133,28 @@ export async function POST(request: Request) {
 }
 ```
 
-`requireManagementAuth()` returns `null` on success or a JSON error `Response`:
+`requireManagementAuth()` возвращает `null` при успехе либо JSON-ошибку `Response`:
 
-- 401 `AUTH_001` "Authentication required" — no credentials at all
-- 403 — invalid Bearer **or** Bearer present but key lacks the `manage` / `admin` scope
+- 401 `AUTH_001` "Authentication required" — учётные данные вообще отсутствуют
+- 403 — некорректный Bearer **либо** Bearer присутствует, но у ключа нет scope `manage` / `admin`
 
-`hasManageScope(scopes)` returns true for `"manage"` or `"admin"`.
+`hasManageScope(scopes)` возвращает true для `"manage"` или `"admin"`.
 
-### Pattern 3 — Adding to the public allowlist
+### Паттерн 3 — Добавление в публичный allowlist
 
-Add the prefix to `PUBLIC_API_ROUTE_PREFIXES` (or `PUBLIC_READONLY_API_ROUTE_PREFIXES` for GET-only). Update unit tests at `tests/unit/public-api-routes.test.ts` and `tests/unit/authz/classify.test.ts`.
+Добавьте префикс в `PUBLIC_API_ROUTE_PREFIXES` (или `PUBLIC_READONLY_API_ROUTE_PREFIXES` для GET-only). Обновите unit-тесты в `tests/unit/public-api-routes.test.ts` и `tests/unit/authz/classify.test.ts`.
 
 ## Scopes
 
-API keys carry a `scopes` array (stored as JSON in `api_keys.scopes`, see `src/lib/db/apiKeys.ts`).
+API keys несут массив `scopes` (хранится как JSON в `api_keys.scopes`, см. `src/lib/db/apiKeys.ts`).
 
 ### Management scope
 
-- `manage` / `admin` — grants the key access to management API endpoints when sent as Bearer.
+- `manage` / `admin` — даёт ключу доступ к management API-эндпоинтам при отправке в виде Bearer.
 
 ### MCP scopes (`src/shared/constants/mcpScopes.ts`)
 
-Each MCP tool requires specific scopes via `MCP_TOOL_SCOPES`. Full list (`MCP_SCOPE_LIST`):
+Каждый инструмент MCP требует определённые scopes через `MCP_TOOL_SCOPES`. Полный список (`MCP_SCOPE_LIST`):
 
 ```
 read:health, read:combos, write:combos, read:quota, read:usage,
@@ -163,40 +163,40 @@ write:resilience, pricing:write, read:cache, write:cache,
 read:compression, write:compression, read:proxies
 ```
 
-Preset bundles (`MCP_SCOPE_PRESETS`): `readonly`, `full`, `monitor`, `agent`. Use `hasRequiredScopes(granted, toolName)` and `getMissingScopes()` for enforcement inside MCP handlers.
+Пресет-наборы (`MCP_SCOPE_PRESETS`): `readonly`, `full`, `monitor`, `agent`. Используйте `hasRequiredScopes(granted, toolName)` и `getMissingScopes()` для enforcement внутри MCP-обработчиков.
 
-## Auth Required Toggle
+## Переключатель «Auth Required»
 
-`isAuthRequired()` in `src/shared/utils/apiAuth.ts` decides whether **any** auth is enforced for a request:
+`isAuthRequired()` в `src/shared/utils/apiAuth.ts` определяет, применяется ли **вообще какая-либо** аутентификация для запроса:
 
-- `settings.requireLogin === false` → auth is globally disabled.
-- No password configured **and** no `INITIAL_PASSWORD` env var → bootstrap mode allows the onboarding wizard and loopback requests, but exposed network requests still need credentials.
-- Any DB error → fails closed (secure-by-default).
+- `settings.requireLogin === false` → аутентификация глобально отключена.
+- Пароль не настроен **и** нет env-переменной `INITIAL_PASSWORD` → bootstrap-режим разрешает мастер онбординга и loopback-запросы, но запросы из открытой сети всё равно требуют учётных данных.
+- Любая ошибка БД → fail-closed (secure-by-default).
 
 ## Breaking Change — v3.8.0
 
-The `/api/v1/agents/tasks/*` and `/api/resilience/model-cooldowns` endpoints **now require management auth** (commit `588a0333`). Clients previously sending a normal API key without the `manage` scope receive `403`. Migration: either issue the key the `manage` scope in the API Manager dashboard, or use a logged-in dashboard session.
+Эндпоинты `/api/v1/agents/tasks/*` и `/api/resilience/model-cooldowns` **теперь требуют management-аутентификацию** (коммит `588a0333`). Клиенты, ранее отправлявшие обычный API key без scope `manage`, получают `403`. Миграция: либо выдайте ключу scope `manage` в API Manager dashboard, либо используйте залогиненную сессию dashboard.
 
 ## Behaviour Change — v3.8.2
 
-`/api/mcp/*` (the remote MCP server) is still LOCAL_ONLY by default but now accepts non-loopback requests when the `Authorization: Bearer <api-key>` header carries the `manage` scope. The carve-out is gated explicitly per-path via `LOCAL_ONLY_MANAGE_SCOPE_BYPASS_PREFIXES` in `src/server/authz/routeGuard.ts`; the sibling LOCAL_ONLY prefix `/api/cli-tools/runtime/*` is intentionally NOT bypassable because it can spawn arbitrary subprocesses. Anonymous requests to `/api/mcp/*` from non-loopback continue to return `403 LOCAL_ONLY` — the default for any new LOCAL_ONLY path remains strict-loopback. See [Route Guard Tiers](../security/ROUTE_GUARD_TIERS.md#manage-scope-carve-out).
+`/api/mcp/*` (удалённый MCP server) по-прежнему является LOCAL_ONLY по умолчанию, но теперь принимает не-loopback-запросы, если заголовок `Authorization: Bearer <api-key>` несёт scope `manage`. Это исключение явно настраивается для каждого пути через `LOCAL_ONLY_MANAGE_SCOPE_BYPASS_PREFIXES` в `src/server/authz/routeGuard.ts`; родственный LOCAL_ONLY-префикс `/api/cli-tools/runtime/*` намеренно НЕ обходится, поскольку он может порождать произвольные subprocesses. Анонимные запросы к `/api/mcp/*` не с loopback продолжают возвращать `403 LOCAL_ONLY` — значение по умолчанию для любого нового LOCAL_ONLY-пути остаётся строго loopback. См. [Уровни route guard](../security/ROUTE_GUARD_TIERS.md#manage-scope-carve-out).
 
-## Testing
+## Тестирование
 
-- Unit tests: `tests/unit/authz/` — `classify.test.ts`, `pipeline.test.ts`, `client-api-policy.test.ts`, `management-policy.test.ts`, `public-policy.test.ts`.
-- Public allowlist: `tests/unit/public-api-routes.test.ts`.
-- Run focused: `node --import tsx/esm --test tests/unit/authz/classify.test.ts`.
+- Unit-тесты: `tests/unit/authz/` — `classify.test.ts`, `pipeline.test.ts`, `client-api-policy.test.ts`, `management-policy.test.ts`, `public-policy.test.ts`.
+- Публичный allowlist: `tests/unit/public-api-routes.test.ts`.
+- Точечный запуск: `node --import tsx/esm --test tests/unit/authz/classify.test.ts`.
 
-## Debugging
+## Отладка
 
-The pipeline always stamps responses with:
+Конвейер всегда добавляет к ответам заголовки:
 
 ```
 x-request-id:               <correlation id, echoed in error bodies>
 x-omniroute-route-class:    PUBLIC | CLIENT_API | MANAGEMENT
 ```
 
-For authenticated requests the upstream (handler-side) request headers also include:
+Для аутентифицированных запросов заголовки upstream-запроса (на стороне обработчика) также включают:
 
 ```
 x-omniroute-auth-kind:      client_api_key | dashboard_session | management_key | anonymous
@@ -205,11 +205,11 @@ x-omniroute-auth-label:     (optional)
 x-omniroute-auth-scopes:    comma-separated list
 ```
 
-Use `assertAuth(req, expectedClass)` inside handlers — it throws `AuthzAssertionError` with code `AUTHZ_NOT_INITIALIZED` if the middleware was bypassed (helpful for catching configuration regressions in tests).
+Используйте `assertAuth(req, expectedClass)` внутри обработчиков — он выбрасывает `AuthzAssertionError` с кодом `AUTHZ_NOT_INITIALIZED`, если middleware был обойдён (полезно для отлова регрессий конфигурации в тестах).
 
-## See Also
+## Смотрите также
 
-- [API_REFERENCE.md](../reference/API_REFERENCE.md) — auth marker per endpoint
-- [COMPLIANCE.md](../security/COMPLIANCE.md) — audit log for auth events
-- [MCP-SERVER.md](../frameworks/MCP-SERVER.md) — MCP scope enforcement details
-- Source: `src/server/authz/`, `src/lib/api/requireManagementAuth.ts`
+- [API_REFERENCE.md](../reference/API_REFERENCE.md) — маркер аутентификации для каждого эндпоинта
+- [COMPLIANCE.md](../security/COMPLIANCE.md) — audit log для событий аутентификации
+- [MCP-SERVER.md](../frameworks/MCP-SERVER.md) — детали enforcement scopes в MCP
+- Исходники: `src/server/authz/`, `src/lib/api/requireManagementAuth.ts`
