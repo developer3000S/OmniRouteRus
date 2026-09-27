@@ -1,18 +1,18 @@
-# Contributing to OmniRoute
+# Участие в разработке OmniRoute
 
-Thank you for your interest in contributing! This guide covers everything you need to get started.
+Спасибо за интерес к участию в разработке! Это руководство содержит всё необходимое, чтобы начать.
 
 ---
 
-## Development Setup
+## Настройка среды разработки
 
-### Prerequisites
+### Предварительные требования
 
-- **Node.js** `>=22.22.3 <23`, or `>=24.0.0 <27` (recommended: 24 LTS)
+- **Node.js** `>=22.22.3 <23` или `>=24.0.0 <27` (рекомендуется: 24 LTS)
 - **npm** 10+
 - **Git**
 
-### Clone & Install
+### Клонирование и установка
 
 ```bash
 git clone https://github.com/diegosouzapw/OmniRoute.git
@@ -20,85 +20,85 @@ cd OmniRoute
 npm install
 ```
 
-### Environment Variables
+### Переменные окружения
 
 ```bash
-# Create your .env from the template
+# Создайте ваш .env из шаблона
 cp .env.example .env
 
-# Generate required secrets
+# Сгенерируйте необходимые секреты
 echo "JWT_SECRET=$(openssl rand -base64 48)" >> .env
 echo "API_KEY_SECRET=$(openssl rand -hex 32)" >> .env
 ```
 
-Key variables for development:
+Ключевые переменные для разработки:
 
-| Variable               | Development Default      | Description           |
-| ---------------------- | ------------------------ | --------------------- |
-| `PORT`                 | `20128`                  | Server port           |
-| `NEXT_PUBLIC_BASE_URL` | `http://localhost:20128` | Base URL for frontend |
-| `JWT_SECRET`           | (generate above)         | JWT signing secret    |
-| `INITIAL_PASSWORD`     | `CHANGEME`               | First login password  |
-| `APP_LOG_LEVEL`        | `info`                   | Log verbosity level   |
+| Переменная             | Значение по умолчанию    | Описание                  |
+| ---------------------- | ------------------------ | ------------------------- |
+| `PORT`                 | `20128`                  | Порт сервера              |
+| `NEXT_PUBLIC_BASE_URL` | `http://localhost:20128` | Базовый URL для фронтенда |
+| `JWT_SECRET`           | (сгенерировать выше)     | Секрет для подписи JWT    |
+| `INITIAL_PASSWORD`     | `CHANGEME`               | Пароль для первого входа  |
+| `APP_LOG_LEVEL`        | `info`                   | Уровень детализации логов |
 
-### Dashboard Settings
+### Настройки dashboard
 
-The dashboard provides UI toggles for features that can also be configured via environment variables:
+В dashboard предусмотрены переключатели интерфейса для функций, которые также можно настраивать через переменные окружения:
 
-| Setting Location    | Toggle             | Description                    |
-| ------------------- | ------------------ | ------------------------------ |
-| Settings → Advanced | Debug Mode         | Enable debug request logs (UI) |
-| Settings → General  | Sidebar Visibility | Show/hide sidebar sections     |
+| Расположение настройки | Переключатель      | Описание                               |
+| ---------------------- | ------------------ | -------------------------------------- |
+| Settings → Advanced    | Debug Mode         | Включить отладочные логи запросов (UI) |
+| Settings → General     | Sidebar Visibility | Показать/скрыть разделы боковой панели |
 
-These settings are stored in the database and persist across restarts, overriding env var defaults when set.
+Эти настройки хранятся в базе данных и сохраняются между перезапусками, а при задании переопределяют значения по умолчанию из переменных окружения.
 
-### Running Locally
+### Локальный запуск
 
 ```bash
-# Development mode (hot reload)
+# Режим разработки (горячая перезагрузка)
 npm run dev
 
-# Production build
+# Сборка для продакшена
 npm run build
 npm run start
 
-# Common port configuration
+# Общая конфигурация порта
 PORT=20128 NEXT_PUBLIC_BASE_URL=http://localhost:20128 npm run dev
 ```
 
-Default URLs:
+URL по умолчанию:
 
 - **Dashboard**: `http://localhost:20128/dashboard`
 - **API**: `http://localhost:20128/v1`
 
 ---
 
-## Git Workflow
+## Рабочий процесс с Git
 
-> ⚠️ **NEVER commit directly to `main`.** Always use feature branches.
+> ⚠️ **НИКОГДА не делайте commit напрямую в `main`.** Всегда используйте feature-ветки.
 
 ```bash
 git checkout -b feat/your-feature-name
 # ... make changes ...
 git commit -m "feat: describe your change"
 git push -u origin feat/your-feature-name
-# Open a Pull Request on GitHub
+# Откройте Pull Request на GitHub
 ```
 
-### Branch Naming
+### Именование веток
 
-| Prefix      | Purpose                   |
-| ----------- | ------------------------- |
-| `feat/`     | New features              |
-| `fix/`      | Bug fixes                 |
-| `refactor/` | Code restructuring        |
-| `docs/`     | Documentation changes     |
-| `test/`     | Test additions/fixes      |
-| `chore/`    | Tooling, CI, dependencies |
+| Префикс     | Назначение                    |
+| ----------- | ----------------------------- |
+| `feat/`     | Новые функции                 |
+| `fix/`      | Исправления ошибок            |
+| `refactor/` | Реструктуризация кода         |
+| `docs/`     | Изменения документации        |
+| `test/`     | Добавление/исправление тестов |
+| `chore/`    | Инструменты, CI, зависимости  |
 
-### Commit Messages
+### Сообщения commit
 
-Follow [Conventional Commits](https://www.conventionalcommits.org/):
+Следуйте [Conventional Commits](https://www.conventionalcommits.org/):
 
 ```
 feat: add circuit breaker for provider calls
@@ -108,84 +108,84 @@ test: add observability unit tests
 refactor(db): consolidate rate limit tables
 ```
 
-Scopes (v3.8): `db`, `sse`, `oauth`, `dashboard`, `api`, `cli`, `docker`, `ci`, `mcp`, `a2a`, `memory`, `skills`, `cloud-agent`, `guardrails`, `compression`, `auto-combo`, `resilience`, `providers`, `executors`, `translator`, `domain`, `authz`.
+Области (scopes) (v3.8): `db`, `sse`, `oauth`, `dashboard`, `api`, `cli`, `docker`, `ci`, `mcp`, `a2a`, `memory`, `skills`, `cloud-agent`, `guardrails`, `compression`, `auto-combo`, `resilience`, `providers`, `executors`, `translator`, `domain`, `authz`.
 
 ---
 
-## Running Tests
+## Запуск тестов
 
 ```bash
-# All tests (unit + vitest + ecosystem + e2e)
+# Все тесты (unit + vitest + ecosystem + e2e)
 npm run test:all
 
-# Single test file (Node.js native test runner — most tests use this)
+# Одиночный файл теста (Node.js native test runner — большинство тестов используют это)
 node --import tsx/esm --test tests/unit/your-file.test.ts
 
 # Vitest (MCP server, autoCombo, cache)
 npm run test:vitest
 
-# E2E tests (requires Playwright)
+# E2E тесты (требует Playwright)
 npm run test:e2e
 
-# Protocol clients E2E (MCP transports, A2A)
+# E2E тесты клиентов протокола (MCP transports, A2A)
 npm run test:protocols:e2e
 
-# Ecosystem compatibility tests
+# Тесты совместимости экосистемы
 npm run test:ecosystem
 
-# Coverage gate: 75% statements/lines/functions, 70% branches
+# Покрытие: 75% statements/lines/functions, 70% branches
 npm run test:coverage
 npm run coverage:report
 
-# Lint + format check
+# Проверка линтера + форматирования
 npm run lint
 npm run check
 ```
 
-Coverage notes:
+Примечания о покрытии:
 
-- `npm run test:coverage` measures source coverage for the main unit test suite, excludes `tests/**`, and includes `open-sse/**`
-- Pull requests must keep the coverage gate at **75%+** statements/lines/functions and **70%+** branches
-- If a PR changes production code in `src/`, `open-sse/`, `electron/`, or `bin/`, it must add or update automated tests in the same PR
-- `npm run coverage:report` prints the detailed file-by-file report from the latest coverage run
-- `npm run test:coverage:legacy` preserves the older metric for historical comparison
-- See `docs/ops/COVERAGE_PLAN.md` for the phased coverage improvement roadmap
+- `npm run test:coverage` измеряет покрытие исходного кода для основного набора unit-тестов, исключает `tests/**` и включает `open-sse/**`
+- Pull request должны сохранять порог покрытия на уровне **75%+** statements/lines/functions и **70%+** branches
+- Если PR изменяет production-код в `src/`, `open-sse/`, `electron/` или `bin/`, в том же PR необходимо добавить или обновить автоматические тесты
+- `npm run coverage:report` выводит подробный отчёт по каждому файлу из последнего запуска покрытия
+- `npm run test:coverage:legacy` сохраняет старую метрику для исторического сравнения
+- Дорожная карта поэтапного улучшения покрытия описана в `docs/ops/COVERAGE_PLAN.md`
 
-### Pull Request Requirements
+### Требования к Pull Request
 
-Before opening or merging a PR:
+Перед созданием или вливанием PR:
 
-- Run `npm run test:unit`
-- Run `npm run test:coverage`
-- Ensure the coverage gate stays at **75%+** statements/lines/functions, **70%+** branches
-- Include the changed or added test files in the PR description when production code changed
-- Check the SonarQube result on the PR when the project secrets are configured in CI
+- Запустите `npm run test:unit`
+- Запустите `npm run test:coverage`
+- Убедитесь, что порог покрытия остаётся на уровне **75%+** statements/lines/functions и **70%+** branches
+- Приложите изменённые или добавленные файлы тестов к описанию PR, если изменился production-код
+- Проверьте результат SonarQube в PR, если секреты проекта настроены в CI
 
-Current test status: **122 unit test files** covering:
+Текущее состояние тестов: **122 файла unit-тестов**, покрывающих:
 
-- Provider translators and format conversion
-- Rate limiting, circuit breaker, and resilience
-- Semantic cache, idempotency, progress tracking
-- Database operations and schema (21 DB modules)
-- OAuth flows and authentication
-- API endpoint validation (Zod v4)
-- MCP server tools and scope enforcement
-- Memory and Skills systems
-
----
-
-## Code Style
-
-- **ESLint** — Run `npm run lint` before committing
-- **Prettier** — Auto-formatted via `lint-staged` on commit (2 spaces, semicolons, double quotes, 100 char width, es5 trailing commas)
-- **TypeScript** — All `src/` code uses `.ts`/`.tsx`; `open-sse/` uses `.ts`/`.js`; document with TSDoc (`@param`, `@returns`, `@throws`)
-- **No `eval()`** — ESLint enforces `no-eval`, `no-implied-eval`, `no-new-func`
-- **Zod validation** — Use Zod v4 schemas for all API input validation
-- **Naming**: Files = camelCase/kebab-case, components = PascalCase, constants = UPPER_SNAKE
+- Трансляторы провайдеров и преобразование форматов
+- Ограничение частоты запросов, circuit breaker и устойчивость
+- Семантический кэш, идемпотентность, отслеживание прогресса
+- Операции с базой данных и схема (21 модуль DB)
+- Потоки OAuth и аутентификация
+- Валидация API endpoint (Zod v4)
+- Инструменты MCP-сервера и контроль областей доступа
+- Системы Memory и Skills
 
 ---
 
-## Project Structure
+## Стиль кода
+
+- **ESLint** — Запускайте `npm run lint` перед commit
+- **Prettier** — Автоматическое форматирование через `lint-staged` при commit (2 пробела, точки с запятой, двойные кавычки, ширина 100 символов, trailing commas в стиле es5)
+- **TypeScript** — Весь код в `src/` использует `.ts`/`.tsx`; в `open-sse/` используется `.ts`/`.js`; документируйте с помощью TSDoc (`@param`, `@returns`, `@throws`)
+- **Без `eval()`** — ESLint требует соблюдения правил `no-eval`, `no-implied-eval`, `no-new-func`
+- **Валидация Zod** — Используйте схемы Zod v4 для валидации всех входных данных API
+- **Именование**: Файлы = camelCase/kebab-case, компоненты = PascalCase, константы = UPPER_SNAKE
+
+---
+
+## Структура проекта
 
 ```
 src/                        # TypeScript (.ts / .tsx)
@@ -246,74 +246,72 @@ docs/                       # Documentation
 └── adr/                    # Architecture Decision Records
 ```
 
----
+## Добавление нового провайдера
 
-## Adding a New Provider
+### Шаг 1: Регистрация констант провайдера
 
-### Step 1: Register Provider Constants
+Добавьте в `src/shared/constants/providers.ts` — валидируется через Zod при загрузке модуля.
 
-Add to `src/shared/constants/providers.ts` — Zod-validated at module load.
+### Шаг 2: Добавление executor (при необходимости пользовательской логики)
 
-### Step 2: Add Executor (if custom logic needed)
+Создайте executor в `open-sse/executors/your-provider.ts`, унаследовав его от базового executor.
 
-Create executor in `open-sse/executors/your-provider.ts` extending the base executor.
+### Шаг 3: Добавление транслятора (если формат отличается от OpenAI)
 
-### Step 3: Add Translator (if non-OpenAI format)
+Создайте трансляторы запросов/ответов в `open-sse/translator/`.
 
-Create request/response translators in `open-sse/translator/`.
+### Шаг 4: Добавление конфигурации OAuth (если провайдер работает через OAuth)
 
-### Step 4: Add OAuth Config (if OAuth-based)
+Добавьте учётные данные OAuth в `src/lib/oauth/constants/oauth.ts` и сервис в `src/lib/oauth/services/`.
 
-Add OAuth credentials in `src/lib/oauth/constants/oauth.ts` and service in `src/lib/oauth/services/`.
+Если вышестоящий провайдер распространяет публичный OAuth client_id/secret или Firebase Web API key внутри своего публичного CLI / браузерного бандла, **не** встраивайте его как строковый литерал. Используйте `resolvePublicCred()` из `open-sse/utils/publicCreds.ts` и добавьте маскированную запись с байтами в `EMBEDDED_DEFAULTS`. Полный обязательный рабочий процесс описан в [`docs/security/PUBLIC_CREDS.md`](./docs/security/PUBLIC_CREDS.md).
 
-If the upstream provider distributes a public OAuth client_id/secret or Firebase Web API key inside its public CLI / browser bundle, **do not** embed it as a string literal. Use `resolvePublicCred()` from `open-sse/utils/publicCreds.ts` and add a masked byte entry to `EMBEDDED_DEFAULTS`. The full mandatory workflow is documented in [`docs/security/PUBLIC_CREDS.md`](./docs/security/PUBLIC_CREDS.md).
+Внутри handlers/executors сообщения об ошибках, доходящие до клиента, должны проходить через `buildErrorBody()` / `sanitizeErrorMessage()` из `open-sse/utils/error.ts` — никогда не помещайте сырые `err.stack` или `err.message` в тело Response. См. [`docs/security/ERROR_SANITIZATION.md`](./docs/security/ERROR_SANITIZATION.md).
 
-Inside handlers/executors, error messages reaching the client must go through `buildErrorBody()` / `sanitizeErrorMessage()` from `open-sse/utils/error.ts` — never put raw `err.stack` or `err.message` in a Response body. See [`docs/security/ERROR_SANITIZATION.md`](./docs/security/ERROR_SANITIZATION.md).
+### Шаг 5: Регистрация моделей
 
-### Step 5: Register Models
+Добавьте определения моделей в `open-sse/config/providerRegistry.ts`.
 
-Add model definitions in `open-sse/config/providerRegistry.ts`.
+### Шаг 6: Добавление тестов
 
-### Step 6: Add Tests
+Напишите unit-тесты в `tests/unit/`, покрывающие как минимум:
 
-Write unit tests in `tests/unit/` covering at minimum:
-
-- Provider registration
-- Request/response translation
-- Error handling
+- Регистрацию провайдера
+- Трансляцию запросов/ответов
+- Обработку ошибок
 
 ---
 
-## Pull Request Checklist
+## Чек-лист Pull Request
 
-- [ ] Tests pass (`npm test`)
-- [ ] Linting passes (`npm run lint`)
-- [ ] Build succeeds (`npm run build`)
-- [ ] TypeScript types added for new public functions and interfaces
-- [ ] No hardcoded secrets or fallback values
-- [ ] Public upstream credentials embedded via `resolvePublicCred()` (see [`docs/security/PUBLIC_CREDS.md`](./docs/security/PUBLIC_CREDS.md)), never as literals
-- [ ] Error responses route through `buildErrorBody()` / `sanitizeErrorMessage()` — no raw stack traces in response bodies (see [`docs/security/ERROR_SANITIZATION.md`](./docs/security/ERROR_SANITIZATION.md))
-- [ ] Shell commands (`exec` / `spawn`) pass runtime values via `env`, not via string interpolation
-- [ ] All inputs validated with Zod schemas
-- [ ] CHANGELOG updated (if user-facing change)
-- [ ] Documentation updated (if applicable)
-- [ ] No new CodeQL / Secret-Scanning alerts opened, or each one dismissed with technical justification referencing the relevant `docs/security/` doc
-- [ ] Routes that spawn child processes (`/api/mcp/`, `/api/cli-tools/runtime/`) classified as `isLocalOnlyPath()` in `src/server/authz/routeGuard.ts` — see [Hard Rule #15](docs/security/ROUTE_GUARD_TIERS.md)
-- [ ] No `Co-Authored-By` trailers in commit messages — commits must appear solely under the repository owner's Git identity (Hard Rule #16)
-
----
-
-## Releasing
-
-Releases are managed via the `/generate-release` workflow. When a new GitHub Release is created, the package is **automatically published to npm** via GitHub Actions.
+- [ ] Тесты проходят (`npm test`)
+- [ ] Lint проходит (`npm run lint`)
+- [ ] Сборка проходит успешно (`npm run build`)
+- [ ] Добавлены типы TypeScript для новых публичных функций и интерфейсов
+- [ ] Нет жёстко закодированных секретов или резервных значений
+- [ ] Публичные учётные данные вышестоящих сервисов встроены через `resolvePublicCred()` (см. [`docs/security/PUBLIC_CREDS.md`](./docs/security/PUBLIC_CREDS.md)), а не в виде литералов
+- [ ] Ответы об ошибках проходят через `buildErrorBody()` / `sanitizeErrorMessage()` — никаких сырых стек-трейсов в телах ответов (см. [`docs/security/ERROR_SANITIZATION.md`](./docs/security/ERROR_SANITIZATION.md))
+- [ ] Команды shell (`exec` / `spawn`) передают значения во время выполнения через `env`, а не через строковую интерполяцию
+- [ ] Все входные данные валидируются схемами Zod
+- [ ] CHANGELOG обновлён (если изменение затрагивает пользователей)
+- [ ] Документация обновлена (если применимо)
+- [ ] Не появилось новых предупреждений CodeQL / Secret-Scanning, или каждое из них отклонено с техническим обоснованием и ссылкой на соответствующий документ из `docs/security/`
+- [ ] Маршруты, порождающие дочерние процессы (`/api/mcp/`, `/api/cli-tools/runtime/`), классифицированы как `isLocalOnlyPath()` в `src/server/authz/routeGuard.ts` — см. [Hard Rule #15](docs/security/ROUTE_GUARD_TIERS.md)
+- [ ] В сообщениях commit нет трейлеров `Co-Authored-By` — commit должны быть оформлены исключительно от имени Git-идентичности владельца репозитория (Hard Rule #16)
 
 ---
 
-## Getting Help
+## Релизы
 
-- **Architecture**: See [`docs/architecture/ARCHITECTURE.md`](docs/architecture/ARCHITECTURE.md)
-- **API Reference**: See [`docs/reference/API_REFERENCE.md`](docs/reference/API_REFERENCE.md)
-- **Security docs**: [`docs/security/CLI_TOKEN.md`](docs/security/CLI_TOKEN.md), [`docs/security/ROUTE_GUARD_TIERS.md`](docs/security/ROUTE_GUARD_TIERS.md), [`docs/security/ERROR_SANITIZATION.md`](docs/security/ERROR_SANITIZATION.md), [`docs/security/PUBLIC_CREDS.md`](docs/security/PUBLIC_CREDS.md)
-- **Ops docs**: [`docs/ops/SQLITE_RUNTIME.md`](docs/ops/SQLITE_RUNTIME.md)
-- **Issues**: [github.com/diegosouzapw/OmniRoute/issues](https://github.com/diegosouzapw/OmniRoute/issues)
-- **ADRs**: See `docs/adr/` for architectural decision records
+Релизы управляются через workflow `/generate-release`. При создании нового GitHub Release пакет **автоматически публикуется в npm** через GitHub Actions.
+
+---
+
+## Получение помощи
+
+- **Архитектура**: См. [`docs/architecture/ARCHITECTURE.md`](docs/architecture/ARCHITECTURE.md)
+- **Справочник по API**: См. [`docs/reference/API_REFERENCE.md`](docs/reference/API_REFERENCE.md)
+- **Документация по безопасности**: [`docs/security/CLI_TOKEN.md`](docs/security/CLI_TOKEN.md), [`docs/security/ROUTE_GUARD_TIERS.md`](docs/security/ROUTE_GUARD_TIERS.md), [`docs/security/ERROR_SANITIZATION.md`](docs/security/ERROR_SANITIZATION.md), [`docs/security/PUBLIC_CREDS.md`](docs/security/PUBLIC_CREDS.md)
+- **Документация по эксплуатации**: [`docs/ops/SQLITE_RUNTIME.md`](docs/ops/SQLITE_RUNTIME.md)
+- **Задачи (Issues)**: [github.com/diegosouzapw/OmniRoute/issues](https://github.com/diegosouzapw/OmniRoute/issues)
+- **ADR**: См. `docs/adr/` — записи об архитектурных решениях

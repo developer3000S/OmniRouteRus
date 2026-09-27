@@ -1,13 +1,13 @@
-# OmniRoute CLI — Internal Conventions
+# OmniRoute CLI — Внутренние соглашения
 
-> Status: normative. Source: `_tasks/features-v3.8.0/cli/fase-0-preparacao/0.3-definir-convencoes.md`.
-> This file is the authoritative reference for every new or migrated CLI command.
-> If reality diverges from this document, fix the code first; only edit this file
-> after the discrepancy has been justified in a PR.
+> Статус: нормативный. Источник: `_tasks/features-v3.8.0/cli/fase-0-preparacao/0.3-definir-convencoes.md`.
+> Этот файл является авторитетным справочником для каждой новой или перенесенной команды CLI.
+> Если реальность расходится с этим документом, сначала исправьте код; редактируйте этот файл
+> только после того, как расхождение будет обосновано в PR.
 
-## 1. Subcommand style
+## 1. Стиль подкоманд
 
-**Standard**: `git`-style nested verbs.
+**Стандарт**: стиль вложенных глаголов, как у `git`.
 
 ```
 omniroute keys add openai sk-xxx
@@ -15,75 +15,74 @@ omniroute combo switch fastest
 omniroute memory search "react hooks"
 ```
 
-**Not allowed**:
+**Не допускается**:
 
 ```
-omniroute --add-key openai sk-xxx     # ❌ flag-as-verb
-omniroute add-key openai sk-xxx       # ❌ hyphen at the top level
+omniroute --add-key openai sk-xxx     # ❌ флаг как глагол
+omniroute add-key openai sk-xxx       # ❌ дефис на верхнем уровне
 ```
 
-## 2. Flags
+## 2. Флаги
 
-- Only `--long` and `-s` shorts (one-letter shorts reserved for very common
-  flags: `-h`, `-v`, `-o`, `-q`, `--no-open`).
-- Format: `--api-key sk-xxx` (space). `=` accepted for parity but doc uses space.
-- Naming: kebab-case (`--api-key`, `--non-interactive`, `--max-tokens`).
-- Booleans: `--no-foo` (negative) and `--foo` (positive). Default `false` unless
-  documented.
-- Multi-value: repeat the flag (`--header X-A=1 --header X-B=2`).
+- Только `--long` и `-s` короткие (однобуквенные короткие зарезервированы для очень распространенных
+  флагов: `-h`, `-v`, `-o`, `-q`, `--no-open`).
+- Формат: `--api-key sk-xxx` (пробел). `=` допускается для совместимости, но в документации используется пробел.
+- Наименование: kebab-case (`--api-key`, `--non-interactive`, `--max-tokens`).
+- Булевы: `--no-foo` (отрицательное) и `--foo` (положительное). По умолчанию `false`, если не указано иное.
+- Множественные значения: повторите флаг (`--header X-A=1 --header X-B=2`).
 
-## 3. Output (`--output`)
+## 3. Вывод (`--output`)
 
-| Value   | Use case                                     |
-| ------- | -------------------------------------------- |
-| `table` | default human-readable                       |
-| `json`  | single JSON object, pretty-printed           |
-| `jsonl` | streamed objects, one per line (logs, lists) |
-| `csv`   | spreadsheet ingestion                        |
+| Значение | Использование                                         |
+| -------- | ----------------------------------------------------- |
+| `table`  | по умолчанию для удобочитаемого вывода                |
+| `json`   | один объект JSON, красиво отформатированный           |
+| `jsonl`  | потоковые объекты, по одному на строку (логи, списки) |
+| `csv`    | импорт в электронные таблицы                          |
 
-Related flags:
+Связанные флаги:
 
-- `--quiet` / `-q` — suppress headers/spinners (pipe-friendly).
-- `--no-color` — force ANSI off (auto-detected if `!stdout.isTTY`).
+- `--quiet` / `-q` — подавить заголовки/спинеры (подходит для конвейеров).
+- `--no-color` — принудительно отключить ANSI (автоматически определяется, если `!stdout.isTTY`).
 
-Helper: `emit(rows, opts)` from `bin/cli/output.mjs` handles all four formats.
+Помощник: `emit(rows, opts)` из `bin/cli/output.mjs` обрабатывает все четыре формата.
 
-## 4. Exit codes
+## 4. Коды завершения
 
-| Code  | Meaning                           |
-| ----- | --------------------------------- |
-| `0`   | success                           |
-| `1`   | generic error (uncaught, runtime) |
-| `2`   | invalid argument / misuse         |
-| `3`   | server offline (when required)    |
-| `4`   | auth / permission (401/403)       |
-| `5`   | rate limit / quota (429)          |
-| `124` | timeout                           |
+| Код   | Значение                                         |
+| ----- | ------------------------------------------------ |
+| `0`   | успех                                            |
+| `1`   | общая ошибка (неперехваченная, время выполнения) |
+| `2`   | неверный аргумент / неправильное использование   |
+| `3`   | сервер недоступен (когда требуется)              |
+| `4`   | аутентификация / разрешение (401/403)            |
+| `5`   | ограничение скорости / квота (429)               |
+| `124` | тайм-аут                                         |
 
-Helper: `exitWith(code, message?)` from `bin/cli/exit.mjs` (added under
-`output.mjs` if needed) — always uses these constants. **Never** raw
-`process.exit(N)` in command code.
+Помощник: `exitWith(code, message?)` из `bin/cli/exit.mjs` (добавлен под
+`output.mjs` при необходимости) — всегда использует эти константы. **Никогда** не используйте raw
+`process.exit(N)` в коде команды.
 
-## 5. HTTP errors + retry/backoff
+## 5. Ошибки HTTP + повторная попытка/задержка
 
-All API calls go through `apiFetch(path, opts)` (`bin/cli/api.mjs`), which:
+Все вызовы API проходят через `apiFetch(path, opts)` (`bin/cli/api.mjs`), который:
 
-- Reads base URL from `OMNIROUTE_BASE_URL` env or `~/.omniroute/config.json`
-  (active profile).
-- Injects `Authorization: Bearer ${OMNIROUTE_API_KEY}` when available.
-- Injects `x-omniroute-cli-token` when applicable (see task 8.12).
-- Applies a per-attempt timeout (`--timeout 30000`, default 30s).
-- Maps status → exit code (401→4, 429→5, 5xx→1, etc.).
-- Never exposes `err.stack` (CLAUDE.md hard rule #12).
-- Applies exponential backoff with jitter on retryable statuses.
+- Считывает базовый URL из `OMNIROUTE_BASE_URL` env или `~/.omniroute/config.json`
+  (активный профиль).
+- Вставляет `Authorization: Bearer ${OMNIROUTE_API_KEY}` при наличии.
+- Вставляет `x-omniroute-cli-token` при необходимости (см. задачу 8.12).
+- Применяет тайм-аут на попытку (`--timeout 30000`, по умолчанию 30с).
+- Отображает статус → код завершения (401→4, 429→5, 5xx→1 и т.д.).
+- Никогда не раскрывает `err.stack` (жесткое правило CLAUDE.md #12).
+- Применяет экспоненциальную задержку с джиттером на повторяемых статусах.
 
-### Retry defaults
+### Параметры повтора по умолчанию
 
 ```js
 export const RETRY_DEFAULTS = {
-  maxAttempts: 3, // 1 initial + 2 retries
+  maxAttempts: 3, // 1 начальная + 2 повтора
   baseMs: 500,
-  maxMs: 8000, // jitter can slightly exceed
+  maxMs: 8000, // джиттер может немного превышать
   jitter: true, // ±25%
   retryableStatuses: [408, 425, 429, 502, 503, 504],
   retryableErrorCodes: [
@@ -97,74 +96,73 @@ export const RETRY_DEFAULTS = {
 };
 ```
 
-### Global flags wired
+### Глобальные флаги подключены
 
-- `--retry` (default on) / `--no-retry`
-- `--retry-max <n>` (default 3) — total attempts
-- `--timeout <ms>` (default 30000) — per attempt
-- `--retry-on <csv>` — extra retryable statuses (e.g. `--retry-on 500`)
+- `--retry` (по умолчанию включено) / `--no-retry`
+- `--retry-max <n>` (по умолчанию 3) — общее количество попыток
+- `--timeout <ms>` (по умолчанию 30000) — на попытку
+- `--retry-on <csv>` — дополнительные повторяемые статусы (например, `--retry-on 500`)
 
-### Method semantics
+### Семантика методов
 
-- Mutations (`POST`/`PUT`/`DELETE`) retry **only** on idempotent-ish statuses
-  (`502`/`503`/`504`/`408`/network), never `409`/`422`. This avoids duplicate
-  side-effects.
-- `GET` retries all `RETRY_DEFAULTS.retryableStatuses`.
-- SSE / streaming does **not** auto-retry (operator decides).
-- Optional `--idempotency-key <uuid>` for extra-safe mutations.
+- Мутации (`POST`/`PUT`/`DELETE`) повторяются **только** на идемпотентных статусах
+  (`502`/`503`/`504`/`408`/сети), никогда `409`/`422`. Это предотвращает дублирование
+  побочных эффектов.
+- `GET` повторяется на всех `RETRY_DEFAULTS.retryableStatuses`.
+- SSE / потоковое передача **не** автоматически повторяется (оператор решает).
+- Необязательный `--idempotency-key <uuid>` для дополнительной безопасности мутаций.
 
-### Status → exit code map
+### Карта статус → код завершения
 
-| Status          | Exit | Retry?                         |
-| --------------- | ---- | ------------------------------ |
-| 200–299         | 0    | n/a                            |
-| 400             | 2    | no                             |
-| 401             | 4    | no                             |
-| 403             | 4    | no                             |
-| 404             | 2    | no                             |
-| 408             | 124  | **yes**                        |
-| 409             | 1    | no (mutations)                 |
-| 422             | 2    | no                             |
-| 425             | 1    | **yes**                        |
-| 429             | 5    | **yes** (respects Retry-After) |
-| 500             | 1    | configurable (default no)      |
-| 502 / 503 / 504 | 1    | **yes**                        |
-| Network errors  | 1    | **yes**                        |
-| Timeout         | 124  | **yes**                        |
+| Статус          | Код завершения | Повтор?                          |
+| --------------- | -------------- | -------------------------------- |
+| 200–299         | 0              | n/a                              |
+| 400             | 2              | нет                              |
+| 401             | 4              | нет                              |
+| 403             | 4              | нет                              |
+| 404             | 2              | нет                              |
+| 408             | 124            | **да**                           |
+| 409             | 1              | нет (мутации)                    |
+| 422             | 2              | нет                              |
+| 425             | 1              | **да**                           |
+| 429             | 5              | **да** (учитывает Retry-After)   |
+| 500             | 1              | настраиваемый (по умолчанию нет) |
+| 502 / 503 / 504 | 1              | **да**                           |
+| Ошибки сети     | 1              | **да**                           |
+| Тайм-аут        | 124            | **да**                           |
 
-## 6. Internationalization
+## 6. Интернационализация
 
-- Every user-facing string goes through `t("module.key", vars)`.
-- Catalogs live in `bin/cli/locales/{locale}.json` (nested objects).
-  42 files ship out-of-the-box: `en`, `pt-BR`, and 40 additional locales.
-  11 locales are scaffold-only (empty `{}`); all keys fall back to `en` automatically.
-- Detection order: `--lang` flag → `OMNIROUTE_LANG` env → `LC_ALL` → `LC_MESSAGES` → `LANG` → `en`.
-- Locale persisted via `config lang set <code>` — saves `OMNIROUTE_LANG` to `~/.omniroute/.env`.
-- Missing keys return the key itself (no crash).
-- PRs that add new strings **must** update `en.json` and `pt-BR.json`.
-  Other locale files are best-effort; missing keys silently fall back to `en`.
-- `normalize()` in `i18n.mjs` validates locale codes via `/^[a-zA-Z0-9-]+$/` to
-  prevent path traversal — never pass raw filesystem paths.
-- Canonical locale list: `config/i18n.json` — source of truth used by both CLI and
-  dashboard i18n pipelines.
+- Каждая строка, видимая пользователю, проходит через `t("module.key", vars)`.
+- Каталоги находятся в `bin/cli/locales/{locale}.json` (вложенные объекты).
+  По умолчанию поставляется 42 файла: `en`, `pt-BR` и 40 дополнительных локалей.
+  11 локалей являются только каркасами (пустые `{}`); все ключи автоматически возвращаются к `en`.
+- Порядок обнаружения: флаг `--lang` → `OMNIROUTE_LANG` env → `LC_ALL` → `LC_MESSAGES` → `LANG` → `en`.
+- Локаль сохраняется через `config lang set <code>` — сохраняет `OMNIROUTE_LANG` в `~/.omniroute/.env`.
+- Отсутствующие ключи возвращают сам ключ (без сбоя).
+- PR, добавляющие новые строки **должны** обновлять `en.json` и `pt-BR.json`.
+  Другие файлы локалей являются лучшими усилиями; отсутствующие ключи тихо возвращаются к `en`.
+- `normalize()` в `i18n.mjs` проверяет коды локалей через `/^[a-zA-Z0-9-]+$/` для
+  предотвращения обхода пути — никогда не передавайте необработанные пути файловой системы.
+- Канонический список локалей: `config/i18n.json` — источник истины, используемый как CLI, так и конвейерами i18n панели управления.
 
-### Adding a new locale file
+### Добавление нового файла локали
 
-1. Add entry to `config/i18n.json` with `code`, `english`, `native`, `flag`.
-2. Run `node bin/cli/scripts/generate-locales.mjs` — creates `bin/cli/locales/{code}.json`.
-3. Fill in translations (or leave as `{}` for en-fallback scaffold).
-4. The pre-commit hook `check-cli-i18n` will verify all `t()` keys exist in `en.json`.
+1. Добавьте запись в `config/i18n.json` с `code`, `english`, `native`, `flag`.
+2. Запустите `node bin/cli/scripts/generate-locales.mjs` — создает `bin/cli/locales/{code}.json`.
+3. Заполните переводы (или оставьте как `{}` для каркаса с возвратом к en).
+4. Пре-коммитный хук `check-cli-i18n` проверит, что все ключи `t()` существуют в `en.json`.
 
-## 7. Logs / output channels
+## 7. Журналы / каналы вывода
 
-- `stdout` — useful output (parseable when `--output json|jsonl|csv`).
-- `stderr` — progress, warnings, errors, spinners.
-- `--verbose` / `-V` — extra detail on stderr.
-- `--debug` — stack traces, request bodies (dev-mode only; redacts secrets).
+- `stdout` — полезный вывод (анализируемый при `--output json|jsonl|csv`).
+- `stderr` — прогресс, предупреждения, ошибки, спиннеры.
+- `--verbose` / `-V` — дополнительные детали на stderr.
+- `--debug` — трассировки стека, тела запросов (только в режиме разработки; реквизиты скрыты).
 
-## 8. Server-first / DB-fallback
+## 8. Сервер-первый / DB-резерв
 
-Single helper:
+Единственный помощник:
 
 ```js
 import { withRuntime } from "./runtime.mjs";
@@ -176,49 +174,48 @@ await withRuntime(async ({ kind, api, db }) => {
 });
 ```
 
-- `kind: "http"` when server is up (preferred). `api` is `apiFetch` bound to
-  the current profile/base-URL.
-- `kind: "db"` when server is offline. `db` exposes typed module exports:
+- `kind: "http"` когда сервер работает (предпочтительно). `api` — это `apiFetch`, привязанный к
+  текущему профилю/базовому URL.
+- `kind: "db"` когда сервер не в сети. `db` предоставляет типизированные экспорты модулей:
   - `db.combos` → `src/lib/db/combos.ts` (getCombos, getComboByName, createCombo,
     deleteComboByName, setActiveCombo, …)
   - `db.recovery` → `src/lib/db/recovery.ts` (countEncryptedCredentials,
     resetEncryptedColumns)
-- Mutations that require server **must** error with exit code `3` when the
-  server is down, never silently fall back.
-- **Never** write raw SQL in commands — always go through `src/lib/db/` modules.
-  The Semgrep rule at `.semgrep/rules/cli-no-sqlite.yaml` enforces this at commit time.
+- Мутации, которые требуют сервера **должны** выдавать ошибку с кодом выхода `3`, когда
+  сервер не в сети, никогда не возвращаться к резервному варианту молча.
+- **Никогда** не пишите SQL вручную в командах — всегда используйте модули `src/lib/db/`.
+  Правило Semgrep в `.semgrep/rules/cli-no-sqlite.yaml` обеспечивает это на этапе коммита.
 
-## 9. Audit of destructive actions
+## 9. Аудит разрушительных действий
 
-Commands that mutate state (delete, reset, `--force`) **must**:
+Команды, изменяющие состояние (удаление, сброс, `--force`) **должны**:
 
-- Ask for interactive confirmation (skipped with `--yes`).
-- POST to `/api/compliance/audit-log` when the server is up.
-- Support `--dry-run` (preview without effect).
+- Запрашивать интерактивное подтверждение (пропускается с `--yes`).
+- POST на `/api/compliance/audit-log` когда сервер работает.
+- Поддерживать `--dry-run` (предварительный просмотр без эффекта).
 
-## 10. Secrets
+## 10. Секреты
 
-- **Never** log secrets. Mask as `sk-***-xxx` via `maskSecret()` from
+- **Никогда** не регистрируйте секреты. Маскируйте как `sk-***-xxx` через `maskSecret()` из
   `bin/cli/output.mjs`.
-- **Never** accept a secret via positional without warning. Prefer:
+- **Никогда** не принимайте секрет через позиционный аргумент без предупреждения. Предпочитайте:
   - env (`OMNIROUTE_*_API_KEY`)
   - stdin (`--api-key-stdin`)
-  - interactive `askSecret()` (echo off — already implemented in `io.mjs`)
-- Secrets must not appear in `--verbose` / `--debug` output.
+  - интерактивный `askSecret()` (эхо выключено — уже реализовано в `io.mjs`)
+- Секреты не должны появляться в выводе `--verbose` / `--debug`.
 
-## 11. Testing baseline
+```
 
-- Every new command ships with at least one smoke test (happy path + one
-  error path).
-- Use `tests/unit/cli-*.test.ts` naming. Prefer `node:test` for CLI suites
-  (no extra deps).
-- Coverage target: ≥60% for `bin/cli/commands/`, ≥75% for `bin/cli/` overall
-  after Fase 8.
+## 11. Тестирование базового уровня
 
-## 12. References
+- Каждая новая команда поставляется хотя бы с одним smoke-тестом (happy path + один путь ошибки).
+- Используйте `tests/unit/cli-*.test.ts` для именования. Предпочитайте `node:test` для CLI-суит (без дополнительных зависимостей).
+- Цель покрытия: ≥60% для `bin/cli/commands/`, ≥75% для `bin/cli/` в целом после Фазы 8.
 
-- CLAUDE.md hard rules — especially #11 (publicCreds), #12 (error
-  sanitization), #13 (shell injection).
-- `docs/security/ERROR_SANITIZATION.md` — the only acceptable error shapes.
-- `tests/unit/cli-tools-i18n.test.ts` — current i18n infrastructure (pre-`t()`).
-- Commander.js docs — Options & subcommand patterns.
+## 12. Ссылки
+
+- CLAUDE.md жесткие правила — особенно #11 (publicCreds), #12 (очистка ошибок), #13 (инъекции в shell).
+- `docs/security/ERROR_SANITIZATION.md` — единственные допустимые формы ошибок.
+- `tests/unit/cli-tools-i18n.test.ts` — текущая инфраструктура i18n (до `t()`).
+- Документация Commander.js — шаблоны опций и подкоманд.
+```

@@ -1,67 +1,256 @@
-# OmniRoute Auto-Combo Engine (Русский)
+# AUTO-COMBO (Русский)
 
-🌐 **Languages:** 🇺🇸 [English](../../../../docs/AUTO-COMBO.md) · 🇸🇦 [ar](../../ar/docs/AUTO-COMBO.md) · 🇧🇬 [bg](../../bg/docs/AUTO-COMBO.md) · 🇧🇩 [bn](../../bn/docs/AUTO-COMBO.md) · 🇨🇿 [cs](../../cs/docs/AUTO-COMBO.md) · 🇩🇰 [da](../../da/docs/AUTO-COMBO.md) · 🇩🇪 [de](../../de/docs/AUTO-COMBO.md) · 🇪🇸 [es](../../es/docs/AUTO-COMBO.md) · 🇮🇷 [fa](../../fa/docs/AUTO-COMBO.md) · 🇫🇮 [fi](../../fi/docs/AUTO-COMBO.md) · 🇫🇷 [fr](../../fr/docs/AUTO-COMBO.md) · 🇮🇳 [gu](../../gu/docs/AUTO-COMBO.md) · 🇮🇱 [he](../../he/docs/AUTO-COMBO.md) · 🇮🇳 [hi](../../hi/docs/AUTO-COMBO.md) · 🇭🇺 [hu](../../hu/docs/AUTO-COMBO.md) · 🇮🇩 [id](../../id/docs/AUTO-COMBO.md) · 🇮🇹 [it](../../it/docs/AUTO-COMBO.md) · 🇯🇵 [ja](../../ja/docs/AUTO-COMBO.md) · 🇰🇷 [ko](../../ko/docs/AUTO-COMBO.md) · 🇮🇳 [mr](../../mr/docs/AUTO-COMBO.md) · 🇲🇾 [ms](../../ms/docs/AUTO-COMBO.md) · 🇳🇱 [nl](../../nl/docs/AUTO-COMBO.md) · 🇳🇴 [no](../../no/docs/AUTO-COMBO.md) · 🇵🇭 [phi](../../phi/docs/AUTO-COMBO.md) · 🇵🇱 [pl](../../pl/docs/AUTO-COMBO.md) · 🇵🇹 [pt](../../pt/docs/AUTO-COMBO.md) · 🇧🇷 [pt-BR](../../pt-BR/docs/AUTO-COMBO.md) · 🇷🇴 [ro](../../ro/docs/AUTO-COMBO.md) · 🇷🇺 [ru](../../ru/docs/AUTO-COMBO.md) · 🇸🇰 [sk](../../sk/docs/AUTO-COMBO.md) · 🇸🇪 [sv](../../sv/docs/AUTO-COMBO.md) · 🇰🇪 [sw](../../sw/docs/AUTO-COMBO.md) · 🇮🇳 [ta](../../ta/docs/AUTO-COMBO.md) · 🇮🇳 [te](../../te/docs/AUTO-COMBO.md) · 🇹🇭 [th](../../th/docs/AUTO-COMBO.md) · 🇹🇷 [tr](../../tr/docs/AUTO-COMBO.md) · 🇺🇦 [uk-UA](../../uk-UA/docs/AUTO-COMBO.md) · 🇵🇰 [ur](../../ur/docs/AUTO-COMBO.md) · 🇻🇳 [vi](../../vi/docs/AUTO-COMBO.md) · 🇨🇳 [zh-CN](../../zh-CN/docs/AUTO-COMBO.md)
+🌐 **Languages:** 🇺🇸 [English](../../../../routing/AUTO-COMBO.md) · 🇸🇦 [ar](../../../ar/docs/routing/AUTO-COMBO.md) · 🇦🇿 [az](../../../az/docs/routing/AUTO-COMBO.md) · 🇧🇬 [bg](../../../bg/docs/routing/AUTO-COMBO.md) · 🇧🇩 [bn](../../../bn/docs/routing/AUTO-COMBO.md) · 🇨🇿 [cs](../../../cs/docs/routing/AUTO-COMBO.md) · 🇩🇰 [da](../../../da/docs/routing/AUTO-COMBO.md) · 🇩🇪 [de](../../../de/docs/routing/AUTO-COMBO.md) · 🇪🇸 [es](../../../es/docs/routing/AUTO-COMBO.md) · 🇮🇷 [fa](../../../fa/docs/routing/AUTO-COMBO.md) · 🇫🇮 [fi](../../../fi/docs/routing/AUTO-COMBO.md) · 🇫🇷 [fr](../../../fr/docs/routing/AUTO-COMBO.md) · 🇮🇳 [gu](../../../gu/docs/routing/AUTO-COMBO.md) · 🇮🇱 [he](../../../he/docs/routing/AUTO-COMBO.md) · 🇮🇳 [hi](../../../hi/docs/routing/AUTO-COMBO.md) · 🇭🇺 [hu](../../../hu/docs/routing/AUTO-COMBO.md) · 🇮🇩 [id](../../../id/docs/routing/AUTO-COMBO.md) · 🇮🇩 [in](../../../in/docs/routing/AUTO-COMBO.md) · 🇮🇹 [it](../../../it/docs/routing/AUTO-COMBO.md) · 🇯🇵 [ja](../../../ja/docs/routing/AUTO-COMBO.md) · 🇰🇷 [ko](../../../ko/docs/routing/AUTO-COMBO.md) · 🇮🇳 [mr](../../../mr/docs/routing/AUTO-COMBO.md) · 🇲🇾 [ms](../../../ms/docs/routing/AUTO-COMBO.md) · 🇳🇱 [nl](../../../nl/docs/routing/AUTO-COMBO.md) · 🇳🇴 [no](../../../no/docs/routing/AUTO-COMBO.md) · 🇵🇭 [phi](../../../phi/docs/routing/AUTO-COMBO.md) · 🇵🇱 [pl](../../../pl/docs/routing/AUTO-COMBO.md) · 🇵🇹 [pt](../../../pt/docs/routing/AUTO-COMBO.md) · 🇧🇷 [pt-BR](../../../pt-BR/docs/routing/AUTO-COMBO.md) · 🇷🇴 [ro](../../../ro/docs/routing/AUTO-COMBO.md) · 🇸🇰 [sk](../../../sk/docs/routing/AUTO-COMBO.md) · 🇸🇪 [sv](../../../sv/docs/routing/AUTO-COMBO.md) · 🇰🇪 [sw](../../../sw/docs/routing/AUTO-COMBO.md) · 🇮🇳 [ta](../../../ta/docs/routing/AUTO-COMBO.md) · 🇮🇳 [te](../../../te/docs/routing/AUTO-COMBO.md) · 🇹🇭 [th](../../../th/docs/routing/AUTO-COMBO.md) · 🇹🇷 [tr](../../../tr/docs/routing/AUTO-COMBO.md) · 🇺🇦 [uk-UA](../../../uk-UA/docs/routing/AUTO-COMBO.md) · 🇵🇰 [ur](../../../ur/docs/routing/AUTO-COMBO.md) · 🇻🇳 [vi](../../../vi/docs/routing/AUTO-COMBO.md) · 🇨🇳 [zh-CN](../../../zh-CN/docs/routing/AUTO-COMBO.md)
 
 ---
 
-> Self-managing model chains with adaptive scoring
+---
 
-## How It Works
+title: "OmniRoute Auto-Combo Engine"
+version: 3.8.2
+lastUpdated: 2026-05-13
+---
 
-The Auto-Combo Engine dynamically selects the best provider/model for each request using a **6-factor scoring function**:
+# OmniRoute Auto-Combo Engine
 
-| Factor     | Weight | Description                                     |
-| :--------- | :----- | :---------------------------------------------- |
-| Quota      | 0.20   | Remaining capacity [0..1]                       |
-| Health     | 0.25   | Circuit breaker: CLOSED=1.0, HALF=0.5, OPEN=0.0 |
-| CostInv    | 0.20   | Inverse cost (cheaper = higher score)           |
-| LatencyInv | 0.15   | Inverse p95 latency (faster = higher)           |
-| TaskFit    | 0.10   | Model × task type fitness score                 |
-| Stability  | 0.10   | Low variance in latency/errors                  |
+> Самоуправляемые цепочки моделей с адаптивным скоррингом + авто-маршрутизация без конфигурации
 
-## Mode Packs
+## Авто-маршрутизация без конфигурации (`auto/` префикс)
 
-| Pack                    | Focus        | Key Weight       |
-| :---------------------- | :----------- | :--------------- |
-| 🚀 **Ship Fast**        | Speed        | latencyInv: 0.35 |
-| 💰 **Cost Saver**       | Economy      | costInv: 0.40    |
-| 🎯 **Quality First**    | Best model   | taskFit: 0.40    |
-| 📡 **Offline Friendly** | Availability | quota: 0.40      |
+> **НОВОЕ:** Создание комбо не требуется. Используйте префикс `auto/` напрямую в любом клиенте.
 
-## Self-Healing
+### Быстрые примеры
 
-- **Temporary exclusion**: Score < 0.2 → excluded for 5 min (progressive backoff, max 30 min)
-- **Circuit breaker awareness**: OPEN → auto-excluded; HALF_OPEN → probe requests
-- **Incident mode**: >50% OPEN → disable exploration, maximize stability
-- **Cooldown recovery**: After exclusion, first request is a "probe" with reduced timeout
+| Идентификатор модели | Вариант | Поведение                                                                                   |
+| -------------------- | ------- | ------------------------------------------------------------------------------------------- |
+| `auto`               | default | Все подключенные провайдеры, стратегия LKGP, сбалансированные веса                          |
+| `auto/coding`        | coding  | Веса с приоритетом качества, подходит для генерации кода                                    |
+| `auto/fast`          | fast    | Выбор с приоритетом низкой задержки                                                         |
+| `auto/cheap`         | cheap   | Оптимизация по стоимости (сначала дешевле)                                                  |
+| `auto/offline`       | offline | Провайдеры с наибольшим доступным квотом                                                    |
+| `auto/smart`         | smart   | Приоритет качества + увеличенный уровень исследования (10%) для лучшего обнаружения моделей |
+| `auto/lkgp`          | lkgp    | Явная LKGP (такая же, как `auto` по умолчанию)                                              |
+
+**Как использовать:**
+
+```bash
+# Любая IDE или CLI-инструмент, поддерживающий формат OpenAI
+Base URL: http://localhost:20128/v1
+API Key:  <your-endpoint-key>
+
+# В вашем коде/конфиге установите модель:
+model: "auto"                 # сбалансированный вариант по умолчанию
+model: "auto/coding"          # лучший для задач с кодом
+model: "auto/fast"            # самый быстрый доступный
+model: "auto/cheap"           # самый дешевый за токен
+```
+
+**Что происходит:**
+
+1. OmniRoute обнаруживает префикс `auto/` в `src/sse/handlers/chat.ts`
+2. Запрашивает все **активные подключения провайдеров** из базы данных
+3. Фильтрует те, у которых есть действительные учетные данные (API-ключ или OAuth-токен)
+4. Определяет модель для каждого подключения (`connection.defaultModel` или первую модель провайдера)
+5. Создает **виртуальное комбо** в памяти (не сохраняется в БД)
+6. Маршрутизирует с использованием профиля весов выбранного варианта + стратегии LKGP
+
+**Ключевые свойства:**
+
+- ✅ **Всегда включено:** Нет переключателя, нет создания комбо, нет необходимости в конфигурации
+- ✅ **Динамично:** Автоматически отражает текущие подключенные провайдеры
+- ✅ **Привязка к сессии:** LKGP обеспечивает приоритет последнего успешного провайдера
+- ✅ **Учет нескольких аккаунтов:** Каждое подключение провайдера становится отдельным кандидатом
+- ✅ **Нет записи в БД:** Виртуальное комбо существует только для запроса, нулевая нагрузка на сохранение
+
+**Внутри:**
+
+```txt
+Запрос: { model: "auto/coding" }
+   ↓
+src/sse/handlers/chat.ts обнаруживает префикс
+   ↓
+createVirtualAutoCombo('coding') → candidatePool из активных подключений
+   ↓
+handleComboChat (тот же движок, что и для сохраненных комбо)
+   ↓
+Авто-скорринг выбирает лучший провайдер/модель для каждого запроса
+```
+
+**Файлы реализации:**
+
+| Файл                                                      | Назначение                                       |
+| --------------------------------------------------------- | ------------------------------------------------ |
+| `open-sse/services/autoCombo/autoPrefix.ts`               | Парсер префикса (`parseAutoPrefix`)              |
+| `open-sse/services/autoCombo/virtualFactory.ts`           | Создает виртуальные объекты `AutoComboConfig`    |
+| `open-sse/services/autoCombo/providerRegistryAccessor.ts` | Тестовый хук для мокирования реестра провайдеров |
+| `src/sse/handlers/chat.ts`                                | Интеграция: авто-префикс short-circuit           |
+| `src/shared/constants/providers.ts`                       | Системная запись `SYSTEM_PROVIDERS.auto`         |
+
+## Как это работает (Сохраняемые Авто-Комбо)
+
+Движок Авто-Комбо динамически выбирает лучшего провайдера/модель для каждого запроса, используя **9-факторную функцию оценки** (определена в `open-sse/services/autoCombo/scoring.ts` → `DEFAULT_WEIGHTS`). Все веса суммируются в **1.0**.
+
+![Авто-Комбо 9-факторная оценка](../diagrams/exported/auto-combo-9factor.svg)
+
+> Источник: [diagrams/auto-combo-9factor.mmd](../diagrams/auto-combo-9factor.mmd)
+
+| Фактор             | Вес по умолчанию | Описание                                                                                                     |
+| :----------------- | :--------------- | :----------------------------------------------------------------------------------------------------------- |
+| `health`           | 0.22             | Оценка здоровья от автомата с защитой от перегрузки (CLOSED=1.0, HALF_OPEN=0.5, OPEN=0.0)                    |
+| `quota`            | 0.17             | Оставшийся квота / остаточная пропускная способность [0..1]                                                  |
+| `costInv`          | 0.17             | Обратная **смешанная** стоимость (60% входных + 40% выходных токенов, нормализовано) — дешевле = выше оценка |
+| `latencyInv`       | 0.13             | Обратная нормализованная p95 задержка — быстрее = выше оценка                                                |
+| `taskFit`          | 0.08             | Соответствие типу задачи (кодирование, рецензирование, планирование, анализ, отладка, документы)             |
+| `specificityMatch` | 0.08             | Соответствие между специфичностью запроса (подсказка манифеста) и уровнем модели                             |
+| `stability`        | 0.05             | Стабильность на основе дисперсии (низкая стандартное отклонение задержки / частота ошибок)                   |
+| `tierPriority`     | 0.05             | Приоритет уровня учетной записи — Ultra=1.0, Pro=0.67, Standard=0.33, Free=0.0                               |
+| `tierAffinity`     | 0.05             | Сродство между уровнем кандидата и рекомендуемым уровнем в манифесте                                         |
+
+**Сумма:** `0.22 + 0.17 + 0.17 + 0.13 + 0.08 + 0.08 + 0.05 + 0.05 + 0.05 = 1.0` (проверяется функцией `validateWeights()`).
+
+## Наборы режимов
+
+Четыре предустановленных профиля весов в `open-sse/services/autoCombo/modePacks.ts`. Каждый набор переопределяет веса по умолчанию, чтобы сместить выбор в сторону конкретной цели. Ниже приведены **полные таблицы весов для каждого набора** (каждая строка суммируется в 1.0).
+
+| Фактор       | ship-fast | cost-saver | quality-first | offline-friendly |
+| :----------- | :-------- | :--------- | :------------ | :--------------- |
+| quota        | 0.15      | 0.15       | 0.10          | **0.40**         |
+| health       | 0.30      | 0.20       | 0.20          | 0.30             |
+| costInv      | 0.05      | **0.40**   | 0.05          | 0.10             |
+| latencyInv   | **0.35**  | 0.05       | 0.05          | 0.05             |
+| taskFit      | 0.10      | 0.10       | **0.40**      | 0.00             |
+| stability    | 0.00      | 0.05       | 0.15          | 0.10             |
+| tierPriority | 0.05      | 0.05       | 0.05          | 0.05             |
+
+Примечания:
+
+- `tierAffinity` и `specificityMatch` не установлены в наборах режимов — `calculateScore()` обрабатывает их как `?? 0`, если они отсутствуют.
+- Акцент каждого набора в одном взгляде:
+  - **ship-fast** → latencyInv 0.35 + health 0.30 (низкая задержка, здоровые соединения)
+  - **cost-saver** → costInv 0.40 (дешевые токены выигрывают)
+  - **quality-first** → taskFit 0.40 + stability 0.15 (лучшая модель для задачи, стабильная)
+  - **offline-friendly** → quota 0.40 + health 0.30 (максимальная остаточная пропускная способность независимо от скорости/стоимости)
+
+## Все стратегии маршрутизации
+
+Комбо-движок OmniRoute поддерживает **14 стратегий маршрутизации** (объявленные в `src/shared/constants/routingStrategies.ts` → `ROUTING_STRATEGY_VALUES`). Движок Auto Combo сам по себе доступен под стратегией `auto`; остальные доступны для сохраненных комбо.
+
+| Стратегия           | Описание                                                                                     |
+| :------------------ | :------------------------------------------------------------------------------------------- |
+| `priority`          | Упорядоченный список целей с явным приоритетом                                               |
+| `weighted`          | Весовое случайное распределение по весу каждой цели                                          |
+| `round-robin`       | Циклический проход по целям в порядке                                                        |
+| `context-relay`     | Передача контекста между целями (длинные разговоры)                                          |
+| `fill-first`        | Заполнение квоты каждой цели перед переходом к следующей                                     |
+| `p2c`               | Балансировка нагрузки с использованием метода "степень двойки"                               |
+| `random`            | Равномерное случайное распределение                                                          |
+| `least-used`        | Выбор цели с наименьшей текущей нагрузкой                                                    |
+| `cost-optimized`    | Минимизация затрат на запрос с учетом каталоговых цен                                        |
+| `reset-aware` ⭐    | Приоритет по времени сброса квоты — более короткие окна сброса имеют более высокий приоритет |
+| `strict-random`     | Случайный выбор без дублирования повторов                                                    |
+| `auto`              | Использование оценки Auto Combo (9-фактор) — **рекомендуется**                               |
+| `lkgp`              | Последний известный хороший путь (липкий маршрут к последней успешной цели)                  |
+| `context-optimized` | Выбор цели, которая лучше всего подходит для текущего размера контекста                      |
+
+⭐ = Новое в версии 3.8.0
+
+## Виртуальная фабрика Auto-Combo
+
+Движок Auto Combo не требует предварительно определенных комбо. Вместо этого `open-sse/services/autoCombo/virtualFactory.ts` создает кандидатов на лету:
+
+1. Извлекает `getProviderConnections({ isActive: true })` (все активные подключения)
+2. Фильтрует те, у которых есть действительные учетные данные (API-ключ или не истекший OAuth-токен через `hasUsableOAuthToken()`)
+3. Сравнивает с `getProviderRegistry()` для проверки доступности модели и ценообразования
+4. Для каждой пары `(поставщик, модель, подключение)` создает `VirtualAutoComboCandidate`
+5. Выбирает `connection.defaultModel` (или первую модель из реестра) в качестве цели отправки
+6. Оценивает каждого кандидата с использованием 9-факторного `scorePool()` и весового пакета варианта
+7. Возвращает полученный в памяти `AutoComboConfig` для `handleComboChat()` — никогда не сохраняется в БД
+
+Это означает, что **добавление нового поставщика с включенным `auto/*` автоматически расширяет пул кандидатов** — без необходимости вручную редактировать комбо. Виртуальное комбо перестраивается при каждом запросе, поэтому новые или вновь здоровые подключения сразу же подхватываются.
+
+## Самовосстановление
+
+- **Временное исключение**: Оценка < 0.2 → исключено на 5 минут (прогрессивный откат, максимум 30 минут)
+- **Осведомленность о цепях отключения**: OPEN → автоматически исключено; HALF_OPEN → запросы для проверки
+- **Режим инцидента**: >50% OPEN → отключение исследования, максимизация стабильности
+- **Восстановление после охлаждения**: После исключения первый запрос является "пробным" с уменьшенным таймаутом
 
 ## Bandit Exploration
 
-5% of requests (configurable) are routed to random providers for exploration. Disabled in incident mode.
+5% запросов (настраивается) перенаправляются на случайных провайдеров для исследования. Отключается в режиме инцидента.
 
 ## API
 
-```bash
-# Create auto-combo
-curl -X POST http://localhost:20128/api/combos/auto \
-  -H "Content-Type: application/json" \
-  -d '{"id":"my-auto","name":"Auto Coder","candidatePool":["anthropic","google","openai"],"modePack":"ship-fast"}'
+**Нет выделенного эндпоинта `POST /api/combos/auto`** — Auto-Combo используется двумя способами:
 
-# List auto-combos
-curl http://localhost:20128/api/combos/auto
+1. **Zero-config (рекомендуется):** Отправьте любой запрос на завершение чата с `model: "auto"` или `model: "auto/<variant>"`. Виртуальная фабрика создает комбо для каждого запроса — нет сохранения, нет необходимости в вызовах API.
+
+2. **Сохраненное комбо с `strategy: "auto"`:** Создайте обычное комбо через `POST /api/combos` и установите `strategy: "auto"` плюс `config.auto.weights` / `config.auto.candidatePool`. Используется тот же движок оценки; комбо сохраняется в `combos` и может быть повторно использовано по ID.
+
+```bash
+# Zero-config использование (без создания комбо)
+curl -X POST http://localhost:20128/v1/chat/completions \
+  -H "Authorization: Bearer <key>" \
+  -H "Content-Type: application/json" \
+  -d '{"model":"auto/coding","messages":[{"role":"user","content":"Hello"}]}'
+
+# Сохраненное auto комбо через обычный эндпоинт комбо
+curl -X POST http://localhost:20128/api/combos \
+  -H "Content-Type: application/json" \
+  -d '{"id":"my-auto","name":"Auto Coder","strategy":"auto","config":{"auto":{"candidatePool":["anthropic","google","openai"],"weights":{"quota":0.15,"health":0.3,"costInv":0.05,"latencyInv":0.35,"taskFit":0.1,"stability":0,"tierPriority":0.05}}}}'
 ```
 
-## Task Fitness
+## Пригодность задачи
 
-30+ models scored across 6 task types (`coding`, `review`, `planning`, `analysis`, `debugging`, `documentation`). Supports wildcard patterns (e.g., `*-coder` → high coding score).
+30+ моделей оценены по 6 типам задач (`coding`, `review`, `planning`, `analysis`, `debugging`, `documentation`). Поддерживает шаблоны с подстановочными знаками (например, `*-coder` → высокая оценка кодирования).
 
-## Files
+## Auto Variants Recap
 
-| File                                         | Purpose                               |
-| :------------------------------------------- | :------------------------------------ |
-| `open-sse/services/autoCombo/scoring.ts`     | Scoring function & pool normalization |
-| `open-sse/services/autoCombo/taskFitness.ts` | Model × task fitness lookup           |
-| `open-sse/services/autoCombo/engine.ts`      | Selection logic, bandit, budget cap   |
-| `open-sse/services/autoCombo/selfHealing.ts` | Exclusion, probes, incident mode      |
-| `open-sse/services/autoCombo/modePacks.ts`   | 4 weight profiles                     |
-| `src/app/api/combos/auto/route.ts`           | REST API                              |
+Включая чистый `auto` (по умолчанию) плюс 6 значений `AutoVariant`, объявленных в `autoPrefix.ts`, есть **7 вызываемых идентификаторов модели**:
+
+`auto`, `auto/coding`, `auto/fast`, `auto/cheap`, `auto/offline`, `auto/smart`, `auto/lkgp`
+
+(`AutoVariant` сам перечисляет 6 значений; 7-й вариант — "без варианта" — чистый `auto` — обрабатывается `parseAutoPrefix()` как `variant: undefined`.)
+
+## Как уровни соответствуют Auto-Combo
+
+9-факторная функция оценки (`open-sse/services/autoCombo/scoring.ts`) рассматривает членство в уровне как один сигнал через вес `tierPriority`. Веса по умолчанию (из `DEFAULT_WEIGHTS`):
+
+| Фактор                            | Вес по умолчанию | Примечания                                                                     |
+| --------------------------------- | ---------------- | ------------------------------------------------------------------------------ |
+| Приоритет уровня                  | 0.05             | Премиум уровня 1 → более высокая оценка                                        |
+| Задержка (p50 обратная)           | 0.35             | Самый быстрый выигрывает                                                       |
+| Стоимость ($/1M обратная)         | 0.20             | Самый дешевый **смешанный** цена выигрывает (60% вход + 40% выход соотношение) |
+| Недавняя работоспособность/ошибки | 0.15             | Неработоспособные деприоритизированы                                           |
+| Оставшийся квота                  | 0.10             | Почти исчерпанные деприоритизированы                                           |
+| Соответствие окна контекста       | 0.08             | Штрафует короткие окна                                                         |
+| Пригодность задачи                | 0.10             | Кодирование → модели специалистов по кодированию                               |
+| Стабильность                      | 0.00             | Отключено по умолчанию                                                         |
+
+Уровень **не заставляет** сначала использовать уровень 1 — если задержка уровня 1 плохая или стоимость против качества неоптимальна, выигрывает уровень 2. Чтобы заставить порядок уровней, используйте стратегию комбо `priority` и расположите провайдеров по уровням.
+
+Чтобы сильно предпочесть уровень 1 (подписка), увеличьте вес `tierPriority`:
+
+```json
+{
+  "strategy": "auto",
+  "config": { "auto": { "weights": { "tierPriority": 0.3, "costInv": 0.05 } } }
+}
+```
+
+См. `docs/marketing/TIERS.md` для определений уровней и классификации провайдеров.
+
+## Файлы
+
+| Файл                                                      | Назначение                                                               |
+| :-------------------------------------------------------- | :----------------------------------------------------------------------- |
+| `open-sse/services/autoCombo/scoring.ts`                  | Функция оценки по 9 факторам, `DEFAULT_WEIGHTS`, нормализация пула       |
+| `open-sse/services/autoCombo/taskFitness.ts`              | Поиск соответствия модели × задача                                       |
+| `open-sse/services/autoCombo/engine.ts`                   | Логика выбора, бандит, ограничение бюджета                               |
+| `open-sse/services/autoCombo/selfHealing.ts`              | Исключение, пробы, режим инцидентов                                      |
+| `open-sse/services/autoCombo/modePacks.ts`                | 4 профиля весов (ship-fast, cost-saver, quality-first, offline-friendly) |
+| `open-sse/services/autoCombo/autoPrefix.ts`               | Парсер префикса `auto/` + 6 вариантов                                    |
+| `open-sse/services/autoCombo/virtualFactory.ts`           | Создает в памяти `AutoComboConfig` из живых подключений                  |
+| `open-sse/services/autoCombo/providerRegistryAccessor.ts` | Тестовый хук для имитации реестра провайдеров                            |
+| `src/shared/constants/routingStrategies.ts`               | `ROUTING_STRATEGY_VALUES` (14 стратегий)                                 |
+| `src/sse/handlers/chat.ts`                                | Интеграция: автопрефиксное короткое замыкание                            |

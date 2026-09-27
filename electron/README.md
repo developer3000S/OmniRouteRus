@@ -1,89 +1,89 @@
 # OmniRoute Electron Desktop App
 
-This directory contains the Electron desktop application wrapper for OmniRoute.
+Этот каталог содержит оболочку для настольного приложения Electron для OmniRoute.
 
-## Architecture (v1.6.4)
+## Архитектура (v1.6.4)
 
 ```
 electron/
-├── main.js          # Main process — window, tray, server lifecycle, CSP, IPC
-├── preload.js       # Preload script — secure IPC bridge with disposer pattern
-├── package.json     # Electron-specific dependencies & electron-builder config
-├── types.d.ts       # TypeScript definitions (AppInfo, ServerStatus, ElectronAPI)
-└── assets/          # Application icons and resources
+├── main.js          # Основной процесс — окно, трей, жизненный цикл сервера, CSP, IPC
+├── preload.js       # Прелоад скрипт — безопасный IPC мост с шаблоном disposer
+├── package.json     # Зависимости Electron & конфигурация electron-builder
+├── types.d.ts       # Определения TypeScript (AppInfo, ServerStatus, ElectronAPI)
+└── assets/          # Иконки приложения и ресурсы
 
 src/shared/hooks/
-└── useElectron.ts   # React hooks — useSyncExternalStore, zero re-renders
+└── useElectron.ts   # React хуки — useSyncExternalStore, нулевых ре-рендеров
 ```
 
-## Key Design Decisions
+## Ключевые архитектурные решения
 
-| Decision                      | Rationale                                                                                        |
-| ----------------------------- | ------------------------------------------------------------------------------------------------ |
-| `waitForServer()` polling     | Prevents blank screen on cold start — polls `http://localhost:PORT` before loading               |
-| `stdio: 'pipe'`               | Captures server stdout/stderr for logging + readiness detection (not `inherit`)                  |
-| Disposer pattern              | `onServerStatus()` returns `() => void` for precise listener cleanup (no `removeAllListeners`)   |
-| `useSyncExternalStore`        | Zero re-renders for `useIsElectron()` — no `useState` + `useEffect` cycle                        |
-| CSP via session headers       | `Content-Security-Policy` restricts `script-src`, `connect-src` etc. per Electron best practices |
-| Platform-conditional titlebar | `titleBarStyle: 'hiddenInset'` only on macOS; `default` on Windows/Linux                         |
+| Решение                              | Обоснование                                                                                          |
+| ------------------------------------ | ---------------------------------------------------------------------------------------------------- |
+| `waitForServer()` polling            | Предотвращает пустой экран при холодном запуске — опрашивает `http://localhost:PORT` перед загрузкой |
+| `stdio: 'pipe'`                      | Захватывает stdout/stderr сервера для логирования + обнаружения готовности (не `inherit`)            |
+| Шаблон disposer                      | `onServerStatus()` возвращает `() => void` для точного удаления слушателей (не `removeAllListeners`) |
+| `useSyncExternalStore`               | Нулевых ре-рендеров для `useIsElectron()` — нет `useState` + `useEffect` цикла                       |
+| CSP через заголовки сессии           | `Content-Security-Policy` ограничивает `script-src`, `connect-src` и т.д. по рекомендациям Electron  |
+| Платформо-зависимая панель заголовка | `titleBarStyle: 'hiddenInset'` только на macOS; `default` на Windows/Linux                           |
 
-## Development
+## Разработка
 
-### Prerequisites
+### Предварительные требования
 
-1. Build the Next.js app first:
+1. Сначала соберите приложение Next.js:
 
 ```bash
 npm run build
 ```
 
-2. Install Electron dependencies:
+2. Установите зависимости Electron:
 
 ```bash
 cd electron
 npm install
 ```
 
-### Running in Development
+### Запуск в режиме разработки
 
-1. Start the Next.js development server:
+1. Запустите сервер разработки Next.js:
 
 ```bash
 npm run dev
 ```
 
-2. In another terminal, start Electron:
+2. В другом терминале запустите Electron:
 
 ```bash
 cd electron
 npm run dev
 ```
 
-### Running in Production Mode
+### Запуск в производственном режиме
 
-1. Build Next.js in standalone mode:
+1. Соберите Next.js в standalone режиме:
 
 ```bash
 npm run build
 ```
 
-2. Start Electron:
+2. Запустите Electron:
 
 ```bash
 cd electron
 npm start
 ```
 
-## Building
+## Сборка
 
-### Build for Current Platform
+### Сборка для текущей платформы
 
 ```bash
 cd electron
 npm run build
 ```
 
-### Build for Specific Platforms
+### Сборка для конкретных платформ
 
 ```bash
 # Windows
@@ -96,155 +96,159 @@ npm run build:mac
 npm run build:linux
 ```
 
-## Output
+## Выход
 
-Built applications are placed in `dist-electron/`:
+Собранные приложения помещаются в `dist-electron/`:
 
-- Windows: `.exe` installer (NSIS) + portable `.exe`
-- macOS: `.dmg` installer (Intel + Apple Silicon)
+- Windows: Установщик `.exe` (NSIS) + переносимый `.exe`
+- macOS: Установщик `.dmg` (Intel + Apple Silicon)
 - Linux: `.AppImage`
 
-## Installation
+## Установка
 
 ### macOS
 
-1. Download the latest `.dmg` from the [Releases](https://github.com/diegosouzapw/OmniRoute/releases) page.
-2. Open the `.dmg` file.
-3. Drag `OmniRoute.app` to the Applications folder.
-4. Launch from Applications.
+1. Скачайте последний `.dmg` с [страницы релизов](https://github.com/diegosouzapw/OmniRoute/releases).
+2. Откройте файл `.dmg`.
+3. Перетащите `OmniRoute.app` в папку Applications.
+4. Запустите из Applications.
 
-> ⚠️ **Note:** The app is not signed with an Apple Developer certificate yet. If macOS blocks the app, run:
+> ⚠️ **Примечание:** Приложение пока не подписано сертификатом Apple Developer. Если macOS блокирует приложение, выполните:
+>
 > ```bash
 > xattr -cr /Applications/OmniRoute.app
 > ```
-> Or right-click the app → Open → Open (to bypass Gatekeeper on first launch).
+>
+> Или щелкните правой кнопкой по приложению → Открыть → Открыть (чтобы обойти Gatekeeper при первом запуске).
 
 ### Windows
 
-**Installer (Recommended):**
-1. Download `OmniRoute.Setup.*.exe` from [Releases](https://github.com/diegosouzapw/OmniRoute/releases).
-2. Run the installer.
-3. Launch from Start Menu or Desktop shortcut.
+**Установщик (Рекомендуется):**
 
-**Portable (No Installation):**
-1. Download `OmniRoute.exe` from [Releases](https://github.com/diegosouzapw/OmniRoute/releases).
-2. Run directly from any folder.
+1. Скачайте `OmniRoute.Setup.*.exe` с [страницы релизов](https://github.com/diegosouzapw/OmniRoute/releases).
+2. Запустите установщик.
+3. Запустите из меню "Пуск" или ярлыка на рабочем столе.
+
+**Портативная версия (Без установки):**
+
+1. Скачайте `OmniRoute.exe` с [страницы релизов](https://github.com/diegosouzapw/OmniRoute/releases).
+2. Запустите напрямую из любой папки.
 
 ### Linux
 
-1. Download the `.AppImage` from [Releases](https://github.com/diegosouzapw/OmniRoute/releases).
-2. Make it executable:
+1. Скачайте `.AppImage` с [страницы релизов](https://github.com/diegosouzapw/OmniRoute/releases).
+2. Сделайте его исполняемым:
    ```bash
    chmod +x OmniRoute-*.AppImage
    ```
-3. Run:
+3. Запустите:
    ```bash
    ./OmniRoute-*.AppImage
    ```
 
-## Features
+## Возможности
 
-- **Server Readiness** — Waits for health check before showing window
-- **System Tray** — Minimize to tray with quick actions (open, port change, quit)
-- **Port Management** — Change port from tray menu (server restarts automatically)
-- **Window Controls** — Custom minimize, maximize, close via IPC
-- **Content Security Policy** — Restrictive CSP via session headers
-- **Offline Support** — Bundled Next.js standalone server
-- **Single Instance** — Only one app instance can run at a time
+- **Готовность сервера** — Ожидает проверки состояния перед отображением окна
+- **Системный трей** — Сворачивание в трей с быстрыми действиями (открыть, изменить порт, выйти)
+- **Управление портами** — Изменение порта из меню трея (сервер перезапускается автоматически)
+- **Элементы управления окном** — Пользовательские минимизация, максимизация, закрытие через IPC
+- **Политика безопасности контента** — Ограничивающая CSP через заголовки сессии
+- **Поддержка офлайн-режима** — Встроенный автономный сервер Next.js
+- **Единственный экземпляр** — Может работать только один экземпляр приложения за раз
 
-## Configuration
+## Конфигурация
 
-### Environment Variables
+### Переменные окружения
 
-| Variable              | Default      | Description                       |
-| --------------------- | ------------ | --------------------------------- |
-| `OMNIROUTE_PORT`      | `20128`      | Server port                       |
-| `OMNIROUTE_MEMORY_MB` | `512`        | Node.js heap limit (64–16384 MB)  |
-| `NODE_ENV`            | `production` | Set to `development` for dev mode |
+| Переменная            | По умолчанию | Описание                                       |
+| --------------------- | ------------ | ---------------------------------------------- |
+| `OMNIROUTE_PORT`      | `20128`      | Порт сервера                                   |
+| `OMNIROUTE_MEMORY_MB` | `512`        | Ограничение кучи Node.js (64–16384 MB)         |
+| `NODE_ENV`            | `production` | Установите `development` для режима разработки |
 
-### Custom Icon
+### Пользовательская иконка
 
-Place your icons in `assets/`:
+Поместите свои иконки в `assets/`:
 
-- `icon.ico` — Windows icon (256×256)
-- `icon.icns` — macOS icon bundle
-- `icon.png` — Linux/general use (512×512)
-- `tray-icon.png` — System tray icon (16×16 or 32×32)
+- `icon.ico` — Иконка Windows (256×256)
+- `icon.icns` — Иконка macOS
+- `icon.png` — Иконка Linux/общего назначения (512×512)
+- `tray-icon.png` — Иконка системного трея (16×16 или 32×32)
 
-## IPC Channels
+## IPC Каналы
 
-### Invoke (Renderer → Main, async)
+### Вызов (Renderer → Main, асинхронный)
 
-| Channel          | Returns       | Description                                   |
-| ---------------- | ------------- | --------------------------------------------- |
-| `get-app-info`   | `AppInfo`     | App name, version, platform, isDev, port      |
-| `open-external`  | `void`        | Open URL in default browser (http/https only) |
-| `get-data-dir`   | `string`      | Get userData directory path                   |
-| `restart-server` | `{ success }` | Stop + restart server (5s timeout + SIGKILL)  |
+| Канал            | Возвращает    | Описание                                                 |
+| ---------------- | ------------- | -------------------------------------------------------- |
+| `get-app-info`   | `AppInfo`     | Имя приложения, версия, платформа, isDev, порт           |
+| `open-external`  | `void`        | Открыть URL в браузере по умолчанию (только http/https)  |
+| `get-data-dir`   | `string`      | Получить путь к директории userData                      |
+| `restart-server` | `{ success }` | Остановить + перезапустить сервер (таймаут 5с + SIGKILL) |
 
-### Send (Renderer → Main, fire-and-forget)
+### Отправка (Renderer → Main, fire-and-forget)
 
-| Channel           | Description                     |
-| ----------------- | ------------------------------- |
-| `window-minimize` | Minimize window                 |
-| `window-maximize` | Toggle maximize/restore         |
-| `window-close`    | Close window (minimize to tray) |
+| Канал             | Описание                                |
+| ----------------- | --------------------------------------- |
+| `window-minimize` | Свернуть окно                           |
+| `window-maximize` | Переключить максимизацию/восстановление |
+| `window-close`    | Закрыть окно (свернуть в трей)          |
 
-### Receive (Main → Renderer, events)
+### Получение (Main → Renderer, события)
 
-| Channel         | Payload        | Emitted When                              |
-| --------------- | -------------- | ----------------------------------------- |
-| `server-status` | `ServerStatus` | Server starts, stops, errors, or restarts |
-| `port-changed`  | `number`       | Port change via tray menu                 |
+| Канал           | Полезная нагрузка | Срабатывает при                                  |
+| --------------- | ----------------- | ------------------------------------------------ |
+| `server-status` | `ServerStatus`    | Запуск, остановка, ошибки или перезапуск сервера |
+| `port-changed`  | `number`          | Изменение порта через меню трея                  |
 
-> **Note**: Listeners return disposer functions for precise cleanup. See `useServerStatus` and `usePortChanged` hooks.
+> **Примечание**: Слушатели возвращают функции для точной очистки. См. хуки `useServerStatus` и `usePortChanged`.
 
-## Security
+## Безопасность
 
-| Feature           | Implementation                                                                  |
-| ----------------- | ------------------------------------------------------------------------------- |
-| Context Isolation | `contextIsolation: true` — renderer cannot access Node.js                       |
-| Node Integration  | `nodeIntegration: false` — no `require()` in renderer                           |
-| IPC Whitelist     | Channel names validated in preload via `safeInvoke`/`safeSend`/`safeOn`         |
-| URL Validation    | `shell.openExternal()` only allows `http:` / `https:` protocols                 |
-| CSP               | `Content-Security-Policy` header set via `session.webRequest.onHeadersReceived` |
-| Web Security      | `webSecurity: true` — same-origin policy enforced                               |
+| Функция            | Реализация                                                                                       |
+| ------------------ | ------------------------------------------------------------------------------------------------ |
+| Изоляция контекста | `contextIsolation: true` — рендерер не может получить доступ к Node.js                           |
+| Интеграция Node    | `nodeIntegration: false` — нет `require()` в рендерере                                           |
+| Белый список IPC   | Названия каналов проверяются в preload через `safeInvoke`/`safeSend`/`safeOn`                    |
+| Валидация URL      | `shell.openExternal()` разрешает только протоколы `http:` / `https:`                             |
+| CSP                | Заголовок `Content-Security-Policy` устанавливается через `session.webRequest.onHeadersReceived` |
+| Веб-безопасность   | `webSecurity: true` — применяется политика жесткой изоляции источников                           |
 
 ## React Hooks
 
-| Hook                   | Returns                         | Description                                      |
-| ---------------------- | ------------------------------- | ------------------------------------------------ |
-| `useIsElectron()`      | `boolean`                       | Zero-render detection via `useSyncExternalStore` |
-| `useElectronAppInfo()` | `{ appInfo, loading, error }`   | App info from main process                       |
-| `useDataDir()`         | `{ dataDir, loading, error }`   | User data directory                              |
-| `useWindowControls()`  | `{ minimize, maximize, close }` | Window control actions                           |
-| `useOpenExternal()`    | `{ openExternal }`              | Open URLs in browser                             |
-| `useServerControls()`  | `{ restart, restarting }`       | Server restart control                           |
-| `useServerStatus(cb)`  | Disposer                        | Listen for server status events                  |
-| `usePortChanged(cb)`   | Disposer                        | Listen for port change events                    |
+| Hook                   | Возвращает                      | Описание                                                |
+| ---------------------- | ------------------------------- | ------------------------------------------------------- |
+| `useIsElectron()`      | `boolean`                       | Обнаружение без рендеринга через `useSyncExternalStore` |
+| `useElectronAppInfo()` | `{ appInfo, loading, error }`   | Информация о приложении из основного процесса           |
+| `useDataDir()`         | `{ dataDir, loading, error }`   | Пользовательский каталог данных                         |
+| `useWindowControls()`  | `{ minimize, maximize, close }` | Действия управления окном                               |
+| `useOpenExternal()`    | `{ openExternal }`              | Открытие URL в браузере                                 |
+| `useServerControls()`  | `{ restart, restarting }`       | Управление перезапуском сервера                         |
+| `useServerStatus(cb)`  | Disposer                        | Прослушивание событий статуса сервера                   |
+| `usePortChanged(cb)`   | Disposer                        | Прослушивание событий изменения порта                   |
 
-## Troubleshooting
+## Устранение неполадок
 
-### App Won't Start
+### Приложение не запускается
 
-1. Check if port 20128 is available: `lsof -i :20128`
-2. Check console logs for `[Electron]` prefix
-3. Verify the build output exists in `.next/standalone`
+1. Проверьте, доступен ли порт 20128: `lsof -i :20128`
+2. Проверьте журналы консоли на наличие префикса `[Electron]`
+3. Убедитесь, что выходные данные сборки существуют в `.next/standalone`
 
-### White Screen
+### Белый экран
 
-1. Verify Next.js build exists — server readiness waits 30s max
-2. Check `[Server]` and `[Server:err]` log output
-3. Look for CSP violations in developer console
+1. Убедитесь, что сборка Next.js существует — готовность сервера ожидает максимум 30 секунд
+2. Проверьте вывод журнала `[Server]` и `[Server:err]`
+3. Ищите нарушения CSP в консоли разработчика
 
-### Build Fails
+### Сборка не удалась
 
-Ensure you have build tools installed:
+Убедитесь, что у вас установлены инструменты сборки:
 
 - Windows: Visual Studio Build Tools
 - macOS: Xcode Command Line Tools
 - Linux: `build-essential`, `libsecret-1-dev`
 
-## License
+## Лицензия
 
 MIT

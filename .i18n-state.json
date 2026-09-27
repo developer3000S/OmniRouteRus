@@ -206,12 +206,667 @@
       }
     },
     "docs/architecture/ARCHITECTURE.md": {
-      "source_hash": "f9b4f17a1b0331fb5500768943438411ed88a38278381680caacc37c90bfb869",
+      "source_hash": "3879b1dba194a3c9cb6a168732999ecd9d0963c848857cf43d66667e05941d17",
       "locales": {
         "pt-BR": {
           "source_hash": "f9b4f17a1b0331fb5500768943438411ed88a38278381680caacc37c90bfb869",
           "target_hash": "e320c6172a88a0f3b698ba1a2e9e938424ece66625765395837bcf55cc29454e",
           "updated_at": "2026-05-22T20:13:39.183Z"
+        },
+        "ru": {
+          "source_hash": "3879b1dba194a3c9cb6a168732999ecd9d0963c848857cf43d66667e05941d17",
+          "target_hash": "886d655f693f498f296e49d0261ac1f9def103d45ed7c68fb5492e40833650b0",
+          "updated_at": "2026-09-26T06:22:02.132Z"
+        }
+      }
+    },
+    "CODE_OF_CONDUCT.md": {
+      "source_hash": "13fe92a869d48cdebdf298ea364821693233510fc41c44b56e97180d49636e5d",
+      "locales": {
+        "ru": {
+          "source_hash": "13fe92a869d48cdebdf298ea364821693233510fc41c44b56e97180d49636e5d",
+          "target_hash": "7bcc709ff22fdc90c7958d22774718d70d94c3f161a39c86f359b5f5015f6b45",
+          "updated_at": "2026-09-26T06:16:21.503Z"
+        }
+      }
+    },
+    "SECURITY.md": {
+      "source_hash": "af306495d43b9fb20ab3713b83ec060dbd436d4805def802144a528a698d846a",
+      "locales": {
+        "ru": {
+          "source_hash": "af306495d43b9fb20ab3713b83ec060dbd436d4805def802144a528a698d846a",
+          "target_hash": "cfb38a5b9a038da452ea6d6c8bd522907b6d5246b6a96761d34e80e137b000b8",
+          "updated_at": "2026-09-26T06:16:37.283Z"
+        }
+      }
+    },
+    "CONTRIBUTING.md": {
+      "source_hash": "1a464e19328804b62a48c9de8256083f1ab547da7b7b97875da3b587c670f227",
+      "locales": {
+        "ru": {
+          "source_hash": "1a464e19328804b62a48c9de8256083f1ab547da7b7b97875da3b587c670f227",
+          "target_hash": "156e8cd2ba1f3ca68906701a8d0f25546cb8da01a3dd2f2d430841b88d1a81a6",
+          "updated_at": "2026-09-26T06:18:46.197Z"
+        }
+      }
+    },
+    "README.md": {
+      "source_hash": "d24235a32df18af435f597e6f27fbf642f9221a49401177979cb29b6a2442353",
+      "locales": {
+        "ru": {
+          "source_hash": "d24235a32df18af435f597e6f27fbf642f9221a49401177979cb29b6a2442353",
+          "target_hash": "376de6114d33e79691bef34696b6ad0293d4aaeedc891db291fc942111ca74e7",
+          "updated_at": "2026-09-26T06:56:02.696Z"
+        }
+      }
+    },
+    "docs/AGENTROUTER.md": {
+      "source_hash": "b90338fe65a36484680f63478a16e71109627a45662c12ea0876044b1d8b5cbb",
+      "locales": {
+        "ru": {
+          "source_hash": "b90338fe65a36484680f63478a16e71109627a45662c12ea0876044b1d8b5cbb",
+          "target_hash": "0dfbc0be9185ae2ed017242cd2dc8c73e2aa51cc73bf23aa4a07f00540714d57",
+          "updated_at": "2026-09-26T06:18:29.625Z"
+        }
+      }
+    },
+    "docs/AUTO-COMBO.md": {
+      "source_hash": "ee9961f1ee22edd4a4f775b8029998abdc24c82a7b138af44736659846b25a51",
+      "locales": {
+        "ru": {
+          "source_hash": "ee9961f1ee22edd4a4f775b8029998abdc24c82a7b138af44736659846b25a51",
+          "target_hash": "49bd62a0971e0f4e8066930517ef7bbe48ef73f05f67c34c877eb93672e79977",
+          "updated_at": "2026-09-26T06:18:34.168Z"
+        }
+      }
+    },
+    "docs/PROVIDERS.md": {
+      "source_hash": "443bff9f2f577b677b774c29fbeb327dbdaf1066bb2a075a74fd7c2e16047acc",
+      "locales": {
+        "ru": {
+          "source_hash": "443bff9f2f577b677b774c29fbeb327dbdaf1066bb2a075a74fd7c2e16047acc",
+          "target_hash": "2490ef8e6c7f76b3ed195d61d170006558b4f7443b656695ec2b50893e680ffd",
+          "updated_at": "2026-09-26T06:18:44.132Z"
+        }
+      }
+    },
+    "docs/architecture/AUTHZ_GUIDE.md": {
+      "source_hash": "3f54d26e72d172eca9c7b224fe3e8328ed407828c5ed3e40edf63f1ef3b48f15",
+      "locales": {
+        "ru": {
+          "source_hash": "3f54d26e72d172eca9c7b224fe3e8328ed407828c5ed3e40edf63f1ef3b48f15",
+          "target_hash": "84b6fd3e1397802d35023b19db511c4c092a52492d988888afcc17d0124a9c4e",
+          "updated_at": "2026-09-26T06:19:20.408Z"
+        }
+      }
+    },
+    "docs/architecture/CODEBASE_DOCUMENTATION.md": {
+      "source_hash": "c9a214dd7e2b5d3c40ba52726865708a59130a9ae40464b893b00b0ab95d2bdd",
+      "locales": {
+        "ru": {
+          "source_hash": "c9a214dd7e2b5d3c40ba52726865708a59130a9ae40464b893b00b0ab95d2bdd",
+          "target_hash": "e5b1bbeb8206f0c2b1a2384a8ebf703cffcf0d63a6ceb4899f2831067ff6495d",
+          "updated_at": "2026-09-26T06:20:25.855Z"
+        }
+      }
+    },
+    "docs/architecture/REPOSITORY_MAP.md": {
+      "source_hash": "531d22499d479294c67c359b5d184c911387ddc3da106396f65e387a8796496b",
+      "locales": {
+        "ru": {
+          "source_hash": "531d22499d479294c67c359b5d184c911387ddc3da106396f65e387a8796496b",
+          "target_hash": "036c020adaa84b3c5f130ca207b00e6042ca04f29028cc66136c80977458163e",
+          "updated_at": "2026-09-26T06:21:00.538Z"
+        }
+      }
+    },
+    "docs/architecture/RESILIENCE_GUIDE.md": {
+      "source_hash": "76328c2fed871fe10ec18e38f7427fd8101a0d85b6b6605ebe5e5303a9dd113c",
+      "locales": {
+        "ru": {
+          "source_hash": "76328c2fed871fe10ec18e38f7427fd8101a0d85b6b6605ebe5e5303a9dd113c",
+          "target_hash": "4b4372cde6cc027b96f65fc8b10b40c37d128b45000f0ed949c9444a2a050b08",
+          "updated_at": "2026-09-26T06:20:37.361Z"
+        }
+      }
+    },
+    "docs/comparison/OMNIROUTE_VS_ALTERNATIVES.md": {
+      "source_hash": "fe20d4d665dbae91838b102e54965b41c6558f2b599b22e3f2c643723cc3177d",
+      "locales": {
+        "ru": {
+          "source_hash": "fe20d4d665dbae91838b102e54965b41c6558f2b599b22e3f2c643723cc3177d",
+          "target_hash": "dba1f106ca29e41daf7c9b65b00d0d03f69cc4dff5ae6d2b99db79460e73d5c7",
+          "updated_at": "2026-09-26T06:20:40.216Z"
+        }
+      }
+    },
+    "docs/compression/COMPRESSION_ENGINES.md": {
+      "source_hash": "f63f0626ca4bfc9107fc44a58dc0b03d0a102960851c575e697162649d200d04",
+      "locales": {
+        "ru": {
+          "source_hash": "f63f0626ca4bfc9107fc44a58dc0b03d0a102960851c575e697162649d200d04",
+          "target_hash": "d1727c0f7e8d164c1c8235e41c99f0055d567d42cad6290c4f4e4adff1fa8054",
+          "updated_at": "2026-09-26T06:21:09.401Z"
+        }
+      }
+    },
+    "docs/compression/COMPRESSION_GUIDE.md": {
+      "source_hash": "87b6642a2e024c26642957c5a2abb44d16cfc1463d03df039436b5b9e9a0066f",
+      "locales": {
+        "ru": {
+          "source_hash": "87b6642a2e024c26642957c5a2abb44d16cfc1463d03df039436b5b9e9a0066f",
+          "target_hash": "b928fd26cc6e74c537bbe7e80e109b52d3986053fc32f51af3c444b9ea2286f7",
+          "updated_at": "2026-09-26T06:21:25.563Z"
+        }
+      }
+    },
+    "docs/compression/COMPRESSION_LANGUAGE_PACKS.md": {
+      "source_hash": "201ef1daf845ecd58c9e328c06d47309af6161a6900db2790a0395feb16b2ffe",
+      "locales": {
+        "ru": {
+          "source_hash": "201ef1daf845ecd58c9e328c06d47309af6161a6900db2790a0395feb16b2ffe",
+          "target_hash": "79c6ad54fb84e425f417be522a01230d167c168cc36cde13d884e283dad6e409",
+          "updated_at": "2026-09-26T06:21:17.164Z"
+        }
+      }
+    },
+    "docs/compression/COMPRESSION_RULES_FORMAT.md": {
+      "source_hash": "02dc91fbf0701c0ed22731bce84dca8e43a290c23ab2a8b4630c55b56a145a58",
+      "locales": {
+        "ru": {
+          "source_hash": "02dc91fbf0701c0ed22731bce84dca8e43a290c23ab2a8b4630c55b56a145a58",
+          "target_hash": "23a73489dd8b4b46ed2e0f5fe16bd55d619e6547d6ad57b7ea8f35f4227008b3",
+          "updated_at": "2026-09-26T06:21:38.178Z"
+        }
+      }
+    },
+    "docs/compression/RTK_COMPRESSION.md": {
+      "source_hash": "d1735749210803c581dda0f1c677a3fec796894b6b9115d05d50ae1c1af83bf2",
+      "locales": {
+        "ru": {
+          "source_hash": "d1735749210803c581dda0f1c677a3fec796894b6b9115d05d50ae1c1af83bf2",
+          "target_hash": "9d6c7b186afffec184d85e6d453adeab427ba479ffc4bd19bd6bcc3ad2a3309a",
+          "updated_at": "2026-09-26T06:21:39.692Z"
+        }
+      }
+    },
+    "docs/dev/plugins.md": {
+      "source_hash": "ad7fee4501ecaec2a373e423f7d6c5c8b98daba2e789da62691bc0ebdc86c4b1",
+      "locales": {
+        "ru": {
+          "source_hash": "ad7fee4501ecaec2a373e423f7d6c5c8b98daba2e789da62691bc0ebdc86c4b1",
+          "target_hash": "be93f430f3153fbdb43df975a3ba067efc504c2025dfac204ddef7f9d789ad52",
+          "updated_at": "2026-09-26T06:21:33.485Z"
+        }
+      }
+    },
+    "docs/frameworks/A2A-SERVER.md": {
+      "source_hash": "0dc076e74df920f777d6d150a864ac20655452d065398693d10704c73c84420e",
+      "locales": {
+        "ru": {
+          "source_hash": "0dc076e74df920f777d6d150a864ac20655452d065398693d10704c73c84420e",
+          "target_hash": "904ee6ef2732992d51e913355fb10e1e5af61ccc7b76b41621d69a17e3387fff",
+          "updated_at": "2026-09-26T06:22:06.284Z"
+        }
+      }
+    },
+    "docs/frameworks/AGENT_PROTOCOLS_GUIDE.md": {
+      "source_hash": "e980e3d9e5b32a3ec86c6fb8e14f7cbebe11e6e9bc29392d524785786c1b3cb7",
+      "locales": {
+        "ru": {
+          "source_hash": "e980e3d9e5b32a3ec86c6fb8e14f7cbebe11e6e9bc29392d524785786c1b3cb7",
+          "target_hash": "c936b566c23d004bc8780157386320c1c5bf3d91a34e5d4ea22cf3e2afbeb58e",
+          "updated_at": "2026-09-26T06:22:28.126Z"
+        }
+      }
+    },
+    "docs/frameworks/CLOUD_AGENT.md": {
+      "source_hash": "e6679858744d2aed2deb2104d9ab6037b4e5cdb785672fef43c735232f28c28f",
+      "locales": {
+        "ru": {
+          "source_hash": "e6679858744d2aed2deb2104d9ab6037b4e5cdb785672fef43c735232f28c28f",
+          "target_hash": "342f961164ec5f97a79a5309c955c276bab478640d52897eb3fa11b81e2dfc0f",
+          "updated_at": "2026-09-26T06:22:43.334Z"
+        }
+      }
+    },
+    "docs/frameworks/EVALS.md": {
+      "source_hash": "99223ccd27ec8d6d9eb6afe18244165d3259651f41f61d7e70a76ed1759b3299",
+      "locales": {
+        "ru": {
+          "source_hash": "99223ccd27ec8d6d9eb6afe18244165d3259651f41f61d7e70a76ed1759b3299",
+          "target_hash": "19f7fa10e0ba1c59676c8bcc6619b3627c2bdc805421759850f0dac7ab8ab5dc",
+          "updated_at": "2026-09-26T06:22:42.134Z"
+        }
+      }
+    },
+    "docs/frameworks/GAMIFICATION.md": {
+      "source_hash": "d44cbd70850b2b5760e24bb24f002e4b47c112bf370e5a2e1bd04bf513bd0d96",
+      "locales": {
+        "ru": {
+          "source_hash": "d44cbd70850b2b5760e24bb24f002e4b47c112bf370e5a2e1bd04bf513bd0d96",
+          "target_hash": "1999de6cff5455c3ff52dda253cf90e29b5435d07739702e7de5ed94bc849ee1",
+          "updated_at": "2026-09-26T06:56:03.206Z"
+        }
+      }
+    },
+    "docs/frameworks/MCP-SERVER.md": {
+      "source_hash": "3c49dc4fea6f3fa24492a061692c8348ffd73125e1f7eaa522cc528719a9b53f",
+      "locales": {
+        "ru": {
+          "source_hash": "3c49dc4fea6f3fa24492a061692c8348ffd73125e1f7eaa522cc528719a9b53f",
+          "target_hash": "f47c59637839487333207d32b483bd7a59e5ed3d423a6849c5bea618cf3fb594",
+          "updated_at": "2026-09-26T06:57:13.209Z"
+        }
+      }
+    },
+    "docs/frameworks/MEMORY.md": {
+      "source_hash": "34c1d8037e51d1fc07774ffab2e5d3159bf3475faa69a6faee0af7294c47751c",
+      "locales": {
+        "ru": {
+          "source_hash": "34c1d8037e51d1fc07774ffab2e5d3159bf3475faa69a6faee0af7294c47751c",
+          "target_hash": "968c387b3c9d515824fcd95802f217b3ce7a643fc12a6fd76154629b87b4d0f3",
+          "updated_at": "2026-09-26T06:57:02.035Z"
+        }
+      }
+    },
+    "docs/frameworks/OPENCODE.md": {
+      "source_hash": "5bc1cddf40ccb67a4e92179ef9e200afbabf665e4e4b46ea32eb96f9e74f2491",
+      "locales": {
+        "ru": {
+          "source_hash": "5bc1cddf40ccb67a4e92179ef9e200afbabf665e4e4b46ea32eb96f9e74f2491",
+          "target_hash": "7aa5029cb84ed5a6e33a52e6f13f6358c87eb8b7887ea5a043d6c76459d970b8",
+          "updated_at": "2026-09-26T06:23:16.007Z"
+        }
+      }
+    },
+    "docs/frameworks/SKILLS.md": {
+      "source_hash": "357d834920eaa6da77dac1d49ee0c2ba9b915182f3fdbbe21e6e8cc0036f9024",
+      "locales": {
+        "ru": {
+          "source_hash": "357d834920eaa6da77dac1d49ee0c2ba9b915182f3fdbbe21e6e8cc0036f9024",
+          "target_hash": "dff3ce6be36a52a6a52dbafab7449e8527c54fb476723ffdbbd67d8f349dadfc",
+          "updated_at": "2026-09-26T06:58:04.040Z"
+        }
+      }
+    },
+    "docs/frameworks/WEBHOOKS.md": {
+      "source_hash": "1e1b9a68b5711382f13ffc5904ca6ffd629ae0747fee9d556af4982b473b159b",
+      "locales": {
+        "ru": {
+          "source_hash": "1e1b9a68b5711382f13ffc5904ca6ffd629ae0747fee9d556af4982b473b159b",
+          "target_hash": "8c9ccad9d86a3b37032cb47d58f912646743cff78b281b7ba1164c2745f6e7df",
+          "updated_at": "2026-09-26T06:27:15.518Z"
+        }
+      }
+    },
+    "docs/guides/DOCKER_GUIDE.md": {
+      "source_hash": "f317b153d2c68d996408c88b8b8f50251d9f5c04260c32b04d953bbd9906fb60",
+      "locales": {
+        "ru": {
+          "source_hash": "f317b153d2c68d996408c88b8b8f50251d9f5c04260c32b04d953bbd9906fb60",
+          "target_hash": "4d28fccd8d24fbd3896b56610edd679275882a06a82e4d9b49c7b73a10c3ae11",
+          "updated_at": "2026-09-26T06:27:05.519Z"
+        }
+      }
+    },
+    "docs/guides/ELECTRON_GUIDE.md": {
+      "source_hash": "319f48fa5cfb3834d541cb1d3ab6cfb53e58aba658da6ca1f9b31b9c4e8dbbcf",
+      "locales": {
+        "ru": {
+          "source_hash": "319f48fa5cfb3834d541cb1d3ab6cfb53e58aba658da6ca1f9b31b9c4e8dbbcf",
+          "target_hash": "c40514ee6c87d75cbc3c99393052d67ca9096f0c6d448abfbc23ab9a3edab559",
+          "updated_at": "2026-09-26T06:27:05.908Z"
+        }
+      }
+    },
+    "docs/guides/FEATURES.md": {
+      "source_hash": "344c85abb7ea474b57a6217706d6a25febc739ee3b81c14563c766757687e646",
+      "locales": {
+        "ru": {
+          "source_hash": "344c85abb7ea474b57a6217706d6a25febc739ee3b81c14563c766757687e646",
+          "target_hash": "697167a250a58379956fff0ad83f2c03e80a1c54b6785f7c55267e3510a2c0dd",
+          "updated_at": "2026-09-26T06:27:50.207Z"
+        }
+      }
+    },
+    "docs/guides/KIRO_SETUP.md": {
+      "source_hash": "7d9f2ce8a6b726d92b7bd57ee4abd8a2111e3c6fadfcfc2c4d12800c82b6bfa0",
+      "locales": {
+        "ru": {
+          "source_hash": "7d9f2ce8a6b726d92b7bd57ee4abd8a2111e3c6fadfcfc2c4d12800c82b6bfa0",
+          "target_hash": "cccb36734e72e97fd791325fef606f5feef3dce297012de1ce9aa4d6d68650ba",
+          "updated_at": "2026-09-26T06:27:22.903Z"
+        }
+      }
+    },
+    "docs/guides/PWA_GUIDE.md": {
+      "source_hash": "566bf084fd936f35c05fe530ee4a111520f060dfd3d4e513c77b618929649221",
+      "locales": {
+        "ru": {
+          "source_hash": "566bf084fd936f35c05fe530ee4a111520f060dfd3d4e513c77b618929649221",
+          "target_hash": "774d1197250ddeb6d775bf3ade3cf63978d535d0eaaec5d3dd1eb3819052bcf0",
+          "updated_at": "2026-09-26T06:27:36.956Z"
+        }
+      }
+    },
+    "docs/guides/SETUP_GUIDE.md": {
+      "source_hash": "24928355d8cc336b8f41e08ef32a1504830d0e35545b9428448c4005c6d595bb",
+      "locales": {
+        "ru": {
+          "source_hash": "24928355d8cc336b8f41e08ef32a1504830d0e35545b9428448c4005c6d595bb",
+          "target_hash": "5c159367a0cb92451d50fcd214f8a4b73c12e861ed6e9ae0bab90b90af700b10",
+          "updated_at": "2026-09-26T06:27:56.158Z"
+        }
+      }
+    },
+    "docs/guides/TERMUX_GUIDE.md": {
+      "source_hash": "6b0a395476a854c638dafd576b328ea0f7c41fb92560fdbb27e536717b0eba5e",
+      "locales": {
+        "ru": {
+          "source_hash": "6b0a395476a854c638dafd576b328ea0f7c41fb92560fdbb27e536717b0eba5e",
+          "target_hash": "3c927b0d65f3b7342b11e96628f6c173f4a418fbdfa2473f9a450e5ddd0e1535",
+          "updated_at": "2026-09-26T06:27:33.467Z"
+        }
+      }
+    },
+    "docs/guides/TROUBLESHOOTING.md": {
+      "source_hash": "83b10f0b107810d2d2744170f89f8f18d9168030ec5c1df23c1718271ac16943",
+      "locales": {
+        "ru": {
+          "source_hash": "83b10f0b107810d2d2744170f89f8f18d9168030ec5c1df23c1718271ac16943",
+          "target_hash": "6feb6e1cc49a46937cd769ac2be3cb75cb9b0f99cb5cc544644e6ab5851b45d7",
+          "updated_at": "2026-09-26T06:29:05.643Z"
+        }
+      }
+    },
+    "docs/guides/UNINSTALL.md": {
+      "source_hash": "2136af83d61542c864699d7c92e4a381cfe3ce98fc67e1ccc71a5602abdcef60",
+      "locales": {
+        "ru": {
+          "source_hash": "2136af83d61542c864699d7c92e4a381cfe3ce98fc67e1ccc71a5602abdcef60",
+          "target_hash": "4f849a5f84fb395c724218721e1fb53e378a0941d1d60c07d83841d5a87d72b0",
+          "updated_at": "2026-09-26T06:27:58.982Z"
+        }
+      }
+    },
+    "docs/guides/USER_GUIDE.md": {
+      "source_hash": "ff537b8f0508b987ad87b4ab6ffa9e63e21e9f61ee24f9850ed6452d12f16790",
+      "locales": {
+        "ru": {
+          "source_hash": "ff537b8f0508b987ad87b4ab6ffa9e63e21e9f61ee24f9850ed6452d12f16790",
+          "target_hash": "625ed6e820847d2b77a875f0de5d86847247e0cce7a45c3cc6829acba089bfc3",
+          "updated_at": "2026-09-26T06:30:46.917Z"
+        }
+      }
+    },
+    "docs/marketing/TIERS.md": {
+      "source_hash": "3cc80c61e365498f610cb38fb90227dc0c51be5f13e1a259fbd9d8836300fdc5",
+      "locales": {
+        "ru": {
+          "source_hash": "3cc80c61e365498f610cb38fb90227dc0c51be5f13e1a259fbd9d8836300fdc5",
+          "target_hash": "84b8500e5c560cce1afd9a38e23b6d9d797275fe5af650135fbe7cde63b7bb3f",
+          "updated_at": "2026-09-26T06:28:07.638Z"
+        }
+      }
+    },
+    "docs/ops/COVERAGE_PLAN.md": {
+      "source_hash": "94bb71c0a2e9894afbcb33521408a5559a10e7b59eac6020fb3e6daf83dfcae3",
+      "locales": {
+        "ru": {
+          "source_hash": "94bb71c0a2e9894afbcb33521408a5559a10e7b59eac6020fb3e6daf83dfcae3",
+          "target_hash": "10e10338e9fd54cab0e60c6246372fe9eb5d0452a33e2f56008f8f64df89592c",
+          "updated_at": "2026-09-26T06:28:33.258Z"
+        }
+      }
+    },
+    "docs/ops/E2E_DASHBOARD_SHAKEDOWN_v3.8.0.md": {
+      "source_hash": "1a5ac0b1814e4268c8930b04c9d389f84be05fa979d5db0633818b17f3251733",
+      "locales": {
+        "ru": {
+          "source_hash": "1a5ac0b1814e4268c8930b04c9d389f84be05fa979d5db0633818b17f3251733",
+          "target_hash": "59303c1e812e65b0ce5c0353271d0a05f471dbed85157ae59b8cddcf22dc5eed",
+          "updated_at": "2026-09-26T06:29:10.142Z"
+        }
+      }
+    },
+    "docs/ops/FLY_IO_DEPLOYMENT_GUIDE.md": {
+      "source_hash": "a2f1353e06c4a4475f02a3c32f24054f0e1c66840bdc8b8dd70907638eba4c6c",
+      "locales": {
+        "ru": {
+          "source_hash": "a2f1353e06c4a4475f02a3c32f24054f0e1c66840bdc8b8dd70907638eba4c6c",
+          "target_hash": "8e5d814ae5af0458a13205a4ad7922de9e397a4e229ffdc97ad7ba83130dd6a0",
+          "updated_at": "2026-09-26T06:29:37.363Z"
+        }
+      }
+    },
+    "docs/ops/PROXY_GUIDE.md": {
+      "source_hash": "f3b0d4bf878db743180e35d79e958c928bb8b09517bacb93516ac355aeecede7",
+      "locales": {
+        "ru": {
+          "source_hash": "f3b0d4bf878db743180e35d79e958c928bb8b09517bacb93516ac355aeecede7",
+          "target_hash": "99d4c6f240fa259e7f607a4160ab529d24a9da2f92993102b32affd8441c301c",
+          "updated_at": "2026-09-26T06:30:31.384Z"
+        }
+      }
+    },
+    "docs/ops/RELEASE_CHECKLIST.md": {
+      "source_hash": "ab9d15902f508c4496c561c2492956e3e013826a6bf37df7e9291bed2c053b89",
+      "locales": {
+        "ru": {
+          "source_hash": "ab9d15902f508c4496c561c2492956e3e013826a6bf37df7e9291bed2c053b89",
+          "target_hash": "d1ad7d488ba9037a4e9281ed0b4a9a19bbdefc0b2e3a57df5fcc5e6e4b597076",
+          "updated_at": "2026-09-26T06:29:40.866Z"
+        }
+      }
+    },
+    "docs/ops/SQLITE_RUNTIME.md": {
+      "source_hash": "527f8ebaaeee95a3c84baf6e33fb79682cf0744e74afc71108d94ff13c824ef7",
+      "locales": {
+        "ru": {
+          "source_hash": "527f8ebaaeee95a3c84baf6e33fb79682cf0744e74afc71108d94ff13c824ef7",
+          "target_hash": "8e982eaa029319806159fe7f6031dacbc1ade6cdc9bab39ecafd9aa10fbcac49",
+          "updated_at": "2026-09-26T06:29:52.232Z"
+        }
+      }
+    },
+    "docs/ops/TUNNELS_GUIDE.md": {
+      "source_hash": "823d4a12e1530890e964103d84fdcf5f8397bed7cfe0eaf4d67524a7869543ed",
+      "locales": {
+        "ru": {
+          "source_hash": "823d4a12e1530890e964103d84fdcf5f8397bed7cfe0eaf4d67524a7869543ed",
+          "target_hash": "187dac5b28ca379c7e282e19e3331ab1f3d7ace301799c30c02f745266fa1b26",
+          "updated_at": "2026-09-26T06:30:26.384Z"
+        }
+      }
+    },
+    "docs/ops/VM_DEPLOYMENT_GUIDE.md": {
+      "source_hash": "ebe84abbf252c077820099e03c0f9245f86cbd2acde5307541782d0baeaf1ce2",
+      "locales": {
+        "ru": {
+          "source_hash": "ebe84abbf252c077820099e03c0f9245f86cbd2acde5307541782d0baeaf1ce2",
+          "target_hash": "3a73e3c322116cc0b62514c2f3a9c1b6fe9eab624250b4579f0cd1d1746dc9cb",
+          "updated_at": "2026-09-26T06:30:49.847Z"
+        }
+      }
+    },
+    "docs/providers/ZED-DOCKER.md": {
+      "source_hash": "457c0301bb8832998848f4094362b491f7d8319ae0079e28079c533b81257b3a",
+      "locales": {
+        "ru": {
+          "source_hash": "457c0301bb8832998848f4094362b491f7d8319ae0079e28079c533b81257b3a",
+          "target_hash": "5ab3699dd9c3a797ac5c25bd559cf7665fa9b5aabfe8adc6b82554ded2e854cb",
+          "updated_at": "2026-09-26T06:30:40.930Z"
+        }
+      }
+    },
+    "docs/reference/API_REFERENCE.md": {
+      "source_hash": "53e23993ea05fa6c850caa18c0157d30065a473b7bbc92235b0d06b7860aba8a",
+      "locales": {
+        "ru": {
+          "source_hash": "53e23993ea05fa6c850caa18c0157d30065a473b7bbc92235b0d06b7860aba8a",
+          "target_hash": "ec36b6f316801f485809e5c1dc670d7fa3183825d6b4ca206b15964a3454e89b",
+          "updated_at": "2026-09-26T06:32:36.140Z"
+        }
+      }
+    },
+    "docs/reference/CLI-TOOLS.md": {
+      "source_hash": "3ebdf543be0ba908988c40ae99439bfd7321fb0b5032a0ca8576fcbed3eaac47",
+      "locales": {
+        "ru": {
+          "source_hash": "3ebdf543be0ba908988c40ae99439bfd7321fb0b5032a0ca8576fcbed3eaac47",
+          "target_hash": "5baa63a4f5cb6cd5d0d15dfeeeea9b14a179fcdbb734558ec1e140c3f3bbe3e2",
+          "updated_at": "2026-09-26T06:31:44.917Z"
+        }
+      }
+    },
+    "docs/reference/ENVIRONMENT.md": {
+      "source_hash": "94043c0547fbd564ab1d1b11d983da4c0bccfdeee1b3300cf32215c07e4739f0",
+      "locales": {
+        "ru": {
+          "source_hash": "94043c0547fbd564ab1d1b11d983da4c0bccfdeee1b3300cf32215c07e4739f0",
+          "target_hash": "7ec09066e77172b7b914c340105f5f73258a0729b92c9b50db74f0881f2f16a2",
+          "updated_at": "2026-09-26T06:34:57.115Z"
+        }
+      }
+    },
+    "docs/reference/FREE_TIERS.md": {
+      "source_hash": "bbb75d503646f8a48ce46933f01f001fca11f491e5f314921cff50730d61895e",
+      "locales": {
+        "ru": {
+          "source_hash": "bbb75d503646f8a48ce46933f01f001fca11f491e5f314921cff50730d61895e",
+          "target_hash": "c1a0bdb864cf9e9166edaf6a906121a4640670f2bdfe6638fe5fbe68414e5450",
+          "updated_at": "2026-09-26T06:31:47.262Z"
+        }
+      }
+    },
+    "docs/reference/PROVIDER_REFERENCE.md": {
+      "source_hash": "e3de2f8430dd2fd8f142d7b5877b16fc4a3d3d1f78e32a6f859cc0635377fc27",
+      "locales": {
+        "ru": {
+          "source_hash": "e3de2f8430dd2fd8f142d7b5877b16fc4a3d3d1f78e32a6f859cc0635377fc27",
+          "target_hash": "66d5e359b2cb65006b5f3fb89e570762dd3a6f574a88a62d34cbb4a5c69159ad",
+          "updated_at": "2026-09-26T06:33:33.497Z"
+        }
+      }
+    },
+    "docs/releases/v3.8.0.md": {
+      "source_hash": "22704c71bce9504e92431a9f243e98fd18a4c7c2fef5bec52615409f4cbd8e03",
+      "locales": {
+        "ru": {
+          "source_hash": "22704c71bce9504e92431a9f243e98fd18a4c7c2fef5bec52615409f4cbd8e03",
+          "target_hash": "cf4923d0df34a6cdb4272c5c0e2eaf48184db570fc2ece4dcc3b7a2c8c28fa5b",
+          "updated_at": "2026-09-26T06:32:05.621Z"
+        }
+      }
+    },
+    "docs/routing/AUTO-COMBO.md": {
+      "source_hash": "e5d312f0491e0da542967decb693db44d660d711dda52f3b891583280537dc8d",
+      "locales": {
+        "ru": {
+          "source_hash": "e5d312f0491e0da542967decb693db44d660d711dda52f3b891583280537dc8d",
+          "target_hash": "b6bdb1fa05185468bb16532ab00c65fe88c41e4fa2d6f7110392506b7af9eab0",
+          "updated_at": "2026-09-26T06:33:00.928Z"
+        }
+      }
+    },
+    "docs/routing/REASONING_REPLAY.md": {
+      "source_hash": "e4803893c4d84cd92e9380d0a3e0734514c8b5d8a5905f6c083bf34afa6b7f1c",
+      "locales": {
+        "ru": {
+          "source_hash": "e4803893c4d84cd92e9380d0a3e0734514c8b5d8a5905f6c083bf34afa6b7f1c",
+          "target_hash": "a9fcdcd40acb7afa31e016fbb23d1e1ed4cdc86e1a0a08e99653e4670bf9da82",
+          "updated_at": "2026-09-26T06:33:00.271Z"
+        }
+      }
+    },
+    "docs/security/CLI_TOKEN.md": {
+      "source_hash": "4af40a2c3b22e5f62276a08a1940dc886e05ed90dcc8f39d52e27280e11fe91b",
+      "locales": {
+        "ru": {
+          "source_hash": "4af40a2c3b22e5f62276a08a1940dc886e05ed90dcc8f39d52e27280e11fe91b",
+          "target_hash": "659d68c19b7de6a220ccc0ed4b28334010ab30fe0cf1b4bcf1f1032fbbe8cfb6",
+          "updated_at": "2026-09-26T06:33:12.775Z"
+        }
+      }
+    },
+    "docs/security/CLI_TOKEN_AUTH.md": {
+      "source_hash": "a0003e12d28f6f167a7700b24c9c33ac0a51cc538c99b7af7aa62097598c4111",
+      "locales": {
+        "ru": {
+          "source_hash": "a0003e12d28f6f167a7700b24c9c33ac0a51cc538c99b7af7aa62097598c4111",
+          "target_hash": "0007db3df052c4e85c4b9f3a1f4c09e7c4e8ac6b038fb45b7fbf423fd8750101",
+          "updated_at": "2026-09-26T06:33:14.381Z"
+        }
+      }
+    },
+    "docs/security/COMPLIANCE.md": {
+      "source_hash": "6073ab9b71c75456b27ac76e353fd756d842a85fda7dc108673da55dc57f9061",
+      "locales": {
+        "ru": {
+          "source_hash": "6073ab9b71c75456b27ac76e353fd756d842a85fda7dc108673da55dc57f9061",
+          "target_hash": "00db1e7ffa5c2440c70beff8a9a97115d179f29288f6fd0b4cf11afd819365a1",
+          "updated_at": "2026-09-26T06:33:52.537Z"
+        }
+      }
+    },
+    "docs/security/ERROR_SANITIZATION.md": {
+      "source_hash": "f39600526e295f134632c645f8c371e31ac54c53fdea3cfc9194ceeda3e4fb7f",
+      "locales": {
+        "ru": {
+          "source_hash": "f39600526e295f134632c645f8c371e31ac54c53fdea3cfc9194ceeda3e4fb7f",
+          "target_hash": "455918a4f3794c1812615671fe92daf4fac8b7a628a51cf0accbdd8fb6b86adc",
+          "updated_at": "2026-09-26T06:33:40.654Z"
+        }
+      }
+    },
+    "docs/security/GUARDRAILS.md": {
+      "source_hash": "ed659fb277d1dbe777e6d1dfcf60a2740c3731b7e94a1e4cf887df987b596ef6",
+      "locales": {
+        "ru": {
+          "source_hash": "ed659fb277d1dbe777e6d1dfcf60a2740c3731b7e94a1e4cf887df987b596ef6",
+          "target_hash": "87e811571fbf8bea8be631e954e8c0e1cd8cb861914a0254aeabf1233964d14a",
+          "updated_at": "2026-09-26T06:34:09.527Z"
+        }
+      }
+    },
+    "docs/security/PUBLIC_CREDS.md": {
+      "source_hash": "67f4ea08890df637ba5f22e8536a5253e203a98a24d387c2617fc25af3139843",
+      "locales": {
+        "ru": {
+          "source_hash": "67f4ea08890df637ba5f22e8536a5253e203a98a24d387c2617fc25af3139843",
+          "target_hash": "c056fa659e0ff9cdf370eb2782eb8a9645bc1867a8f8dc28c82310292301bcc7",
+          "updated_at": "2026-09-26T06:34:08.382Z"
+        }
+      }
+    },
+    "docs/security/ROUTE_GUARD_TIERS.md": {
+      "source_hash": "26c69d5174b7fc38c56abdc6541dab4f596e6147fed9c0eab349b4bf1d9611f0",
+      "locales": {
+        "ru": {
+          "source_hash": "26c69d5174b7fc38c56abdc6541dab4f596e6147fed9c0eab349b4bf1d9611f0",
+          "target_hash": "a6147bff37f7ed980277a17d597357d0b08c1853ae9f57e8b0993133ab76ce28",
+          "updated_at": "2026-09-26T06:34:08.429Z"
+        }
+      }
+    },
+    "docs/security/STEALTH_GUIDE.md": {
+      "source_hash": "d5925137971baef57120cd9c976c2bae282a277a717506ed51e54951be4e58b3",
+      "locales": {
+        "ru": {
+          "source_hash": "d5925137971baef57120cd9c976c2bae282a277a717506ed51e54951be4e58b3",
+          "target_hash": "aa8583c8316f08a42bda2efa4fb3414339cd630ca5ae37371b2b02e64e618ead",
+          "updated_at": "2026-09-26T06:35:16.463Z"
+        }
+      }
+    },
+    "docs/specs/2026-05-16-adaptive-stream-readiness-design.md": {
+      "source_hash": "5230db1ca52adecb1d50a9f278d169add202ec4dfc36185cb3e9003b6456db02",
+      "locales": {
+        "ru": {
+          "source_hash": "5230db1ca52adecb1d50a9f278d169add202ec4dfc36185cb3e9003b6456db02",
+          "target_hash": "3fd8dce396cf7677ba368b5fee4e30f44bed72a3f464842f8dbc266cf2bc12ea",
+          "updated_at": "2026-09-26T06:34:19.318Z"
         }
       }
     }

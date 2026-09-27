@@ -1,504 +1,627 @@
-# Environment Variables Reference (Русский)
+# ENVIRONMENT (Русский)
 
-🌐 **Languages:** 🇺🇸 [English](../../../../docs/ENVIRONMENT.md) · 🇸🇦 [ar](../../ar/docs/ENVIRONMENT.md) · 🇧🇬 [bg](../../bg/docs/ENVIRONMENT.md) · 🇧🇩 [bn](../../bn/docs/ENVIRONMENT.md) · 🇨🇿 [cs](../../cs/docs/ENVIRONMENT.md) · 🇩🇰 [da](../../da/docs/ENVIRONMENT.md) · 🇩🇪 [de](../../de/docs/ENVIRONMENT.md) · 🇪🇸 [es](../../es/docs/ENVIRONMENT.md) · 🇮🇷 [fa](../../fa/docs/ENVIRONMENT.md) · 🇫🇮 [fi](../../fi/docs/ENVIRONMENT.md) · 🇫🇷 [fr](../../fr/docs/ENVIRONMENT.md) · 🇮🇳 [gu](../../gu/docs/ENVIRONMENT.md) · 🇮🇱 [he](../../he/docs/ENVIRONMENT.md) · 🇮🇳 [hi](../../hi/docs/ENVIRONMENT.md) · 🇭🇺 [hu](../../hu/docs/ENVIRONMENT.md) · 🇮🇩 [id](../../id/docs/ENVIRONMENT.md) · 🇮🇹 [it](../../it/docs/ENVIRONMENT.md) · 🇯🇵 [ja](../../ja/docs/ENVIRONMENT.md) · 🇰🇷 [ko](../../ko/docs/ENVIRONMENT.md) · 🇮🇳 [mr](../../mr/docs/ENVIRONMENT.md) · 🇲🇾 [ms](../../ms/docs/ENVIRONMENT.md) · 🇳🇱 [nl](../../nl/docs/ENVIRONMENT.md) · 🇳🇴 [no](../../no/docs/ENVIRONMENT.md) · 🇵🇭 [phi](../../phi/docs/ENVIRONMENT.md) · 🇵🇱 [pl](../../pl/docs/ENVIRONMENT.md) · 🇵🇹 [pt](../../pt/docs/ENVIRONMENT.md) · 🇧🇷 [pt-BR](../../pt-BR/docs/ENVIRONMENT.md) · 🇷🇴 [ro](../../ro/docs/ENVIRONMENT.md) · 🇷🇺 [ru](../../ru/docs/ENVIRONMENT.md) · 🇸🇰 [sk](../../sk/docs/ENVIRONMENT.md) · 🇸🇪 [sv](../../sv/docs/ENVIRONMENT.md) · 🇰🇪 [sw](../../sw/docs/ENVIRONMENT.md) · 🇮🇳 [ta](../../ta/docs/ENVIRONMENT.md) · 🇮🇳 [te](../../te/docs/ENVIRONMENT.md) · 🇹🇭 [th](../../th/docs/ENVIRONMENT.md) · 🇹🇷 [tr](../../tr/docs/ENVIRONMENT.md) · 🇺🇦 [uk-UA](../../uk-UA/docs/ENVIRONMENT.md) · 🇵🇰 [ur](../../ur/docs/ENVIRONMENT.md) · 🇻🇳 [vi](../../vi/docs/ENVIRONMENT.md) · 🇨🇳 [zh-CN](../../zh-CN/docs/ENVIRONMENT.md)
-
----
-
-> Complete reference for every environment variable recognized by OmniRoute.
-> For a quick-start template, see [`.env.example`](../.env.example).
+🌐 **Languages:** 🇺🇸 [English](../../../../reference/ENVIRONMENT.md) · 🇸🇦 [ar](../../../ar/docs/reference/ENVIRONMENT.md) · 🇦🇿 [az](../../../az/docs/reference/ENVIRONMENT.md) · 🇧🇬 [bg](../../../bg/docs/reference/ENVIRONMENT.md) · 🇧🇩 [bn](../../../bn/docs/reference/ENVIRONMENT.md) · 🇨🇿 [cs](../../../cs/docs/reference/ENVIRONMENT.md) · 🇩🇰 [da](../../../da/docs/reference/ENVIRONMENT.md) · 🇩🇪 [de](../../../de/docs/reference/ENVIRONMENT.md) · 🇪🇸 [es](../../../es/docs/reference/ENVIRONMENT.md) · 🇮🇷 [fa](../../../fa/docs/reference/ENVIRONMENT.md) · 🇫🇮 [fi](../../../fi/docs/reference/ENVIRONMENT.md) · 🇫🇷 [fr](../../../fr/docs/reference/ENVIRONMENT.md) · 🇮🇳 [gu](../../../gu/docs/reference/ENVIRONMENT.md) · 🇮🇱 [he](../../../he/docs/reference/ENVIRONMENT.md) · 🇮🇳 [hi](../../../hi/docs/reference/ENVIRONMENT.md) · 🇭🇺 [hu](../../../hu/docs/reference/ENVIRONMENT.md) · 🇮🇩 [id](../../../id/docs/reference/ENVIRONMENT.md) · 🇮🇩 [in](../../../in/docs/reference/ENVIRONMENT.md) · 🇮🇹 [it](../../../it/docs/reference/ENVIRONMENT.md) · 🇯🇵 [ja](../../../ja/docs/reference/ENVIRONMENT.md) · 🇰🇷 [ko](../../../ko/docs/reference/ENVIRONMENT.md) · 🇮🇳 [mr](../../../mr/docs/reference/ENVIRONMENT.md) · 🇲🇾 [ms](../../../ms/docs/reference/ENVIRONMENT.md) · 🇳🇱 [nl](../../../nl/docs/reference/ENVIRONMENT.md) · 🇳🇴 [no](../../../no/docs/reference/ENVIRONMENT.md) · 🇵🇭 [phi](../../../phi/docs/reference/ENVIRONMENT.md) · 🇵🇱 [pl](../../../pl/docs/reference/ENVIRONMENT.md) · 🇵🇹 [pt](../../../pt/docs/reference/ENVIRONMENT.md) · 🇧🇷 [pt-BR](../../../pt-BR/docs/reference/ENVIRONMENT.md) · 🇷🇴 [ro](../../../ro/docs/reference/ENVIRONMENT.md) · 🇸🇰 [sk](../../../sk/docs/reference/ENVIRONMENT.md) · 🇸🇪 [sv](../../../sv/docs/reference/ENVIRONMENT.md) · 🇰🇪 [sw](../../../sw/docs/reference/ENVIRONMENT.md) · 🇮🇳 [ta](../../../ta/docs/reference/ENVIRONMENT.md) · 🇮🇳 [te](../../../te/docs/reference/ENVIRONMENT.md) · 🇹🇭 [th](../../../th/docs/reference/ENVIRONMENT.md) · 🇹🇷 [tr](../../../tr/docs/reference/ENVIRONMENT.md) · 🇺🇦 [uk-UA](../../../uk-UA/docs/reference/ENVIRONMENT.md) · 🇵🇰 [ur](../../../ur/docs/reference/ENVIRONMENT.md) · 🇻🇳 [vi](../../../vi/docs/reference/ENVIRONMENT.md) · 🇨🇳 [zh-CN](../../../zh-CN/docs/reference/ENVIRONMENT.md)
 
 ---
 
-## Table of Contents
+---
 
-- [1. Required Secrets](#1-required-secrets)
-- [2. Storage & Database](#2-storage--database)
-- [3. Network & Ports](#3-network--ports)
-- [4. Security & Authentication](#4-security--authentication)
-- [5. Input Sanitization & PII Protection](#5-input-sanitization--pii-protection)
-- [6. Tool & Routing Policies](#6-tool--routing-policies)
-- [7. URLs & Cloud Sync](#7-urls--cloud-sync)
-- [8. Outbound Proxy](#8-outbound-proxy)
-- [9. CLI Tool Integration](#9-cli-tool-integration)
-- [10. Internal Agent & MCP Integrations](#10-internal-agent--mcp-integrations)
-- [11. OAuth Provider Credentials](#11-oauth-provider-credentials)
-- [12. Provider User-Agent Overrides](#12-provider-user-agent-overrides)
-- [13. CLI Fingerprint Compatibility](#13-cli-fingerprint-compatibility)
-- [14. API Key Providers](#14-api-key-providers)
-- [15. Timeout Settings](#15-timeout-settings)
-- [16. Logging](#16-logging)
-- [17. Memory Optimization](#17-memory-optimization)
-- [18. Pricing Sync](#18-pricing-sync)
-- [19. Model Sync (Dev)](#19-model-sync-dev)
-- [20. Provider-Specific Settings](#20-provider-specific-settings)
-- [21. Proxy Health](#21-proxy-health)
-- [22. Debugging](#22-debugging)
-- [23. GitHub Integration](#23-github-integration)
-- [Deployment Scenarios](#deployment-scenarios)
-- [Audit: Removed / Dead Variables](#audit-removed--dead-variables)
+title: "Справочник по переменным окружения"
+version: 3.8.2
+lastUpdated: 2026-05-13
+---
+
+# Справочник по переменным окружения
+
+> Полный справочник по каждой переменной окружения, распознаваемой OmniRoute.
+> Для быстрого старта см. [`.env.example`](../../.env.example).
+
+> [!IMPORTANT]
+> Каждая переменная, документированная здесь, также должна присутствовать в `.env.example`, и каждая переменная в `.env.example` должна присутствовать здесь. `npm run check:env-doc-sync`
+> обеспечивает это при коммите и в CI. Чтобы намеренно исключить переменную, добавьте её в список разрешений внутри `scripts/check-env-doc-sync.mjs`.
 
 ---
 
-## 1. Required Secrets
+## Содержание
 
-These **must** be set before the first run. Without them, the application will either refuse to start or operate with insecure defaults.
+- [1. Обязательные секреты](#1-обязательные-секреты)
+- [2. Хранилище и база данных](#2-хранилище--база-данных)
+- [3. Сети и порты](#3-сети--порты)
+- [4. Безопасность и аутентификация](#4-безопасность--аутентификация)
+- [5. Очистка входных данных и защита PII](#5-очистка-входных-данных--защита-pii)
+- [6. Инструменты и политики маршрутизации](#6-инструменты--политики-маршрутизации)
+- [7. URL и облачная синхронизация](#7-url--облачная-синхронизация)
+- [8. Исходящий прокси](#8-исходящий-прокси)
+- [9. Интеграция с инструментами CLI](#9-интеграция-с-инструментами-cli)
+- [10. Интеграции внутреннего агента и MCP](#10-интеграции-внутреннего-агента--mcp)
+- [11. Учётные данные OAuth-провайдера](#11-учётные-данные-oauth-провайдера)
+- [12. Переопределения User-Agent провайдера](#12-переопределения-user-agent-провайдера)
+- [13. Совместимость отпечатков CLI](#13-совместимость-отпечатков-cli)
+- [14. Провайдеры API-ключей](#14-провайдеры-api-ключей)
+- [15. Настройки тайм-аутов](#15-настройки-тайм-аутов)
+- [16. Логирование](#16-логирование)
+- [17. Оптимизация памяти](#17-оптимизация-памяти)
+- [18. Синхронизация цен](#18-синхронизация-цен)
+- [19. Синхронизация моделей (Dev)](#19-синхронизация-моделей-dev)
+- [20. Провайдер-специфические настройки](#20-провайдер-специфические-настройки)
+- [21. Здоровье прокси](#21-здоровье-прокси)
+- [22. Отладка](#22-отладка)
+- [23. Интеграция с GitHub](#23-интеграция-с-github)
+- [24. Песочница навыков (v3.8.0+)](#24-песочница-навыков-v380)
+- [Сценарии развёртывания](#сценарии-развёртывания)
+- [Аудит: Удалённые / мёртвые переменные](#аудит-удалённые--мёртвые-переменные)
 
-| Variable           | Required | Default  | Source File             | Description                                                                                                                      |
-| ------------------ | -------- | -------- | ----------------------- | -------------------------------------------------------------------------------------------------------------------------------- |
-| `JWT_SECRET`       | **Yes**  | _(none)_ | `src/lib/auth`          | Signs/verifies all dashboard session cookies (JWT). Generate with `openssl rand -base64 48`.                                     |
-| `API_KEY_SECRET`   | **Yes**  | _(none)_ | `src/lib/db/apiKeys.ts` | AES encryption key for API key values at rest in SQLite. Generate with `openssl rand -hex 32`.                                   |
-| `INITIAL_PASSWORD` | **Yes**  | `123456` | Bootstrap script        | Sets the initial admin dashboard password. **Change before first use.** After login, change via Dashboard → Settings → Security. |
+---
 
-### Generation Commands
+## 1. Обязательные секреты
+
+Эти переменные **должны** быть установлены перед первым запуском. Без них приложение либо не запустится, либо будет работать с небезопасными значениями по умолчанию.
+
+| Переменная                   | Обязательно         | По умолчанию | Файл источника                                     | Описание                                                                                                                                                                                                                                                                       |
+| ---------------------------- | ------------------- | ------------ | -------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| `JWT_SECRET`                 | **Да**              | _(none)_     | `src/lib/auth`                                     | Подписывает/проверяет все куки сессий дашборда (JWT). Сгенерировать с помощью `openssl rand -base64 48`.                                                                                                                                                                       |
+| `API_KEY_SECRET`             | **Да**              | _(none)_     | `src/lib/db/apiKeys.ts`                            | Ключ шифрования AES для значений API-ключей в состоянии покоя в SQLite. Сгенерировать с помощью `openssl rand -hex 32`.                                                                                                                                                        |
+| `INITIAL_PASSWORD`           | **Да**              | `CHANGEME`   | Bootstrap script                                   | Устанавливает начальный пароль администратора дашборда (соответствует значению по умолчанию в `.env.example` — очевидно небезопасному, чтобы заставить изменить его). **Изменить перед первым использованием.** После входа, изменить через Dashboard → Settings → Security.   |
+| `OMNIROUTE_WS_BRIDGE_SECRET` | **Да** (production) | _(unset)_    | `src/app/api/internal/codex-responses-ws/route.ts` | Общий секрет для внутреннего моста Codex Responses WebSocket. Аутентифицирует запросы моста между реле Electron/browser WS и OmniRoute. ⚠️ **ОБЯЗАТЕЛЕН в продакшене — при отсутствии все запросы к WS-мосту отклоняются.** Сгенерировать с помощью `openssl rand -base64 32`. |
+
+### Команды генерации
 
 ```bash
-# Generate all three secrets at once:
+# Сгенерировать все четыре секрета одновременно:
 echo "JWT_SECRET=$(openssl rand -base64 48)"
 echo "API_KEY_SECRET=$(openssl rand -hex 32)"
 echo "INITIAL_PASSWORD=$(openssl rand -base64 16)"
+echo "OMNIROUTE_WS_BRIDGE_SECRET=$(openssl rand -base64 32)"
 ```
 
 > [!CAUTION]
-> Never commit `.env` files with real secrets to version control. The `.gitignore` already excludes `.env`, but verify before pushing.
+> Никогда не фиксируйте файлы `.env` с реальными секретами в системе контроля версий. `.gitignore` уже исключает `.env`, но проверьте перед пушем.
 
 ---
 
-## 2. Storage & Database
+## 2. Хранилище и база данных
 
-OmniRoute uses **SQLite** (via `better-sqlite3`) for all persistence. These variables control data location, encryption, and lifecycle.
+OmniRoute использует **SQLite** (через `better-sqlite3`) для всех операций с данными. Эти переменные управляют расположением данных, шифрованием и жизненным циклом.
 
-| Variable                         | Default              | Source File                                     | Description                                                                                                        |
-| -------------------------------- | -------------------- | ----------------------------------------------- | ------------------------------------------------------------------------------------------------------------------ |
-| `DATA_DIR`                       | `~/.omniroute/`      | `src/lib/db/core.ts`                            | Root directory for SQLite DB, backups, and data files. Override for Docker volumes or custom paths.                |
-| `STORAGE_ENCRYPTION_KEY`         | _(empty = disabled)_ | `src/lib/db/encryption.ts`                      | AES key for full SQLite database encryption at rest. Generate with `openssl rand -hex 32`.                         |
-| `STORAGE_ENCRYPTION_KEY_VERSION` | `v1`                 | `scripts/bootstrap-env.mjs`, `electron/main.js` | Version label for the encryption key. Increment when performing key rotation to support decryption of old backups. |
-| `DISABLE_SQLITE_AUTO_BACKUP`     | `false`              | `src/lib/db/backup.ts`                          | When `true`, skips the automatic database backup that runs before migrations on every startup.                     |
-| `OMNIROUTE_CRYPT_KEY`            | _(unset)_            | `src/lib/db/encryption.ts`                      | **Legacy alias** for `STORAGE_ENCRYPTION_KEY`. Accepted as a fallback when the primary variable is absent.         |
-| `OMNIROUTE_API_KEY_BASE64`       | _(unset)_            | `src/lib/db/encryption.ts`                      | **Legacy alias** (Base64-encoded form) accepted as a fallback. Decoded automatically before use.                   |
+| Переменная                             | Значение по умолчанию            | Файл источника                                        | Описание                                                                                                                                                                                        |
+| -------------------------------------- | -------------------------------- | ----------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `DATA_DIR`                             | `~/.omniroute/`                  | `src/lib/db/core.ts`                                  | Корневая директория для базы данных SQLite, резервных копий и файлов данных. Переопределите для Docker-томов или пользовательских путей.                                                        |
+| `STORAGE_ENCRYPTION_KEY`               | _(пусто = отключено)_            | `src/lib/db/encryption.ts`                            | Ключ AES для полного шифрования базы данных SQLite. Сгенерируйте с помощью `openssl rand -hex 32`.                                                                                              |
+| `STORAGE_ENCRYPTION_KEY_VERSION`       | `v1`                             | `scripts/build/bootstrap-env.mjs`, `electron/main.js` | Метка версии для ключа шифрования. Увеличивайте при выполнении ротации ключей для поддержки расшифровки старых резервных копий.                                                                 |
+| `DISABLE_SQLITE_AUTO_BACKUP`           | `false`                          | `src/lib/db/backup.ts`                                | При `true` пропускает автоматическое резервное копирование базы данных, которое выполняется перед миграциями при каждом запуске.                                                                |
+| `OMNIROUTE_CRYPT_KEY`                  | _(не установлено)_               | `src/lib/db/encryption.ts`                            | **Устаревший псевдоним** для `STORAGE_ENCRYPTION_KEY`. Принимается в качестве запасного варианта, если основная переменная отсутствует.                                                         |
+| `OMNIROUTE_API_KEY_BASE64`             | _(не установлено)_               | `src/lib/db/encryption.ts`                            | **Устаревший псевдоним** (в формате Base64) принимается в качестве запасного варианта. Автоматически декодируется перед использованием.                                                         |
+| `OMNIROUTE_DB_HEALTHCHECK_INTERVAL_MS` | _(не установлено)_               | `src/lib/db/core.ts`                                  | Переопределите интервал периодической проверки здоровья SQLite (в миллисекундах). При отсутствии значения используются значения по умолчанию, зависящие от `NODE_ENV`.                          |
+| `OMNIROUTE_SKIP_DB_HEALTHCHECK`        | `0`                              | `src/lib/db/core.ts`, `src/lib/db/healthCheck.ts`     | Установите в `1`, чтобы полностью пропустить проверку здоровья базы данных при запуске. Полезно для кратковременных задач и интеграционных тестов.                                              |
+| `OMNIROUTE_FORCE_DB_HEALTHCHECK`       | `0`                              | `src/lib/db/core.ts`                                  | Установите в `1`, чтобы принудительно включить цикл проверки здоровья базы данных, даже если он обычно пропускается (например, для кратковременных задач).                                      |
+| `OMNIROUTE_SKIP_POSTINSTALL`           | `0`                              | `scripts/postinstall.mjs`                             | Установите в `1`, чтобы пропустить разогрев среды выполнения во время `npm install`. Полезно в CI/режим без графического интерфейса, где sqlite уже собран.                                     |
+| `OMNIROUTE_MIGRATIONS_DIR`             | _(автообнаружение)_              | `src/lib/db/migrationRunner.ts`                       | Переопределите директорию, которую сканирует миграционный процессор. Полезно при доставке встроенных миграций в пользовательских сборках.                                                       |
+| `OMNIROUTE_SPEND_FLUSH_INTERVAL_MS`    | _(значение по умолчанию в коде)_ | `src/lib/spend/batchWriter.ts`                        | Интервал сброса (в миллисекундах) для пакетного писателя расходов/стоимости. Нижние значения уменьшают слияние записи; более высокие значения уменьшают конкуренцию за базу данных.             |
+| `OMNIROUTE_SPEND_MAX_BUFFER_SIZE`      | _(значение по умолчанию в коде)_ | `src/lib/spend/batchWriter.ts`                        | Максимальное количество буферизованных записей расходов перед принудительным сбросом. Увеличьте для высокочастотных развертываний; уменьшите, когда ограниченная память имеет большее значение. |
+| `BATCH_RETRY_DURATION_MS`              | `86400000` (24h)                 | `open-sse/services/batchProcessor.ts`                 | Максимальное окно повторных попыток для отдельных элементов пакета (в миллисекундах). Элементы, превышающие это время, помечаются как неудачные.                                                |
+| `BATCH_BACKOFF_BASE_MS`                | `5000`                           | `open-sse/services/batchProcessor.ts`                 | Базовая задержка (в миллисекундах) для экспоненциального замедления при повторных попытках элементов пакета.                                                                                    |
+| `BATCH_BACKOFF_MAX_MS`                 | `3600000` (1h)                   | `open-sse/services/batchProcessor.ts`                 | Ограничение (в миллисекундах) для экспоненциального замедления между повторными попытками элементов пакета.                                                                                     |
 
-### Scenarios
+### Сценарии
 
-| Scenario              | Configuration                                                                    |
-| --------------------- | -------------------------------------------------------------------------------- |
-| **Local development** | Leave all defaults. DB lives at `~/.omniroute/omniroute.db`.                     |
-| **Docker**            | `DATA_DIR=/data` + mount a volume at `/data`.                                    |
-| **Encrypted at rest** | Set `STORAGE_ENCRYPTION_KEY` + keep backups of the key! Losing it = losing data. |
-| **CI/Testing**        | `DATA_DIR=/tmp/omniroute-test` — ephemeral, no encryption needed.                |
+| Сценарий                 | Конфигурация                                                                                       |
+| ------------------------ | -------------------------------------------------------------------------------------------------- |
+| **Локальная разработка** | Оставьте все значения по умолчанию. База данных находится в `~/.omniroute/omniroute.db`.           |
+| **Docker**               | `DATA_DIR=/data` + смонтируйте том в `/data`.                                                      |
+| **Шифрование данных**    | Установите `STORAGE_ENCRYPTION_KEY` + храните резервные копии ключа! Потеря ключа = потеря данных. |
+| **CI/Тестирование**      | `DATA_DIR=/tmp/omniroute-test` — временный, шифрование не требуется.                               |
 
 ---
-
-## 3. Network & Ports
-
-| Variable              | Default      | Source File                | Description                                                                            |
-| --------------------- | ------------ | -------------------------- | -------------------------------------------------------------------------------------- |
-| `PORT`                | `20128`      | `src/lib/runtime/ports.ts` | Primary port for both Dashboard UI and API endpoints (single-port mode).               |
-| `API_PORT`            | _(unset)_    | `src/lib/runtime/ports.ts` | When set, serves the `/v1/*` proxy API on this separate port.                          |
-| `API_HOST`            | `0.0.0.0`    | `src/lib/runtime/ports.ts` | Bind address for the API port.                                                         |
-| `DASHBOARD_PORT`      | _(unset)_    | `src/lib/runtime/ports.ts` | When set, serves the Dashboard UI on this separate port.                               |
-| `PROD_DASHBOARD_PORT` | `20130`      | `docker-compose.prod.yml`  | Host-side published port for the Dashboard in Docker production mode.                  |
-| `PROD_API_PORT`       | `20131`      | `docker-compose.prod.yml`  | Host-side published port for the API in Docker production mode.                        |
-| `OMNIROUTE_PORT`      | _(unset)_    | `src/lib/runtime/ports.ts` | Takes precedence over `PORT` when running inside Electron or other wrappers.           |
-| `NODE_ENV`            | `production` | Next.js core               | Controls logging verbosity, caching, error detail exposure, and Next.js optimizations. |
-
-### Port Modes
 
 ```
-┌─────────────────────────── Single Port (default) ──────────────────────────┐
-│  PORT=20128                                                                 │
-│  → Dashboard: http://localhost:20128                                        │
-│  → API:       http://localhost:20128/v1/chat/completions                    │
-└─────────────────────────────────────────────────────────────────────────────┘
 
-┌─────────────────────────── Split Ports ─────────────────────────────────────┐
-│  DASHBOARD_PORT=20128                                                       │
-│  API_PORT=20129                                                             │
-│  API_HOST=0.0.0.0                                                           │
-│  → Dashboard: http://localhost:20128                                        │
-│  → API:       http://0.0.0.0:20129/v1/chat/completions                     │
-│  Use case: Expose API to LAN while restricting Dashboard to localhost.      │
-└─────────────────────────────────────────────────────────────────────────────┘
+## 3. Сети и порты
 
-┌─────────────────────────── Docker Production ──────────────────────────────┐
-│  PROD_DASHBOARD_PORT=443   PROD_API_PORT=8443                              │
-│  → Maps container ports to host ports in docker-compose.prod.yml.          │
-└─────────────────────────────────────────────────────────────────────────────┘
+| Переменная                                  | Значение по умолчанию          | Файл источника                                                        | Описание                                                                                                                                                     |
+| ------------------------------------------- | ------------------------------- | ------------------------------------------------------------------------ | ----------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `PORT`                                      | `20128`                         | `src/lib/runtime/ports.ts`                                               | Основной порт для пользовательского интерфейса Dashboard и API-эндпоинтов (режим одного порта).                                                           |
+| `API_PORT`                                  | _(не установлено)_              | `src/lib/runtime/ports.ts`                                               | При установке, прокси API `/v1/*` будет обслуживаться на этом отдельном порту.                                                                           |
+| `API_HOST`                                  | `0.0.0.0`                       | `src/lib/runtime/ports.ts`                                               | Адрес привязки для API-порта.                                                                                                                               |
+| `DASHBOARD_PORT`                            | _(не установлено)_              | `src/lib/runtime/ports.ts`                                               | При установке, пользовательский интерфейс Dashboard будет обслуживаться на этом отдельном порту.                                                          |
+| `PROD_DASHBOARD_PORT`                       | `20130`                         | `docker-compose.prod.yml`                                                | Публикуемый порт хоста для Dashboard в Docker в производственном режиме.                                                                                   |
+| `PROD_API_PORT`                             | `20131`                         | `docker-compose.prod.yml`                                                | Публикуемый порт хоста для API в Docker в производственном режиме.                                                                                          |
+| `OMNIROUTE_PORT`                            | _(не установлено)_              | `src/lib/runtime/ports.ts`                                               | Имеет приоритет над `PORT` при запуске внутри Electron или других оболочек.                                                                               |
+| `LIVE_WS_PORT`                              | `20129`                         | `src/server/ws/liveServer.ts`                                            | Порт для сервера реального времени WebSocket для мониторинга.                                                                                              |
+| `OMNIROUTE_DISABLE_LIVE_WS`                 | `false`                         | `src/server/ws/liveServer.ts`                                            | Установите в `1` или `true`, чтобы отключить сервер реального времени WebSocket.                                                                            |
+| `NODE_ENV`                                  | `production`                    | Next.js core                                                             | Управляет уровнем детализации логирования, кэшированием, раскрытием ошибок и оптимизациями Next.js.                                                        |
+| `OMNIROUTE_USE_TURBOPACK`                   | `1` (по умолчанию в `.env.example`) | `package.json` / Next.js 16                                              | Переключает сборщик Turbopack Next.js 16 в `npm run dev` и `npm run build`. Установите в `0` на Windows или при возникновении несовместимостей с родными связями. |
+| `OMNIROUTE_SKIP_DB_HEALTHCHECK`             | _(не установлено)_              | `src/lib/db/core.ts` / `src/lib/db/healthCheck.ts`                       | Установите в `1`, чтобы пропустить проверку целостности SQLite при запуске. Полезно для более быстрого запуска на больших базах данных.                    |
+| `CREDENTIAL_HEALTH_CHECK_INTERVAL`          | `300000`                        | `open-sse/config/constants.ts` / `src/lib/credentialHealth/scheduler.ts` | Интервал (мс) для планировщика фоновой проверки состояния учетных данных. Минимум: 10000 (10с).                                                             |
+| `CREDENTIAL_HEALTH_CACHE_TTL`               | `300000`                        | `open-sse/config/constants.ts` / `src/lib/credentialHealth/cache.ts`     | TTL (мс) для кэшированного состояния учетных данных.                                                                                                        |
+| `OMNIROUTE_DISABLE_CREDENTIAL_HEALTH_CHECK` | `false`                         | `src/lib/credentialHealth/scheduler.ts`                                  | Установите в `1` или `true`, чтобы отключить фоновое периодическое тестирование подключений провайдеров.                                                  |
+| `HOST`                                      | `0.0.0.0`                       | `scripts/dev/run-next.mjs`                                               | Адрес привязки для сервера разработки/запуска Next.js. Переопределяет значение по умолчанию `0.0.0.0`, если установлено.                                    |
+| `HOSTNAME`                                  | `127.0.0.1`                     | `scripts/dev/run-next-playwright.mjs`                                    | Адрес привязки, используемый запускателем Playwright при запуске Next.js. По умолчанию `127.0.0.1` для герметических тестов.                              |
+
+### Режимы портов
+
 ```
+
+┌─────────────────────────── Один порт (по умолчанию) ──────────────────────────┐
+│ PORT=20128 │
+│ → Dashboard: http://localhost:20128 │
+│ → API: http://localhost:20128/v1/chat/completions │
+└─────────────────────────────────────────────────────────────────────────────┘
+
+┌─────────────────────────── Раздельные порты ─────────────────────────────────────┐
+│ DASHBOARD_PORT=20128 │
+│ API_PORT=20129 │
+│ API_HOST=0.0.0.0 │
+│ → Dashboard: http://localhost:20128 │
+│ → API: http://0.0.0.0:20129/v1/chat/completions │
+│ Использование: Предоставить API в локальной сети, ограничив Dashboard локальным хостом. │
+└─────────────────────────────────────────────────────────────────────────────┘
+
+┌─────────────────────────── Docker Производство ──────────────────────────────┐
+│ PROD_DASHBOARD_PORT=443 PROD_API_PORT=8443 │
+│ → Отображает порты контейнера на порты хоста в docker-compose.prod.yml. │
+└─────────────────────────────────────────────────────────────────────────────┘
+
+````
 
 ---
 
-## 4. Security & Authentication
+## 4. Безопасность и аутентификация
 
-| Variable                      | Default               | Source File                              | Description                                                                                               |
-| ----------------------------- | --------------------- | ---------------------------------------- | --------------------------------------------------------------------------------------------------------- |
-| `MACHINE_ID_SALT`             | `endpoint-proxy-salt` | `src/lib/auth`                           | Salt combined with hardware identifiers for machine fingerprinting. Change per-deployment for isolation.  |
-| `AUTH_COOKIE_SECURE`          | `false`               | `src/lib/auth`                           | Sets the `Secure` flag on session cookies. **Must be `true`** when running behind HTTPS.                  |
-| `REQUIRE_API_KEY`             | `false`               | API middleware                           | When `true`, all `/v1/*` proxy requests must include a valid API key.                                     |
-| `ALLOW_API_KEY_REVEAL`        | `false`               | Dashboard providers page                 | Allows revealing full API key values in the Dashboard UI. Security risk on shared instances.              |
-| `NO_LOG_API_KEY_IDS`          | _(empty)_             | `src/lib/compliance/index.ts`            | Comma-separated API key IDs that bypass request logging (GDPR compliance).                                |
-| `MAX_BODY_SIZE_BYTES`         | `10485760` (10 MB)    | `src/shared/middleware/bodySizeGuard.ts` | Maximum allowed request body size. Rejects payloads exceeding this limit.                                 |
-| `CORS_ORIGIN`                 | `*`                   | Next.js middleware                       | CORS `Access-Control-Allow-Origin` value. Restrict for production.                                        |
-| `OUTBOUND_SSRF_GUARD_ENABLED` | `true`                | `src/shared/network/outboundUrlGuard.ts` | Block provider calls targeting private/loopback/link-local IP ranges. Disable only in isolated test envs. |
+| Переменная                              | Значение по умолчанию    | Файл источника                          | Описание                                                                                                                                                                                                                                                                                                                                                     |
+| --------------------------------------- | ----------------------- | ---------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| `MACHINE_ID_SALT`                       | `endpoint-proxy-salt`   | `src/lib/auth`                           | Соль, комбинированная с аппаратными идентификаторами для отпечатка машины. Измените для изоляции при развертывании.                                                                                                                                                                                                                                                           |
+| `OMNIROUTE_CLI_SALT`                    | `omniroute-cli-auth-v1` | `src/lib/machineToken.ts`                | Соль HMAC для получения локального токена аутентификации CLI. Изменение этого значения приводит к ротации всех токенов CLI на машине. См. `docs/security/CLI_TOKEN.md`.                                                                                                                                                                                                                      |
+| `AUTH_COOKIE_SECURE`                    | `false`                 | `src/lib/auth`                           | Устанавливает флаг `Secure` для сессионных куки. **Должно быть `true`**, когда работает за HTTPS.                                                                                                                                                                                                                                                                           |
+| `REQUIRE_API_KEY`                       | `false`                 | API middleware                           | При `true`, все запросы `/v1/*` должны включать действительный API ключ.                                                                                                                                                                                                                                                                                              |
+| `ALLOW_API_KEY_REVEAL`                  | `false`                 | Dashboard providers page                 | Позволяет показывать полные значения API ключей в интерфейсе Dashboard. Риск безопасности на разделяемых инстансах.                                                                                                                                                                                                                                                                       |
+| `NO_LOG_API_KEY_IDS`                    | _(empty)_               | `src/lib/compliance/index.ts`            | ID API ключей через запятую, которые не логируются (соответствие GDPR).                                                                                                                                                                                                                                                                                         |
+| `DEFAULT_RATE_LIMIT_PER_DAY`            | `1000`                  | `src/shared/utils/apiKeyPolicy.ts`       | Резервный дневной лимит запросов, применяемый к API ключам, у которых столбец `rate_limits` равен null. По умолчанию (не установлено/пустое/неверное) сохраняются старые лимиты 1000/день, 5000/неделя, 20000/месяц. Установите явно `0`, чтобы отказаться (неограниченно). Любое положительное целое число N включает N/день, 5N/неделя, 20N/месяц. Проверяется Zod; неверные значения выводят предупреждение и используют старый лимит. |
+| `MAX_BODY_SIZE_BYTES`                   | `10485760` (10 MB)      | `src/shared/middleware/bodySizeGuard.ts` | Максимально допустимый размер тела запроса. Отклоняет полезные нагрузки, превышающие этот лимит.                                                                                                                                                                                                                                                                                          |
+| `CORS_ORIGIN`                           | `*`                     | Next.js middleware                       | Значение CORS `Access-Control-Allow-Origin`. Ограничьте для продакшена.                                                                                                                                                                                                                                                                                                 |
+| `OUTBOUND_SSRF_GUARD_ENABLED`           | `true`                  | `src/shared/network/outboundUrlGuard.ts` | Блокировать вызовы провайдеров, направленные на частные/локальные IP-диапазоны. Отключайте только в изолированных тестовых средах.                                                                                                                                                                                                                                                          |
+| `OMNIROUTE_ALLOW_PRIVATE_PROVIDER_URLS` | `false`                 | `src/shared/network/outboundUrlGuard.ts` | Разрешить URL провайдеров, указывающие на частные/локальные сети (localhost, 192.168.x.x, 10.x.x.x и т.д.). **ОБЯЗАТЕЛЬНО для самоподписанных провайдеров** (LM Studio, Ollama, vLLM, Llamafile, Triton, SearXNG). При `false` интерфейс отклоняет валидацию локальных URL.                                                                                                       |
 
-### Hardening Checklist
+### Чек-лист для усиления безопасности
 
 ```bash
-# Production security minimum:
-AUTH_COOKIE_SECURE=true        # Requires HTTPS
-REQUIRE_API_KEY=true           # Authenticate all proxy calls
-ALLOW_API_KEY_REVEAL=false     # Never expose keys in UI
+# Минимальная безопасность для продакшена:
+AUTH_COOKIE_SECURE=true        # Требует HTTPS
+REQUIRE_API_KEY=true           # Аутентифицировать все вызовы прокси
+ALLOW_API_KEY_REVEAL=false     # Никогда не показывать ключи в UI
 CORS_ORIGIN=https://your.domain.com
-MAX_BODY_SIZE_BYTES=5242880    # 5 MB limit
-```
+MAX_BODY_SIZE_BYTES=5242880    # Лимит 5 MB
+````
+
+## 5. Санитизация входных данных и защита персональных данных
+
+OmniRoute предоставляет двухслойную защиту: сканирование запросов на предмет инъекций и очистку персональных данных в ответах.
+
+### Сторона запроса: Защита от инъекций в запросы
+
+| Переменная                | По умолчанию | Файл источника                           | Описание                                                                                                            |
+| ------------------------- | ------------ | ---------------------------------------- | ------------------------------------------------------------------------------------------------------------------- |
+| `INPUT_SANITIZER_ENABLED` | `false`      | `src/middleware/promptInjectionGuard.ts` | Включает сканирование входящих сообщений на предмет шаблонов инъекций в запросы.                                    |
+| `INPUT_SANITIZER_MODE`    | `warn`       | `src/middleware/promptInjectionGuard.ts` | `warn` = только логирование, `block` = отклонение запроса с кодом 400, `redact` = удаление подозрительных шаблонов. |
+| `INJECTION_GUARD_MODE`    | _(unset)_    | `src/middleware/promptInjectionGuard.ts` | Устаревший псевдоним для `INPUT_SANITIZER_MODE` — одинаковое поведение.                                             |
+| `PII_REDACTION_ENABLED`   | `false`      | `src/middleware/promptInjectionGuard.ts` | Обнаружение персональных данных (электронные адреса, телефоны, номера социального страхования) в входящих запросах. |
+
+### Сторона ответа: Санитизатор персональных данных
+
+| Переменная                       | По умолчанию | Файл источника            | Описание                                                                                               |
+| -------------------------------- | ------------ | ------------------------- | ------------------------------------------------------------------------------------------------------ |
+| `PII_RESPONSE_SANITIZATION`      | `false`      | `src/lib/piiSanitizer.ts` | Сканирование ответов LLM на предмет утечки персональных данных перед возвратом клиенту.                |
+| `PII_RESPONSE_SANITIZATION_MODE` | `redact`     | `src/lib/piiSanitizer.ts` | `redact` = маскировка персональных данных, `warn` = только логирование, `block` = отмена всего ответа. |
+
+### Сценарии
+
+| Сценарий                            | Конфигурация                                                                                                                 |
+| ----------------------------------- | ---------------------------------------------------------------------------------------------------------------------------- |
+| **Корпоративная соответственность** | `INPUT_SANITIZER_ENABLED=true`, `INPUT_SANITIZER_MODE=block`, `PII_REDACTION_ENABLED=true`, `PII_RESPONSE_SANITIZATION=true` |
+| **Только мониторинг**               | `INPUT_SANITIZER_ENABLED=true`, `INPUT_SANITIZER_MODE=warn` — логирование, но никогда не блокировка                          |
+| **Личное использование**            | Оставьте все отключенными — нулевая нагрузка                                                                                 |
 
 ---
 
-## 5. Input Sanitization & PII Protection
+## 6. Политики инструментов и маршрутизации
 
-OmniRoute provides a two-layer defense: request-side injection scanning and response-side PII stripping.
-
-### Request-Side: Prompt Injection Guard
-
-| Variable                  | Default   | Source File                              | Description                                                                                 |
-| ------------------------- | --------- | ---------------------------------------- | ------------------------------------------------------------------------------------------- |
-| `INPUT_SANITIZER_ENABLED` | `false`   | `src/middleware/promptInjectionGuard.ts` | Enable scanning of incoming messages for prompt injection patterns.                         |
-| `INPUT_SANITIZER_MODE`    | `warn`    | `src/middleware/promptInjectionGuard.ts` | `warn` = log only, `block` = reject request with 400, `redact` = strip suspicious patterns. |
-| `INJECTION_GUARD_MODE`    | _(unset)_ | `src/middleware/promptInjectionGuard.ts` | Legacy alias for `INPUT_SANITIZER_MODE` — same behavior.                                    |
-| `PII_REDACTION_ENABLED`   | `false`   | `src/middleware/promptInjectionGuard.ts` | Detect PII (emails, phones, SSNs) in incoming requests.                                     |
-
-### Response-Side: PII Sanitizer
-
-| Variable                         | Default  | Source File               | Description                                                             |
-| -------------------------------- | -------- | ------------------------- | ----------------------------------------------------------------------- |
-| `PII_RESPONSE_SANITIZATION`      | `false`  | `src/lib/piiSanitizer.ts` | Scan LLM responses for leaked PII before returning to client.           |
-| `PII_RESPONSE_SANITIZATION_MODE` | `redact` | `src/lib/piiSanitizer.ts` | `redact` = mask PII, `warn` = log only, `block` = drop entire response. |
-
-### Scenarios
-
-| Scenario                  | Configuration                                                                                                                |
-| ------------------------- | ---------------------------------------------------------------------------------------------------------------------------- |
-| **Enterprise compliance** | `INPUT_SANITIZER_ENABLED=true`, `INPUT_SANITIZER_MODE=block`, `PII_REDACTION_ENABLED=true`, `PII_RESPONSE_SANITIZATION=true` |
-| **Monitoring only**       | `INPUT_SANITIZER_ENABLED=true`, `INPUT_SANITIZER_MODE=warn` — logs but never blocks                                          |
-| **Personal use**          | Leave all disabled — zero overhead                                                                                           |
+| Переменная                          | По умолчанию                 | Файл источника                      | Описание                                                                                                                                                             |
+| ----------------------------------- | ---------------------------- | ----------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `TOOL_POLICY_MODE`                  | `disabled`                   | `src/lib/toolPolicy.ts`             | Управляет доступом LLM к инструментам/функциям. `allowlist` = только перечисленные инструменты, `denylist` = все, кроме перечисленных, `disabled` = нет ограничений. |
+| `OMNIROUTE_PAYLOAD_RULES_PATH`      | `./config/payloadRules.json` | `open-sse/services/payloadRules.ts` | Путь к JSON-файлу с правилами манипуляции полезной нагрузкой (настройки для каждого модели/протокола).                                                               |
+| `OMNIROUTE_PAYLOAD_RULES_RELOAD_MS` | `5000`                       | `open-sse/services/payloadRules.ts` | Интервал перезагрузки (мс) для горячей перезагрузки файла с правилами полезной нагрузки. Минимальное значение `1000`.                                                |
 
 ---
 
-## 6. Tool & Routing Policies
+## 7. URL-адреса и облачное синхронизирование
 
-| Variable           | Default    | Source File             | Description                                                                                                                               |
-| ------------------ | ---------- | ----------------------- | ----------------------------------------------------------------------------------------------------------------------------------------- |
-| `TOOL_POLICY_MODE` | `disabled` | `src/lib/toolPolicy.ts` | Controls LLM tool/function-calling access. `allowlist` = only listed tools, `denylist` = all except listed, `disabled` = no restrictions. |
-
----
-
-## 7. URLs & Cloud Sync
-
-| Variable                | Default                  | Source File                                 | Description                                                                                                     |
-| ----------------------- | ------------------------ | ------------------------------------------- | --------------------------------------------------------------------------------------------------------------- |
-| `BASE_URL`              | `http://localhost:20128` | `src/lib/cloudSync.ts`                      | Server-side URL for internal sync jobs to call `/api/sync/cloud`.                                               |
-| `CLOUD_URL`             | _(empty)_                | `src/lib/cloudSync.ts`                      | Cloud relay endpoint URL (premium feature).                                                                     |
-| `CLOUD_SYNC_TIMEOUT_MS` | `12000`                  | `src/lib/cloudSync.ts`                      | HTTP timeout for cloud sync requests.                                                                           |
-| `NEXT_PUBLIC_BASE_URL`  | `http://localhost:20128` | OAuth, Dashboard, sync                      | Public-facing URL for OAuth redirect_uri, Dashboard links. **Must match your public URL behind reverse proxy.** |
-| `NEXT_PUBLIC_CLOUD_URL` | _(empty)_                | Client-side                                 | Client-side mirror of `CLOUD_URL`.                                                                              |
-| `NEXT_PUBLIC_APP_URL`   | _(unset)_                | `src/shared/services/cloudSyncScheduler.ts` | Legacy fallback for `NEXT_PUBLIC_BASE_URL`.                                                                     |
+| Переменная                              | Значение по умолчанию                                           | Файл исходного кода                         | Описание                                                                                                                                                                                                                                                                                                                                        |
+| --------------------------------------- | --------------------------------------------------------------- | ------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `BASE_URL`                              | `http://localhost:20128`                                        | `src/lib/cloudSync.ts`                      | URL-адрес серверной части для внутренних задач синхронизации, вызывающих `/api/sync/cloud`.                                                                                                                                                                                                                                                     |
+| `CLOUD_URL`                             | _(пусто)_                                                       | `src/lib/cloudSync.ts`                      | URL-адрес конечной точки облачного реле (премиум-функция).                                                                                                                                                                                                                                                                                      |
+| `CLOUD_SYNC_TIMEOUT_MS`                 | `12000`                                                         | `src/lib/cloudSync.ts`                      | Тайм-аут HTTP-запросов для облачной синхронизации.                                                                                                                                                                                                                                                                                              |
+| `NEXT_PUBLIC_BASE_URL`                  | `http://localhost:20128`                                        | OAuth, Dashboard, sync                      | Публичный URL-адрес для перенаправления OAuth redirect_uri и ссылок на Dashboard. **Должен совпадать с вашим публичным URL-адресом за обратным прокси.**                                                                                                                                                                                        |
+| `NEXT_PUBLIC_CLOUD_URL`                 | _(пусто)_                                                       | Client-side                                 | Зеркало `CLOUD_URL` на стороне клиента.                                                                                                                                                                                                                                                                                                         |
+| `NEXT_PUBLIC_APP_URL`                   | _(не установлено)_                                              | `src/shared/services/cloudSyncScheduler.ts` | Устаревшая резервная копия `NEXT_PUBLIC_BASE_URL`.                                                                                                                                                                                                                                                                                              |
+| `OMNIROUTE_PUBLIC_BASE_URL`             | _(не установлено)_                                              | `open-sse/executors/chatgpt-web.ts`         | Браузерный OmniRoute origin, используемый для URL-адресов изображений в ответах API (например, `/v1/chatgpt-web/image/<id>`). Установите это, когда OpenWebUI или другой реле достигает OmniRoute по внутреннему URL-адресу, но браузер пользователя должен получать изображения из LAN, туннеля или общедоступного origin. Не включайте `/v1`. |
+| `OMNIROUTE_CGPT_WEB_IMAGE_TIMEOUT_MS`   | `180000` (3 мин)                                                | `open-sse/executors/chatgpt-web.ts`         | Максимальное время ожидания для асинхронного изображения chatgpt-web, которое должно прибыть через WebSocket celsius. Увеличьте во время глубоких окон очереди вверхпотока.                                                                                                                                                                     |
+| `OMNIROUTE_CGPT_WEB_IMAGE_CACHE_MAX_MB` | `256`                                                           | `open-sse/services/chatgptImageCache.ts`    | Общий бюджет памяти в байтах (МБ) для кэша изображений chatgpt-web, обслуживающего `/v1/chatgpt-web/image/<id>`. Уменьшите на узлах с ограниченной памятью; увеличьте, если генерация изображений тяжелая и клиенты соревнуются за 30-минутный TTL.                                                                                             |
+| `KIE_CALLBACK_URL`                      | _(не установлено)_                                              | `open-sse/utils/kieTask.ts`                 | Публичный URL-адрес обратного вызова для асинхронных заданий kie.ai. Наивысший приоритет переопределения перед `OMNIROUTE_KIE_CALLBACK_URL` и `OMNIROUTE_PUBLIC_URL`.                                                                                                                                                                           |
+| `OMNIROUTE_KIE_CALLBACK_URL`            | _(не установлено)_                                              | `open-sse/utils/kieTask.ts`                 | Альтернативное написание `KIE_CALLBACK_URL`. Используется как резервная копия, когда основная переменная не установлена.                                                                                                                                                                                                                        |
+| `OMNIROUTE_PUBLIC_URL`                  | _(не установлено)_                                              | `open-sse/utils/kieTask.ts`                 | Публичный origin, используемый для составления URL-адресов обратного вызова асинхронных задач. Самый низкий приоритет резервной копии для обратных вызовов kie.ai; также используется как общий публичный URL-адрес для других реле.                                                                                                            |
+| `OMNIROUTE_CROF_USAGE_URL`              | `https://crof.ai/usage_api/`                                    | `open-sse/services/usage.ts`                | Конечная точка поиска квот CrofAI, используемая страницей Usage. Переопределите для реле / тестовых фикстур.                                                                                                                                                                                                                                    |
+| `OMNIROUTE_GEMINI_CLI_USAGE_URL`        | `https://cloudcode-pa.googleapis.com/v1internal:loadCodeAssist` | `open-sse/services/usage.ts`                | Конечная точка поиска квот Gemini CLI. Переопределите для реле / тестовых фикстур.                                                                                                                                                                                                                                                              |
+| `OMNIROUTE_CODEWHISPERER_BASE_URL`      | `https://codewhisperer.us-east-1.amazonaws.com`                 | `open-sse/services/usage.ts`                | Конечная точка лимитов использования CodeWhisperer (AWS Kiro). Переопределите для реле / тестовых фикстур.                                                                                                                                                                                                                                      |
 
 > [!IMPORTANT]
-> When deploying behind a reverse proxy (nginx, Caddy), `NEXT_PUBLIC_BASE_URL` **must** be set to your public URL (e.g., `https://omniroute.example.com`). Without this, OAuth callbacks will fail because the redirect_uri won't match.
+> При развертывании за обратным прокси (nginx, Caddy), `NEXT_PUBLIC_BASE_URL` **должен** быть установлен на ваш публичный URL-адрес (например, `https://omniroute.example.com`). Без этого обратные вызовы OAuth не удастся, потому что redirect_uri не будет совпадать.
 
 ---
 
-## 8. Outbound Proxy
+## 8. Исходящий прокси
 
-Route upstream LLM provider calls through an HTTP or SOCKS5 proxy for egress control, geo-routing, or IP masking.
+Маршрутизируйте вызовы поставщиков LLM через HTTP или SOCKS5 прокси для контроля исходящего трафика, гео-маршрутизации или маскировки IP.
 
-| Variable                          | Default   | Source File          | Description                                                                         |
-| --------------------------------- | --------- | -------------------- | ----------------------------------------------------------------------------------- |
-| `ENABLE_SOCKS5_PROXY`             | `true`    | `open-sse/executors` | Enable SOCKS5 proxy agent for upstream calls.                                       |
-| `NEXT_PUBLIC_ENABLE_SOCKS5_PROXY` | `true`    | Client-side          | Client-side awareness of SOCKS5 availability.                                       |
-| `HTTP_PROXY`                      | _(unset)_ | Node.js standard     | HTTP proxy for upstream calls.                                                      |
-| `HTTPS_PROXY`                     | _(unset)_ | Node.js standard     | HTTPS proxy for upstream calls.                                                     |
-| `ALL_PROXY`                       | _(unset)_ | Node.js standard     | Universal proxy (supports `socks5://`).                                             |
-| `NO_PROXY`                        | _(unset)_ | Node.js standard     | Comma-separated hostnames/IPs to bypass the proxy.                                  |
-| `ENABLE_TLS_FINGERPRINT`          | `false`   | `open-sse/executors` | Spoof TLS fingerprint using wreq-js (mimics Chrome 124). Counters JA3/JA4 blocking. |
+| Переменная                        | По умолчанию       | Исходный файл        | Описание                                                                                                             |
+| --------------------------------- | ------------------ | -------------------- | -------------------------------------------------------------------------------------------------------------------- |
+| `ENABLE_SOCKS5_PROXY`             | `true`             | `open-sse/executors` | Включить SOCKS5 прокси-агент для исходящих вызовов.                                                                  |
+| `NEXT_PUBLIC_ENABLE_SOCKS5_PROXY` | `true`             | Клиентская сторона   | Клиентская осведомленность о наличии SOCKS5.                                                                         |
+| `HTTP_PROXY`                      | _(не установлено)_ | Стандарт Node.js     | HTTP прокси для исходящих вызовов.                                                                                   |
+| `HTTPS_PROXY`                     | _(не установлено)_ | Стандарт Node.js     | HTTPS прокси для исходящих вызовов.                                                                                  |
+| `ALL_PROXY`                       | _(не установлено)_ | Стандарт Node.js     | Универсальный прокси (поддерживает `socks5://`).                                                                     |
+| `NO_PROXY`                        | _(не установлено)_ | Стандарт Node.js     | Список хостов/IP, которые должны обходить прокси (разделенные запятыми).                                             |
+| `ENABLE_TLS_FINGERPRINT`          | `false`            | `open-sse/executors` | Подделывать TLS отпечаток с использованием wreq-js (подделывает Chrome 124). Противодействует блокировке по JA3/JA4. |
 
-### Scenarios
+### Сценарии
 
-| Scenario                      | Configuration                                                                                                             |
+| Сценарий                      | Конфигурация                                                                                                              |
 | ----------------------------- | ------------------------------------------------------------------------------------------------------------------------- |
-| **SOCKS5 through SSH tunnel** | `ALL_PROXY=socks5://127.0.0.1:7890`, `ENABLE_SOCKS5_PROXY=true`                                                           |
-| **Corporate HTTP proxy**      | `HTTP_PROXY=http://proxy.corp.com:3128`, `HTTPS_PROXY=http://proxy.corp.com:3128`, `NO_PROXY=localhost,internal.corp.com` |
-| **Anti-fingerprint**          | `ENABLE_TLS_FINGERPRINT=true` — requires `wreq-js` (included)                                                             |
+| **SOCKS5 через SSH туннель**  | `ALL_PROXY=socks5://127.0.0.1:7890`, `ENABLE_SOCKS5_PROXY=true`                                                           |
+| **Корпоративный HTTP прокси** | `HTTP_PROXY=http://proxy.corp.com:3128`, `HTTPS_PROXY=http://proxy.corp.com:3128`, `NO_PROXY=localhost,internal.corp.com` |
+| **Анти-отпечаток**            | `ENABLE_TLS_FINGERPRINT=true` — требует `wreq-js` (включен)                                                               |
 
 ---
 
-## 9. CLI Tool Integration
+## 9. Интеграция инструментов CLI
 
-Controls how OmniRoute discovers and launches CLI sidecars (Claude Code, Codex, etc.).
+Контролирует, как OmniRoute обнаруживает и запускает CLI sidecars (Claude Code, Codex и т.д.).
 
-| Variable                  | Default    | Source File                         | Description                                                                |
-| ------------------------- | ---------- | ----------------------------------- | -------------------------------------------------------------------------- |
-| `CLI_MODE`                | `auto`     | `src/shared/services/cliRuntime.ts` | `auto` = search system PATH; `manual` = use explicit paths only.           |
-| `CLI_EXTRA_PATHS`         | _(unset)_  | `src/shared/services/cliRuntime.ts` | Additional PATH entries for CLI binary discovery (colon-separated).        |
-| `CLI_CONFIG_HOME`         | _(unset)_  | `src/shared/services/cliRuntime.ts` | Override home directory for reading CLI configs (`~/.claude`, `~/.codex`). |
-| `CLI_ALLOW_CONFIG_WRITES` | `false`    | `src/shared/services/cliRuntime.ts` | Allow OmniRoute to write CLI config files (token refresh, session data).   |
-| `CLI_CLAUDE_BIN`          | `claude`   | `src/shared/services/cliRuntime.ts` | Custom path to Claude CLI binary.                                          |
-| `CLI_CODEX_BIN`           | `codex`    | `src/shared/services/cliRuntime.ts` | Custom path to Codex CLI binary.                                           |
-| `CLI_DROID_BIN`           | `droid`    | `src/shared/services/cliRuntime.ts` | Custom path to Droid CLI binary.                                           |
-| `CLI_OPENCLAW_BIN`        | `openclaw` | `src/shared/services/cliRuntime.ts` | Custom path to OpenClaw CLI binary.                                        |
-| `CLI_CURSOR_BIN`          | `agent`    | `src/shared/services/cliRuntime.ts` | Custom path to Cursor agent binary.                                        |
-| `CLI_CLINE_BIN`           | `cline`    | `src/shared/services/cliRuntime.ts` | Custom path to Cline CLI binary.                                           |
-| `CLI_CONTINUE_BIN`        | `cn`       | `src/shared/services/cliRuntime.ts` | Custom path to Continue CLI binary.                                        |
-| `CLI_QODER_BIN`           | `qoder`    | `src/shared/services/cliRuntime.ts` | Custom path to Qoder CLI binary.                                           |
+| Переменная                | По умолчанию       | Исходный файл                       | Описание                                                                                              |
+| ------------------------- | ------------------ | ----------------------------------- | ----------------------------------------------------------------------------------------------------- |
+| `CLI_MODE`                | `auto`             | `src/shared/services/cliRuntime.ts` | `auto` = поиск в системном PATH; `manual` = использование только явных путей.                         |
+| `CLI_EXTRA_PATHS`         | _(не установлено)_ | `src/shared/services/cliRuntime.ts` | Дополнительные записи PATH для обнаружения бинарных файлов CLI (разделенные двоеточием).              |
+| `CLI_CONFIG_HOME`         | _(не установлено)_ | `src/shared/services/cliRuntime.ts` | Переопределение домашнего каталога для чтения конфигураций CLI (`~/.claude`, `~/.codex`).             |
+| `CLI_ALLOW_CONFIG_WRITES` | `false`            | `src/shared/services/cliRuntime.ts` | Разрешить OmniRoute записывать конфигурационные файлы CLI (обновление токенов, данные сессии).        |
+| `CLI_CLAUDE_BIN`          | `claude`           | `src/shared/services/cliRuntime.ts` | Пользовательский путь к бинарному файлу CLI Claude.                                                   |
+| `CLI_CODEX_BIN`           | `codex`            | `src/shared/services/cliRuntime.ts` | Пользовательский путь к бинарному файлу CLI Codex.                                                    |
+| `CLI_DROID_BIN`           | `droid`            | `src/shared/services/cliRuntime.ts` | Пользовательский путь к бинарному файлу CLI Droid.                                                    |
+| `CLI_OPENCLAW_BIN`        | `openclaw`         | `src/shared/services/cliRuntime.ts` | Пользовательский путь к бинарному файлу CLI OpenClaw.                                                 |
+| `CLI_CURSOR_BIN`          | `agent`            | `src/shared/services/cliRuntime.ts` | Пользовательский путь к бинарному файлу агента Cursor.                                                |
+| `CLI_CLINE_BIN`           | `cline`            | `src/shared/services/cliRuntime.ts` | Пользовательский путь к бинарному файлу CLI Cline.                                                    |
+| `CLI_CONTINUE_BIN`        | `cn`               | `src/shared/services/cliRuntime.ts` | Пользовательский путь к бинарному файлу CLI Continue.                                                 |
+| `CLI_QODER_BIN`           | `qoder`            | `src/shared/services/cliRuntime.ts` | Пользовательский путь к бинарному файлу CLI Qoder.                                                    |
+| `CLI_QWEN_BIN`            | `qwen`             | `src/shared/services/cliRuntime.ts` | Пользовательский путь к бинарному файлу CLI Qwen Code.                                                |
+| `CLI_DEVIN_BIN`           | `devin`            | `open-sse/executors/devin-cli.ts`   | Пользовательский путь к бинарному файлу CLI Devin (v3.8.0). Используется исполнителем Windsurf/Devin. |
 
-### Docker Example
+### Пример Docker
 
 ```bash
-# Mount host binaries into the container and tell OmniRoute where they are:
+# Монтируйте бинарные файлы хоста в контейнер и сообщите OmniRoute, где они находятся:
 CLI_EXTRA_PATHS=/host-cli/bin
 CLI_CONFIG_HOME=/root
 CLI_ALLOW_CONFIG_WRITES=true
 CLI_CLAUDE_BIN=/host-cli/bin/claude
 ```
 
----
+### Помощники CLI Binary (`omniroute`)
 
-## 10. Internal Agent & MCP Integrations
+Эти переменные настраивают поведение собственного бинарного файла CLI `omniroute` (не обнаружение sidecar).
 
-| Variable                                | Default     | Source File                                 | Description                                                                                                                   |
-| --------------------------------------- | ----------- | ------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------- |
-| `OMNIROUTE_BASE_URL`                    | auto-detect | `open-sse/mcp-server/server.ts`             | Explicit URL for MCP/A2A tools to reach OmniRoute. Overrides localhost auto-detection.                                        |
-| `OMNIROUTE_API_KEY`                     | _(unset)_   | MCP/A2A modules                             | API key for internal MCP tool and A2A skill calls.                                                                            |
-| `OMNIROUTE_API_KEY_ID`                  | _(unset)_   | `open-sse/mcp-server/audit.ts`              | Key ID for MCP audit log attribution.                                                                                         |
-| `ROUTER_API_KEY`                        | _(unset)_   | Legacy                                      | Legacy alias for `OMNIROUTE_API_KEY`.                                                                                         |
-| `OMNIROUTE_MCP_ENFORCE_SCOPES`          | `false`     | `open-sse/mcp-server/server.ts`             | Enforce scope-based access control on MCP tool calls.                                                                         |
-| `OMNIROUTE_MCP_SCOPES`                  | _(all)_     | `open-sse/mcp-server/server.ts`             | Comma-separated scopes: `admin`, `combos`, `health`, `models`, `routing`, `budget`, `metrics`, `pricing`, `memory`, `skills`. |
-| `MODEL_SYNC_INTERVAL_HOURS`             | `24`        | `src/shared/services/modelSyncScheduler.ts` | Model catalog sync interval in hours.                                                                                         |
-| `PROVIDER_LIMITS_SYNC_INTERVAL_MINUTES` | `70`        | `src/server-init.ts`                        | Provider rate-limit and quota polling interval.                                                                               |
-| `OMNIROUTE_DISABLE_BACKGROUND_SERVICES` | `false`     | `src/instrumentation-node.ts`               | Disable all background services (sync, pricing, model refresh). Useful for CI/test.                                           |
-| `OMNIROUTE_BOOTSTRAPPED`                | `false`     | `src/app/(dashboard)/dashboard/page.tsx`    | Set `true` by bootstrap script after initial setup. Controls setup wizard visibility.                                         |
-| `OMNIROUTE_ALLOW_BODY_PROJECT_OVERRIDE` | `0`         | `open-sse/executors/antigravity.ts`         | Escape hatch: allow request body to override the Antigravity project field.                                                   |
-
-### OAuth CLI Bridge (Internal)
-
-| Variable            | Default     | Source File                     | Description                               |
-| ------------------- | ----------- | ------------------------------- | ----------------------------------------- |
-| `OMNIROUTE_SERVER`  | auto-detect | `src/lib/oauth/config/index.ts` | Server URL for CLI↔OmniRoute auth bridge. |
-| `OMNIROUTE_TOKEN`   | _(unset)_   | `src/lib/oauth/config/index.ts` | Auth token for CLI bridge.                |
-| `OMNIROUTE_USER_ID` | `cli`       | `src/lib/oauth/config/index.ts` | User ID for CLI bridge sessions.          |
-| `SERVER_URL`        | _(unset)_   | `src/lib/oauth/config/index.ts` | Legacy alias for `OMNIROUTE_SERVER`.      |
-| `CLI_TOKEN`         | _(unset)_   | `src/lib/oauth/config/index.ts` | Legacy alias for `OMNIROUTE_TOKEN`.       |
-| `CLI_USER_ID`       | _(unset)_   | `src/lib/oauth/config/index.ts` | Legacy alias for `OMNIROUTE_USER_ID`.     |
+| Переменная                  | По умолчанию       | Исходный файл                           | Описание                                                                                                                                              |
+| --------------------------- | ------------------ | --------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `OMNIROUTE_LANG`            | _(системный)_      | `bin/cli/i18n.mjs`                      | Принудительный язык вывода CLI. Локаль BCP-47 (например, `en`, `pt-BR`). Переопределяет системные переменные локали (LC_ALL, LC_MESSAGES).            |
+| `OMNIROUTE_SHOW_LOG`        | _(не установлено)_ | `bin/cli/runtime/processSupervisor.mjs` | Установите `1`, чтобы перенаправлять stdout/stderr сервера в терминал в режиме супервайзора. Эквивалентно флагу `--log` в `omniroute serve`.          |
+| `OMNIROUTE_CLI_TOKEN`       | _(не установлено)_ | `bin/cli/api.mjs`                       | Токен аутентификации машины, внедренный как заголовок `x-omniroute-cli-token`. Автоматически генерируется в задаче 8.12.                              |
+| `OMNIROUTE_HTTP_TIMEOUT_MS` | `30000`            | `bin/cli/api.mjs`                       | Таймаут HTTP (мс) для запросов CLI → сервер.                                                                                                          |
+| `OMNIROUTE_VERBOSE`         | `0`                | `bin/cli/api.mjs`                       | Установите `1`, чтобы выводить диагностику повторных попыток и задержек в stderr во время выполнения команд CLI.                                      |
+| `OMNIROUTE_PLUGIN_PATH`     | _(не установлено)_ | `bin/cli/plugins.mjs`                   | Пользовательский каталог для обнаружения плагинов CLI (`omniroute-cmd-*` пакеты). По умолчанию `~/.omniroute/plugins/` при не установленном значении. |
 
 ---
 
-## 11. OAuth Provider Credentials
+## 10. Внутренние интеграции агента и MCP
 
-Built-in credentials for **localhost development**. For remote deployments, register your own at each provider's developer console.
+| Переменная                                      | По умолчанию | Файл-источник                                               | Описание                                                                                                                                       |
+| ----------------------------------------------- | ------------ | ----------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------- |
+| `OMNIROUTE_BASE_URL`                            | auto-detect  | `open-sse/mcp-server/server.ts`                             | Явный URL для инструментов MCP/A2A для достижения OmniRoute. Переопределяет автообнаружение localhost.                                         |
+| `OMNIROUTE_API_KEY`                             | _(unset)_    | Модули MCP/A2A                                              | API-ключ для внутреннего инструмента MCP и вызовов навыков A2A.                                                                                |
+| `OMNIROUTE_API_KEY_ID`                          | _(unset)_    | `open-sse/mcp-server/audit.ts`                              | Идентификатор ключа для атрибуции журнала аудита MCP.                                                                                          |
+| `ROUTER_API_KEY`                                | _(unset)_    | Устаревший                                                  | Устаревший псевдоним для `OMNIROUTE_API_KEY`.                                                                                                  |
+| `OMNIROUTE_MCP_ENFORCE_SCOPES`                  | `false`      | `open-sse/mcp-server/server.ts`                             | Применять контроль доступа на основе областей видимости для вызовов инструмента MCP.                                                           |
+| `OMNIROUTE_MCP_SCOPES`                          | _(all)_      | `open-sse/mcp-server/server.ts`                             | Области видимости, разделенные запятыми: `admin`, `combos`, `health`, `models`, `routing`, `budget`, `metrics`, `pricing`, `memory`, `skills`. |
+| `OMNIROUTE_MCP_COMPRESS_DESCRIPTIONS`           | enabled      | `open-sse/mcp-server/descriptionCompressor.ts`              | Сжимать описания инструментов MCP перед сериализацией манифеста. Отключить значения: `0`, `false`, `off`.                                      |
+| `OMNIROUTE_MCP_DESCRIPTION_COMPRESSION`         | `rtk`        | `open-sse/mcp-server/descriptionCompressor.ts`              | Алгоритм/профиль сжатия. Отключить значения: `0`, `false`, `off`.                                                                              |
+| `MODEL_SYNC_INTERVAL_HOURS`                     | `24`         | `src/shared/services/modelSyncScheduler.ts`                 | Интервал синхронизации каталога моделей в часах.                                                                                               |
+| `PROVIDER_LIMITS_SYNC_INTERVAL_MINUTES`         | `70`         | `src/server-init.ts`                                        | Интервал опроса лимитов скорости и квот поставщика.                                                                                            |
+| `OMNIROUTE_DISABLE_BACKGROUND_SERVICES`         | `false`      | `src/instrumentation-node.ts`                               | Отключить все фоновые службы (синхронизация, ценообразование, обновление модели). Полезно для CI/теста.                                        |
+| `OMNIROUTE_ENABLE_RUNTIME_BACKGROUND_TASKS`     | _(unset)_    | `src/lib/config/runtimeSettings.ts`                         | Принудительно запускать фоновые задачи при обнаружении автоматизированного теста. Установите `1`, чтобы переопределить эвристику теста.        |
+| `OMNIROUTE_BUDGET_RESET_JOB_INTERVAL_MS`        | `600000`     | `src/lib/jobs/budgetResetJob.ts`                            | Интервал проверки сброса бюджета (мс). Нижняя граница `10000`.                                                                                 |
+| `OMNIROUTE_REASONING_CACHE_CLEANUP_INTERVAL_MS` | `1800000`    | `src/lib/jobs/reasoningCacheCleanupJob.ts`                  | Интервал очистки кэша рассуждений (мс). Нижняя граница `60000`.                                                                                |
+| `OMNIROUTE_CONFIG_HOT_RELOAD_MS`                | `5000`       | `src/lib/config/hotReload.ts`                               | Интервал опроса (мс) для горячей перезагрузки конфигурации. Значения ниже `1000` отклоняются.                                                  |
+| `OMNIROUTE_DISABLE_REDIS_AUTH_CACHE`            | _(enabled)_  | `src/lib/db/apiKeys.ts`                                     | Установите `1`, чтобы обойти кэш аутентификации API-ключей на основе Redis (принудительные чтения из БД).                                      |
+| `OMNIROUTE_RTK_TRUST_PROJECT_FILTERS`           | `0`          | `open-sse/services/compression/engines/rtk/filterLoader.ts` | Доверять пользовательским правилам фильтрации проектов RTK без строгих проверок подписи.                                                       |
+| `OMNIROUTE_BOOTSTRAPPED`                        | `false`      | `src/app/(dashboard)/dashboard/page.tsx`                    | Установите `true` скриптом загрузки после начальной настройки. Управляет видимостью мастера настройки.                                         |
+| `OMNIROUTE_ALLOW_BODY_PROJECT_OVERRIDE`         | `0`          | `open-sse/executors/antigravity.ts`                         | Обходной путь: разрешить телу запроса переопределять поле проекта Antigravity.                                                                 |
+| `ANTIGRAVITY_CREDITS`                           | _(unset)_    | `open-sse/services/antigravityCredits.ts`                   | Переопределить оставшиеся кредиты Antigravity (тестирование / принудительные значения).                                                        |
 
-| Variable                          | Provider                | Notes                                                                             |
-| --------------------------------- | ----------------------- | --------------------------------------------------------------------------------- |
-| `CLAUDE_OAUTH_CLIENT_ID`          | Claude Code (Anthropic) | Public client — no secret needed.                                                 |
-| `CLAUDE_CODE_REDIRECT_URI`        | Claude Code             | Override redirect URI. Default: `https://platform.claude.com/oauth/code/callback` |
-| `CODEX_OAUTH_CLIENT_ID`           | Codex / OpenAI          | Public client.                                                                    |
-| `GEMINI_OAUTH_CLIENT_ID`          | Gemini (Google)         | Requires matching `_SECRET`.                                                      |
-| `GEMINI_OAUTH_CLIENT_SECRET`      | Gemini (Google)         | —                                                                                 |
-| `GEMINI_CLI_OAUTH_CLIENT_ID`      | Gemini CLI              | Usually same as Gemini.                                                           |
-| `GEMINI_CLI_OAUTH_CLIENT_SECRET`  | Gemini CLI              | —                                                                                 |
-| `QWEN_OAUTH_CLIENT_ID`            | Qwen (Alibaba)          | Public client.                                                                    |
-| `KIMI_CODING_OAUTH_CLIENT_ID`     | Kimi Coding (Moonshot)  | Public client.                                                                    |
-| `ANTIGRAVITY_OAUTH_CLIENT_ID`     | Antigravity (Google)    | Requires matching `_SECRET`.                                                      |
-| `ANTIGRAVITY_OAUTH_CLIENT_SECRET` | Antigravity (Google)    | —                                                                                 |
-| `GITHUB_OAUTH_CLIENT_ID`          | GitHub Copilot          | Public client.                                                                    |
-| `QODER_OAUTH_CLIENT_SECRET`       | Qoder                   | —                                                                                 |
-| `QODER_OAUTH_AUTHORIZE_URL`       | Qoder                   | Set to enable Qoder OAuth.                                                        |
-| `QODER_OAUTH_TOKEN_URL`           | Qoder                   | —                                                                                 |
-| `QODER_OAUTH_USERINFO_URL`        | Qoder                   | —                                                                                 |
-| `QODER_OAUTH_CLIENT_ID`           | Qoder                   | —                                                                                 |
-| `QODER_PERSONAL_ACCESS_TOKEN`     | Qoder                   | Direct API key fallback (bypasses OAuth).                                         |
-| `QODER_CLI_WORKSPACE`             | Qoder                   | Workspace ID for Qoder CLI.                                                       |
-| `OMNIROUTE_QODER_WORKSPACE`       | Qoder                   | Alias for `QODER_CLI_WORKSPACE`.                                                  |
+### OAuth CLI Bridge (Внутренний)
+
+| Переменная          | По умолчанию | Файл-источник                   | Описание                                            |
+| ------------------- | ------------ | ------------------------------- | --------------------------------------------------- |
+| `OMNIROUTE_SERVER`  | auto-detect  | `src/lib/oauth/config/index.ts` | URL сервера для моста аутентификации CLI↔OmniRoute. |
+| `OMNIROUTE_TOKEN`   | _(unset)_    | `src/lib/oauth/config/index.ts` | Токен аутентификации для моста CLI.                 |
+| `OMNIROUTE_USER_ID` | `cli`        | `src/lib/oauth/config/index.ts` | Идентификатор пользователя для сессий моста CLI.    |
+| `SERVER_URL`        | _(unset)_    | `src/lib/oauth/config/index.ts` | Устаревший псевдоним для `OMNIROUTE_SERVER`.        |
+| `CLI_TOKEN`         | _(unset)_    | `src/lib/oauth/config/index.ts` | Устаревший псевдоним для `OMNIROUTE_TOKEN`.         |
+| `CLI_USER_ID`       | _(unset)_    | `src/lib/oauth/config/index.ts` | Устаревший псевдоним для `OMNIROUTE_USER_ID`.       |
+
+---
+
+## 11. Учетные данные OAuth-провайдера
+
+Встроенные учетные данные для **локальной разработки**. Для удаленных развертываний зарегистрируйте свои собственные учетные данные в консоли разработчика каждого провайдера.
+
+| Переменная                        | Провайдер               | Примечания                                                                                                                                                                                                                                                                                                                |
+| --------------------------------- | ----------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `CLAUDE_OAUTH_CLIENT_ID`          | Claude Code (Anthropic) | Публичный клиент — секрет не нужен.                                                                                                                                                                                                                                                                                       |
+| `CLAUDE_CODE_REDIRECT_URI`        | Claude Code             | Переопределить URI перенаправления. По умолчанию: `https://platform.claude.com/oauth/code/callback`                                                                                                                                                                                                                       |
+| `CODEX_OAUTH_CLIENT_ID`           | Codex / OpenAI          | Публичный клиент.                                                                                                                                                                                                                                                                                                         |
+| `GEMINI_OAUTH_CLIENT_ID`          | Gemini (Google)         | Требуется соответствующий `_SECRET`.                                                                                                                                                                                                                                                                                      |
+| `GEMINI_OAUTH_CLIENT_SECRET`      | Gemini (Google)         | —                                                                                                                                                                                                                                                                                                                         |
+| `GEMINI_CLI_OAUTH_CLIENT_ID`      | Gemini CLI              | Обычно совпадает с Gemini.                                                                                                                                                                                                                                                                                                |
+| `GEMINI_CLI_OAUTH_CLIENT_SECRET`  | Gemini CLI              | —                                                                                                                                                                                                                                                                                                                         |
+| `QWEN_OAUTH_CLIENT_ID`            | Qwen (Alibaba)          | Публичный клиент.                                                                                                                                                                                                                                                                                                         |
+| `KIMI_CODING_OAUTH_CLIENT_ID`     | Kimi Coding (Moonshot)  | Публичный клиент.                                                                                                                                                                                                                                                                                                         |
+| `ANTIGRAVITY_OAUTH_CLIENT_ID`     | Antigravity (Google)    | Требуется соответствующий `_SECRET`.                                                                                                                                                                                                                                                                                      |
+| `ANTIGRAVITY_OAUTH_CLIENT_SECRET` | Antigravity (Google)    | —                                                                                                                                                                                                                                                                                                                         |
+| `GITHUB_OAUTH_CLIENT_ID`          | GitHub Copilot          | Публичный клиент.                                                                                                                                                                                                                                                                                                         |
+| `WINDSURF_FIREBASE_API_KEY`       | Windsurf / Devin (v3.8) | Публичный веб-API-ключ Firebase, используемый Службой безопасных токенов Windsurf для обновления краткосрочных токенов потока браузера. Учетные данные клиентской стороны (не секрет). Длительные токены импорта полностью пропускают это. Источник: извлечено из двоичного файла Devin CLI.                              |
+| `WINDSURF_API_KEY`                | Windsurf / Devin (v3.8) | Резервный API-ключ, используемый `open-sse/executors/devin-cli.ts`, когда нет учетных данных для каждого подключения. Необязательно.                                                                                                                                                                                      |
+| `CLI_DEVIN_BIN`                   | Devin CLI (v3.8)        | Пользовательский путь к двоичному файлу Devin CLI (`devin`). Разрешается `open-sse/executors/devin-cli.ts`.                                                                                                                                                                                                               |
+| `GITLAB_DUO_OAUTH_CLIENT_ID`      | GitLab Duo (v3.8)       | OAuth client ID для GitLab Duo. Зарегистрируйте приложение на `https://gitlab.com/-/profile/applications` с URI перенаправления `<NEXT_PUBLIC_BASE_URL>/callback` и областями `api, read_user, openid, profile, email`. Резервный вариант: `GITLAB_OAUTH_CLIENT_ID`.                                                      |
+| `GITLAB_DUO_OAUTH_CLIENT_SECRET`  | GitLab Duo (v3.8)       | OAuth client secret для GitLab Duo. Необязательно — поток PKCE не требует секрета. Резервный вариант: `GITLAB_OAUTH_CLIENT_SECRET`.                                                                                                                                                                                       |
+| `GITLAB_DUO_BASE_URL`             | GitLab Duo (v3.8)       | Переопределить базовый URL GitLab (самопроизвольный GitLab). По умолчанию `https://gitlab.com`. Резервный вариант: `GITLAB_BASE_URL`.                                                                                                                                                                                     |
+| `GITLAB_BASE_URL`                 | GitLab Duo (v3.8)       | Устаревший резервный вариант для `GITLAB_DUO_BASE_URL`. Используется, когда `_DUO_` вариант не установлен.                                                                                                                                                                                                                |
+| `GITLAB_OAUTH_CLIENT_ID`          | GitLab Duo (v3.8)       | Устаревший резервный вариант для `GITLAB_DUO_OAUTH_CLIENT_ID`, используемый `src/lib/oauth/constants/oauth.ts`.                                                                                                                                                                                                           |
+| `GITLAB_OAUTH_CLIENT_SECRET`      | GitLab Duo (v3.8)       | Устаревший резервный вариант для `GITLAB_DUO_OAUTH_CLIENT_SECRET`, используемый `src/lib/oauth/constants/oauth.ts`.                                                                                                                                                                                                       |
+| `QODER_OAUTH_CLIENT_SECRET`       | Qoder                   | —                                                                                                                                                                                                                                                                                                                         |
+| `QODER_OAUTH_AUTHORIZE_URL`       | Qoder                   | Установите для включения OAuth Qoder.                                                                                                                                                                                                                                                                                     |
+| `QODER_OAUTH_TOKEN_URL`           | Qoder                   | —                                                                                                                                                                                                                                                                                                                         |
+| `QODER_OAUTH_USERINFO_URL`        | Qoder                   | —                                                                                                                                                                                                                                                                                                                         |
+| `QODER_OAUTH_CLIENT_ID`           | Qoder                   | —                                                                                                                                                                                                                                                                                                                         |
+| `QODER_PERSONAL_ACCESS_TOKEN`     | Qoder                   | Прямой API-ключ резервного варианта (обходит OAuth).                                                                                                                                                                                                                                                                      |
+| `QODER_CLI_WORKSPACE`             | Qoder                   | Идентификатор рабочей области для Qoder CLI.                                                                                                                                                                                                                                                                              |
+| `OMNIROUTE_QODER_WORKSPACE`       | Qoder                   | Псевдоним для `QODER_CLI_WORKSPACE`.                                                                                                                                                                                                                                                                                      |
+| `BLACKBOX_WEB_VALIDATED_TOKEN`    | Blackbox Web            | Токен `tk` для фронтенда, который нужно отправить как `validated` на `/api/chat`. Требуется, когда Blackbox требует совпадения токенов; в противном случае OmniRoute переходит на случайный UUID. Смотрите проблему #2252.                                                                                                |
+| `VISION_BRIDGE_BASE_URL`          | Vision Bridge guardrail | Базовый URL, совместимый с OpenAI, для вызовов vision-bridge, не связанных с Anthropic. По умолчанию используется устаревший URL-адрес env OpenAI или api.openai.com. Укажите на самопроизвольный цикл `/v1` OmniRoute или любой конечный пункт, совместимый с OpenAI (Gemini OpenAI-compat, OpenRouter). Проблема #2232. |
+| `VISION_BRIDGE_API_KEY`           | Vision Bridge guardrail | API-ключ для указанного выше URL. Переопределяет переменные окружения OpenAI / Google для вызовов vision-bridge, не связанных с Anthropic. Модели Anthropic сохраняют свой собственный путь к ключу Anthropic. Проблема #2232.                                                                                            |
 
 > [!WARNING]
-> **Google OAuth** (Antigravity, Gemini CLI) credentials **only work on localhost**. For remote servers:
+> **Google OAuth** (Antigravity, Gemini CLI) учетные данные **работают только на localhost**. Для удаленных серверов:
 >
-> 1. Go to [Google Cloud Console → Credentials](https://console.cloud.google.com/apis/credentials)
-> 2. Create an OAuth 2.0 Client ID (type: "Web application")
-> 3. Add your server URL as Authorized redirect URI
-> 4. Replace the credential values in `.env`.
+> 1. Перейдите в [Google Cloud Console → Credentials](https://console.cloud.google.com/apis/credentials)
+> 2. Создайте OAuth 2.0 Client ID (тип: "Веб-приложение")
+> 3. Добавьте URL вашего сервера в качестве авторизованного URI перенаправления
+> 4. Замените значения учетных данных в `.env`.
 
 ---
 
-## 12. Provider User-Agent Overrides
+```
 
-Override the `User-Agent` header sent to each upstream provider. This is dynamically resolved at runtime by the executor base class:
+## 12. Переопределение User-Agent провайдера
+
+Переопределите заголовок `User-Agent`, отправляемый каждому провайдеру. Это динамически разрешается во время выполнения базовым классом исполнителя:
 
 ```
+
 process.env[`${PROVIDER_ID}_USER_AGENT`]
+
 ```
 
-> **Source:** `open-sse/executors/base.ts` → `buildHeaders()`
+> **Источник:** `open-sse/executors/base.ts` → `buildHeaders()`
 
-| Variable                 | Default Value                                 | When to Update                                                |
-| ------------------------ | --------------------------------------------- | ------------------------------------------------------------- |
-| `CLAUDE_USER_AGENT`      | `claude-cli/2.1.145 (external, cli)`          | When Anthropic releases a new CLI version                     |
-| `CODEX_USER_AGENT`       | `codex-cli/0.132.0 (Windows 10.0.26200; x64)` | When OpenAI updates the Codex CLI                             |
-| `CODEX_CLIENT_VERSION`   | `0.131.0`                                     | Override Codex client version independently of full UA string |
-| `GITHUB_USER_AGENT`      | `GitHubCopilotChat/0.45.1`                    | When GitHub Copilot Chat updates                              |
-| `ANTIGRAVITY_USER_AGENT` | `antigravity/2.0.1 darwin/arm64`              | When Antigravity IDE updates                                  |
-| `KIRO_USER_AGENT`        | `AWS-SDK-JS/3.0.0 kiro-ide/1.0.0`             | When Kiro IDE updates                                         |
-| `QODER_USER_AGENT`       | `Qoder-Cli`                                   | When Qoder CLI updates                                        |
-| `QWEN_USER_AGENT`        | `QwenCode/0.15.11 (linux; x64)`               | When Qwen Code updates                                        |
-| `CURSOR_USER_AGENT`      | `connect-es/1.6.1`                            | When Cursor updates                                           |
-| `GEMINI_CLI_USER_AGENT`  | `google-api-nodejs-client/10.3.0`             | When Google API client updates                                |
+| Переменная               | Значение по умолчанию                     | Когда обновить                                                |
+| ------------------------ | ----------------------------------------- | ------------------------------------------------------------- |
+| `CLAUDE_USER_AGENT`      | `claude-cli/2.1.145 (external, cli)`       | Когда Anthropic выпускает новую версию CLI                    |
+| `CODEX_USER_AGENT`       | `codex-cli/0.132.0 (Windows 10.0.26200; x64)` | Когда OpenAI обновляет Codex CLI                              |
+| `CODEX_CLIENT_VERSION`   | `0.131.0`                                 | Переопределить версию клиента Codex независимо от полной строки UA |
+| `GITHUB_USER_AGENT`      | `GitHubCopilotChat/0.45.1`                | Когда GitHub Copilot Chat обновляется                         |
+| `ANTIGRAVITY_USER_AGENT` | `antigravity/2.0.1 darwin/arm64`         | Когда Antigravity IDE обновляется                             |
+| `KIRO_USER_AGENT`        | `AWS-SDK-JS/3.0.0 kiro-ide/1.0.0`        | Когда Kiro IDE обновляется                                    |
+| `QODER_USER_AGENT`       | `Qoder-Cli`                               | Когда Qoder CLI обновляется                                   |
+| `QWEN_USER_AGENT`        | `QwenCode/0.15.9 (linux; x64)`           | Когда Qwen Code обновляется                                   |
+| `CURSOR_USER_AGENT`      | `Cursor/3.3`                             | Когда Cursor обновляется                                      |
+| `GEMINI_CLI_USER_AGENT`  | `google-api-nodejs-client/10.3.0`        | Когда Google API client обновляется                           |
 
 > [!TIP]
-> You can add User-Agent overrides for **any** provider using the pattern `{PROVIDER_ID}_USER_AGENT`. The executor dynamically constructs the env var name.
+> Вы можете добавить переопределения User-Agent для **любого** провайдера, используя шаблон `{PROVIDER_ID}_USER_AGENT`. Исполнитель динамически строит имя переменной окружения.
 
 ---
 
-## 13. CLI Fingerprint Compatibility
+## 13. Совместимость отпечатков CLI
 
-When enabled, OmniRoute reorders HTTP headers and JSON body fields to match the exact signature of official CLI tools. This reduces the risk of account flagging while preserving your proxy IP.
+При включении OmniRoute переупорядочивает HTTP-заголовки и поля JSON-тела, чтобы соответствовать точной подписи официальных инструментов CLI. Это снижает риск флаггинга аккаунта, сохраняя ваш прокси IP.
 
-**Source:** `open-sse/config/cliFingerprints.ts`, `open-sse/executors/base.ts`
+**Источник:** `open-sse/config/cliFingerprints.ts`, `open-sse/executors/base.ts`
 
-### Per-Provider
+### По провайдерам
 
-| Variable                   | Effect                                  |
-| -------------------------- | --------------------------------------- |
-| `CLI_COMPAT_CODEX=1`       | Mimics Codex CLI request signature      |
-| `CLI_COMPAT_CLAUDE=1`      | Mimics Claude Code request signature    |
-| `CLI_COMPAT_GITHUB=1`      | Mimics GitHub Copilot request signature |
-| `CLI_COMPAT_ANTIGRAVITY=1` | Mimics Antigravity request signature    |
-| `CLI_COMPAT_KIRO=1`        | Mimics Kiro IDE request signature       |
-| `CLI_COMPAT_CURSOR=1`      | Mimics Cursor request signature         |
-| `CLI_COMPAT_KIMI_CODING=1` | Mimics Kimi Coding request signature    |
-| `CLI_COMPAT_KILOCODE=1`    | Mimics Kilo Code request signature      |
-| `CLI_COMPAT_CLINE=1`       | Mimics Cline request signature          |
-| `CLI_COMPAT_QWEN=1`        | Mimics Qwen Code request signature      |
+| Переменная               | Активация | Эффект                                  |
+| ------------------------ | ---------- | --------------------------------------- |
+| `CLI_COMPAT_CODEX`       | `=1`       | Имитирует подпись запроса Codex CLI     |
+| `CLI_COMPAT_CLAUDE`      | `=1`       | Имитирует подпись запроса Claude Code   |
+| `CLI_COMPAT_GITHUB`      | `=1`       | Имитирует подпись запроса GitHub Copilot |
+| `CLI_COMPAT_ANTIGRAVITY` | `=1`       | Имитирует подпись запроса Antigravity   |
+| `CLI_COMPAT_CURSOR`      | `=1`       | Имитирует подпись запроса Cursor        |
+| `CLI_COMPAT_KIMI_CODING` | `=1`       | Имитирует подпись запроса Kimi Coding   |
+| `CLI_COMPAT_KILOCODE`    | `=1`       | Имитирует подпись запроса Kilo Code    |
+| `CLI_COMPAT_CLINE`       | `=1`       | Имитирует подпись запроса Cline        |
+| `CLI_COMPAT_QWEN`        | `=1`       | Имитирует подпись запроса Qwen Code    |
 
-### Global
+### Глобально
 
-| Variable           | Effect                                                          |
-| ------------------ | --------------------------------------------------------------- |
-| `CLI_COMPAT_ALL=1` | Enable fingerprint compatibility for **all** providers at once. |
+| Переменная         | Активация | Эффект                                                          |
+| ---------------- | ---------- | --------------------------------------------------------------- |
+| `CLI_COMPAT_ALL` | `=1`       | Включить совместимость отпечатков для **всех** провайдеров одновременно. |
+
+### Переопределения идентичности CLI Kimi Coding
+
+| Переменная                | Значение по умолчанию       | Файл источника                          | Описание                                                  |
+| ----------------------- | --------------------------- | ---------------------------------------- | ------------------------------------------------------------ |
+| `KIMI_CLI_VERSION`      | `1.36.0`                    | `src/lib/oauth/providers/kimi-coding.ts` | Переопределить версию Kimi CLI, отправляемую во время OAuth/API вызовов. |
+| `KIMI_CODING_DEVICE_ID` | _(захваченное значение по умолчанию)_ | `src/lib/oauth/providers/kimi-coding.ts` | Переопределить захваченный идентификатор устройства Kimi, используемый в клиентских заголовках. |
 
 > [!NOTE]
-> This feature works alongside the User-Agent overrides (§12). The fingerprint system handles header ordering and body field ordering, while User-Agent overrides handle the specific UA string. Both can be enabled independently.
+> Эта функция работает вместе с переопределениями User-Agent (§12). Система отпечатков обрабатывает упорядочивание заголовков и полей тела, в то время как переопределения User-Agent обрабатывают конкретную строку UA. Обе функции могут быть включены независимо.
 
----
+## 14. Поставщики API-ключей
 
-## 14. API Key Providers
+API-ключи для поставщиков, использующих прямую аутентификацию. **Предпочтительная настройка:** Dashboard → Providers → Add API Key.
 
-API keys for providers that use direct authentication. **Preferred setup:** Dashboard → Providers → Add API Key.
+Настройка через переменные окружения является альтернативой для развертывания Docker или безголовых систем.
 
-Setting via environment variables is an alternative for Docker or headless deployments.
+Распознанный шаблон: `{PROVIDER_ID}_API_KEY`
 
-Recognized pattern: `{PROVIDER_ID}_API_KEY`
+| Переменная         | Поставщик   |
+| ------------------ | ---------- |
+| `DEEPSEEK_API_KEY` | DeepSeek   |
+| `NVIDIA_API_KEY`   | NVIDIA NIM |
 
-| Variable             | Provider            |
-| -------------------- | ------------------- |
-| `DEEPSEEK_API_KEY`   | DeepSeek            |
-| `GROQ_API_KEY`       | Groq                |
-| `XAI_API_KEY`        | xAI (Grok)          |
-| `MISTRAL_API_KEY`    | Mistral AI          |
-| `PERPLEXITY_API_KEY` | Perplexity          |
-| `TOGETHER_API_KEY`   | Together AI         |
-| `FIREWORKS_API_KEY`  | Fireworks AI        |
-| `CEREBRAS_API_KEY`   | Cerebras            |
-| `COHERE_API_KEY`     | Cohere              |
-| `NVIDIA_API_KEY`     | NVIDIA NIM          |
-| `NEBIUS_API_KEY`     | Nebius (embeddings) |
+> [!NOTE]
+> Статические записи `${PROVIDER}_API_KEY` для Groq, xAI, Mistral, Perplexity, Together AI, Fireworks, Cerebras, Cohere, Nebius и Qianfan были удалены в версии v3.8.0, так как рантайм больше не читает их — эти поставщики исключительно зависят от Dashboard / `data/provider-credentials.json` / зашифрованной БД. Смотрите раздел _Audit: Removed / Dead Variables_ в конце этого документа для пути миграции.
 
 > [!TIP]
-> Keys set via the Dashboard are stored encrypted in SQLite and take precedence over environment variables.
+> Ключи, установленные через Dashboard, хранятся в зашифрованном виде в SQLite и имеют приоритет над переменными окружения.
 
 ---
 
-## 15. Timeout Settings
+## 15. Настройки таймаута
 
-All values are in **milliseconds**. Centralized resolution in `src/shared/utils/runtimeTimeouts.ts`.
+Все значения указаны в **миллисекундах**. Централизованное разрешение в `src/shared/utils/runtimeTimeouts.ts`.
 
-### Timeout Hierarchy
+### Иерархия таймаутов
 
 ```
-REQUEST_TIMEOUT_MS (global override)
-├─→ FETCH_TIMEOUT_MS (upstream provider calls, default: 600000)
-│   ├─→ FETCH_HEADERS_TIMEOUT_MS (inherits from FETCH_TIMEOUT_MS)
-│   ├─→ FETCH_BODY_TIMEOUT_MS (inherits from FETCH_TIMEOUT_MS)
-│   ├─→ TLS_CLIENT_TIMEOUT_MS (inherits from FETCH_TIMEOUT_MS)
-│   ├── FETCH_CONNECT_TIMEOUT_MS (independent, default: 30000)
-│   └── FETCH_KEEPALIVE_TIMEOUT_MS (independent, default: 4000)
-├─→ STREAM_IDLE_TIMEOUT_MS (inherits from REQUEST_TIMEOUT_MS, default: 600000)
-└─→ API_BRIDGE_PROXY_TIMEOUT_MS (inherits from REQUEST_TIMEOUT_MS, default: 30000)
-    ├─→ API_BRIDGE_SERVER_REQUEST_TIMEOUT_MS (derived, default: 300000)
-    ├── API_BRIDGE_SERVER_HEADERS_TIMEOUT_MS (default: 60000)
-    ├── API_BRIDGE_SERVER_KEEPALIVE_TIMEOUT_MS (default: 5000)
-    └── API_BRIDGE_SERVER_SOCKET_TIMEOUT_MS (default: 0 = disabled)
-```
 
-| Variable                                 | Default              | Description                                                                                 |
+REQUEST_TIMEOUT_MS (глобальное переопределение)
+├─→ FETCH_TIMEOUT_MS (вызовы поставщиков, по умолчанию: 600000)
+│ ├─→ FETCH_HEADERS_TIMEOUT_MS (наследуется от FETCH_TIMEOUT_MS)
+│ ├─→ FETCH_BODY_TIMEOUT_MS (наследуется от FETCH_TIMEOUT_MS)
+│ ├─→ TLS_CLIENT_TIMEOUT_MS (наследуется от FETCH_TIMEOUT_MS)
+│ ├── FETCH_CONNECT_TIMEOUT_MS (независимый, по умолчанию: 30000)
+│ └── FETCH_KEEPALIVE_TIMEOUT_MS (независимый, по умолчанию: 4000)
+├─→ STREAM_IDLE_TIMEOUT_MS (наследуется от REQUEST_TIMEOUT_MS, по умолчанию: 600000)
+└─→ API_BRIDGE_PROXY_TIMEOUT_MS (наследуется от REQUEST_TIMEOUT_MS, по умолчанию: 30000)
+├─→ API_BRIDGE_SERVER_REQUEST_TIMEOUT_MS (выведено, по умолчанию: 300000)
+├── API_BRIDGE_SERVER_HEADERS_TIMEOUT_MS (по умолчанию: 60000)
+├── API_BRIDGE_SERVER_KEEPALIVE_TIMEOUT_MS (по умолчанию: 5000)
+└── API_BRIDGE_SERVER_SOCKET_TIMEOUT_MS (по умолчанию: 0 = отключено)
+
+````
+
+| Переменная                               | По умолчанию         | Описание                                                                                 |
 | ---------------------------------------- | -------------------- | ------------------------------------------------------------------------------------------- |
-| `REQUEST_TIMEOUT_MS`                     | _(unset)_            | Global shortcut — overrides both `FETCH_TIMEOUT_MS` and `STREAM_IDLE_TIMEOUT_MS` defaults.  |
-| `FETCH_TIMEOUT_MS`                       | `600000`             | Total HTTP request timeout for upstream provider calls.                                     |
-| `STREAM_IDLE_TIMEOUT_MS`                 | `600000`             | Max silence between SSE chunks before aborting. Extended-thinking models rarely pause >90s. |
-| `FETCH_HEADERS_TIMEOUT_MS`               | = `FETCH_TIMEOUT_MS` | Time to receive response headers.                                                           |
-| `FETCH_BODY_TIMEOUT_MS`                  | = `FETCH_TIMEOUT_MS` | Time to receive the full response body.                                                     |
-| `FETCH_CONNECT_TIMEOUT_MS`               | `30000`              | TCP connection establishment timeout.                                                       |
-| `FETCH_KEEPALIVE_TIMEOUT_MS`             | `4000`               | Keep-alive socket idle timeout.                                                             |
-| `TLS_CLIENT_TIMEOUT_MS`                  | = `FETCH_TIMEOUT_MS` | TLS fingerprint proxy (wreq-js) timeout.                                                    |
-| `API_BRIDGE_PROXY_TIMEOUT_MS`            | `30000`              | Proxy hop timeout for `/v1` bridge requests.                                                |
-| `API_BRIDGE_SERVER_REQUEST_TIMEOUT_MS`   | `300000`             | Overall server request timeout for the bridge.                                              |
-| `API_BRIDGE_SERVER_HEADERS_TIMEOUT_MS`   | `60000`              | Time to send response headers via the bridge.                                               |
-| `API_BRIDGE_SERVER_KEEPALIVE_TIMEOUT_MS` | `5000`               | Bridge keep-alive idle timeout.                                                             |
-| `API_BRIDGE_SERVER_SOCKET_TIMEOUT_MS`    | `0`                  | Raw socket timeout (0 = disabled).                                                          |
-| `SHUTDOWN_TIMEOUT_MS`                    | `30000`              | Grace period on SIGTERM/SIGINT before force-exit.                                           |
+| `REQUEST_TIMEOUT_MS`                     | _(не установлено)_   | Глобальный ярлык — переопределяет значения по умолчанию для `FETCH_TIMEOUT_MS` и `STREAM_IDLE_TIMEOUT_MS`.  |
+| `FETCH_TIMEOUT_MS`                       | `600000`             | Общий таймаут HTTP-запроса для вызовов поставщиков.                                     |
+| `STREAM_IDLE_TIMEOUT_MS`                 | `600000`             | Максимальное время бездействия между SSE-чанками перед прерыванием. Модели с расширенным мышлением редко превышают 90 секунд. |
+| `FETCH_HEADERS_TIMEOUT_MS`               | = `FETCH_TIMEOUT_MS` | Время получения заголовков ответа.                                                           |
+| `FETCH_BODY_TIMEOUT_MS`                  | = `FETCH_TIMEOUT_MS` | Время получения полного тела ответа.                                                     |
+| `FETCH_CONNECT_TIMEOUT_MS`               | `30000`              | Таймаут установления TCP-соединения.                                                       |
+| `FETCH_KEEPALIVE_TIMEOUT_MS`             | `4000`               | Таймаут бездействия keep-alive-сокета.                                                             |
+| `TLS_CLIENT_TIMEOUT_MS`                  | = `FETCH_TIMEOUT_MS` | Таймаут прокси TLS-отпечатка (wreq-js).                                                    |
+| `API_BRIDGE_PROXY_TIMEOUT_MS`            | `30000`              | Таймаут прокси для запросов `/v1` bridge.                                                |
+| `API_BRIDGE_SERVER_REQUEST_TIMEOUT_MS`   | `300000`             | Общий таймаут серверного запроса для bridge.                                              |
+| `API_BRIDGE_SERVER_HEADERS_TIMEOUT_MS`   | `60000`              | Время отправки заголовков ответа через bridge.                                               |
+| `API_BRIDGE_SERVER_KEEPALIVE_TIMEOUT_MS` | `5000`               | Таймаут бездействия keep-alive для bridge.                                                             |
+| `API_BRIDGE_SERVER_SOCKET_TIMEOUT_MS`    | `0`                  | Таймаут сырого сокета (0 = отключено).                                                          |
+| `SHUTDOWN_TIMEOUT_MS`                    | `30000`              | Период ожидания перед SIGTERM/SIGINT перед принудительным завершением.                                           |
+| `OMNIROUTE_DEFAULT_FETCH_TIMEOUT_MS`     | `120000`             | Резервное значение, используемое `src/shared/utils/fetchTimeout.ts`, когда `FETCH_TIMEOUT_MS` не установлен.       |
+| `OMNIROUTE_CHATGPT_TLS_TIMEOUT_MS`       | `60000`              | Таймаут на уровне провода для связки bogdanfinn/tls-client koffi (`chatgptTlsClient.ts`).     |
+| `OMNIROUTE_CHATGPT_TLS_GRACE_MS`         | `10000`              | Дополнительное время на уровне JS, добавленное к проводу таймаута, когда нативная связка застряла.           |
+| `OMNIROUTE_CLAUDE_TLS_TIMEOUT_MS`        | `60000`              | Таймаут на уровне провода для связки bogdanfinn/tls-client koffi (`claudeTlsClient.ts`).      |
+| `OMNIROUTE_CLAUDE_TLS_GRACE_MS`          | `10000`              | Дополнительное время на уровне JS, добавленное к проводу таймаута, когда нативная связка застряла.           |
+| `OMNIROUTE_PPLX_TLS_TIMEOUT_MS`          | `30000`              | Таймаут на уровне провода для связки bogdanfinn/tls-client koffi (`perplexityTlsClient.ts`).  |
+| `OMNIROUTE_PPLX_TLS_GRACE_MS`            | `10000`              | Дополнительное время на уровне JS, добавленное к проводу таймаута, когда нативная связка застряла.           |
 
-### Scenarios
+### Пороги Circuit Breaker
 
-| Scenario                         | Configuration                                          |
+Настройка circuit breaker на уровне поставщика. Значения по умолчанию отражают масштабированные значения, используемые с версии v3.6 для 500+ соединений.
+
+| Переменная                                      | По умолчанию | Файл источника                    | Описание                                                                 |
+| --------------------------------------------- | ------- | ------------------------------ | --------------------------------------------------------------------------- |
+| `OMNIROUTE_CIRCUIT_BREAKER_OAUTH_THRESHOLD`   | `8`     | `open-sse/config/constants.ts` | Порог последовательных сбоев для OAuth-поставщиков перед срабатыванием circuit breaker. |
+| `OMNIROUTE_CIRCUIT_BREAKER_OAUTH_RESET_MS`    | `60000` | `open-sse/config/constants.ts` | Окно сброса (мс) для circuit breaker OAuth-поставщиков.                               |
+| `OMNIROUTE_CIRCUIT_BREAKER_API_KEY_THRESHOLD` | `12`    | `open-sse/config/constants.ts` | Порог последовательных сбоев для поставщиков с API-ключами.                        |
+| `OMNIROUTE_CIRCUIT_BREAKER_API_KEY_RESET_MS`  | `30000` | `open-sse/config/constants.ts` | Окно сброса (мс) для circuit breaker поставщиков с API-ключами.                             |
+| `OMNIROUTE_CIRCUIT_BREAKER_LOCAL_THRESHOLD`   | `2`     | `open-sse/config/constants.ts` | Порог последовательных сбоев для локальных поставщиков (Ollama, LM Studio, ...). |
+| `OMNIROUTE_CIRCUIT_BREAKER_LOCAL_RESET_MS`    | `15000` | `open-sse/config/constants.ts` | Окно сброса (мс) для circuit breaker локальных поставщиков.                               |
+
+### Сценарии
+
+| Сценарий                         | Конфигурация                                          |
 | -------------------------------- | ------------------------------------------------------ |
-| **Long-running code generation** | `REQUEST_TIMEOUT_MS=900000` (15 min)                   |
-| **Fast-fail for production API** | `API_BRIDGE_PROXY_TIMEOUT_MS=10000`                    |
-| **Extended thinking models**     | `STREAM_IDLE_TIMEOUT_MS=300000` (5 min between chunks) |
+| **Долгое выполнение генерации кода** | `REQUEST_TIMEOUT_MS=900000` (15 мин)                   |
+| **Быстрое прерывание для API в продакшене** | `API_BRIDGE_PROXY_TIMEOUT_MS=10000`                    |
+| **Модели с расширенным мышлением**     | `STREAM_IDLE_TIMEOUT_MS=300000` (5 мин между чанками) |
 
 ---
 
-## 16. Logging
+## 16. Логирование
 
-The logging system writes to both stdout and rotated log files. All configuration is read by `src/lib/logEnv.ts`.
+Система логирования записывает как в stdout, так и в ротируемые файлы логов. Вся конфигурация считывается из `src/lib/logEnv.ts`.
 
-| Variable                    | Default                    | Description                                                                  |
-| --------------------------- | -------------------------- | ---------------------------------------------------------------------------- |
-| `APP_LOG_LEVEL`             | `info`                     | Minimum log level: `debug`, `info`, `warn`, `error`.                         |
-| `APP_LOG_FORMAT`            | `text`                     | Output format: `text` (human-readable) or `json` (structured).               |
-| `APP_LOG_TO_FILE`           | `true`                     | Write logs to file alongside stdout.                                         |
-| `APP_LOG_FILE_PATH`         | `logs/application/app.log` | Log file path (relative to project root or `DATA_DIR`).                      |
-| `APP_LOG_MAX_FILE_SIZE`     | `50M`                      | Max file size before rotation. Accepts: `50M`, `1G`, `512K`, or plain bytes. |
-| `APP_LOG_RETENTION_DAYS`    | `7`                        | Days to keep rotated application log files.                                  |
-| `APP_LOG_MAX_FILES`         | `20`                       | Maximum rotated log file backups.                                            |
-| `CALL_LOG_RETENTION_DAYS`   | `7`                        | Days to keep request/call log entries in the database.                       |
-| `CALL_LOG_MAX_ENTRIES`      | `10000`                    | Max call log entries in the in-memory buffer.                                |
-| `CALL_LOGS_TABLE_MAX_ROWS`  | `100000`                   | Max rows in the `call_logs` SQLite table before pruning.                     |
-| `PROXY_LOGS_TABLE_MAX_ROWS` | `100000`                   | Max rows in the `proxy_logs` SQLite table before pruning.                    |
+| Переменная                                | По умолчанию               | Описание                                                                          |
+| ----------------------------------------- | -------------------------- | --------------------------------------------------------------------------------- |
+| `APP_LOG_LEVEL`                           | `info`                     | Минимальный уровень логирования: `debug`, `info`, `warn`, `error`.                |
+| `APP_LOG_FORMAT`                          | `text`                     | Формат вывода: `text` (человекочитаемый) или `json` (структурированный).          |
+| `APP_LOG_TO_FILE`                         | `true`                     | Записывать логи в файл наряду с stdout.                                           |
+| `APP_LOG_FILE_PATH`                       | `logs/application/app.log` | Путь к файлу логов (относительно корня проекта или `DATA_DIR`).                   |
+| `APP_LOG_MAX_FILE_SIZE`                   | `50M`                      | Максимальный размер файла перед ротацией. Принимает: `50M`, `1G`, `512K`, или байты.|
+| `APP_LOG_RETENTION_DAYS`                  | `7`                        | Дни хранения ротированных файлов приложения.                                      |
+| `APP_LOG_MAX_FILES`                       | `20`                       | Максимальное количество резервных копий ротированных файлов логов.                |
+| `CALL_LOG_RETENTION_DAYS`                 | `7`                        | Дни хранения записей логов запросов/вызовов в базе данных.                        |
+| `CALL_LOG_MAX_ENTRIES`                    | `10000`                    | Максимальное количество записей логов вызовов в буфере в памяти.                   |
+| `CALL_LOGS_TABLE_MAX_ROWS`                | `100000`                   | Максимальное количество строк в таблице `call_logs` SQLite перед очисткой.        |
+| `CALL_LOG_PIPELINE_CAPTURE_STREAM_CHUNKS` | `true`                     | Хранить фрагменты потока в артефактах конвейера при `call_log_pipeline_enabled=true`. |
+| `CALL_LOG_PIPELINE_MAX_SIZE_KB`           | `512`                      | Максимальный размер артефакта логов вызовов конвейера в KB при `call_log_pipeline_enabled=true`. |
+| `PROXY_LOGS_TABLE_MAX_ROWS`               | `100000`                   | Максимальное количество строк в таблице `proxy_logs` SQLite перед очисткой.       |
+| `APP_LOG_ROTATION_CHECK_INTERVAL_MS`      | `60000` (1 мин)            | Как часто `src/lib/logRotation.ts` перепроверяет размер активного файла логов.    |
+| `CHAT_LOG_TEXT_LIMIT`                     | `65536`                    | Максимальная длина строки, сохраняемая в артефактах логов чата (по умолчанию 64 KB). |
+| `CHAT_LOG_ARRAY_TAIL_ITEMS`               | `24`                       | Количество элементов массива, сохраняемых из конца при усечении полезной нагрузки логов чата. |
+| `CHAT_LOG_MAX_DEPTH`                      | `6`                        | Максимальная глубина вложенности перед усечением полезной нагрузки логов чата.   |
+| `CHAT_LOG_MAX_OBJECT_KEYS`                | `80`                       | Максимальное количество ключей объекта, сохраняемых в полезной нагрузке логов чата (0 = без ограничений). |
+| `CHAT_DEBUG_FILE`                         | `false`                    | При значении `true` `serializeArtifactForStorage` пропускает усечение на основе размера. Только для отладки. |
 
----
+## 17. Оптимизация памяти
 
-## 17. Memory Optimization
+| Переменная                 | Значение по умолчанию               | Описание                                                                 |
+| -------------------------- | ----------------------------------- | ------------------------------------------------------------------------ |
+| `OMNIROUTE_MEMORY_MB`      | `256` (Docker) / системное значение | Ограничение кучи V8. Устанавливает `--max-old-space-size`.              |
+| `PROMPT_CACHE_MAX_SIZE`    | `50`                                | Максимальное количество кэшированных записей системных подсказок.         |
+| `PROMPT_CACHE_MAX_BYTES`   | `2097152` (2 MB)                    | Максимальный общий размер кэша подсказок.                                |
+| `PROMPT_CACHE_TTL_MS`      | `300000` (5 мин)                    | Время жизни записи кэша подсказок.                                        |
+| `SEMANTIC_CACHE_MAX_SIZE`  | `100`                               | Максимальное количество кэшированных ответов с температурой=0.           |
+| `SEMANTIC_CACHE_MAX_BYTES` | `4194304` (4 MB)                    | Максимальный общий размер семантического кэша.                           |
+| `SEMANTIC_CACHE_TTL_MS`    | `1800000` (30 мин)                  | Время жизни записи семантического кэша.                                  |
+| `STREAM_HISTORY_MAX`       | `50`                                | Максимальное количество последних событий потока в буфере живого представления в панели инструментов. |
+| `CONTEXT_LENGTH_DEFAULT`   | `128000`                            | Глобальный резервный максимальный размер контекста для моделей без явной конфигурации. |
+| `USAGE_TOKEN_BUFFER`       | `100`                               | Дополнительный буфер токенов, зарезервированный при отслеживании квот использования. |
 
-| Variable                   | Default                         | Description                                                            |
-| -------------------------- | ------------------------------- | ---------------------------------------------------------------------- |
-| `OMNIROUTE_MEMORY_MB`      | `256` (Docker) / system default | V8 heap limit. Sets `--max-old-space-size`.                            |
-| `PROMPT_CACHE_MAX_SIZE`    | `50`                            | Max cached system prompt entries.                                      |
-| `PROMPT_CACHE_MAX_BYTES`   | `2097152` (2 MB)                | Max total prompt cache size.                                           |
-| `PROMPT_CACHE_TTL_MS`      | `300000` (5 min)                | Prompt cache entry TTL.                                                |
-| `SEMANTIC_CACHE_MAX_SIZE`  | `100`                           | Max cached temperature=0 responses.                                    |
-| `SEMANTIC_CACHE_MAX_BYTES` | `4194304` (4 MB)                | Max total semantic cache size.                                         |
-| `SEMANTIC_CACHE_TTL_MS`    | `1800000` (30 min)              | Semantic cache entry TTL.                                              |
-| `STREAM_HISTORY_MAX`       | `50`                            | Max recent stream events in the Dashboard live view buffer.            |
-| `CONTEXT_LENGTH_DEFAULT`   | `128000`                        | Global fallback max context length for models without explicit config. |
-| `USAGE_TOKEN_BUFFER`       | `100`                           | Extra token headroom reserved when tracking usage quotas.              |
+### Сжатие
 
-### Low-RAM Docker Example
+| Переменная                              | Значение по умолчанию | Описание                                                                                                   |
+| --------------------------------------- | ---------------------- | ---------------------------------------------------------------------------------------------------------- |
+| `OMNIROUTE_RTK_TRUST_PROJECT_FILTERS` | не установлено         | Доверять файлу `.rtk/filters.json` проекта без хэша `.rtk/trust.json`. Использовать только в контролируемой локальной разработке. |
+
+### Пример Docker с низким потреблением памяти
 
 ```bash
 OMNIROUTE_MEMORY_MB=128
@@ -507,89 +630,98 @@ PROMPT_CACHE_MAX_BYTES=524288        # 512 KB
 SEMANTIC_CACHE_MAX_SIZE=25
 SEMANTIC_CACHE_MAX_BYTES=1048576     # 1 MB
 STREAM_HISTORY_MAX=10
-```
+````
 
 ---
 
-## 18. Pricing Sync
+## 18. Синхронизация цен
 
-Automatic model pricing data synchronization from external sources.
+Автоматическая синхронизация данных о ценах моделей из внешних источников.
 
-| Variable                | Default       | Source File              | Description                   |
-| ----------------------- | ------------- | ------------------------ | ----------------------------- |
-| `PRICING_SYNC_ENABLED`  | `false`       | `src/lib/pricingSync.ts` | Opt-in periodic pricing sync. |
-| `PRICING_SYNC_INTERVAL` | `86400` (24h) | `src/lib/pricingSync.ts` | Sync interval in seconds.     |
-| `PRICING_SYNC_SOURCES`  | `litellm`     | `src/lib/pricingSync.ts` | Comma-separated data sources. |
+| Переменная              | Значение по умолчанию | Файл источника           | Описание                                      |
+| ----------------------- | --------------------- | ------------------------ | --------------------------------------------- |
+| `PRICING_SYNC_ENABLED`  | `false`               | `src/lib/pricingSync.ts` | Опциональная периодическая синхронизация цен. |
+| `PRICING_SYNC_INTERVAL` | `86400` (24h)         | `src/lib/pricingSync.ts` | Интервал синхронизации в секундах.            |
+| `PRICING_SYNC_SOURCES`  | `litellm`             | `src/lib/pricingSync.ts` | Источники данных, разделенные запятыми.       |
 
----
+## 19. Синхронизация моделей (Dev)
 
-## 19. Model Sync (Dev)
-
-| Variable                   | Default       | Source File                | Description                                              |
-| -------------------------- | ------------- | -------------------------- | -------------------------------------------------------- |
-| `MODELS_DEV_SYNC_INTERVAL` | `86400` (24h) | `src/lib/modelsDevSync.ts` | Development-time model catalog sync interval in seconds. |
+| Переменная                 | Значение по умолчанию | Файл источника             | Описание                                            |
+| -------------------------- | --------------------- | -------------------------- | --------------------------------------------------- |
+| `MODELS_DEV_SYNC_INTERVAL` | `86400` (24h)         | `src/lib/modelsDevSync.ts` | Интервал синхронизации каталога моделей в секундах. |
 
 ---
 
-## 20. Provider-Specific Settings
+## 20. Настройки конкретных провайдеров
 
-| Variable                                  | Default            | Source File                                | Description                                                                           |
-| ----------------------------------------- | ------------------ | ------------------------------------------ | ------------------------------------------------------------------------------------- |
-| `OPENROUTER_CATALOG_TTL_MS`               | `86400000` (24h)   | `src/lib/catalog/openrouterCatalog.ts`     | OpenRouter model catalog cache TTL.                                                   |
-| `NANOBANANA_POLL_TIMEOUT_MS`              | `120000`           | `open-sse/handlers/imageGeneration.ts`     | Max wait for NanoBanana image generation jobs.                                        |
-| `NANOBANANA_POLL_INTERVAL_MS`             | `2500`             | `open-sse/handlers/imageGeneration.ts`     | NanoBanana job polling frequency.                                                     |
-| `CLOUDFLARE_ACCOUNT_ID`                   | _(unset)_          | `open-sse/executors/cloudflare-ai.ts`      | Account ID for Cloudflare Workers AI.                                                 |
-| `CLOUDFLARED_BIN`                         | auto-detect        | `src/lib/cloudflaredTunnel.ts`             | Custom path to `cloudflared` binary.                                                  |
-| `SEARCH_CACHE_TTL_MS`                     | `300000` (5 min)   | `open-sse/services/searchCache.ts`         | TTL for search API (Perplexity, Brave, etc.) response caching.                        |
-| `ALLOW_MULTI_CONNECTIONS_PER_COMPAT_NODE` | `false`            | `src/app/api/providers/route.ts`           | Allow multiple simultaneous connections per OpenAI-compatible provider.               |
-| `ENABLE_CC_COMPATIBLE_PROVIDER`           | `false`            | `src/shared/utils/featureFlags.ts`         | Enable experimental Claude Code compatible provider endpoint.                         |
-| `CLIPROXYAPI_HOST`                        | `127.0.0.1`        | `open-sse/executors/cliproxyapi.ts`        | CLIProxyAPI bridge host (legacy integration).                                         |
-| `CLIPROXYAPI_PORT`                        | `5544`             | `open-sse/executors/cliproxyapi.ts`        | CLIProxyAPI bridge port.                                                              |
-| `CLIPROXYAPI_CONFIG_DIR`                  | `~/.cli-proxy-api` | `src/lib/versionManager/processManager.ts` | CLIProxyAPI config directory.                                                         |
-| `LOCAL_HOSTNAMES`                         | _(empty)_          | `open-sse/config/providerRegistry.ts`      | Comma-separated additional hostnames treated as "local" (Docker service names, etc.). |
+| Переменная                                | Значение по умолчанию | Файл источника                                                        | Описание                                                                                                   |
+| ----------------------------------------- | --------------------- | --------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------- |
+| `OPENROUTER_CATALOG_TTL_MS`               | `86400000` (24h)      | `src/lib/catalog/openrouterCatalog.ts`                                | TTL кэша каталога моделей OpenRouter.                                                                      |
+| `NANOBANANA_POLL_TIMEOUT_MS`              | `120000`              | `open-sse/handlers/imageGeneration.ts`                                | Максимальное время ожидания задач генерации изображений NanoBanana.                                        |
+| `NANOBANANA_POLL_INTERVAL_MS`             | `2500`                | `open-sse/handlers/imageGeneration.ts`                                | Частота опроса задач NanoBanana.                                                                           |
+| `AWS_REGION`                              | _(не установлено)_    | `src/lib/providers/validation.ts`, `open-sse/handlers/audioSpeech.ts` | Регион, используемый для построения конечных точек AWS Bedrock (Kiro, аудио).                              |
+| `AWS_DEFAULT_REGION`                      | _(не установлено)_    | `src/lib/providers/validation.ts`, `open-sse/handlers/audioSpeech.ts` | Резервный вариант, когда `AWS_REGION` не установлен.                                                       |
+| `CLOUDFLARE_ACCOUNT_ID`                   | _(не установлено)_    | `open-sse/executors/cloudflare-ai.ts`                                 | Идентификатор аккаунта для Cloudflare Workers AI.                                                          |
+| `CLOUDFLARED_BIN`                         | автообнаружение       | `src/lib/cloudflaredTunnel.ts`                                        | Пользовательский путь к бинарному файлу `cloudflared`.                                                     |
+| `SEARCH_CACHE_TTL_MS`                     | `300000` (5 мин)      | `open-sse/services/searchCache.ts`                                    | TTL для кэширования ответов API поиска (Perplexity, Brave и т.д.).                                         |
+| `ALLOW_MULTI_CONNECTIONS_PER_COMPAT_NODE` | `false`               | `src/app/api/providers/route.ts`                                      | Разрешить несколько одновременных соединений на один OpenAI-совместимый провайдер.                         |
+| `ENABLE_CC_COMPATIBLE_PROVIDER`           | `false`               | `src/shared/utils/featureFlags.ts`                                    | Показать экспериментальный интерфейс совместимого провайдера CC для релеев Claude Code-only.               |
+| `CLIPROXYAPI_HOST`                        | `127.0.0.1`           | `open-sse/executors/cliproxyapi.ts`                                   | Хост моста CLIProxyAPI (устаревшая интеграция).                                                            |
+| `CLIPROXYAPI_PORT`                        | `5544`                | `open-sse/executors/cliproxyapi.ts`                                   | Порт моста CLIProxyAPI.                                                                                    |
+| `CLIPROXYAPI_CONFIG_DIR`                  | `~/.cli-proxy-api`    | `src/lib/versionManager/processManager.ts`                            | Директория конфигурации CLIProxyAPI.                                                                       |
+| `LOCAL_HOSTNAMES`                         | _(пусто)_             | `open-sse/config/providerRegistry.ts`                                 | Разделенные запятыми дополнительные имена хостов, считающиеся "локальными" (имена сервисов Docker и т.д.). |
+
+`ENABLE_CC_COMPATIBLE_PROVIDER` предназначен только для сторонних релеев, которые принимают клиентов Claude Code
+исключительно. OmniRoute переписывает запросы, чтобы эти релеи принимали их. Если вы хотите использовать только
+Claude Code CLI, или вы не уверены, что такое релеи, оставьте это отключенным и добавьте обычный
+Anthropic-совместимый провайдер вместо этого.
+
+## 21. Здоровье прокси
+
+| Переменная                   | Значение по умолчанию | Файл источника                           | Описание                                                                                                                                                                                                                                         |
+| ---------------------------- | --------------------- | ---------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| `PROXY_FAST_FAIL_TIMEOUT_MS` | `2000`                | `src/lib/proxyHealth.ts`                 | Таймаут быстрого отказа при проверке здоровья.                                                                                                                                                                                                   |
+| `PROXY_HEALTH_CACHE_TTL_MS`  | `30000`               | `src/lib/proxyHealth.ts`                 | Время жизни кэша результатов проверки здоровья.                                                                                                                                                                                                  |
+| `RATE_LIMIT_MAX_WAIT_MS`     | `120000` (2 min)      | `open-sse/services/rateLimitManager.ts`  | Максимальное время ожидания на 429 перед отменой запроса.                                                                                                                                                                                        |
+| `RATE_LIMIT_AUTO_ENABLE`     | _(не установлено)_    | `open-sse/services/rateLimitManager.ts`  | Принудительно включить/выключить автоматическое включение ограничения скорости независимо от сохраненной настройки панели управления. Принимает `true`/`1`/`on` для принудительного включения, `false`/`0`/`off` для принудительного выключения. |
+| `HEALTHCHECK_STAGGER_MS`     | `3000`                | `src/lib/tokenHealthCheck.ts`            | Интервал (мс) между проверками здоровья токенов провайдера при запуске.                                                                                                                                                                          |
+| `REQUEST_RETRY`              | `2`                   | `src/sse/services/cooldownAwareRetry.ts` | Количество автоматических повторных попыток при ответах с перегрузкой перед возвратом ошибки клиенту.                                                                                                                                            |
+| `MAX_RETRY_INTERVAL_SEC`     | `30`                  | `src/sse/services/cooldownAwareRetry.ts` | Максимальный интервал (секунды) между повторными попытками при перегрузке. Ограничен этим значением независимо от `Retry-After`.                                                                                                                 |
 
 ---
 
-## 21. Proxy Health
-
-| Variable                     | Default          | Source File                              | Description                                                                                                         |
-| ---------------------------- | ---------------- | ---------------------------------------- | ------------------------------------------------------------------------------------------------------------------- |
-| `PROXY_FAST_FAIL_TIMEOUT_MS` | `2000`           | `src/lib/proxyHealth.ts`                 | Fast-fail health check timeout.                                                                                     |
-| `PROXY_HEALTH_CACHE_TTL_MS`  | `30000`          | `src/lib/proxyHealth.ts`                 | Health check result cache TTL.                                                                                      |
-| `RATE_LIMIT_MAX_WAIT_MS`     | `120000` (2 min) | `open-sse/services/rateLimitManager.ts`  | Max time to wait on a 429 before failing the request.                                                               |
-| `REQUEST_RETRY`              | `2`              | `src/sse/services/cooldownAwareRetry.ts` | Number of automatic retries on model-scoped cooldown responses before returning error to client.                    |
-| `MAX_RETRY_INTERVAL_SEC`     | `30`             | `src/sse/services/cooldownAwareRetry.ts` | Max backoff interval (seconds) between cooldown retries. Capped by this value regardless of upstream `Retry-After`. |
-
----
-
-## 22. Debugging
+## 22. Отладка
 
 > [!CAUTION]
-> These variables produce **verbose output** and may leak sensitive data. **Never enable in production.**
+> Эти переменные создают **подробный вывод** и могут выдать конфиденциальные данные. **Никогда не включайте в продакшене.**
 
-| Variable                         | Default   | Source File                               | Description                                                    |
-| -------------------------------- | --------- | ----------------------------------------- | -------------------------------------------------------------- |
-| `CURSOR_PROTOBUF_DEBUG`          | _(unset)_ | `open-sse/utils/cursorProtobuf.ts`        | Set `1` to dump Cursor protobuf decode/encode details.         |
-| `CURSOR_STREAM_DEBUG`            | _(unset)_ | `open-sse/executors/cursor.ts`            | Set `1` to dump raw Cursor SSE stream data.                    |
-| `DEBUG_RESPONSES_SSE_TO_JSON`    | _(unset)_ | `open-sse/handlers/responseTranslator.ts` | Set `true` to log Responses API SSE→JSON translation details.  |
-| `NEXT_PUBLIC_OMNIROUTE_E2E_MODE` | _(unset)_ | E2E test harness                          | Set `true` to enable E2E test mode (relaxed auth, test hooks). |
+| Переменная                       | Значение по умолчанию        | Файл источника                             | Описание                                                                                                            |
+| -------------------------------- | ---------------------------- | ------------------------------------------ | ------------------------------------------------------------------------------------------------------------------- |
+| `CURSOR_DEBUG`                   | _(не установлено)_           | `open-sse/executors/cursor.ts`             | Установите `1`, чтобы включить подробные логи исполнителя Cursor (декодированные фрагменты SSE и т. д.).            |
+| `CURSOR_STREAM_DEBUG`            | _(не установлено)_           | `open-sse/executors/cursor.ts`             | Обратная совместимость с `CURSOR_DEBUG`.                                                                            |
+| `CURSOR_DUMP_FILE`               | _(не установлено)_           | `open-sse/executors/cursor.ts`             | Необязательный путь к файлу, который получает сырые декодированные фрагменты Cursor при `CURSOR_DEBUG=1`.           |
+| `CURSOR_STREAM_TIMEOUT_MS`       | `300000`                     | `open-sse/executors/cursor.ts`             | Таймаут бездействия (мс) для исполнителя Cursor.                                                                    |
+| `CURSOR_STATE_DB_PATH`           | _(определено автоматически)_ | `open-sse/utils/cursorVersionDetector.ts`  | Переопределить поиск базы данных состояния Cursor, используемой для определения версии.                             |
+| `CURSOR_TOKEN`                   | _(не установлено)_           | `scripts/ad-hoc/cursor-tap.cjs`            | Прямой токен Cursor, используемый инструментами разработчика.                                                       |
+| `OMNIROUTE_LOG_REQUEST_SHAPE`    | включено (`!== "0"`)         | `src/app/api/v1/chat/completions/route.ts` | Журналировать маркеры типа содержимого/длины для больших полезных нагрузок чата. Установите `"0"`, чтобы заглушить. |
+| `DEBUG_RESPONSES_SSE_TO_JSON`    | _(не установлено)_           | `open-sse/handlers/responseTranslator.ts`  | Установите `true`, чтобы записать детали преобразования SSE→JSON для API ответов.                                   |
+| `NEXT_PUBLIC_OMNIROUTE_E2E_MODE` | _(не установлено)_           | Тестовый стенд E2E                         | Установите `true`, чтобы включить режим тестирования E2E (ослабленная аутентификация, тестовые хуки).               |
+
+## 23. Интеграция с GitHub
+
+Позволяет пользователям сообщать о проблемах непосредственно из панели управления.
+
+| Переменная            | По умолчанию       | Исходный файл                           | Описание                                                                                                                                                                       |
+| --------------------- | ------------------ | --------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| `GITHUB_ISSUES_REPO`  | _(не установлено)_ | `src/app/api/v1/issues/report/route.ts` | Репозиторий в формате `owner/repo`.                                                                                                                                            |
+| `GITHUB_ISSUES_TOKEN` | _(не установлено)_ | `src/app/api/v1/issues/report/route.ts` | Персональный токен доступа GitHub с областью `issues:write`.                                                                                                                   |
+| `GITHUB_TOKEN`        | _(не установлено)_ | issue triage / cloud agent helpers      | Общий токен доступа GitHub, используемый в качестве резервного для `GITHUB_ISSUES_TOKEN` и потребляемый вспомогательными средствами облачного агента в `src/lib/cloudAgent/*`. |
 
 ---
 
-## 23. GitHub Integration
+## Сценарии развертывания
 
-Allow users to report issues directly from the Dashboard.
-
-| Variable              | Default   | Source File                             | Description                                             |
-| --------------------- | --------- | --------------------------------------- | ------------------------------------------------------- |
-| `GITHUB_ISSUES_REPO`  | _(unset)_ | `src/app/api/v1/issues/report/route.ts` | Repository in `owner/repo` format.                      |
-| `GITHUB_ISSUES_TOKEN` | _(unset)_ | `src/app/api/v1/issues/report/route.ts` | GitHub Personal Access Token with `issues:write` scope. |
-
----
-
-## Deployment Scenarios
-
-### Minimal Local Development
+### Минимальная локальная разработка
 
 ```bash
 JWT_SECRET=$(openssl rand -base64 48)
@@ -629,7 +761,7 @@ OMNIROUTE_DISABLE_BACKGROUND_SERVICES=true
 APP_LOG_TO_FILE=false
 ```
 
-### VPS with Reverse Proxy (nginx + Cloudflare)
+### VPS с обратным прокси (nginx + Cloudflare)
 
 ```bash
 JWT_SECRET=<generated>
@@ -647,23 +779,114 @@ CLI_COMPAT_ALL=1
 
 ---
 
-## Audit: Removed / Dead Variables
+## 24. Песочница навыков (v3.8.0+)
 
-The following variables appeared in previous versions of `.env.example` but have **no runtime references** in the current codebase. They have been removed:
+Ограничения и регуляторы безопасности, применяемые при выполнении пользовательских автоматизаций в песочнице с помощью фреймворка навыков (`src/lib/skills/`).
 
-| Variable                                              | Reason                                                                                                  |
-| ----------------------------------------------------- | ------------------------------------------------------------------------------------------------------- |
-| `STORAGE_DRIVER=sqlite`                               | Never read by any source file. SQLite is the only supported driver — no selection needed.               |
-| `INSTANCE_NAME=omniroute`                             | Present in old docs/env templates but unused at runtime. May return in a future multi-instance feature. |
-| `SQLITE_MAX_SIZE_MB=2048`                             | Not referenced in source code. Database size is not artificially limited.                               |
-| `SQLITE_CLEAN_LEGACY_FILES=true`                      | Not referenced in source code. Legacy cleanup was likely removed.                                       |
-| `CLI_ROO_BIN`                                         | Not registered in `src/shared/services/cliRuntime.ts`.                                                  |
-| `CLI_KIMI_CODING_BIN`                                 | Not registered in `src/shared/services/cliRuntime.ts` (Kimi Coding uses OAuth, not a CLI binary).       |
-| `IFLOW_OAUTH_CLIENT_ID` / `IFLOW_OAUTH_CLIENT_SECRET` | Not referenced anywhere in source code.                                                                 |
+| Переменная                        | По умолчанию                                   | Исходный файл                | Описание                                                                                                                                             |
+| --------------------------------- | ---------------------------------------------- | ---------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `SKILLS_SANDBOX_TIMEOUT_MS`       | `10000` (10 с)                                 | `src/lib/skills/builtins.ts` | Тайм-аут выполнения для кода навыков в песочнице. Жесткий предел; все, что длиннее, убивается.                                                       |
+| `SKILLS_EXECUTION_TIMEOUT_MS`     | _(откатывается к `SKILLS_SANDBOX_TIMEOUT_MS`)_ | `src/lib/skills/`            | Тайм-аут оркестрации навыков высокого уровня. Установите значение выше `SKILLS_SANDBOX_TIMEOUT_MS`, чтобы разрешить многократные рабочие процессы.   |
+| `SKILLS_MAX_FILE_BYTES`           | `1048576` (1 МБ)                               | `src/lib/skills/builtins.ts` | Максимальный размер файла, который может быть прочитан из любого отдельного файла в песочнице.                                                       |
+| `SKILLS_MAX_HTTP_RESPONSE_BYTES`  | `256000` (250 КБ)                              | `src/lib/skills/builtins.ts` | Максимальный размер ответа HTTP, который может быть захвачен из любого отдельного HTTP-ответа внутри навыка.                                         |
+| `SKILLS_MAX_SANDBOX_OUTPUT_CHARS` | `100000`                                       | `src/lib/skills/builtins.ts` | Жесткий предел символов stdout/stderr, возвращаемых из вызова песочницы.                                                                             |
+| `SKILLS_SANDBOX_NETWORK_ENABLED`  | `false`                                        | `src/lib/skills/builtins.ts` | Установите `1`/`true`, чтобы разрешить исходящий трафик изнутри песочницы. По умолчанию **изолировано** для безопасности.                            |
+| `SKILLS_ALLOWED_SANDBOX_IMAGES`   | _(пусто)_                                      | `src/lib/skills/builtins.ts` | Разделенный запятыми список разрешенных контейнерных образов, разрешенных для выполнения в песочнице. Пусто означает только встроенный по умолчанию. |
+| `SKILLS_SANDBOX_DOCKER_IMAGE`     | _(встроенный по умолчанию)_                    | `src/lib/skills/`            | Контейнерный образ, используемый при запуске песочницы на основе Docker. Переопределите, чтобы закрепить пользовательский закаленный базовый образ.  |
 
-### Default Value Corrections
+> [!CAUTION]
+> Включение `SKILLS_SANDBOX_NETWORK_ENABLED=true` открывает путь для исходящего трафика из произвольного кода навыков. Сочетать с `OUTBOUND_SSRF_GUARD_ENABLED=true` и строгой политикой `CORS_ORIGIN`/прокси в развертываниях с общим доступом.
 
-| Variable                  | Old `.env.example` Value | Actual Code Default | Fixed                                                  |
+## 25. Квоты провайдеров, туннели, резервные копии и прочие параметры времени выполнения
+
+Конечные точки квот провайдеров, сетевые туннели (Tailscale, Ngrok, MITM-прокси отладки), пул исходящих соединений 1Proxy, резервные копии базы данных и небольшие переопределения функций, используемые слоем исполнителя или скриптами.
+
+| Переменная                       | Значение по умолчанию                 | Файл источника                                      | Описание                                                                                       |
+| -------------------------------- | ------------------------------------- | --------------------------------------------------- | ---------------------------------------------------------------------------------------------- |
+| `REDIS_URL`                      | `redis://localhost:6379`              | `src/shared/utils/rateLimiter.ts`                   | Строка подключения к Redis для бэкенда ограничителя скорости.                                  |
+| `ALIBABA_CODING_PLAN_HOST`       | _(производственный хост)_             | `open-sse/services/bailianQuotaFetcher.ts`          | Переопределяет хост, используемый для получения квот кодирования Alibaba Bailian.              |
+| `ALIBABA_CODING_PLAN_QUOTA_URL`  | производный от хоста                  | `open-sse/services/bailianQuotaFetcher.ts`          | Полное переопределение URL квот для Alibaba Bailian.                                           |
+| `CONTEXT_RESERVE_TOKENS`         | `1024`                                | `open-sse/services/contextManager.ts`               | Зарезервированные токены для вывода завершения при вычислении бюджета запросов.                |
+| `MODEL_ALIAS_COMPAT_ENABLED`     | включено                              | `open-sse/services/model.ts`                        | Переключает устаревший слой совместимости псевдонимов моделей, используемый старыми клиентами. |
+| `COMMAND_CODE_CALLBACK_PORT`     | _(не установлено)_                    | `src/app/api/providers/command-code/auth/shared.ts` | Локальный порт, используемый для обратных вызовов в стиле OAuth из помощника CLI Command Code. |
+| `MITM_LOCAL_PORT`                | `443`                                 | `src/mitm/server.cjs`                               | Локальный порт привязки для MITM-прокси отладки.                                               |
+| `MITM_DISABLE_TLS_VERIFY`        | `0`                                   | `src/mitm/server.cjs`                               | Установите `1`, чтобы отключить проверку TLS для исходящих соединений (только для разработки). |
+| `ONEPROXY_ENABLED`               | `true`                                | `src/lib/oneproxySync.ts`                           | Включает синхронизацию пула исходящих соединений 1Proxy.                                       |
+| `ONEPROXY_API_URL`               | `https://1proxy-api.aitradepulse.com` | `src/lib/oneproxySync.ts`                           | Переопределение URL API сервиса 1Proxy.                                                        |
+| `ONEPROXY_MAX_PROXIES`           | `500`                                 | `src/lib/oneproxySync.ts`                           | Максимальное количество прокси, импортируемых за одну синхронизацию.                           |
+| `ONEPROXY_MIN_QUALITY_THRESHOLD` | `50`                                  | `src/lib/oneproxySync.ts`                           | Минимальный порог качества для импортируемых прокси.                                           |
+| `TAILSCALE_BIN`                  | _(автообнаружение)_                   | `src/lib/tailscaleTunnel.ts`                        | Явный путь к бинарному файлу `tailscale`.                                                      |
+| `TAILSCALED_BIN`                 | _(автообнаружение)_                   | `src/lib/tailscaleTunnel.ts`                        | Явный путь к бинарному файлу демона `tailscaled`.                                              |
+| `NGROK_AUTHTOKEN`                | _(не установлено)_                    | `src/lib/ngrokTunnel.ts`                            | Аутентифицирует исходящие туннели ngrok.                                                       |
+| `DB_BACKUP_MAX_FILES`            | `20`                                  | `src/lib/db/backup.ts`                              | Максимальное количество файлов резервных копий SQLite, сохраняемых на диске.                   |
+| `DB_BACKUP_RETENTION_DAYS`       | `0`                                   | `src/lib/db/backup.ts`                              | Максимальный возраст (в днях) сохраняемых резервных копий. `0` отключает удаление по возрасту. |
+| `OMNIROUTE_TLS_PROXY_URL`        | _(не установлено)_                    | `open-sse/services/chatgptTlsClient.ts`             | Переопределяет URL TLS-сайдкара для тестов. В производстве следует оставить не установленным.  |
+
+## 26. Тестовый и E2E фреймворк
+
+Используется `scripts/dev/run-next-playwright.mjs`, `scripts/dev/smoke-electron-packaged.mjs`,
+`scripts/dev/run-ecosystem-tests.mjs`, и `scripts/build/uninstall.mjs`. Оставьте все
+значения ниже не установленными в производственных развертываниях.
+
+| Переменная                            | Значение по умолчанию             | Файл источника                            | Описание                                                                                             |
+| ------------------------------------- | --------------------------------- | ----------------------------------------- | ---------------------------------------------------------------------------------------------------- |
+| `OMNIROUTE_E2E_BOOTSTRAP_MODE`        | `auth`                            | `scripts/dev/run-next-playwright.mjs`     | Режим загрузки E2E (`auth`, `fresh`, `reuse`) для запуска Playwright.                                |
+| `OMNIROUTE_E2E_PASSWORD`              | возвращается к `INITIAL_PASSWORD` | `scripts/dev/run-next-playwright.mjs`     | Пароль администратора, внедренный в окружение Playwright.                                            |
+| `OMNIROUTE_DISABLE_LOCAL_HEALTHCHECK` | `true`                            | `scripts/dev/run-next-playwright.mjs`     | Отключить локальную проверку состояния во время запуска Playwright.                                  |
+| `OMNIROUTE_DISABLE_TOKEN_HEALTHCHECK` | `true`                            | `scripts/dev/run-next-playwright.mjs`     | Отключить цикл проверки состояния OAuth-токена во время тестов.                                      |
+| `OMNIROUTE_HIDE_HEALTHCHECK_LOGS`     | `true`                            | `scripts/dev/run-next-playwright.mjs`     | Подавить шум проверки состояния в stdout Playwright.                                                 |
+| `OMNIROUTE_PLAYWRIGHT_SKIP_BUILD`     | `0`                               | `scripts/dev/run-next-playwright.mjs`     | Пропустить сборку Next.js в режиме production перед запуском Playwright (оптимизация CI).            |
+| `OMNIROUTE_SKIP_UNINSTALL_HOOK`       | `0`                               | `scripts/build/uninstall.mjs`             | Пропустить хук uninstall OmniRoute (используется CI для сохранения `node_modules`).                  |
+| `ECOSYSTEM_SERVER_WAIT_MS`            | `180000`                          | `scripts/dev/run-ecosystem-tests.mjs`     | Время ожидания (мс) для того, чтобы сервер стал здоровым перед запуском тестов экосистемы/протокола. |
+| `ELECTRON_SMOKE_URL`                  | `http://127.0.0.1:20128/login`    | `scripts/dev/smoke-electron-packaged.mjs` | URL, который ожидает Electron smoke harness для упакованного приложения.                             |
+| `ELECTRON_SMOKE_TIMEOUT_MS`           | `45000`                           | `scripts/dev/smoke-electron-packaged.mjs` | Общий таймаут (мс) перед тем, как smoke harness сдастся.                                             |
+| `ELECTRON_SMOKE_SETTLE_MS`            | `2000`                            | `scripts/dev/smoke-electron-packaged.mjs` | Окно устойчивости (мс) после загрузки страницы.                                                      |
+| `ELECTRON_SMOKE_APP_EXECUTABLE`       | _(auto)_                          | `scripts/dev/smoke-electron-packaged.mjs` | Явный путь к упакованному исполняемому файлу Electron.                                               |
+| `ELECTRON_SMOKE_DATA_DIR`             | _(tmpdir)_                        | `scripts/dev/smoke-electron-packaged.mjs` | Директория данных для запуска Electron smoke.                                                        |
+| `ELECTRON_SMOKE_KEEP_DATA`            | `0`                               | `scripts/dev/smoke-electron-packaged.mjs` | Установите `1`, чтобы сохранить директорию данных smoke после запуска.                               |
+| `ELECTRON_SMOKE_STREAM_LOGS`          | `0`                               | `scripts/dev/smoke-electron-packaged.mjs` | Установите `1`, чтобы потоковать логи Electron в stdout во время запуска.                            |
+| `CLI_DEVIN_BIN`                       | _(PATH lookup)_                   | `open-sse/executors/devin-cli.ts`         | Переопределить путь к бинарному файлу Devin CLI.                                                     |
+
+### Документация по конвейеру перевода
+
+Используется `scripts/i18n/run-translation.mjs` (команда `npm run i18n:run`).
+Все пять переменных по умолчанию не установлены — установите их в `.env` только на машинах,
+которые должны иметь возможность запускать переводчик документации.
+
+| Переменная                          | Значение по умолчанию | Файл источника                     | Описание                                                                   |
+| ----------------------------------- | --------------------- | ---------------------------------- | -------------------------------------------------------------------------- |
+| `OMNIROUTE_TRANSLATION_API_URL`     | _(unset)_             | `scripts/i18n/run-translation.mjs` | OpenAI-совместимый базовый URL для бэкенда перевода.                       |
+| `OMNIROUTE_TRANSLATION_API_KEY`     | _(unset)_             | `scripts/i18n/run-translation.mjs` | Bearer-токен для бэкенда перевода (никогда не регистрируется).             |
+| `OMNIROUTE_TRANSLATION_MODEL`       | _(unset)_             | `scripts/i18n/run-translation.mjs` | Идентификатор модели, например `gpt-4o-mini` или `cx/gpt-5.4-mini`.        |
+| `OMNIROUTE_TRANSLATION_TIMEOUT_MS`  | `60000`               | `scripts/i18n/run-translation.mjs` | Таймаут на запрос в миллисекундах.                                         |
+| `OMNIROUTE_TRANSLATION_CONCURRENCY` | `4`                   | `scripts/i18n/run-translation.mjs` | Параллельные запросы перевода при работе с несколькими файлами / локалями. |
+
+---
+
+```
+
+## Аудит: Удаленные / мертвые переменные
+
+Следующие переменные присутствовали в предыдущих версиях `.env.example`, но **не имеют ссылок во время выполнения** в текущей кодовой базе. Они были удалены:
+
+| Переменная                                                                                                                                                                        | Причина                                                                                                                                             |
+| ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `STORAGE_DRIVER=sqlite`                                                                                                                                                         | Никогда не читается ни одним исходным файлом. SQLite — единственный поддерживаемый драйвер — выбор не требуется.                                                          |
+| `INSTANCE_NAME=omniroute`                                                                                                                                                       | Присутствует в старых документах/шаблонах env, но не используется во время выполнения. Возможно, вернется в будущей функции мультиинстанса.                                            |
+| `SQLITE_MAX_SIZE_MB=2048`                                                                                                                                                       | Не ссылается в исходном коде. Размер базы данных не ограничен искусственно.                                                                          |
+| `SQLITE_CLEAN_LEGACY_FILES=true`                                                                                                                                                | Не ссылается в исходном коде. Очистка устаревших файлов, вероятно, была удалена.                                                                                  |
+| `CLI_ROO_BIN`                                                                                                                                                                   | Не зарегистрирован в `src/shared/services/cliRuntime.ts`.                                                                                             |
+| `CLI_KIMI_CODING_BIN`                                                                                                                                                           | Не зарегистрирован в `src/shared/services/cliRuntime.ts` (Kimi Coding использует OAuth, а не двоичный файл CLI).                                                  |
+| `IFLOW_OAUTH_CLIENT_ID` / `IFLOW_OAUTH_CLIENT_SECRET`                                                                                                                           | Не ссылается нигде в исходном коде.                                                                                                            |
+| `CEREBRAS_API_KEY` / `COHERE_API_KEY` / `FIREWORKS_API_KEY` / `GROQ_API_KEY` / `MISTRAL_API_KEY` / `NEBIUS_API_KEY` / `PERPLEXITY_API_KEY` / `TOGETHER_API_KEY` / `XAI_API_KEY` | Удален в v3.8.0. Время выполнения больше не читает эти переменные env — учетные данные поступают из Dashboard / `data/provider-credentials.json` / зашифрованной БД. |
+| `CURSOR_PROTOBUF_DEBUG`                                                                                                                                                         | Удален в v3.8.0. Исполнитель Cursor использует `CURSOR_DEBUG` / `CURSOR_STREAM_DEBUG` (см. §22).                                                          |
+| `CLI_COMPAT_KIRO`                                                                                                                                                               | Удален в v3.8.0. Kiro находится в `CLI_COMPAT_OMITTED_PROVIDER_IDS` — его переключатель не имеет эффекта.                                                        |
+| `QIANFAN_API_KEY`                                                                                                                                                               | Удален вместе с другими неиспользуемыми заглушками API-ключей провайдера в v3.8.0.                                                                                   |
+
+### Исправления значений по умолчанию
+
+| Переменная                  | Старое значение `.env.example` | Фактическое значение по умолчанию в коде | Исправлено                                                  |
 | ------------------------- | ------------------------ | ------------------- | ------------------------------------------------------ |
-| `APP_LOG_RETENTION_DAYS`  | `90`                     | `7`                 | ✅ Removed misleading value; documented `7` as default |
-| `CALL_LOG_RETENTION_DAYS` | `90`                     | `7`                 | ✅ Removed misleading value; documented `7` as default |
+| `APP_LOG_RETENTION_DAYS`  | `90`                     | `7`                 | ✅ Удалено ошибочное значение; задокументировано `7` как значение по умолчанию |
+| `CALL_LOG_RETENTION_DAYS` | `90`                     | `7`                 | ✅ Удалено ошибочное значение; задокументировано `7` как значение по умолчанию |
+```

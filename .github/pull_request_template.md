@@ -1,30 +1,30 @@
 ## Summary
 
-- Describe the user-facing or operational change.
+- Опишите изменение, видимое пользователю или операционное.
 
 ## Related Issues
 
-- Closes #
-- Related to #
+- Закрывает #
+- Связано с #
 
 ## Validation
 
 - [ ] `npm run lint`
 - [ ] `npm run test:unit`
 - [ ] `npm run test:coverage`
-- [ ] Coverage is still `>= 60%` for statements, lines, functions, and branches
-- [ ] SonarQube PR analysis is green or any remaining issues are explicitly documented below
+- [ ] Покрытие остается `>= 60%` для операторов, строк, функций и ветвей
+- [ ] Анализ PR в SonarQube зеленый или оставшиеся проблемы явно документированы ниже
 
 ## Tests Added Or Updated
 
-- List every changed or added automated test file.
-- If no production code changed, state that here.
+- Перечислите все измененные или добавленные автоматизированные тестовые файлы.
+- Если код для продакшена не изменялся, укажите это здесь.
 
 ## Coverage Notes
 
-- If this PR changes `src/`, `open-sse/`, `electron/`, or `bin/`, explain which tests cover the change.
-- If coverage moved down in any touched file, explain why and what follow-up task will recover it.
+- Если этот PR изменяет `src/`, `open-sse/`, `electron/` или `bin/`, объясните, какие тесты покрывают изменение.
+- Если покрытие снизилось в любом затронутом файле, объясните почему и какой последующий задачей будет восстановить его.
 
 ## Reviewer Notes
 
-- Call out any risky areas, migrations, feature flags, or manual validation that reviewers should know about.
+- Укажите на любые рискованные области, миграции, флаги функций или ручную проверку, о которых должны знать рецензенты.

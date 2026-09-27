@@ -1,14 +1,14 @@
 # OmniRoute MCP Server
 
-> **Model Context Protocol server** that exposes OmniRoute's gateway intelligence as **37 tools** for AI agents.
+> **Протокол сервера контекста модели**, который предоставляет интеллектуальные возможности шлюза OmniRoute в виде **37 инструментов** для AI-агентов.
 >
-> **Source of truth for the full tool catalog and REST surface:** [`docs/frameworks/MCP-SERVER.md`](../../docs/MCP-SERVER.md). This README focuses on architecture, configuration, and integration examples; the catalog below is a summary subset.
+> **Источник истины для полного каталога инструментов и REST-поверхности:** [`docs/frameworks/MCP-SERVER.md`](../../docs/MCP-SERVER.md). Это README фокусируется на архитектуре, конфигурации и примерах интеграции; каталог ниже является кратким подмножеством.
 
-The MCP Server allows any AI agent (Claude Desktop, Cursor, VS Code Copilot, custom agents) to **monitor, control, and optimize** the OmniRoute AI gateway programmatically.
+Сервер MCP позволяет любому AI-агенту (Claude Desktop, Cursor, VS Code Copilot, пользовательские агенты) **мониторить, контролировать и оптимизировать** шлюз AI OmniRoute программно.
 
 ---
 
-## Architecture
+## Архитектура
 
 ```
 ┌──────────────────────────────────────────────────────────────────┐
@@ -35,25 +35,25 @@ The MCP Server allows any AI agent (Claude Desktop, Cursor, VS Code Copilot, cus
 
 ---
 
-## Quick Start
+## Быстрый старт
 
-### 1. Environment Variables
+### 1. Переменные окружения
 
 ```bash
-# Required: OmniRoute base URL
+# Обязательно: Базовый URL OmniRoute
 export OMNIROUTE_BASE_URL="http://localhost:20128"
 
-# Optional: API key for authenticated access
+# Необязательно: API ключ для аутентифицированного доступа
 export OMNIROUTE_API_KEY="your-api-key"
 
-# Optional: Scope enforcement (default: disabled)
+# Необязательно: Применение области (по умолчанию: отключено)
 export OMNIROUTE_MCP_ENFORCE_SCOPES="true"
 export OMNIROUTE_MCP_SCOPES="read:health,read:combos,read:quota,read:usage,read:models,read:cache,read:compression,execute:completions,write:combos,write:budget,write:resilience,write:cache,write:compression"
 ```
 
-### 2. stdio Transport (IDE Integration)
+### 2. Транспорт stdio (Интеграция IDE)
 
-Add to your MCP client configuration:
+Добавьте в конфигурацию вашего MCP клиента:
 
 **Claude Desktop** (`claude_desktop_config.json`):
 
@@ -106,73 +106,72 @@ Add to your MCP client configuration:
 }
 ```
 
-### 3. Start via CLI
+### 3. Запуск через CLI
 
 ```bash
-# Direct start (stdio)
+# Прямой запуск (stdio)
 npx tsx open-sse/mcp-server/server.ts
 
-# Or via OmniRoute CLI
+# Или через OmniRoute CLI
 omniroute --mcp
 ```
 
 ---
 
-## Tool Reference
+## Справочник инструментов
 
-### Phase 1: Essential Tools (8)
+### Фаза 1: Основные инструменты (8)
 
-| #   | Tool                            | Scopes                | Description                                                                |
-| --- | ------------------------------- | --------------------- | -------------------------------------------------------------------------- |
-| 1   | `omniroute_get_health`          | `read:health`         | Gateway health, uptime, memory, circuit breakers, rate limits, cache stats |
-| 2   | `omniroute_list_combos`         | `read:combos`         | List all combos (model chains) with strategies and optional metrics        |
-| 3   | `omniroute_get_combo_metrics`   | `read:combos`         | Performance metrics for a specific combo                                   |
-| 4   | `omniroute_switch_combo`        | `write:combos`        | Activate or deactivate a combo for routing                                 |
-| 5   | `omniroute_check_quota`         | `read:quota`          | Remaining API quota per provider with token health status                  |
-| 6   | `omniroute_route_request`       | `execute:completions` | Send a chat completion through intelligent routing                         |
-| 7   | `omniroute_cost_report`         | `read:usage`          | Cost report by period (session/day/week/month) with per-provider breakdown |
-| 8   | `omniroute_list_models_catalog` | `read:models`         | List all available models across providers with capabilities and pricing   |
+| #   | Инструмент                      | Области               | Описание                                                                                           |
+| --- | ------------------------------- | --------------------- | -------------------------------------------------------------------------------------------------- |
+| 1   | `omniroute_get_health`          | `read:health`         | Состояние шлюза, время работы, память, предохранители цепей, ограничения скорости, статистика кэша |
+| 2   | `omniroute_list_combos`         | `read:combos`         | Список всех комбо (цепочек моделей) со стратегиями и необязательными метриками                     |
+| 3   | `omniroute_get_combo_metrics`   | `read:combos`         | Метрики производительности для конкретного комбо                                                   |
+| 4   | `omniroute_switch_combo`        | `write:combos`        | Активировать или деактивировать комбо для маршрутизации                                            |
+| 5   | `omniroute_check_quota`         | `read:quota`          | Оставшийся квота API по провайдерам с состоянием токена                                            |
+| 6   | `omniroute_route_request`       | `execute:completions` | Отправить запрос на завершение чата через интеллектуальную маршрутизацию                           |
+| 7   | `omniroute_cost_report`         | `read:usage`          | Отчет о затратах по периоду (сессия/день/неделя/месяц) с разбивкой по провайдерам                  |
+| 8   | `omniroute_list_models_catalog` | `read:models`         | Список всех доступных моделей по провайдерам с возможностями и ценами                              |
 
-### Phase 2: Advanced Tools (8)
+### Фаза 2: Расширенные инструменты (8)
 
-| #   | Tool                               | Scopes                               | Description                                                                                    |
-| --- | ---------------------------------- | ------------------------------------ | ---------------------------------------------------------------------------------------------- |
-| 9   | `omniroute_simulate_route`         | `read:health`, `read:combos`         | Dry-run routing simulation showing fallback tree and estimated costs                           |
-| 10  | `omniroute_set_budget_guard`       | `write:budget`                       | Set session budget with action on exceed: `degrade`, `block`, or `alert`                       |
-| 11  | `omniroute_set_resilience_profile` | `write:resilience`                   | Apply resilience profile: `aggressive`, `balanced`, or `conservative`                          |
-| 12  | `omniroute_test_combo`             | `execute:completions`, `read:combos` | Test each provider in a combo with a real prompt and a real upstream call, report latency/cost |
-| 13  | `omniroute_get_provider_metrics`   | `read:health`                        | Per-provider metrics with latency percentiles (p50/p95/p99), circuit breaker                   |
-| 14  | `omniroute_best_combo_for_task`    | `read:combos`, `read:health`         | AI-powered combo recommendation by task type with budget/latency constraints                   |
-| 15  | `omniroute_explain_route`          | `read:health`, `read:usage`          | Explain why a request was routed to a provider (scoring factors, fallbacks)                    |
-| 16  | `omniroute_get_session_snapshot`   | `read:usage`                         | Full session snapshot: cost, tokens, top models, errors, budget status                         |
+| #   | Инструмент                         | Области                              | Описание                                                                                                     |
+| --- | ---------------------------------- | ------------------------------------ | ------------------------------------------------------------------------------------------------------------ |
+| 9   | `omniroute_simulate_route`         | `read:health`, `read:combos`         | Симуляция маршрутизации без выполнения с деревом резервных вариантов и оценкой затрат                        |
+| 10  | `omniroute_set_budget_guard`       | `write:budget`                       | Установить бюджет сессии с действием при превышении: `degrade`, `block`, или `alert`                         |
+| 11  | `omniroute_set_resilience_profile` | `write:resilience`                   | Применить профиль устойчивости: `aggressive`, `balanced`, или `conservative`                                 |
+| 12  | `omniroute_test_combo`             | `execute:completions`, `read:combos` | Протестировать каждого провайдера в комбо с реальным запросом и реальным вызовом, отчет о задержке/стоимости |
+| 13  | `omniroute_get_provider_metrics`   | `read:health`                        | Метрики по провайдерам с процентилями задержки (p50/p95/p99), предохранителем цепей                          |
+| 14  | `omniroute_best_combo_for_task`    | `read:combos`, `read:health`         | Рекомендация комбо на основе ИИ по типу задачи с ограничениями бюджета/задержки                              |
+| 15  | `omniroute_explain_route`          | `read:health`, `read:usage`          | Объяснить, почему запрос был направлен к провайдеру (факторы оценки, резервные варианты)                     |
+| 16  | `omniroute_get_session_snapshot`   | `read:usage`                         | Полный снимок сессии: стоимость, токены, топ-модели, ошибки, статус бюджета                                  |
 
-### Cache and Compression Tools
+### Инструменты кэширования и сжатия
 
-| #   | Tool                                | Scopes              | Description                                                                  |
-| --- | ----------------------------------- | ------------------- | ---------------------------------------------------------------------------- |
-| 21  | `omniroute_cache_stats`             | `read:cache`        | Semantic cache, prompt-cache, and idempotency statistics                     |
-| 22  | `omniroute_cache_flush`             | `write:cache`       | Flush cache entries globally or by signature/model                           |
-| 23  | `omniroute_compression_status`      | `read:compression`  | Compression settings, analytics summary, and provider-aware cache statistics |
-| 24  | `omniroute_compression_configure`   | `write:compression` | Configure compression mode and trigger thresholds at runtime                 |
-| 25  | `omniroute_set_compression_engine`  | `write:compression` | Set Caveman, RTK, or stacked compression mode and pipeline                   |
-| 26  | `omniroute_list_compression_combos` | `read:compression`  | List named compression combos and routing assignments                        |
-| 27  | `omniroute_compression_combo_stats` | `read:compression`  | Read analytics grouped by compression combo and engine                       |
+| #   | Инструмент                          | Области             | Описание                                                                  |
+| --- | ----------------------------------- | ------------------- | ------------------------------------------------------------------------- |
+| 21  | `omniroute_cache_stats`             | `read:cache`        | Статистика семантического кэша, кэша запросов и идемпотентности           |
+| 22  | `omniroute_cache_flush`             | `write:cache`       | Очистить записи кэша глобально или по подписи/модели                      |
+| 23  | `omniroute_compression_status`      | `read:compression`  | Настройки сжатия, сводка аналитики и статистика кэша с учетом провайдера  |
+| 24  | `omniroute_compression_configure`   | `write:compression` | Настроить режим сжатия и пороговые значения триггеров во время выполнения |
+| 25  | `omniroute_set_compression_engine`  | `write:compression` | Установить режим сжатия Caveman, RTK или стековый с пайплайном            |
+| 26  | `omniroute_list_compression_combos` | `read:compression`  | Список именованных комбо сжатия и назначений маршрутизации                |
+| 27  | `omniroute_compression_combo_stats` | `read:compression`  | Прочитать аналитику, сгруппированную по комбо сжатия и движку             |
 
-MCP listable metadata descriptions are compressed at registration/list time when description
-compression is enabled. `omniroute_compression_status` exposes those savings separately as
-`analytics.mcpDescriptionCompression` with `source: "mcp_metadata_estimate"`, so clients do not
-mistake metadata shrink estimates for provider token receipts.
+Описания метаданных MCP сжимаются при регистрации/списке, когда включено сжатие описаний.
+`omniroute_compression_status` выводит эти экономии отдельно как `analytics.mcpDescriptionCompression`
+с `source: "mcp_metadata_estimate"`, чтобы клиенты не путали оценки уменьшения метаданных с получением токенов провайдера.
 
 ---
 
-## Client Examples
+## Примеры клиентов
 
-### Python — Full Agent Workflow
+### Python — Полный рабочий процесс агента
 
 ```python
 """
-OmniRoute MCP Client — Python example using the mcp SDK.
-Install: pip install mcp
+OmniRoute MCP Client — Пример на Python с использованием mcp SDK.
+Установка: pip install mcp
 """
 import asyncio
 from mcp import ClientSession, StdioServerParameters
@@ -192,17 +191,17 @@ async def main():
         async with ClientSession(read, write) as session:
             await session.initialize()
 
-            # 1. Check gateway health
+            # 1. Проверка состояния шлюза
             health = await session.call_tool("omniroute_get_health", {})
             print("Health:", health.content[0].text)
 
-            # 2. List available combos with metrics
+            # 2. Список доступных комбо с метриками
             combos = await session.call_tool("omniroute_list_combos", {
                 "includeMetrics": True
             })
             print("Combos:", combos.content[0].text)
 
-            # 3. Find the best combo for a coding task
+            # 3. Поиск лучшего комбо для задачи по кодированию
             best = await session.call_tool("omniroute_best_combo_for_task", {
                 "taskType": "coding",
                 "budgetConstraint": 0.50,
@@ -210,7 +209,7 @@ async def main():
             })
             print("Best combo:", best.content[0].text)
 
-            # 4. Set a session budget guard
+            # 4. Установить бюджетный охранник сессии
             budget = await session.call_tool("omniroute_set_budget_guard", {
                 "maxCost": 1.00,
                 "action": "degrade",
@@ -218,7 +217,7 @@ async def main():
             })
             print("Budget guard:", budget.content[0].text)
 
-            # 5. Route a request through intelligent pipeline
+            # 5. Маршрутизация запроса через интеллектуальную конвейерную линию
             response = await session.call_tool("omniroute_route_request", {
                 "model": "claude-sonnet-4",
                 "messages": [
@@ -228,14 +227,14 @@ async def main():
             })
             print("Response:", response.content[0].text)
 
-            # 6. Get the session snapshot
+            # 6. Получить снимок сессии
             snapshot = await session.call_tool("omniroute_get_session_snapshot", {})
             print("Session:", snapshot.content[0].text)
 
 asyncio.run(main())
 ```
 
-### TypeScript — Programmatic Agent
+### TypeScript — Программный агент
 
 ```typescript
 import { Client } from "@modelcontextprotocol/sdk/client/index.js";
@@ -254,14 +253,14 @@ async function main() {
   const client = new Client({ name: "my-agent", version: "1.0.0" });
   await client.connect(transport);
 
-  // Check quota before deciding which model to use
+  // Проверка квоты перед принятием решения о выборе модели
   const quota = await client.callTool({
     name: "omniroute_check_quota",
     arguments: { provider: "claude" },
   });
   console.log("Claude quota:", quota.content);
 
-  // Simulate the route before actually calling
+  // Симуляция маршрута перед фактическим вызовом
   const simulation = await client.callTool({
     name: "omniroute_simulate_route",
     arguments: {
@@ -271,7 +270,7 @@ async function main() {
   });
   console.log("Route simulation:", simulation.content);
 
-  // Send the actual request
+  // Отправка фактического запроса
   const result = await client.callTool({
     name: "omniroute_route_request",
     arguments: {
@@ -281,7 +280,7 @@ async function main() {
   });
   console.log("Result:", result.content);
 
-  // Cost report
+  // Отчет о затратах
   const costs = await client.callTool({
     name: "omniroute_cost_report",
     arguments: { period: "session" },
@@ -294,7 +293,7 @@ async function main() {
 main();
 ```
 
-### Go — HTTP Client
+### Go — HTTP-клиент
 
 ```go
 package main
@@ -307,11 +306,11 @@ import (
     "net/http"
 )
 
-// Simplified direct-API approach (bypass MCP, hit OmniRoute APIs directly)
-// Useful if you don't need MCP protocol framing.
+// Упрощенный подход с прямым API (обход MCP, прямое обращение к API OmniRoute)
+// Полезно, если не нужен фрейминг протокола MCP.
 
 func callTool(baseURL, tool string, args map[string]any) (string, error) {
-    // MCP tools map to OmniRoute APIs:
+    // Инструменты MCP соответствуют API OmniRoute:
     endpoints := map[string]string{
         "health": "/api/monitoring/health",
         "combos": "/api/combos",
@@ -369,7 +368,7 @@ func main() {
 
 ### 🔄 Use Case 1: Auto-Healing Agent
 
-An agent that monitors OmniRoute health and auto-switches combos when providers degrade.
+Агент, который мониторит здоровье OmniRoute и автоматически переключает комбинации при ухудшении работы провайдеров.
 
 ```python
 async def auto_healing_loop(session):
@@ -409,7 +408,7 @@ async def auto_healing_loop(session):
 
 ### 💰 Use Case 2: Budget-Aware Coding Agent
 
-An agent that monitors costs in real-time and degrades to cheaper models when nearing budget.
+Агент, который мониторит затраты в реальном времени и переключается на более дешевые модели при приближении к лимиту бюджета.
 
 ```python
 async def budget_aware_coding(session, task: str, max_budget: float):
@@ -449,7 +448,7 @@ async def budget_aware_coding(session, task: str, max_budget: float):
 
 ### 🧪 Use Case 3: Combo Benchmarking Agent
 
-An agent that periodically benchmarks all combos and reports the fastest/cheapest.
+Агент, который периодически тестирует все комбинации и сообщает о самых быстрых и дешевых.
 
 ```python
 async def benchmark_combos(session):
@@ -483,7 +482,7 @@ async def benchmark_combos(session):
 
 ### 🔍 Use Case 4: Post-Mortem Debugging Agent
 
-An agent that explains why a request was routed to a specific provider.
+Агент, который объясняет, почему запрос был направлен на конкретного провайдера.
 
 ```typescript
 async function debugRouting(client: Client, requestId: string) {
@@ -513,7 +512,7 @@ async function debugRouting(client: Client, requestId: string) {
 
 ### 📋 Use Case 5: Model Discovery Agent
 
-An agent that discovers the cheapest models for a given capability.
+Агент, который находит самые дешевые модели для заданной возможности.
 
 ```python
 async def find_cheapest_models(session, capability="chat"):
@@ -539,11 +538,13 @@ async def find_cheapest_models(session, capability="chat"):
 
 ---
 
-## Security & Scope Enforcement
+````
 
-The MCP server supports **fine-grained scope enforcement** for multi-tenant environments:
+## Безопасность и управление доступом
 
-| Scope                 | Tools                                                                                          |
+Сервер MCP поддерживает **точечное управление доступом** для мультитенантных сред:
+
+| Доступ                 | Инструменты                                                                                          |
 | --------------------- | ---------------------------------------------------------------------------------------------- |
 | `read:health`         | `get_health`, `simulate_route`, `get_provider_metrics`, `best_combo_for_task`, `explain_route` |
 | `read:combos`         | `list_combos`, `get_combo_metrics`, `simulate_route`, `best_combo_for_task`, `test_combo`      |
@@ -559,19 +560,19 @@ The MCP server supports **fine-grained scope enforcement** for multi-tenant envi
 | `write:compression`   | `compression_configure`, `set_compression_engine`                                              |
 | `execute:completions` | `route_request`, `test_combo`                                                                  |
 
-**Wildcard scopes:** Use `read:*` to grant all read scopes, or `*` for full access.
+**Шаблонные доступы:** Используйте `read:*` для предоставления всех доступов на чтение, или `*` для полного доступа.
 
 ---
 
-## Audit Logging
+## Журналирование аудита
 
-Every tool call is logged to the `mcp_tool_audit` SQLite table:
+Каждый вызов инструмента записывается в таблицу `mcp_tool_audit` SQLite:
 
-- **Input:** SHA-256 hashed (never stores raw prompts)
-- **Output:** Truncated to 200 chars
-- **Metadata:** Tool name, duration, success/error, API key ID
+- **Входные данные:** SHA-256 хешированы (никогда не хранят сырые запросы)
+- **Выходные данные:** Обрезаны до 200 символов
+- **Метаданные:** Имя инструмента, длительность, успех/ошибка, ID API ключа
 
-Access audit data via:
+Доступ к данным аудита:
 
 ```typescript
 import { getRecentAuditEntries, getAuditStats } from "./audit";
@@ -579,25 +580,25 @@ import { getRecentAuditEntries, getAuditStats } from "./audit";
 const entries = await getRecentAuditEntries(50);
 const stats = await getAuditStats();
 // stats: { totalCalls, successRate, avgDurationMs, topTools }
-```
+````
 
 ---
 
-## File Structure
+## Структура файлов
 
 ```
 mcp-server/
-├── server.ts              # MCP server setup, essential tool handlers, entry point
-├── index.ts               # Barrel export
-├── audit.ts               # SQLite audit logger (SHA-256 input hashing)
-├── scopeEnforcement.ts    # Fine-grained scope enforcement
+├── server.ts              # Настройка сервера MCP, обработчики основных инструментов, точка входа
+├── index.ts               # Экспорт барреля
+├── audit.ts               # Журналирование аудита SQLite (хеширование входных данных SHA-256)
+├── scopeEnforcement.ts    # Точечное управление доступом
 ├── schemas/
-│   ├── tools.ts           # Zod schemas for core, cache, compression, and proxy tools
-│   ├── a2a.ts             # A2A protocol types (Agent Card, Task, JSON-RPC)
-│   ├── audit.ts           # Audit & routing decision types + hash helpers
-│   └── index.ts           # Schema barrel export
+│   ├── tools.ts           # Схемы Zod для основных, кэширующих, сжимающих и проксирующих инструментов
+│   ├── a2a.ts             | Типы протокола A2A (Карта агента, Задача, JSON-RPC)
+│   ├── audit.ts           # Типы аудита и решений маршрутизации + вспомогательные функции хеширования
+│   └── index.ts           # Экспорт барреля схем
 ├── tools/
-│   └── advancedTools.ts   # Phase 2 tool handlers (8 advanced tools)
+│   └── advancedTools.ts   # Обработчики инструментов фазы 2 (8 продвинутых инструментов)
 └── __tests__/
     ├── essentialTools.test.ts
     ├── advancedTools.test.ts
@@ -606,6 +607,6 @@ mcp-server/
 
 ---
 
-## License
+## Лицензия
 
-Part of [OmniRoute](https://github.com/diegosouzapw/OmniRoute) — MIT License.
+Часть [OmniRoute](https://github.com/diegosouzapw/OmniRoute) — лицензия MIT.
