@@ -1,0 +1,22 @@
+FROM node:26.2.0-trixie-slim AS builder
+WORKDIR /app
+
+RUN apt-get update \
+  && apt-get install -y --no-install-recommends libsecret-1-0 ca-certificates \
+  && rm -rf /var/lib/apt/lists/*
+
+COPY package*.json ./
+COPY scripts/build/postinstall.mjs ./scripts/build/postinstall.mjs
+COPY scripts/build/postinstallSupport.mjs ./scripts/build/postinstallSupport.mjs
+COPY scripts/build/native-binary-compat.mjs ./scripts/build/native-binary-compat.mjs
+ENV NPM_CONFIG_LEGACY_PEER_DEPS=true
+RUN if [ -f package-lock.json ]; then \
+    npm ci --no-audit --no-fund --legacy-peer-deps; \
+    else \
+    npm install --no-audit --no-fund --legacy-peer-deps; \
+    fi
+
+COPY . ./
+RUN mkdir -p /app/data && echo ready
+
+FROM node:26.2.0-trixie-slim AS runner-base
