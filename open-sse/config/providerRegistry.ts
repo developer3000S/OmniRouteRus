@@ -697,9 +697,22 @@ export const REGISTRY: Record<string, RegistryEntry> = {
       clientSecretEnv: "GEMINI_OAUTH_CLIENT_SECRET",
       clientSecretDefault: resolvePublicCred("gemini_alt"),
     },
-    models: [],
-    // Models are populated from Google's API via sync-models (per API key).
-    // No hardcoded fallback — show nothing until a key is added.
+    models: [
+      { id: "gemini-2.0-flash", name: "Gemini 2.0 Flash", toolCalling: true, supportsVision: true },
+      {
+        id: "gemini-2.0-flash-thinking-exp-01-21",
+        name: "Gemini 2.0 Flash Thinking",
+        supportsReasoning: true,
+      },
+      {
+        id: "gemini-2.0-pro-exp-02-05",
+        name: "Gemini 2.0 Pro Experimental",
+        toolCalling: true,
+        supportsVision: true,
+      },
+      { id: "gemini-1.5-pro", name: "Gemini 1.5 Pro", toolCalling: true, supportsVision: true },
+      { id: "gemini-1.5-flash", name: "Gemini 1.5 Flash", toolCalling: true, supportsVision: true },
+    ],
   },
 
   "gemini-cli": {
@@ -722,6 +735,9 @@ export const REGISTRY: Record<string, RegistryEntry> = {
       clientSecretDefault: resolvePublicCred("gemini_alt"),
     },
     models: [
+      { id: "gemini-2.0-flash", name: "Gemini 2.0 Flash" },
+      { id: "gemini-2.0-flash-thinking", name: "Gemini 2.0 Flash Thinking" },
+      { id: "gemini-2.0-pro-exp-02-05", name: "Gemini 2.0 Pro Experimental" },
       { id: "gemini-1.5-pro", name: "Gemini 1.5 Pro" },
       { id: "gemini-1.5-flash", name: "Gemini 1.5 Flash" },
       { id: "gemini-3.1-pro-preview", name: "Gemini 3.1 Pro Preview" },
@@ -3069,6 +3085,24 @@ export const REGISTRY: Record<string, RegistryEntry> = {
       { id: "GLM-5.1-FP8", name: "GLM-5.1 (Vertex Partner)" },
       { id: "claude-opus-4-7", name: "Claude Opus 4.7 (Vertex)" },
       { id: "claude-sonnet-4-6", name: "Claude Sonnet 4.6 (Vertex)" },
+    ],
+  },
+
+  "vertex-partner": {
+    id: "vertex-partner",
+    alias: "vp",
+    format: "gemini",
+    executor: "vertex",
+    baseUrl: "https://us-central1-aiplatform.googleapis.com/v1/projects",
+    authType: "apikey",
+    authHeader: "bearer",
+    models: [
+      { id: "DeepSeek-V4-Flash", name: "DeepSeek V4 Flash" },
+      { id: "DeepSeek-V4-Pro", name: "DeepSeek V4 Pro" },
+      { id: "Qwen3.6-35B-A3B", name: "Qwen 3.6 35B A3B" },
+      { id: "GLM-5.1-FP8", name: "GLM 5.1" },
+      { id: "claude-opus-4-7", name: "Claude Opus 4.7" },
+      { id: "claude-sonnet-4-6", name: "Claude Sonnet 4.6" },
     ],
   },
 
