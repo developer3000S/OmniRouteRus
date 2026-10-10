@@ -747,5 +747,5 @@ open-sse/mcp-server/
 
 ## Лицензия
 
-Часть [OmniRoute](https://github.com/diegosouzapw/OmniRoute) — Лицензия MIT.
+Часть [OmniRoute](https://github.com/developer3000S/OmniRouteRus) — Лицензия MIT.
 ```

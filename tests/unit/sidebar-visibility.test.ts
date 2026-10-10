@@ -100,7 +100,7 @@ test("help sidebar exposes changelog after docs and issues", () => {
       { id: "docs", href: "/docs", i18nKey: "docs" },
       {
         id: "issues",
-        href: "https://github.com/diegosouzapw/OmniRoute/issues",
+        href: "https://github.com/developer3000S/OmniRouteRus/issues",
         i18nKey: "issues",
       },
       { id: "changelog", href: "/dashboard/changelog", i18nKey: "changelog" },

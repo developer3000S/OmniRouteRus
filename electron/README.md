@@ -108,7 +108,7 @@ npm run build:linux
 
 ### macOS
 
-1. Скачайте последний `.dmg` с [страницы релизов](https://github.com/diegosouzapw/OmniRoute/releases).
+1. Скачайте последний `.dmg` с [страницы релизов](https://github.com/developer3000S/OmniRouteRus/releases).
 2. Откройте файл `.dmg`.
 3. Перетащите `OmniRoute.app` в папку Applications.
 4. Запустите из Applications.
@@ -125,18 +125,18 @@ npm run build:linux
 
 **Установщик (Рекомендуется):**
 
-1. Скачайте `OmniRoute.Setup.*.exe` с [страницы релизов](https://github.com/diegosouzapw/OmniRoute/releases).
+1. Скачайте `OmniRoute.Setup.*.exe` с [страницы релизов](https://github.com/developer3000S/OmniRouteRus/releases).
 2. Запустите установщик.
 3. Запустите из меню "Пуск" или ярлыка на рабочем столе.
 
 **Портативная версия (Без установки):**
 
-1. Скачайте `OmniRoute.exe` с [страницы релизов](https://github.com/diegosouzapw/OmniRoute/releases).
+1. Скачайте `OmniRoute.exe` с [страницы релизов](https://github.com/developer3000S/OmniRouteRus/releases).
 2. Запустите напрямую из любой папки.
 
 ### Linux
 
-1. Скачайте `.AppImage` с [страницы релизов](https://github.com/diegosouzapw/OmniRoute/releases).
+1. Скачайте `.AppImage` с [страницы релизов](https://github.com/developer3000S/OmniRouteRus/releases).
 2. Сделайте его исполняемым:
    ```bash
    chmod +x OmniRoute-*.AppImage

@@ -5,7 +5,7 @@ export const NEWS_JSON_URL =
 export const CHANGELOG_RAW_URL =
   "https://raw.githubusercontent.com/diegosouzapw/OmniRoute/main/CHANGELOG.md";
 export const CHANGELOG_GITHUB_URL =
-  "https://github.com/diegosouzapw/OmniRoute/blob/main/CHANGELOG.md";
+  "https://github.com/developer3000S/OmniRouteRus/blob/main/CHANGELOG.md";
 
 const activeNewsSchema = z.object({
   active: z.literal(true),

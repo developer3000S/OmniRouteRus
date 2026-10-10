@@ -65,7 +65,7 @@
 О случаях оскорбительного, преследующего или иного неприемлемого поведения
 можно сообщить лидерам сообщества, ответственным за обеспечение соблюдения,
 создав приватное security advisory по адресу
-<https://github.com/diegosouzapw/OmniRoute/security/advisories/new>
+<https://github.com/developer3000S/OmniRouteRus/security/advisories/new>
 или написав мейнтейнеру на diegosouza.pw@outlook.com.
 По инцидентам, связанным с безопасностью, см. [`SECURITY.md`](SECURITY.md).
 Все жалобы будут рассмотрены и расследованы оперативно и беспристрастно.

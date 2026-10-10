@@ -21,20 +21,20 @@
 [![14 Strategies](https://img.shields.io/badge/14-Routing_Strategies-0984E3?style=for-the-badge)](#-combos--the-flagship)
 [![$0 to start](https://img.shields.io/badge/%240-To_Start-FDCB6E?style=for-the-badge&logoColor=black)](#-quick-start)
 
-<a href="https://trendshift.io/repositories/23589" target="_blank"><img src="https://trendshift.io/api/badge/repositories/23589" alt="diegosouzapw%2FOmniRoute | Trendshift" style="width: 250px; height: 55px;" width="250" height="55"/></a>
+<a href="https://trendshift.io/repositories/23589" target="_blank"><img src="https://trendshift.io/api/badge/repositories/23589" alt="developer3000S%2FOmniRoute | Trendshift" style="width: 250px; height: 55px;" width="250" height="55"/></a>
 
 [![npm](https://img.shields.io/npm/v/omniroute?logo=npm&style=flat-square)](https://www.npmjs.com/package/omniroute)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg?style=flat-square)](LICENSE)
 [![Node](https://img.shields.io/badge/node-%E2%89%A522.22.2-brightgreen?style=flat-square)](package.json)
-[![Stars](https://img.shields.io/github/stars/diegosouzapw/OmniRoute?style=social)](https://github.com/diegosouzapw/OmniRoute)
+[![Stars](https://img.shields.io/github/stars/developer3000S/OmniRoute?style=social)](https://github.com/developer3000S/OmniRouteRus)
 
 <div align="center">
 
 [![npm version](https://img.shields.io/npm/v/omniroute?color=cb3837&logo=npm)](https://www.npmjs.com/package/omniroute)
 ![NPM Monthly](https://img.shields.io/npm/dm/omniroute?label=npm/month&color=cb3837&logo=npm)
-[![Docker Hub](https://img.shields.io/docker/v/diegosouzapw/omniroute?label=Docker%20Hub&logo=docker&color=2496ED)](https://hub.docker.com/r/diegosouzapw/omniroute)
-![Docker Pulls](https://img.shields.io/docker/pulls/diegosouzapw/omniroute?label=docker%20pulls&logo=docker&color=2496ED)
-![Electron Downloads](https://img.shields.io/github/downloads/diegosouzapw/omniroute/total?style=flat&label=electron%20downloads&logo=electron&color=47848F)
+[![Docker Hub](https://img.shields.io/docker/v/developer3000S/omniroute?label=Docker%20Hub&logo=docker&color=2496ED)](https://hub.docker.com/r/developer3000S/omniroute)
+![Docker Pulls](https://img.shields.io/docker/pulls/developer3000S/omniroute?label=docker%20pulls&logo=docker&color=2496ED)
+![Electron Downloads](https://img.shields.io/github/downloads/developer3000S/omniroute/total?style=flat&label=electron%20downloads&logo=electron&color=47848F)
 [![Website](https://img.shields.io/badge/Website-omniroute.online-blue?logo=google-chrome&logoColor=white)](https://omniroute.online)
 
 </div>
@@ -324,7 +324,7 @@
 | Платформа                 | Установка                                    | Особенности                                                  |
 | ------------------------- | -------------------------------------------- | ------------------------------------------------------------ |
 | 📦 **npm (глобальный)**   | `npm install -g omniroute`                   | Одна команда, любая ОС                                       |
-| 🐳 **Docker**             | `docker run … diegosouzapw/omniroute`        | Multi-arch **AMD64 + ARM64**                                 |
+| 🐳 **Docker**             | `docker run … developer3000S/omniroute`        | Multi-arch **AMD64 + ARM64**                                 |
 | 🖥️ **Desktop (Electron)** | `npm run electron:build`                     | Нативное окно + системный трей — **Windows / macOS / Linux** |
 | 💪 **ARM**                | нативный `arm64`                             | Raspberry Pi, ARM серверы, Apple Silicon                     |
 | 📱 **Android (Termux)**   | `pkg install nodejs-lts && npx -y omniroute` | Работает **на вашем телефоне**, 24/7, без root               |
@@ -487,7 +487,7 @@ curl http://localhost:20128/v1/models -H "Authorization: Bearer YOUR_KEY"
 
 ```bash
 docker run -d --name omniroute --restart unless-stopped --stop-timeout 40 \
-  -p 20128:20128 -v omniroute-data:/app/data diegosouzapw/omniroute:latest
+  -p 20128:20128 -v omniroute-data:/app/data developer3000S/omniroute:latest
 ```
 
 ### Или
@@ -558,7 +558,7 @@ yay -S omniroute-bin && systemctl --user enable --now omniroute.service
 
 <div align="center">
 
-> 🎬 **Сделали видео о OmniRoute?** Откройте [issue](https://github.com/diegosouzapw/OmniRoute/issues/new) или [discussion](https://github.com/diegosouzapw/OmniRoute/discussions) с ссылкой — мы добавим его сюда.
+> 🎬 **Сделали видео о OmniRoute?** Откройте [issue](https://github.com/developer3000S/OmniRouteRus/issues/new) или [discussion](https://github.com/developer3000S/OmniRouteRus/discussions) с ссылкой — мы добавим его сюда.
 
 <br/>
 </div>
@@ -713,8 +713,8 @@ yay -S omniroute-bin && systemctl --user enable --now omniroute.service
 > · [**🌍 Международный**](https://chat.whatsapp.com/JI7cDQ1GyaiDHhVBpLxf8b?mode=gi_t) · [**🇧🇷 Português**](https://chat.whatsapp.com/CeGCxdFzqBe5Uki288wOvf)
 
 - 🌍 **Веб-сайт**: [omniroute.online](https://omniroute.online)
-- 🐙 **GitHub**: [github.com/diegosouzapw/OmniRoute](https://github.com/diegosouzapw/OmniRoute)
-- 🐛 **Проблемы**: [сообщить о баге](https://github.com/diegosouzapw/OmniRoute/issues) (прикрепите вывод `npm run system-info`)
+- 🐙 **GitHub**: [github.com/developer3000S/OmniRoute](https://github.com/developer3000S/OmniRouteRus)
+- 🐛 **Проблемы**: [сообщить о баге](https://github.com/developer3000S/OmniRouteRus/issues) (прикрепите вывод `npm run system-info`)
 - 🤝 **Участие**: см. [CONTRIBUTING.md](CONTRIBUTING.md) или выберите `good first issue`
 
 </div>
@@ -738,7 +738,7 @@ yay -S omniroute-bin && systemctl --user enable --now omniroute.service
 - **CI/CD**: GitHub Actions (автоматическая публикация в npm + Docker Hub при релизе)
 - **Сайт**: [omniroute.online](https://omniroute.online)
 - **Пакет**: [npmjs.com/package/omniroute](https://www.npmjs.com/package/omniroute)
-- **Docker**: [hub.docker.com/r/diegosouzapw/omniroute](https://hub.docker.com/r/diegosouzapw/omniroute)
+- **Docker**: [hub.docker.com/r/developer3000S/omniroute](https://hub.docker.com/r/developer3000S/omniroute)
 - **Отказоустойчивость**: Circuit breaker, экспоненциальный backoff, защита от «толпы» (anti-thundering herd), подмена TLS, самоисцеление auto-combo
 
 <div align="center">
@@ -826,7 +826,7 @@ yay -S omniroute-bin && systemctl --user enable --now omniroute.service
 
 </div>
 
-[![Участники](https://contrib.rocks/image?repo=diegosouzapw/OmniRoute&max=100&columns=20&anon=1)](https://github.com/diegosouzapw/OmniRoute/graphs/contributors)
+[![Участники](https://contrib.rocks/image?repo=developer3000S/OmniRoute&max=100&columns=20&anon=1)](https://github.com/developer3000S/OmniRouteRus/graphs/contributors)
 
 ### Как внести вклад
 
@@ -851,11 +851,11 @@ gh release create v3.8.2 --title "v3.8.2" --generate-notes
 
 ## 📊 Звёзды
 
-<a href="https://www.star-history.com/?repos=diegosouzapw%2Fomniroute&type=date&legend=top-left">
+<a href="https://www.star-history.com/?repos=developer3000S%2Fomniroute&type=date&legend=top-left">
  <picture>
-   <source media="(prefers-color-scheme: dark)" srcset="https://api.star-history.com/chart?repos=diegosouzapw/omniroute&type=date&theme=dark&legend=top-left" />
-   <source media="(prefers-color-scheme: light)" srcset="https://api.star-history.com/chart?repos=diegosouzapw/omniroute&type=date&legend=top-left" />
-   <img alt="Star History Chart" src="https://api.star-history.com/chart?repos=diegosouzapw/omniroute&type=date&legend=top-left" />
+   <source media="(prefers-color-scheme: dark)" srcset="https://api.star-history.com/chart?repos=developer3000S/omniroute&type=date&theme=dark&legend=top-left" />
+   <source media="(prefers-color-scheme: light)" srcset="https://api.star-history.com/chart?repos=developer3000S/omniroute&type=date&legend=top-left" />
+   <img alt="Star History Chart" src="https://api.star-history.com/chart?repos=developer3000S/omniroute&type=date&legend=top-left" />
  </picture>
 </a>
 </div>
@@ -866,11 +866,11 @@ gh release create v3.8.2 --title "v3.8.2" --generate-notes
 
 ## 🌍 StarMapper
 
-<a href="https://starmapper.bruniaux.com/diegosouzapw/omniroute">
+<a href="https://starmapper.bruniaux.com/developer3000S/omniroute">
   <picture>
-    <source media="(prefers-color-scheme: dark)" srcset="https://starmapper.bruniaux.com/api/map-image/diegosouzapw/omniroute?theme=dark" />
-    <source media="(prefers-color-scheme: light)" srcset="https://starmapper.bruniaux.com/api/map-image/diegosouzapw/omniroute?theme=light" />
-    <img alt="StarMapper" src="https://starmapper.bruniaux.com/api/map-image/diegosouzapw/omniroute" />
+    <source media="(prefers-color-scheme: dark)" srcset="https://starmapper.bruniaux.com/api/map-image/developer3000S/omniroute?theme=dark" />
+    <source media="(prefers-color-scheme: light)" srcset="https://starmapper.bruniaux.com/api/map-image/developer3000S/omniroute?theme=light" />
+    <img alt="StarMapper" src="https://starmapper.bruniaux.com/api/map-image/developer3000S/omniroute" />
   </picture>
 </a>
 </div>

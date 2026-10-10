@@ -609,4 +609,4 @@ mcp-server/
 
 ## Лицензия
 
-Часть [OmniRoute](https://github.com/diegosouzapw/OmniRoute) — лицензия MIT.
+Часть [OmniRoute](https://github.com/developer3000S/OmniRouteRus) — лицензия MIT.
