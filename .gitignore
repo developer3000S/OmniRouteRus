@@ -193,3 +193,6 @@ graphify-out/
 .source
 .vscode/
 @omniroute/
+.qwen
+.qwen/
+
