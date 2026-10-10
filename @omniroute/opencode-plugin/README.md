@@ -1,26 +1,26 @@
 # @omniroute/opencode-plugin
 
-First-class OpenCode plugin for the [OmniRoute AI Gateway](https://github.com/diegosouzapw/OmniRoute). Pulls a live model catalog from `/v1/models` (including `-low`/`-medium`/`-high`/`-thinking` variants as first-class IDs), aggregates combos via `/api/combos` using a least-common-denominator capability/limit join, sanitizes Gemini tool schemas in flight, and supports multiple side-by-side OmniRoute instances out of the box.
+Плагин первого класса OpenCode для [OmniRoute AI Gateway](https://github.com/diegosouzapw/OmniRoute). Извлекает живой каталог моделей из `/v1/models` (включая варианты `-low`/`-medium`/`-high`/`-thinking` как первые классы ID), агрегирует комбинации через `/api/combos` с использованием объединения по наименьшему общему знаменателю для возможности/ограничения, очищает схемы инструментов Gemini в полете и поддерживает несколько экземпляров OmniRoute параллельно из коробки.
 
-## Install
+## Установка
 
-Once published to npm:
+После публикации в npm:
 
 ```sh
 npm install @omniroute/opencode-plugin
 ```
 
-Until then (or for local development), reference the built artifact directly. Either extract the package into your OpenCode plugins dir and point at the extracted `dist/index.js`:
+Пока не опубликовано (или для локальной разработки), ссылайтесь на собранный артефакт напрямую. Либо извлеките пакет в каталог плагинов OpenCode и укажите на извлеченный `dist/index.js`:
 
 ```sh
-# from inside the OmniRoute repo
+# изнутри репозитория OmniRoute
 cd @omniroute/opencode-plugin && npm run build && npm pack
-# then extract into ~/.config/opencode/plugins/omniroute-opencode-plugin/
+# затем извлеките в ~/.config/opencode/plugins/omniroute-opencode-plugin/
 ```
 
-Peer dep: `@opencode-ai/plugin` (managed by your OpenCode install).
+Параметр peer: `@opencode-ai/plugin` (управляется установкой OpenCode).
 
-## Quick start (single instance)
+## Быстрый старт (один экземпляр)
 
 ```jsonc
 // opencode.json
@@ -40,36 +40,36 @@ Peer dep: `@opencode-ai/plugin` (managed by your OpenCode install).
 
 ```sh
 opencode auth login --provider omniroute
-# prompts for the OmniRoute API key, writes to ~/.local/share/opencode/auth.json
+# запрашивает API-ключ OmniRoute, записывает в ~/.local/share/opencode/auth.json
 ```
 
-> ⚠ Use the `--provider` flag explicitly. `opencode auth login omniroute` is parsed as a positional `url` argument by current OC releases (≤1.15.5) and fails with `fetch() URL is invalid`. Tracked upstream.
+> ⚠ Используйте флаг `--provider` явно. `opencode auth login omniroute` интерпретируется как позиционный аргумент `url` в текущих выпусках OC (≤1.15.5) и завершается с ошибкой `fetch() URL is invalid`. Отслеживается в upstream.
 
-Restart OpenCode. `/models` lists the full live catalog. Variants (`-low`, `-medium`, `-high`, `-thinking`) and combos appear as first-class IDs — OmniRoute is the source of truth, no client-side synthesis.
+Перезапустите OpenCode. `/models` отображает полный живой каталог. Варианты (`-low`, `-medium`, `-high`, `-thinking`) и комбинации появляются как первые классы ID — OmniRoute является источником истины, без синтеза на стороне клиента.
 
-## Multi-instance (prod + preprod side-by-side)
+## Многократный экземпляр (prod + preprod параллельно)
 
-> ⚠ OC ≤1.15.5 dedupes plugin loads by absolute module path. Two `plugin:` entries pointing at the same `dist/index.js` collapse into one (last-listed options win). Workaround: install the plugin twice into separate directories so each entry resolves to a distinct module file. v0.2.x will introduce an `instances: [...]` shape that registers N providers from a single load.
+> ⚠ OC ≤1.15.5 удаляет дубликаты загрузок плагинов по абсолютному пути модуля. Два вхождения `plugin:` указывающие на один и тот же `dist/index.js` сворачиваются в одно (последний перечисленный набор параметров побеждает). Обходной путь: установите плагин дважды в отдельные каталоги, чтобы каждое вхождение разрешалось в отдельный файл модуля. v0.2.x представит форму `instances: [...]`, которая регистрирует N провайдеров из одной загрузки.
 
-### Dual-install workaround (works today on OC ≤1.15.5)
+### Обходной путь для двойной установки (работает сегодня на OC ≤1.15.5)
 
-Pack the plugin once, extract it twice into named directories, then point each `plugin:` entry at its own copy:
+Упакуйте плагин один раз, извлеките его дважды в именованные каталоги, затем укажите каждое вхождение `plugin:` на свою копию:
 
 ```sh
-# 1. Build + pack the plugin (run from the plugin worktree)
+# 1. Сборка + упаковка плагина (запустите из рабочего каталога плагина)
 cd /path/to/OmniRoute/@omniroute/opencode-plugin
 npm run build
 npm pack
-# produces omniroute-opencode-plugin-0.1.0.tgz
+# производит omniroute-opencode-plugin-0.1.0.tgz
 
-# 2. Extract one copy per OmniRoute endpoint
+# 2. Извлеките одну копию на каждый конечный пункт OmniRoute
 mkdir -p ~/.config/opencode/plugins/omniroute-opencode-plugin-prod
 mkdir -p ~/.config/opencode/plugins/omniroute-opencode-plugin-preprod
 tar -xzf omniroute-opencode-plugin-0.1.0.tgz -C ~/.config/opencode/plugins/omniroute-opencode-plugin-prod    --strip-components=1
 tar -xzf omniroute-opencode-plugin-0.1.0.tgz -C ~/.config/opencode/plugins/omniroute-opencode-plugin-preprod --strip-components=1
 ```
 
-Then in `~/.config/opencode/opencode.json` reference each directory by absolute path:
+Затем в `~/.config/opencode/opencode.json` ссылайтесь на каждый каталог по абсолютному пути:
 
 ```jsonc
 {
@@ -95,18 +95,18 @@ Then in `~/.config/opencode/opencode.json` reference each directory by absolute 
 }
 ```
 
-Paths are relative to `~/.config/opencode/`. Each entry now resolves to a distinct module file, so OC loads them as two separate plugin instances. Authenticate each:
+Пути относительно `~/.config/opencode/`. Каждое вхождение теперь разрешается в отдельный файл модуля, поэтому OC загружает их как два отдельных экземпляра плагина. Аутентифицируйте каждый:
 
 ```sh
 opencode auth login --provider omniroute
 opencode auth login --provider omniroute-preprod
 ```
 
-Each entry gets its own provider id, its own model picker entry, its own slot in `auth.json`, and its own TTL cache. Closures are isolated per plugin instance — no cross-talk.
+Каждое вхождение получает свой собственный идентификатор провайдера, свою собственную панель выбора модели, свою собственную позицию в `auth.json` и свой собственный кэш TTL. Замыкания изолированы на уровне экземпляра плагина — нет перекрестного взаимодействия.
 
-### After publish (`@omniroute/opencode-plugin` npm)
+### После публикации (`@omniroute/opencode-plugin` npm)
 
-Once the package is published, the dual-install becomes two `npm install --prefix` commands instead of `tar -xzf`:
+После публикации пакета двойная установка становится двумя командами `npm install --prefix` вместо `tar -xzf`:
 
 ```sh
 mkdir -p ~/.config/opencode/plugins/omniroute-opencode-plugin-prod
@@ -115,55 +115,55 @@ npm install --prefix ~/.config/opencode/plugins/omniroute-opencode-plugin-prod  
 npm install --prefix ~/.config/opencode/plugins/omniroute-opencode-plugin-preprod @omniroute/opencode-plugin
 ```
 
-`opencode.json` paths become `./plugins/omniroute-opencode-plugin-prod/node_modules/@omniroute/opencode-plugin/dist/index.js` (and the preprod equivalent).
+Пути в `opencode.json` становятся `./plugins/omniroute-opencode-plugin-prod/node_modules/@omniroute/opencode-plugin/dist/index.js` (и эквивалент для preprod).
 
-## Features
+## Особенности
 
-| Feature                                     | What it does                                                                                                                                                                                                                                                                                                                                                                                                | Hook                         |
-| ------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ---------------------------- |
-| Dynamic `/v1/models`                        | Pulls live catalog (455+ entries on prod) on each refresh, TTL-cached                                                                                                                                                                                                                                                                                                                                       | `provider.models`            |
-| Variants pass-through                       | `-low`/`-medium`/`-high`/`-thinking` ship as first-class IDs from OmniRoute (no client synthesis)                                                                                                                                                                                                                                                                                                           | `provider.models`            |
-| Combo LCD aggregation                       | Combos appear with intersected capabilities + min context/output across members                                                                                                                                                                                                                                                                                                                             | `provider.models` + `config` |
-| `combo/<slug>` namespace + `Combo: ` prefix | Combos surface under `combo/claude-primary` (not the upstream UUID) and the picker shows `Combo: claude-primary` so they stand apart from raw provider/model pairs                                                                                                                                                                                                                                          | both hooks                   |
-| Nice names + cost                           | `/api/pricing/models` display names AND `/api/pricing` per-million-token cost overlaid onto the live catalog                                                                                                                                                                                                                                                                                                | both hooks                   |
-| Canonical-twin dedup + alias-fallback       | `/v1/models` exposes the same upstream model under both short alias (`cc/claude-opus-4-7`) and canonical name (`claude/claude-opus-4-7`); the plugin drops the canonical twin when an alias twin exists (no duplicate rows in the picker) and reverse-maps canonical → alias to pick up enrichment for short aliases (`dg/nova-3 → Deepgram - Nova 3`) that `/api/pricing/models` only indexes by canonical | both hooks                   |
-| Compression pipeline tags                   | Combo names get tagged with their compression pipeline (e.g. `Combo: claude-primary [rtk🟡 → caveman🟠]`) when `features.compressionMetadata: true`. Intensity tokens render as a traffic-light emoji: 🟢 lite/minimal · 🟡 standard · 🟠 aggressive/full · 🔴 ultra                                                                                                                                        | both hooks                   |
-| Provider-tag prefix                         | Prepend short upstream-provider label to enriched names (e.g. `Claude - Claude Opus 4.7` vs `Kiro - Claude Opus 4.7`, `GHM - GPT 5`) so same-id models routed via different upstream connections group visibly in the picker (default-on, opt-out via `features.providerTag: false`)                                                                                                                        | both hooks                   |
-| Usable-only filter                          | Filter to providers with at least one healthy connection in `/api/providers` (opt-in via `features.usableOnly`)                                                                                                                                                                                                                                                                                             | both hooks                   |
-| Disk-cache fallback                         | Last-known-good catalog persisted to disk; hydrates on a cold start when `/v1/models` is unreachable (default-on, opt-out via `features.diskCache: false`)                                                                                                                                                                                                                                                  | `config`                     |
-| Bearer injection + suffix-spoof guard       | Adds `Authorization` on baseURL-matched requests only                                                                                                                                                                                                                                                                                                                                                       | `auth.loader.fetch`          |
-| Gemini schema sanitization                  | Strips `$schema`/`$ref`/`additionalProperties` for `gemini-*`/`google-vertex-gemini/*`                                                                                                                                                                                                                                                                                                                      | `auth.loader.fetch` wrap     |
-| Multi-instance                              | Each plugin entry binds to its own `providerId`; closures isolated                                                                                                                                                                                                                                                                                                                                          | factory                      |
-| Config-hook shim                            | OC ≤1.15.5 fallback: writes static catalog into `config.provider[id]` (config hook is the only one that fires in `serve` mode on these versions)                                                                                                                                                                                                                                                            | `config`                     |
+| Особенность                                 | Что это делает                                                                                                                                                                                                                                                                                                                                                                                               | Хук                          |
+| ------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ---------------------------- |
+| Динамический `/v1/models`                  | Получает актуальный каталог (455+ записей на продакшене) при каждом обновлении, кэшируется с TTL                                                                                                                                                                                                                                                                                                           | `provider.models`           |
+| Пропускание вариантов                      | `-low`/`-medium`/`-high`/`-thinking` передаются как первые классовые ID от OmniRoute (без синтеза на стороне клиента)                                                                                                                                                                                                                                                                                     | `provider.models`           |
+| Агрегация комбо LCD                        | Комбо появляются с пересекающимися возможностями + минимальным контекстом/выводом среди членов                                                                                                                                                                                                                                                                                                             | `provider.models` + `config`|
+| Пространство имен `combo/<slug>` + префикс `Combo: ` | Комбо отображаются под `combo/claude-primary` (а не под UUID поставщика) и в выпадающем списке показывается `Combo: claude-primary`, чтобы они отличались от пар поставщик/модель                                                                                                                                                                                                               | оба хука                     |
+| Красивые имена + стоимость                 | `/api/pricing/models` отображает имена для отображения И `/api/pricing` стоимость за миллион токенов, наложенную на актуальный каталог                                                                                                                                                                                                                                                                     | оба хука                     |
+| Дедупликация канонических близнецов + резервное отображение псевдонимов | `/v1/models` отображает одну и ту же модель от поставщика как под коротким псевдонимом (`cc/claude-opus-4-7`) и под каноническим именем (`claude/claude-opus-4-7`); плагин удаляет канонического близнеца, когда существует близнец-псевдоним (нет дублирующихся строк в выпадающем списке) и обратное отображение канонический → псевдоним для обогащения коротких псевдонимов (`dg/nova-3 → Deepgram - Nova 3`), которые `/api/pricing/models` индексирует только по каноническим | оба хука                     |
+| Теги конвейера сжатия                      | Имена комбо помечаются их конвейером сжатия (например, `Combo: claude-primary [rtk🟡 → caveman🟠]`), когда `features.compressionMetadata: true`. Токены интенсивности отображаются как эмодзи светофора: 🟢 легкий/минимальный · 🟡 стандартный · 🟠 агрессивный/полный · 🔴 ультра                                                                                                                                 | оба хука                     |
+| Префикс тега поставщика                    | Добавляет короткую метку поставщика к обогащенным именам (например, `Claude - Claude Opus 4.7` против `Kiro - Claude Opus 4.7`, `GHM - GPT 5`), чтобы модели с одинаковыми ID, маршрутизируемые через разные подключения к поставщикам, группировались в выпадающем списке (включено по умолчанию, можно отключить через `features.providerTag: false`)                                                                 | оба хука                     |
+| Фильтр только рабочих                      | Фильтрует поставщиков с хотя бы одним рабочим подключением в `/api/providers` (включается через `features.usableOnly`)                                                                                                                                                                                                                                                                                     | оба хука                     |
+| Резервное кэширование на диске              | Последний известный рабочий каталог сохраняется на диск; загружается при холодном старте, когда `/v1/models` недоступен (включено по умолчанию, можно отключить через `features.diskCache: false`)                                                                                                                                                                                                 | `config`                     |
+| Внедрение Bearer + защита от подмены суффикса | Добавляет `Authorization` только на запросы, совпадающие с baseURL                                                                                                                                                                                                                                                                                                                                          | `auth.loader.fetch`         |
+| Санитизация схемы Gemini                   | Удаляет `$schema`/`$ref`/`additionalProperties` для `gemini-*`/`google-vertex-gemini/*`                                                                                                                                                                                                                                                                                                                     | обертка `auth.loader.fetch`|
+| Множественные экземпляры                   | Каждый вход плагина привязывается к своему `providerId`; замыкания изолированы                                                                                                                                                                                                                                                                                                                               | фабрика                      |
+| Шим для хука конфигурации                   | Резервная совместимость OC ≤1.15.5: записывает статический каталог в `config.provider[id]` (хук конфигурации — единственный, который срабатывает в режиме `serve` на этих версиях)                                                                                                                                                                                                                              | `config`                     |
 
-## Plugin options
+## Параметры плагина
 
-| Option          | Type     | Default                                    | Description                                                |
+| Параметр          | Тип      | По умолчанию                                | Описание                                                  |
 | --------------- | -------- | ------------------------------------------ | ---------------------------------------------------------- |
-| `providerId`    | `string` | `"omniroute"`                              | OpenCode provider id; must be unique across plugin entries |
-| `displayName`   | `string` | `"OmniRoute"` or `OmniRoute (<id>)`        | Label in the OC UI                                         |
-| `modelCacheTtl` | `number` | `300000` (5 min)                           | `/v1/models` TTL in ms                                     |
-| `baseURL`       | `string` | resolved from `auth.json` after `/connect` | Override OmniRoute base URL                                |
-| `features`      | `object` | see below                                  | Feature toggles (all opt-in/out, defaults preserve v0.1.0) |
+| `providerId`    | `string` | `"omniroute"`                             | Идентификатор провайдера OpenCode; должен быть уникальным среди записей плагина |
+| `displayName`   | `string` | `"OmniRoute"` или `OmniRoute (<id>)`      | Метка в интерфейсе OC                                       |
+| `modelCacheTtl` | `number` | `300000` (5 мин)                          | TTL для `/v1/models` в миллисекундах                      |
+| `baseURL`       | `string` | определяется из `auth.json` после `/connect` | Переопределение базового URL OmniRoute                     |
+| `features`      | `object` | см. ниже                                   | Переключатели функций (все опциональны, по умолчанию соответствуют v0.1.0) |
 
-### `features` block
+### Блок `features`
 
-Every field is optional. Defaults mirror v0.1.0 behaviour so existing `opencode.json` files do not need to change.
+Каждое поле является необязательным. По умолчанию поведение соответствует v0.1.0, поэтому существующие файлы `opencode.json` не требуют изменений.
 
-| Feature               | Type      | Default | What it does                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 |
-| --------------------- | --------- | ------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `combos`              | `boolean` | `true`  | Discover `/api/combos` and surface them as pseudo-models with LCD capabilities. Combos are keyed under the `combo/<slug>` namespace and labelled `Combo: <name>` in the model picker so they're distinguishable from raw provider/model pairs.                                                                                                                                                                                                                                                                                                                               |
-| `enrichment`          | `boolean` | `true`  | Pull display names from `/api/pricing/models` AND per-million-token pricing (`input`, `output`, `cached` → `cacheRead`, `cache_creation` → `cacheWrite`) from `/api/pricing`, then overlay both onto the live catalog (so the UI shows `Claude 4.7 Opus` with `cost.input: 5`, `cost.output: 25` instead of raw IDs and zeroed cost).                                                                                                                                                                                                                                        |
-| `compressionMetadata` | `boolean` | `false` | Pull `/api/context/combos` so combo names get tagged with their compression pipeline, e.g. `Combo: claude-primary [rtk🟡 → caveman🟠]`. Intensity tokens render as traffic-light emoji (🟢 lite/minimal · 🟡 standard · 🟠 aggressive/full · 🔴 ultra) so the picker advertises "how compressed" each combo is at a glance.                                                                                                                                                                                                                                                  |
-| `providerTag`         | `boolean` | `true`  | Prepend a short upstream-provider label to the enriched display name with `" - "` separator, so `cc/claude-opus-4-7 → Claude - Claude Opus 4.7` differs visibly from `kr/claude-opus-4-7 → Kiro - Claude Opus 4.7` in the OC TUI model picker. Label resolution: use `/api/pricing/models[<alias>].name` verbatim when ≤8 chars (e.g. `Claude`, `Kiro`, `Codex`, `Qwen`), otherwise fall back to `UPPER(alias)` (e.g. `GitHub Models` → `GHM`, `Gemini-cli` → `GEMINI-CLI`). Idempotent. Combos intentionally skipped (the `Combo: ` prefix already conveys multi-upstream). |
-| `usableOnly`          | `boolean` | `false` | Read `/api/providers` and filter the catalog to providers that have at least one connection with `isActive: true` AND `testStatus: 'active'`. Subtract-filter semantics: providers unknown to BOTH the pricing-models catalog AND the connection table pass through (so synthetic prefixes like `agentrouter/*` survive). On fetch failure the filter is disabled for the refresh — never hides the whole catalog.                                                                                                                                                           |
-| `diskCache`           | `boolean` | `true`  | Persist the last successful `/v1/models` + `/api/combos` + enrichment + connections + compression snapshot to `${OPENCODE_DATA_DIR ?? ~/.local/share/opencode}/plugins/omniroute-<providerId>.json`. On a subsequent cold start where `/v1/models` throws (network down / IP whitelist drop / 5xx) the static block hydrates from the snapshot so OC's model picker survives offline. Soft-fail on read/write — never blocks publishing.                                                                                                                                     |
-| `geminiSanitization`  | `boolean` | `true`  | Strip `$schema`/`$ref`/`additionalProperties` from tool params when the model id matches `gemini`                                                                                                                                                                                                                                                                                                                                                                                                                                                                            |
-| `mcpAutoEmit`         | `boolean` | `false` | Auto-write an `mcp.<providerId>` remote entry into the OC config pointing at `<baseURL>/api/mcp/stream` with the resolved Bearer token                                                                                                                                                                                                                                                                                                                                                                                                                                       |
-| `mcpToken`            | `string`  | _unset_ | Optional separate Bearer for the auto-emitted MCP entry. Falls back to the provider's `apiKey` (from `auth.json`) when unset                                                                                                                                                                                                                                                                                                                                                                                                                                                 |
-| `fetchInterceptor`    | `boolean` | `true`  | Inject `Authorization: Bearer` + default `Content-Type` on every outbound request targeting `baseURL` (suffix-spoof guarded)                                                                                                                                                                                                                                                                                                                                                                                                                                                 |
+| Функция                | Тип      | По умолчанию | Что делает                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                          |
+| --------------------- | --------- | ------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `combos`              | `boolean` | `true`  | Обнаруживает `/api/combos` и отображает их как псевдо-модели с возможностями LCD. Комбо ключи находятся в пространстве имен `combo/<slug>` и помечены как `Combo: <name>` в выпадающем списке моделей, чтобы их можно было отличить от пар провайдер/модель.                                                                                                                                                                                                                                                                                                                           |
+| `enrichment`          | `boolean` | `true`  | Извлекает отображаемые имена из `/api/pricing/models` и стоимость за миллион токенов (`input`, `output`, `cached` → `cacheRead`, `cache_creation` → `cacheWrite`) из `/api/pricing`, затем накладывает оба на живой каталог (так что интерфейс показывает `Claude 4.7 Opus` с `cost.input: 5`, `cost.output: 25` вместо идентификаторов и нулевой стоимости).                                                                                                                                                                                                                                        |
+| `compressionMetadata` | `boolean` | `false` | Извлекает `/api/context/combos`, чтобы имена комбо были помечены их конвейером сжатия, например, `Combo: claude-primary [rtk🟡 → caveman🟠]`. Токены интенсивности отображаются в виде эмодзи светофора (🟢 легкий/минимальный · 🟡 стандартный · 🟠 агрессивный/полный · 🔴 ультра) так что выпадающий список показывает "насколько сжатые" комбо, на первый взгляд.                                                                                                                                                                                                                                                  |
+| `providerTag`         | `boolean` | `true`  | Добавляет короткую метку провайдера в начало отображаемого имени с разделителем `" - "`, так что `cc/claude-opus-4-7 → Claude - Claude Opus 4.7` отличается от `kr/claude-opus-4-7 → Kiro - Claude Opus 4.7` в выпадающем списке моделей OC. Разрешение меток: использует `/api/pricing/models[<alias>].name` буквально, если ≤8 символов (например, `Claude`, `Kiro`, `Codex`, `Qwen`), в противном случае использует `UPPER(alias)` (например, `GitHub Models` → `GHM`, `Gemini-cli` → `GEMINI-CLI`). Идемпотентно. Комбо намеренно пропущены (префикс `Combo: ` уже указывает на мульти-провайдер). |
+| `usableOnly`          | `boolean` | `false` | Читает `/api/providers` и фильтрует каталог по провайдерам, у которых есть хотя бы одно активное соединение с `isActive: true` и `testStatus: 'active'`. Семантика вычитания: провайдеры, неизвестные обоим каталогам ценообразования и таблице соединений, проходят (так что синтетические префиксы, такие как `agentrouter/*`, остаются). При сбое выборки фильтр отключается для обновления — никогда не скрывает весь каталог.                                                                                                                                                           |
+| `diskCache`           | `boolean` | `true`  | Сохраняет последний успешный снимок `/v1/models` + `/api/combos` + обогащение + соединения + сжатие в `${OPENCODE_DATA_DIR ?? ~/.local/share/opencode}/plugins/omniroute-<providerId>.json`. При последующем холодном запуске, если `/v1/models` вызывает ошибку (нет сети / IP-белый список / 5xx), статический блок загружается из снимка, чтобы выпадающий список моделей OC оставался доступным в автономном режиме. Мягкий сбой при чтении/записи — никогда не блокирует публикацию.                                                                                                                                     |
+| `geminiSanitization`  | `boolean` | `true`  | Удаляет `$schema`/`$ref`/`additionalProperties` из параметров инструментов, если идентификатор модели совпадает с `gemini`                                                                                                                                                                                                                                                                                                                                                                                                                                         |
+| `mcpAutoEmit`         | `boolean` | `false` | Автоматически записывает запись `mcp.<providerId>` в конфигурацию OC, указывающую на `<baseURL>/api/mcp/stream` с разрешенным токеном Bearer                                                                                                                                                                                                                                                                                                                                                                                                                          |
+| `mcpToken`            | `string`  | _не установлен_ | Необязательный отдельный Bearer для автоматической записи MCP. По умолчанию использует `apiKey` провайдера (из `auth.json`)                                                                                                                                                                                                                                                                                                                                                                                                                                          |
+| `fetchInterceptor`    | `boolean` | `true`  | Вставляет `Authorization: Bearer` + тип содержимого по умолчанию в каждый исходящий запрос, направленный на `baseURL` (защита от подмены суффикса)                                                                                                                                                                                                                                                                                                                                                                                                                       |
 
-#### Example — enrichment + compression tags + MCP auto-emit
+#### Пример — обогащение + теги сжатия + автоматическая запись MCP
 
 ```jsonc
 {
@@ -185,7 +185,7 @@ Every field is optional. Defaults mirror v0.1.0 behaviour so existing `opencode.
 }
 ```
 
-With `mcpAutoEmit: true`, the plugin synthesises an `mcp.omniroute` entry equivalent to a manual:
+С `mcpAutoEmit: true`, плагин синтезирует запись `mcp.omniroute`, эквивалентную ручной:
 
 ```jsonc
 "mcp": {
@@ -198,9 +198,9 @@ With `mcpAutoEmit: true`, the plugin synthesises an `mcp.omniroute` entry equiva
 }
 ```
 
-If you want a narrower-scoped Bearer for MCP (different from the chat/inference key), set `features.mcpToken`. Operator overrides win: if you already set `mcp.omniroute` in `opencode.json`, the plugin will not overwrite it.
+Если вы хотите более узкоскопированный Bearer для MCP (отличный от ключа чата/вывода), установите `features.mcpToken`. Переопределения оператора имеют приоритет: если вы уже установили `mcp.omniroute` в `opencode.json`, плагин не будет перезаписывать его.
 
-#### Example — production-leaning defaults (clean picker, offline resilience)
+#### Пример — настройки по умолчанию для продакшена (чистый выпадающий список, устойчивость к оффлайн-режиму)
 
 ```jsonc
 {
@@ -223,33 +223,33 @@ If you want a narrower-scoped Bearer for MCP (different from the chat/inference 
 }
 ```
 
-- `usableOnly: true` drops models whose canonical provider has no healthy connection in your OmniRoute instance — your `/models` picker stays focused on what you can actually call.
-- `diskCache: true` (default) writes a snapshot to `${OPENCODE_DATA_DIR}/plugins/omniroute-<providerId>.json` on every healthy refresh. On a cold start where `/v1/models` is unreachable (laptop offline, IP whitelist drop), the snapshot hydrates the static block so OC still shows the catalog instead of a stub.
-- `compressionMetadata: true` annotates combo display names with their pipeline using traffic-light emoji for intensity (e.g. `Combo: claude-primary [rtk🟡 → caveman🟠]`) so the picker advertises which compression each combo applies and how heavy it is at a glance. Palette: 🟢 lite/minimal · 🟡 standard · 🟠 aggressive/full · 🔴 ultra. Unknown intensities fall through to raw text (`[rtk:custom-thing]`) so the plugin never hides a value OmniRoute knows but the plugin doesn't.
-- `providerTag: true` (default) prepends a short upstream-provider label so the picker shows `Claude - Claude Opus 4.7` for `cc/claude-opus-4-7`, `Kiro - Claude Opus 4.7` for `kr/claude-opus-4-7`, and `GHM - GPT 5` for `ghm/gpt-5` (slot.name `GitHub Models` > 8 chars → abbreviated). Critical when the same model id is sold through multiple upstream connections with different cost/auth/rate-limit profiles. Set to `false` to keep the pre-v3.8.3 unsuffixed format.
+- `usableOnly: true` удаляет модели, чей провайдер не имеет здорового соединения в вашем экземпляре OmniRoute — ваш выпадающий список моделей остается сфокусированным на том, что вы действительно можете вызвать.
+- `diskCache: true` (по умолчанию) записывает снимок в `${OPENCODE_DATA_DIR}/plugins/omniroute-<providerId>.json` при каждом успешном обновлении. При холодном запуске, если `/v1/models` недоступен (ноутбук в автономном режиме, сброс IP-белого списка), снимок загружает статический блок, чтобы OC все еще показывал каталог вместо заглушки.
+- `compressionMetadata: true` аннотирует имена комбо их конвейером сжатия с использованием эмодзи светофора для интенсивности (например, `Combo: claude-primary [rtk🟡 → caveman🟠]`), чтобы выпадающий список показывал, какое сжатие применяется к каждому комбо и насколько оно тяжелое на первый взгляд. Палитра: 🟢 легкий/минимальный · 🟡 стандартный · 🟠 агрессивный/полный · 🔴 ультра. Неизвестные интенсивности пропускаются, чтобы плагин никогда не скрывал значение, которое OmniRoute знает, но плагин не знает.
+- `providerTag: true` (по умолчанию) добавляет короткую метку провайдера, чтобы выпадающий список показывал `Claude - Claude Opus 4.7` для `cc/claude-opus-4-7`, `Kiro - Claude Opus 4.7` для `kr/claude-opus-4-7` и `GHM - GPT 5` для `ghm/gpt-5` (slot.name `GitHub Models` > 8 символов → сокращенный). Ключевой момент, когда один и тот же идентификатор модели продается через несколько соединений с разными профилями стоимости/аутентификации/ограничения скорости. Установите `false`, чтобы сохранить формат без суффикса до v3.8.3.
 
-## Comparison vs `@omniroute/opencode-provider`
+## Сравнение с `@omniroute/opencode-provider`
 
-[`@omniroute/opencode-provider`](https://github.com/diegosouzapw/OmniRoute/tree/main/%40omniroute/opencode-provider) is the existing config-generator package — it writes a frozen `provider.<id>` block into `opencode.json` at build time. This plugin is the runtime integration.
+[`@omniroute/opencode-provider`](https://github.com/diegosouzapw/OmniRoute/tree/main/%40omniroute/opencode-provider) — это существующий пакет для генерации конфигурации, который записывает замороженный блок `provider.<id>` в `opencode.json` во время сборки. Этот плагин — это интеграция на этапе выполнения.
 
-|                   | `@omniroute/opencode-plugin` (this) | `@omniroute/opencode-provider`    |
+|                   | `@omniroute/opencode-plugin` (этот) | `@omniroute/opencode-provider`    |
 | ----------------- | ----------------------------------- | --------------------------------- |
-| Type              | OC plugin                           | Config generator (CLI/build-time) |
-| Models            | Live from `/v1/models`              | Frozen at scaffold                |
-| Combos            | LCD-aggregated live                 | None                              |
-| Gemini sanitize   | Yes                                 | N/A                               |
-| OC UI integration | `/connect`, `/models`               | None                              |
-| Multi-instance    | Native                              | Manual                            |
+| Тип               | OC плагин                          | Генератор конфигурации (CLI/сборка) |
+| Модели            | Активные из `/v1/models`           | Замороженные при создании         |
+| Комбинации        | LCD-объединенные активные          | Нет                               |
+| Gemini sanitize   | Да                                 | N/A                               |
+| Интеграция OC UI  | `/connect`, `/models`              | Нет                               |
+| Многократное использование | Нативно                          | Вручную                           |
 
-Both can coexist; pick the one that fits your environment.
+Оба могут существовать одновременно; выбирайте тот, который лучше всего подходит для вашей среды.
 
-## Requirements
+## Требования
 
-- Node `>=22.22.3` (per `engines.node`); tested on Node 22 and 24.
-- OpenCode: verified end-to-end against `opencode@1.15.5` with `@opencode-ai/plugin@1.15.6`.
-- OC plugin peer (`@opencode-ai/plugin`) `>=1.14.49` for the full feature set (provider hook surfaces models in `/models`). On `<=1.14.48`, the plugin falls back to its `config` hook, writing a static catalog snapshot into `config.provider[id]` so models still appear.
-- The plugin uses the OC v1 plugin shape (`default: { id, server }`) — older OC releases that only walk named exports will reject it. Stay on OC ≥1.15.
+- Node `>=22.22.3` (по `engines.node`); протестировано на Node 22 и 24.
+- OpenCode: проверено с конца до конца с `opencode@1.15.5` и `@opencode-ai/plugin@1.15.6`.
+- OC плагин peer (`@opencode-ai/plugin`) `>=1.14.49` для полного набора функций (хук провайдера отображает модели в `/models`). На `<=1.14.48` плагин переходит на хук `config`, записывая статический снимок каталога в `config.provider[id]`, чтобы модели все равно отображались.
+- Плагин использует форму OC v1 плагина (`default: { id, server }`) — старые версии OC, которые только обрабатывают именованные экспорты, могут отклонить его. Оставайтесь на OC ≥1.15.
 
-## License
+## Лицензия
 
-MIT. See [LICENSE](./LICENSE).
+MIT. Смотрите [LICENSE](./LICENSE).

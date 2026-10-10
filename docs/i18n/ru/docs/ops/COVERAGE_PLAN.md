@@ -1,170 +1,189 @@
-# Test Coverage Plan (Русский)
+# COVERAGE_PLAN (Русский)
 
-🌐 **Languages:** 🇺🇸 [English](../../../../docs/COVERAGE_PLAN.md) · 🇸🇦 [ar](../../ar/docs/COVERAGE_PLAN.md) · 🇧🇬 [bg](../../bg/docs/COVERAGE_PLAN.md) · 🇧🇩 [bn](../../bn/docs/COVERAGE_PLAN.md) · 🇨🇿 [cs](../../cs/docs/COVERAGE_PLAN.md) · 🇩🇰 [da](../../da/docs/COVERAGE_PLAN.md) · 🇩🇪 [de](../../de/docs/COVERAGE_PLAN.md) · 🇪🇸 [es](../../es/docs/COVERAGE_PLAN.md) · 🇮🇷 [fa](../../fa/docs/COVERAGE_PLAN.md) · 🇫🇮 [fi](../../fi/docs/COVERAGE_PLAN.md) · 🇫🇷 [fr](../../fr/docs/COVERAGE_PLAN.md) · 🇮🇳 [gu](../../gu/docs/COVERAGE_PLAN.md) · 🇮🇱 [he](../../he/docs/COVERAGE_PLAN.md) · 🇮🇳 [hi](../../hi/docs/COVERAGE_PLAN.md) · 🇭🇺 [hu](../../hu/docs/COVERAGE_PLAN.md) · 🇮🇩 [id](../../id/docs/COVERAGE_PLAN.md) · 🇮🇹 [it](../../it/docs/COVERAGE_PLAN.md) · 🇯🇵 [ja](../../ja/docs/COVERAGE_PLAN.md) · 🇰🇷 [ko](../../ko/docs/COVERAGE_PLAN.md) · 🇮🇳 [mr](../../mr/docs/COVERAGE_PLAN.md) · 🇲🇾 [ms](../../ms/docs/COVERAGE_PLAN.md) · 🇳🇱 [nl](../../nl/docs/COVERAGE_PLAN.md) · 🇳🇴 [no](../../no/docs/COVERAGE_PLAN.md) · 🇵🇭 [phi](../../phi/docs/COVERAGE_PLAN.md) · 🇵🇱 [pl](../../pl/docs/COVERAGE_PLAN.md) · 🇵🇹 [pt](../../pt/docs/COVERAGE_PLAN.md) · 🇧🇷 [pt-BR](../../pt-BR/docs/COVERAGE_PLAN.md) · 🇷🇴 [ro](../../ro/docs/COVERAGE_PLAN.md) · 🇷🇺 [ru](../../ru/docs/COVERAGE_PLAN.md) · 🇸🇰 [sk](../../sk/docs/COVERAGE_PLAN.md) · 🇸🇪 [sv](../../sv/docs/COVERAGE_PLAN.md) · 🇰🇪 [sw](../../sw/docs/COVERAGE_PLAN.md) · 🇮🇳 [ta](../../ta/docs/COVERAGE_PLAN.md) · 🇮🇳 [te](../../te/docs/COVERAGE_PLAN.md) · 🇹🇭 [th](../../th/docs/COVERAGE_PLAN.md) · 🇹🇷 [tr](../../tr/docs/COVERAGE_PLAN.md) · 🇺🇦 [uk-UA](../../uk-UA/docs/COVERAGE_PLAN.md) · 🇵🇰 [ur](../../ur/docs/COVERAGE_PLAN.md) · 🇻🇳 [vi](../../vi/docs/COVERAGE_PLAN.md) · 🇨🇳 [zh-CN](../../zh-CN/docs/COVERAGE_PLAN.md)
+🌐 **Languages:** 🇺🇸 [English](../../../../ops/COVERAGE_PLAN.md) · 🇸🇦 [ar](../../../ar/docs/ops/COVERAGE_PLAN.md) · 🇦🇿 [az](../../../az/docs/ops/COVERAGE_PLAN.md) · 🇧🇬 [bg](../../../bg/docs/ops/COVERAGE_PLAN.md) · 🇧🇩 [bn](../../../bn/docs/ops/COVERAGE_PLAN.md) · 🇨🇿 [cs](../../../cs/docs/ops/COVERAGE_PLAN.md) · 🇩🇰 [da](../../../da/docs/ops/COVERAGE_PLAN.md) · 🇩🇪 [de](../../../de/docs/ops/COVERAGE_PLAN.md) · 🇪🇸 [es](../../../es/docs/ops/COVERAGE_PLAN.md) · 🇮🇷 [fa](../../../fa/docs/ops/COVERAGE_PLAN.md) · 🇫🇮 [fi](../../../fi/docs/ops/COVERAGE_PLAN.md) · 🇫🇷 [fr](../../../fr/docs/ops/COVERAGE_PLAN.md) · 🇮🇳 [gu](../../../gu/docs/ops/COVERAGE_PLAN.md) · 🇮🇱 [he](../../../he/docs/ops/COVERAGE_PLAN.md) · 🇮🇳 [hi](../../../hi/docs/ops/COVERAGE_PLAN.md) · 🇭🇺 [hu](../../../hu/docs/ops/COVERAGE_PLAN.md) · 🇮🇩 [id](../../../id/docs/ops/COVERAGE_PLAN.md) · 🇮🇩 [in](../../../in/docs/ops/COVERAGE_PLAN.md) · 🇮🇹 [it](../../../it/docs/ops/COVERAGE_PLAN.md) · 🇯🇵 [ja](../../../ja/docs/ops/COVERAGE_PLAN.md) · 🇰🇷 [ko](../../../ko/docs/ops/COVERAGE_PLAN.md) · 🇮🇳 [mr](../../../mr/docs/ops/COVERAGE_PLAN.md) · 🇲🇾 [ms](../../../ms/docs/ops/COVERAGE_PLAN.md) · 🇳🇱 [nl](../../../nl/docs/ops/COVERAGE_PLAN.md) · 🇳🇴 [no](../../../no/docs/ops/COVERAGE_PLAN.md) · 🇵🇭 [phi](../../../phi/docs/ops/COVERAGE_PLAN.md) · 🇵🇱 [pl](../../../pl/docs/ops/COVERAGE_PLAN.md) · 🇵🇹 [pt](../../../pt/docs/ops/COVERAGE_PLAN.md) · 🇧🇷 [pt-BR](../../../pt-BR/docs/ops/COVERAGE_PLAN.md) · 🇷🇴 [ro](../../../ro/docs/ops/COVERAGE_PLAN.md) · 🇸🇰 [sk](../../../sk/docs/ops/COVERAGE_PLAN.md) · 🇸🇪 [sv](../../../sv/docs/ops/COVERAGE_PLAN.md) · 🇰🇪 [sw](../../../sw/docs/ops/COVERAGE_PLAN.md) · 🇮🇳 [ta](../../../ta/docs/ops/COVERAGE_PLAN.md) · 🇮🇳 [te](../../../te/docs/ops/COVERAGE_PLAN.md) · 🇹🇭 [th](../../../th/docs/ops/COVERAGE_PLAN.md) · 🇹🇷 [tr](../../../tr/docs/ops/COVERAGE_PLAN.md) · 🇺🇦 [uk-UA](../../../uk-UA/docs/ops/COVERAGE_PLAN.md) · 🇵🇰 [ur](../../../ur/docs/ops/COVERAGE_PLAN.md) · 🇻🇳 [vi](../../../vi/docs/ops/COVERAGE_PLAN.md) · 🇨🇳 [zh-CN](../../../zh-CN/docs/ops/COVERAGE_PLAN.md)
 
 ---
 
-Last updated: 2026-03-28
+---
+title: "План покрытия тестами"
+version: 3.8.2
+lastUpdated: 2026-05-13
+---
 
-## Baseline
+# План покрытия тестами
 
-There are multiple coverage numbers depending on how the report is computed. For planning, only one of them is useful.
+Последнее обновление: 2026-05-13
 
-| Metric               | Scope                                                 | Statements / Lines | Branches | Functions | Notes                                               |
+> Статус измерен на 2026-05-13: строки 82.58%, операторы 82.58%, функции 84.23%, ветки 75.22%. Фазы 1-5 завершены. Текущий фокус — Фаза 6 (>=85%) и Фаза 7 (>=90%).
+
+## Базовый уровень
+
+Существует несколько показателей покрытия, в зависимости от способа вычисления отчета. Для планирования полезен только один из них.
+
+| Метрика               | Область действия                                                 | Операторы / Строки | Ветки | Функции | Примечания                                               |
 | -------------------- | ----------------------------------------------------- | -----------------: | -------: | --------: | --------------------------------------------------- |
-| Legacy               | Old `npm run test:coverage`                           |             79.42% |   75.15% |    67.94% | Inflated: counts test files and excludes `open-sse` |
-| Diagnostic           | Source-only, excluding tests and excluding `open-sse` |             68.16% |   63.55% |    64.06% | Useful only to isolate `src/**`                     |
-| Recommended baseline | Source-only, excluding tests and including `open-sse` |             56.95% |   66.05% |    57.80% | This is the project-wide baseline to improve        |
+| Legacy               | Старый `npm run test:coverage`                           |             79.42% |   75.15% |    67.94% | Завышен: учитывает файлы тестов и исключает `open-sse` |
+| Диагностика           | Только исходный код, исключая тесты и `open-sse` |             68.16% |   63.55% |    64.06% | Полезен только для изоляции `src/**`                     |
+| Рекомендуемый базовый уровень | Только исходный код, исключая тесты и включая `open-sse` |             82.58% |   75.22% |    84.23% | Это проектный базовый уровень для улучшения        |
 
-The recommended baseline is the number to optimize against.
+Рекомендуемый базовый уровень — это число, против которого следует оптимизировать.
 
-## Rules
+## Правила
 
-- Coverage targets apply to source files, not to `tests/**`.
-- `open-sse/**` is part of the product and must remain in scope.
-- New code should not reduce coverage in touched areas.
-- Prefer testing behavior and branch outcomes over implementation details.
-- Prefer temp SQLite databases and small fixtures over broad mocks for `src/lib/db/**`.
+- Цели покрытия применяются к исходным файлам, а не к `tests/**`.
+- `open-sse/**` является частью продукта и должна оставаться в области действия.
+- Новый код не должен снижать покрытие в затронутых областях.
+- Предпочитайте тестирование поведения и исходов ветвления реализационным деталям.
+- Предпочитайте временные базы данных SQLite и небольшие фикстуры широким мокам для `src/lib/db/**`.
 
-## Current command set
+## Текущий набор команд
 
 - `npm run test:coverage`
-  - Main source coverage gate for the unit test suite
-  - Generates `text-summary`, `html`, `json-summary`, and `lcov`
+  - Основной шлюз покрытия исходного кода для набора юнит-тестов
+  - Генерирует `text-summary`, `html`, `json-summary` и `lcov`
 - `npm run coverage:report`
-  - Detailed file-by-file report from the latest run
+  - Подробный отчет по файлам из последнего запуска
 - `npm run test:coverage:legacy`
-  - Historical comparison only
+  - Только для исторического сравнения
 
-## Milestones
+## Вехи
 
-| Phase   |                 Target | Focus                                             |
-| ------- | ---------------------: | ------------------------------------------------- |
-| Phase 1 | 60% statements / lines | Quick wins and low-risk utility coverage          |
-| Phase 2 | 65% statements / lines | DB and route foundations                          |
-| Phase 3 | 70% statements / lines | Provider validation and usage analytics           |
-| Phase 4 | 75% statements / lines | `open-sse` translators and helpers                |
-| Phase 5 | 80% statements / lines | `open-sse` handlers and executor branches         |
-| Phase 6 | 85% statements / lines | Harder edge cases, branch debt, regression suites |
-| Phase 7 | 90% statements / lines | Final sweep, gap closure, strict ratchet          |
+| Фаза   |                 Цель | Фокус                                             | Статус     |
+| ------- | ---------------------: | ------------------------------------------------- | ---------- |
+| Фаза 1 | 60% операторов / строк | Быстрые победы и покрытие утилит с низким риском          | ✅ Готово    |
+| Фаза 2 | 65% операторов / строк | Основы работы с БД и маршрутизацией                          | ✅ Готово    |
+| Фаза 3 | 70% операторов / строк | Проверка провайдеров и аналитика использования           | ✅ Готово    |
+| Фаза 4 | 75% операторов / строк | Трансляторы и вспомогательные функции `open-sse`                | ✅ Готово    |
+| Фаза 5 | 80% операторов / строк | Обработчики и ветки исполнителя `open-sse`         | ✅ Готово    |
+| Фаза 6 | 85% операторов / строк | Сложные крайние случаи, долг по веткам, регрессионные наборы | В процессе |
+| Фаза 7 | 90% операторов / строк | Финальная проверка, закрытие пробелов, строгий рачтет          | В ожидании    |
 
-Branches and functions should ratchet upward with each phase, but the primary hard target is statements / lines.
+Ветки и функции должны расти с каждой фазой, но основная жесткая цель — операторы / строки.
 
-## Priority hotspots
+## Приоритетные горячие точки
 
-These files or areas offer the best return for the next phases:
+Эти файлы имеют наименьшее покрытие строк сегодня (< 60%) и предлагают наилучший результат для Фаз 6-7. Сгенерировано из `coverage/coverage-summary.json` на 2026-05-13:
 
-1. `open-sse/handlers`
-   - `chatCore.ts` at 7.57%
-   - Overall directory at 29.07%
-2. `open-sse/translator/request`
-   - Overall directory at 36.39%
-   - Many translators are still near single-digit coverage
-3. `open-sse/translator/response`
-   - Overall directory at 8.07%
-4. `open-sse/executors`
-   - Overall directory at 36.62%
-5. `src/lib/db`
-   - `models.ts` at 20.66%
-   - `registeredKeys.ts` at 34.46%
-   - `modelComboMappings.ts` at 36.25%
-   - `settings.ts` at 46.40%
-   - `webhooks.ts` at 33.33%
-6. `src/lib/usage`
-   - `usageHistory.ts` at 21.12%
-   - `usageStats.ts` at 9.56%
-   - `costCalculator.ts` at 30.00%
-7. `src/lib/providers`
-   - `validation.ts` at 41.16%
-8. Low-risk utility and API files for early gains
-   - `src/shared/utils/upstreamError.ts`
-   - `src/shared/utils/apiAuth.ts`
-   - `src/lib/api/errorResponse.ts`
-   - `src/app/api/settings/require-login/route.ts`
-   - `src/app/api/providers/[id]/models/route.ts`
+| #   | Файл                                                              | Строки % |
+| --- | ----------------------------------------------------------------- | ------: |
+| 1   | `open-sse/services/compression/validation.ts`                     |   7.87% |
+| 2   | `src/app/api/v1/batches/route.ts`                                 |   9.67% |
+| 3   | `src/app/docs/components/FeedbackWidget.tsx`                      |   9.80% |
+| 4   | `open-sse/services/compression/toolResultCompressor.ts`           |  10.00% |
+| 5   | `src/app/docs/components/DocCodeBlocks.tsx`                       |  10.63% |
+| 6   | `open-sse/services/compression/engines/rtk/lineFilter.ts`         |  10.96% |
+| 7   | `open-sse/services/specificityRules.ts`                           |  11.28% |
+| 8   | `src/mitm/systemCommands.ts`                                      |  12.19% |
+| 9   | `open-sse/services/compression/aggressive.ts`                     |  12.77% |
+| 10  | `src/app/api/v1/batches/[id]/cancel/route.ts`                     |  12.98% |
+| 11  | `open-sse/services/compression/progressiveAging.ts`               |  13.26% |
+| 12  | `open-sse/services/compression/engines/rtk/smartTruncate.ts`      |  13.43% |
+| 13  | `open-sse/services/compression/engines/rtk/deduplicator.ts`       |  13.51% |
+| 14  | `src/lib/cloudAgent/agents/jules.ts`                              |  13.52% |
+| 15  | `open-sse/services/compression/lite.ts`                           |  14.46% |
+| 16  | `src/app/api/v1/rerank/route.ts`                                  |  14.94% |
+| 17  | `open-sse/services/compression/preservation.ts`                   |  15.07% |
+| 18  | `src/lib/cloudAgent/agents/codex.ts`                              |  15.54% |
+| 19  | `open-sse/services/tierResolver.ts`                               |  16.66% |
+| 20  | `src/app/docs/components/DocsLazyWrapper.tsx`                     |  16.66% |
 
-## Execution checklist
+Темы для Фаз 6-7:
 
-### Phase 1: 56.95% -> 60%
+- `open-sse/services/compression/**` является самой плотной группой с низким покрытием и доминирует в оставшемся разрыве.
+- Маршруты API для пакетов и переранжирования (`src/app/api/v1/batches/**`, `src/app/api/v1/rerank/route.ts`) нуждаются в тестах уровня обработчика.
+- Адаптеры облачных агентов (`src/lib/cloudAgent/agents/jules.ts`, `codex.ts`) и `tierResolver.ts` нуждаются в сценариях тестирования.
+- Компоненты пользовательского интерфейса документации и `src/mitm/systemCommands.ts` имеют меньший приоритет, но дешевые победы в ветках.
 
-- [x] Fix coverage metric so it reflects source code instead of test files
-- [x] Keep a legacy coverage script for comparison
-- [x] Record the baseline and hotspots in-repo
-- [ ] Add focused tests for low-risk utilities:
+## Чеклист выполнения
+
+### Фаза 1: 56.95% -> 60%
+
+- [x] Исправить метрику покрытия, чтобы она отражала исходный код вместо тестовых файлов
+- [x] Сохранить устаревший скрипт покрытия для сравнения
+- [x] Записать базовую линию и горячие точки в репозитории
+- [ ] Добавить фокусированные тесты для утилит с низким риском:
   - `src/shared/utils/upstreamError.ts`
   - `src/shared/utils/fetchTimeout.ts`
   - `src/lib/api/errorResponse.ts`
   - `src/shared/utils/apiAuth.ts`
   - `src/lib/display/names.ts`
-- [ ] Add route tests for:
+- [ ] Добавить тесты маршрутов для:
   - `src/app/api/settings/require-login/route.ts`
   - `src/app/api/providers/[id]/models/route.ts`
 
-### Phase 2: 60% -> 65%
+### Фаза 2: 60% -> 65%
 
-- [ ] Add DB-backed tests for:
+- [ ] Добавить тесты с поддержкой базы данных для:
   - `src/lib/db/modelComboMappings.ts`
   - `src/lib/db/settings.ts`
   - `src/lib/db/registeredKeys.ts`
-- [ ] Cover branch behavior in:
+- [ ] Покрыть поведение ветвей в:
   - `src/lib/providers/validation.ts`
   - `src/app/api/v1/embeddings/route.ts`
   - `src/app/api/v1/moderations/route.ts`
 
-### Phase 3: 65% -> 70%
+### Фаза 3: 65% -> 70%
 
-- [ ] Add usage analytics tests for:
+- [ ] Добавить тесты аналитики использования для:
   - `src/lib/usage/usageHistory.ts`
   - `src/lib/usage/usageStats.ts`
   - `src/lib/usage/costCalculator.ts`
-- [ ] Expand route coverage for proxy management and settings branches
+- [ ] Расширить покрытие маршрутов для управления прокси и ветвей настроек
 
-### Phase 4: 70% -> 75%
+### Фаза 4: 70% -> 75%
 
-- [ ] Cover translator helpers and central translation paths:
+- [ ] Покрыть вспомогательные функции и центральные пути перевода:
   - `open-sse/translator/index.ts`
   - `open-sse/translator/helpers/*`
   - `open-sse/translator/request/*`
   - `open-sse/translator/response/*`
 
-### Phase 5: 75% -> 80%
+### Фаза 5: 75% -> 80%
 
-- [ ] Add handler-level tests for:
+- [ ] Добавить тесты уровня обработчика для:
   - `open-sse/handlers/chatCore.ts`
   - `open-sse/handlers/responsesHandler.js`
   - `open-sse/handlers/imageGeneration.js`
   - `open-sse/handlers/embeddings.js`
-- [ ] Add executor branch coverage for provider-specific auth, retries, and endpoint overrides
+- [ ] Добавить покрытие ветвей исполнителя для специфической аутентификации поставщиков, повторных попыток и переопределения конечных точек
 
-### Phase 6: 80% -> 85%
+### Фаза 6: 80% -> 85%
 
-- [ ] Merge more edge-case suites into the main coverage path
-- [ ] Increase function coverage for DB modules with weak constructor/helper coverage
-- [ ] Close branch gaps in `settings.ts`, `registeredKeys.ts`, `validation.ts`, and translator helpers
+- [ ] Объединить больше наборов тестов для крайних случаев в основной путь покрытия
+- [ ] Увеличить покрытие функций для модулей базы данных с слабым покрытием конструкторов/помощников
+- [ ] Закрыть разрывы в ветвях в `settings.ts`, `registeredKeys.ts`, `validation.ts` и вспомогательных функциях перевода
 
-### Phase 7: 85% -> 90%
+### Фаза 7: 85% -> 90%
 
-- [ ] Treat the remaining low-coverage files as blockers
-- [ ] Add regression tests for every uncovered production bug fixed during the push to 90%
-- [ ] Raise the coverage gate in CI only after the local baseline is stable for at least two consecutive runs
+- [ ] Рассматривать оставшиеся файлы с низким покрытием как блокеры
+- [ ] Добавить регрессионные тесты для каждого исправленного в производстве бага, исправленного во время продвижения к 90%
+- [ ] Поднять шлюз покрытия в CI только после того, как локальная база будет стабильна в течение двух последовательных запусков
 
-## Ratchet policy
+## Политика растяжки
 
-Update `npm run test:coverage` thresholds only after the project actually exceeds the next milestone with a comfortable buffer.
+Обновляйте пороги `npm run test:coverage` только после того, как проект действительно превысит следующий этап с комфортным запасом.
 
-Recommended ratchet sequence:
+**Текущий порог (на 2026-05-13):** `npm run test:coverage` требует **75 statements / 75 lines / 75 functions / 70 branches**. Это консервативная растяжка по сравнению с измеренным базовым уровнем (82.58% / 82.58% / 84.23% / 75.22%) и сохраняет пространство для временных колебаний.
+
+Для проверки порогов в произвольный момент используйте:
+
+```bash
+node scripts/check/test-report-summary.mjs --threshold 75
+```
+
+Рекомендуемая последовательность растяжки (порядок: `statements-lines / branches / functions`):
 
 1. 55/60/55
 2. 60/62/58
 3. 65/64/62
 4. 70/66/66
-5. 75/70/72
+5. 75/70/72  <-- текущий порог (75/70/75)
 6. 80/75/78
 7. 85/80/84
 8. 90/85/88
 
-Order is `statements-lines / branches / functions`.
+Следующая цель растяжки — `80/75/78`, как только покрытие веток будет выше 78% в течение двух последовательных запусков.
 
-## Known gap
+## Известный пробел
 
-The current coverage command measures the main Node unit suite and includes source reached from it, including `open-sse`. It does not yet merge Vitest coverage into a single unified report. That merge is worth doing later, but it is not a blocker for starting the 60% -> 80% climb.
+Текущая команда покрытия измеряет основную Node-юнитную набор и включает источник, достижимый из него, включая `open-sse`. Она пока не объединяет покрытие Vitest в единый объединенный отчет. Это объединение стоит сделать позже, но оно не является блокирующим для начала подъема от 60% до 80%.

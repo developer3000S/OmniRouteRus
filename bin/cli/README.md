@@ -1,69 +1,69 @@
-# bin/cli — OmniRoute CLI internals
+# bin/cli — внутренности OmniRoute CLI
 
-This directory contains the CLI runtime, helpers, and commands for the `omniroute` binary.
+Этот каталог содержит среду выполнения CLI, вспомогательные утилиты и команды для бинарного файла `omniroute`.
 
-## Structure
+## Структура
 
 ```
 bin/cli/
-├── CONVENTIONS.md          ← normative design rules (read this first)
-├── README.md               ← this file
-├── program.mjs             ← Commander setup — global flags, registerCommands()
-├── api.mjs                 ← apiFetch() — all HTTP calls + retry/backoff
-├── runtime.mjs             ← withRuntime() — server-first / DB-fallback
-├── i18n.mjs                ← t() — i18n helper + locale detection
-├── output.mjs              ← emit() — table/json/jsonl/csv + printSuccess/printError
-├── io.mjs                  ← ask() / askSecret() — interactive prompts
+├── CONVENTIONS.md          ← нормативные правила проектирования (прочтите это в первую очередь)
+├── README.md               ← этот файл
+├── program.mjs             ← настройка Commander — глобальные флаги, registerCommands()
+├── api.mjs                 ← apiFetch() — все HTTP-запросы + повтор/задержка
+├── runtime.mjs             ← withRuntime() — сервер-первый / DB-резервный
+├── i18n.mjs                ← t() — вспомогательная утилита для i18n + определение локали
+├── output.mjs              ← emit() — таблица/json/jsonl/csv + printSuccess/printError
+├── io.mjs                  ← ask() / askSecret() — интерактивные запросы
 ├── data-dir.mjs            ← resolveDataDir() / resolveStoragePath()
-├── sqlite.mjs              ← openOmniRouteDb() — DB bootstrap
-├── encryption.mjs          ← encrypt/decrypt credentials
-├── provider-catalog.mjs    ← static provider catalog
-├── provider-store.mjs      ← DB CRUD for provider_connections
+├── sqlite.mjs              ← openOmniRouteDb() — настройка DB
+├── encryption.mjs          ← encrypt/decrypt учетных данных
+├── provider-catalog.mjs    ← статический каталог провайдеров
+├── provider-store.mjs      ← DB CRUD для provider_connections
 ├── provider-test.mjs       ← testProviderApiKey()
-├── settings-store.mjs      ← DB CRUD for key_value settings
+├── settings-store.mjs      ← DB CRUD для key_value настроек
 ├── locales/
-│   ├── en.json             ← English strings (source of truth, 42+ locales)
-│   ├── pt-BR.json          ← Portuguese (Brazil) — fully translated
-│   └── {locale}.json       ← 40 additional locales (ar, az, de, es, fr, ja, zh-CN, …)
+│   ├── en.json             ← Английские строки (источник истины, 42+ локали)
+│   ├── pt-BR.json          ← Португальский (Бразилия) — полностью переведен
+│   └── {locale}.json       ← 40 дополнительных локалей (ar, az, de, es, fr, ja, zh-CN, …)
 ├── scripts/
-│   └── generate-locales.mjs ← scaffold new locale files from config/i18n.json
+│   └── generate-locales.mjs ← создание новых файлов локалей из config/i18n.json
 └── commands/
     ├── setup.mjs
     ├── doctor.mjs
     ├── providers.mjs
-    ├── config.mjs          ← includes `config lang get/set/list`
+    ├── config.mjs          ← включает `config lang get/set/list`
     ├── status.mjs
     ├── logs.mjs
     └── update.mjs
 ```
 
-## Key helpers
+## Ключевые вспомогательные утилиты
 
 ### `apiFetch(path, opts)` — `api.mjs`
 
-All HTTP calls to the OmniRoute server must go through this wrapper.
+Все HTTP-запросы к серверу OmniRoute должны проходить через этот обертку.
 
 ```js
 import { apiFetch } from "./api.mjs";
 
 const res = await apiFetch("/api/health");
-if (!res.ok) await res.assertOk(); // throws ApiError with mapped exit code
+if (!res.ok) await res.assertOk(); // выбрасывает ApiError с сопоставленным кодом выхода
 const data = await res.json();
 ```
 
-Options:
+Опции:
 
-- `baseUrl` — override base URL (default: `OMNIROUTE_BASE_URL` env or `localhost:20128`)
-- `apiKey` — override API key (default: `OMNIROUTE_API_KEY`)
-- `method`, `body`, `headers` — standard fetch options
-- `timeout` — per-attempt ms (default: `30000`)
-- `retry` — `false` to disable (default: enabled)
-- `retryMax` — total attempts (default: `3`)
-- `verbose` — log retry attempts to stderr
+- `baseUrl` — переопределение базового URL (по умолчанию: `OMNIROUTE_BASE_URL` env или `localhost:20128`)
+- `apiKey` — переопределение API-ключа (по умолчанию: `OMNIROUTE_API_KEY`)
+- `method`, `body`, `headers` — стандартные опции fetch
+- `timeout` — ms на попытку (по умолчанию: `30000`)
+- `retry` — `false` для отключения (по умолчанию: включено)
+- `retryMax` — общее количество попыток (по умолчанию: `3`)
+- `verbose` — логирование попыток повтора в stderr
 
 ### `withRuntime(fn, opts)` — `runtime.mjs`
 
-Provides server-first / DB-fallback transparently.
+Предоставляет прозрачный сервер-первый / DB-резервный.
 
 ```js
 import { withRuntime } from "./runtime.mjs";
@@ -77,12 +77,12 @@ await withRuntime(async (ctx) => {
 });
 ```
 
-- `opts.requireServer = true` — throws `ServerOfflineError` (exit 3) if offline
-- `opts.preferDb = true` — always use DB (skip server check)
+- `opts.requireServer = true` — выбрасывает `ServerOfflineError` (exit 3) если оффлайн
+- `opts.preferDb = true` — всегда использовать DB (пропустить проверку сервера)
 
 ### `t(key, vars)` — `i18n.mjs`
 
-Internationalized strings. Catalog loaded from `locales/{locale}.json`.
+Интернационализированные строки. Каталог загружается из `locales/{locale}.json`.
 
 ```js
 import { t } from "./i18n.mjs";
@@ -91,11 +91,11 @@ console.log(t("common.serverOffline"));
 console.log(t("setup.testFailed", { error: err.message }));
 ```
 
-Locale detection order: `OMNIROUTE_LANG` → `LC_ALL` → `LC_MESSAGES` → `LANG` → `en`.
+Порядок определения локали: `OMNIROUTE_LANG` → `LC_ALL` → `LC_MESSAGES` → `LANG` → `en`.
 
 ### `emit(data, opts)` — `output.mjs`
 
-Format-aware output. Reads `opts.output` to select table/json/jsonl/csv.
+Вывод с учетом формата. Читает `opts.output` для выбора table/json/jsonl/csv.
 
 ```js
 import { emit, printError, EXIT_CODES } from "./output.mjs";
@@ -105,42 +105,42 @@ printError("Something went wrong");
 process.exit(EXIT_CODES.SERVER_OFFLINE);
 ```
 
-## Locale selection
+## Выбор локали
 
-The CLI displays text in the user's language. Detection order:
+CLI отображает текст на языке пользователя. Порядок определения:
 
-1. `--lang <code>` flag on the command line
-2. `OMNIROUTE_LANG` environment variable
-3. System env: `LC_ALL` → `LC_MESSAGES` → `LANG`
-4. Fallback: `en`
+1. `--lang <code>` флаг в командной строке
+2. `OMNIROUTE_LANG` переменная окружения
+3. Системные переменные: `LC_ALL` → `LC_MESSAGES` → `LANG`
+4. Резерв: `en`
 
-**Set permanently:**
-
-```bash
-omniroute config lang set pt-BR       # saves to ~/.omniroute/.env
-omniroute config lang list            # show all 42 available locales
-omniroute config lang get             # show currently active locale
-```
-
-**One-time override:**
+**Установить постоянно:**
 
 ```bash
-omniroute --lang de providers list    # run in German, not persisted
-OMNIROUTE_LANG=ja omniroute status    # same effect via env
+omniroute config lang set pt-BR       # сохраняет в ~/.omniroute/.env
+omniroute config lang list            # показать все 42 доступные локали
+omniroute config lang get             # показать текущую активную локаль
 ```
 
-**Adding a new locale**: add entry to `config/i18n.json`, then run:
+**Временное переопределение:**
+
+```bash
+omniroute --lang de providers list    # запуск на немецком, не сохраняется
+OMNIROUTE_LANG=ja omniroute status    # тот же эффект через env
+```
+
+**Добавление новой локали**: добавьте запись в `config/i18n.json`, затем выполните:
 
 ```bash
 node bin/cli/scripts/generate-locales.mjs
 ```
 
-## Adding a new command
+## Добавление новой команды
 
-1. Create `bin/cli/commands/your-command.mjs`
-2. Export `registerYourCommand(program)` following the Commander pattern
-3. Register in `bin/cli/commands/registry.mjs`
-4. Add strings to `locales/en.json` and `locales/pt-BR.json`
-5. Write test in `tests/unit/cli-your-command.test.ts`
+1. Создайте `bin/cli/commands/your-command.mjs`
+2. Экспортируйте `registerYourCommand(program)` следуя шаблону Commander
+3. Зарегистрируйте в `bin/cli/commands/registry.mjs`
+4. Добавьте строки в `locales/en.json` и `locales/pt-BR.json`
+5. Напишите тест в `tests/unit/cli-your-command.test.ts`
 
-See `CONVENTIONS.md` for exit codes, flag naming, output format, and destructive-action rules.
+См. `CONVENTIONS.md` для кодов выхода, имен флагов, формата вывода и правил разрушительных действий.
