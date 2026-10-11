@@ -12,7 +12,7 @@ git clone https://github.com/<your-username>/OmniRoute.git
 cd OmniRoute
 
 # Add the upstream repo so you can sync
-git remote add upstream https://github.com/diegosouzapw/OmniRoute.git
+git remote add upstream https://github.com/developer3000S/OmniRouteRus.git
 
 # Install dependencies (.env is auto-created from .env.example)
 npm install

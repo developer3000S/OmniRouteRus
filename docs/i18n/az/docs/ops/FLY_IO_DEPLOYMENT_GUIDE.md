@@ -270,7 +270,7 @@ git remote -v
 如果没有 `upstream`，先添加：
 
 ```powershell
-git remote add upstream https://github.com/diegosouzapw/OmniRoute.git
+git remote add upstream https://github.com/developer3000S/OmniRouteRus.git
 ```
 
 同步上游前，先抓取最新提交和标签：

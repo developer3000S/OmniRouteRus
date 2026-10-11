@@ -394,7 +394,7 @@ CLI автоматически загружает `.env` из `~/.omniroute/.env
 ### Развертывание на VPS
 
 ```bash
-git clone https://github.com/diegosouzapw/OmniRoute.git
+git clone https://github.com/developer3000S/OmniRouteRus.git
 cd OmniRoute && npm install && npm run build
 
 export JWT_SECRET="ваш-защищенный-секрет-измените-это"

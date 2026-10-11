@@ -98,7 +98,7 @@ flyctl version
 ### 4.1 Получение кода и переход в каталог
 
 ```powershell
-git clone https://github.com/diegosouzapw/OmniRoute.git
+git clone https://github.com/developer3000S/OmniRouteRus.git
 cd OmniRoute
 ```
 
@@ -321,7 +321,7 @@ git remote -v
 Если `upstream` отсутствует, добавьте его:
 
 ```powershell
-git remote add upstream https://github.com/diegosouzapw/OmniRoute.git
+git remote add upstream https://github.com/developer3000S/OmniRouteRus.git
 ```
 
 Перед синхронизацией с исходным репозиторием, получите последние коммиты и теги:

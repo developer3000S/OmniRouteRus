@@ -377,7 +377,7 @@ When you no longer need OmniRoute, we provide two quick scripts for a clean remo
 ### VPS Deployment
 
 ```bash
-git clone https://github.com/diegosouzapw/OmniRoute.git
+git clone https://github.com/developer3000S/OmniRouteRus.git
 cd OmniRoute && npm install && npm run build
 
 export JWT_SECRET="your-secure-secret-change-this"

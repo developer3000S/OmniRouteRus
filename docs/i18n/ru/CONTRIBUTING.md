@@ -19,7 +19,7 @@
 ### Клонирование и установка
 
 ```bash
-git clone https://github.com/diegosouzapw/OmniRoute.git
+git clone https://github.com/developer3000S/OmniRouteRus.git
 cd OmniRoute
 npm install
 ```

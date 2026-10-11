@@ -89,7 +89,7 @@ flyctl version
 ### 4.1 获取代码并进入目录
 
 ```powershell
-git clone https://github.com/diegosouzapw/OmniRoute.git
+git clone https://github.com/developer3000S/OmniRouteRus.git
 cd OmniRoute
 ```
 
@@ -270,7 +270,7 @@ git remote -v
 如果没有 `upstream`，先添加：
 
 ```powershell
-git remote add upstream https://github.com/diegosouzapw/OmniRoute.git
+git remote add upstream https://github.com/developer3000S/OmniRouteRus.git
 ```
 
 同步上游前，先抓取最新提交和标签：
